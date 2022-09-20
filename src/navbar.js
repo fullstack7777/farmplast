@@ -5,9 +5,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function NavScrollExample() {
+function MainMenu() {
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar fixed="top" scrolling expand="lg" variant="dark">
             <Container fluid>
                 <Navbar.Brand href="#">FarmPlast</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
@@ -30,7 +30,7 @@ function NavScrollExample() {
                         </NavDropdown>
                         <Nav.Link href="#action1">О нас</Nav.Link>
                         <Nav.Link href="#action2">Склады</Nav.Link>
-                        <Nav.Link href="#action2">Контакты</Nav.Link>
+                        <Nav.Link href="#action3">Контакты</Nav.Link>
 
                     </Nav>
                     <Form className="d-flex">
@@ -49,4 +49,4 @@ function NavScrollExample() {
     );
 }
 
-export default NavScrollExample;
+export default MainMenu;
