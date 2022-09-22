@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+.section{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.main-heading{
+  color: #2c6293;
+  size: 26px ;
+}
+
+.bg-email{
+  color: blue;
+}
+
+.main-white{
+  color: #ffffff;
+  size: 24px ;
+}
+.big{
+  color: #008DA9;
+  size: 60px;
+}
+.bg-image{
+  background-image: url('../src/components/images/image1.jpg');
+}
