@@ -1,7 +1,8 @@
 import React from 'react';
 import Container from "react-bootstrap/Container";
 import {Col, Row} from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import {Button, Card} from "react-bootstrap";
+import './index.css';
 
 export class HomePage extends React.Component {
     render() {
@@ -25,10 +26,12 @@ export class HomePage extends React.Component {
                             </Row>
                         </Col>
                     </Row>
-                </Container>
+                    
+              </Container>
             </div>
             // <img src='/images/section1.png' style={{height:'500px',width:'100%', objectFit:'cover'}}
             //      className='img-fluid shadow-4' alt='...' />
+
         );
     }
 }
