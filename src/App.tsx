@@ -5,7 +5,6 @@ import {
     Route,
 } from "react-router-dom";
 
-import logo from './logo.svg';
 import './App.css';
 import MainMenu from "./navbar";
 import {HomePage} from "./components/home_page";
