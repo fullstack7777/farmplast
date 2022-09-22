@@ -9,7 +9,14 @@ function MainMenu() {
     return (
         <Navbar fixed="top" scrolling expand="lg" variant="dark">
             <Container fluid>
-                <Navbar.Brand href="#">FarmPlast</Navbar.Brand>
+                <Navbar.Brand href="/">
+                    <img
+                        src="/images/logo.png"
+                        height="40"
+                        className="d-inline-block align-top"
+                        alt="React Bootstrap logo"
+                    />
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav

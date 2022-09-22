@@ -14,7 +14,8 @@ function MainSlider() {
                 <img
                     className="d-block w-100"
                     height="500"
-                    src="/images/section1.png"
+                    style={{objectFit:"cover"}}
+                    src="/images/slider/slide1.webp"
                     alt="First slide"
                 />
                 <Carousel.Caption>
@@ -25,7 +26,8 @@ function MainSlider() {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src="/images/section1.png"
+                    src="/images/slider/slide1.webp"
+                    style={{objectFit:"cover"}}
                     height="500"
                     alt="Second slide"
                 />
@@ -38,7 +40,8 @@ function MainSlider() {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src="/images/section1.png"
+                    src="/images/slider/slide1.webp"
+                    style={{objectFit:"cover"}}
                     height="500"
                     alt="Third slide"
                 />
