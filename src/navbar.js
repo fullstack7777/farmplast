@@ -42,7 +42,7 @@ function MainMenu() {
                         />
                         {/*<Button variant="primary">Заказать звонок</Button>*/}
                     </Form>
-                    <Button variant="primary">Заказать звонок</Button>
+                    <Button variant="primary" className="custom-button">Заказать звонок</Button>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
