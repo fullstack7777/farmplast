@@ -10,19 +10,22 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link
-            rel="stylesheet"
-            href="%PUBLIC_URL%/css/style.css"
-    />
+
     <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
             integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
             crossorigin="anonymous"
-    /> <!--
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"><!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
+    <link
+            rel="stylesheet"
+            href="%PUBLIC_URL%/css/style.css"
+    />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
     <!--
@@ -39,7 +42,9 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
     <script>
       $(document).ready(function(){
         $(window).scroll(function(){
@@ -50,6 +55,45 @@
             $(".navbar").removeClass('bg-dark');
           }
         });
+      });
+      $(document).ready(function(){
+
+        if($('.brands_slider').length)
+        {
+          let brandsSlider = $('.brands_slider');
+
+          brandsSlider.owlCarousel(
+                  {
+                    loop:true,
+                    autoplay:true,
+                    autoplayTimeout:5000,
+                    nav:false,
+                    dots:false,
+                    autoWidth:true,
+                    items:8,
+                    margin:42
+                  });
+
+          if($('.brands_prev').length)
+          {
+            var prev = $('.brands_prev');
+            prev.on('click', function()
+            {
+              brandsSlider.trigger('prev.owl.carousel');
+            });
+          }
+
+          if($('.brands_next').length)
+          {
+            var next = $('.brands_next');
+            next.on('click', function()
+            {
+              brandsSlider.trigger('next.owl.carousel');
+            });
+          }
+        }
+
+
       });
     </script>
     <!--
