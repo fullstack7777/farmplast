@@ -14,13 +14,13 @@ function Section2() {
                     Фармпласт сегодня это:
                     <ul>
                         <div className="box blue"></div><li className="list-style">
-                            Объем отгружаемой продукций свыше 200 000 тонн ежегодно;
+                            Объем отгружаемой продукций свыше <span className="custom-bold">200 000 тонн</span> ежегодно;
                         </li>
-                        <div className="box blue"></div><li className="list-style">Отсрочка платежа;</li>
+                        <div className="box blue"></div><li className="list-style"><span className="custom-bold">Отсрочка</span> платежа;</li>
                         <div className="box blue"></div><li className="list-style">Склады по всей России;</li>
                         <div className="box blue"></div><li className="list-style">Мощность складов 5 000 тонн единовременного хранения;</li>
                         <div className="box blue"></div><li className="list-style">Отгрузки со склада от 25кг;</li>
-                        <div className="box blue"></div><li className="list-style">Доставки по всей России;</li>
+                        <div className="box blue"></div><li className="list-style">Доставки <span className="custom-bold">по всей России</span>по всей России;</li>
                         <div className="box blue"></div><li className="list-style">Информирование клиента по состоянию рынка, ценообразованию, тенденциям;</li>
                         <div className="box blue"></div><li className="list-style">Помощь в подборке новых, подходящих именно для конкретного клиента марок полимеров;</li>
                         <div className="box blue"></div><li className="list-style">Помощь в объединение усилий клиентов из разных, но пересекающихся сегментах, для расширения предлагаемой линейки продукции;</li>

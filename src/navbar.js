@@ -37,8 +37,8 @@ function MainMenu() {
                             {/*</NavDropdown.Item>*/}
                         </NavDropdown>
                         <Nav.Link href="#action1" className="text-decoration-underline-white">О нас</Nav.Link>
-                        <Nav.Link href="#action2">Склады</Nav.Link>
-                        <Nav.Link href="#action3">Контакты</Nav.Link>
+                        <Nav.Link href="#action2" className="text-decoration-underline-white">Склады</Nav.Link>
+                        <Nav.Link href="#action3" className="text-decoration-underline-white">Контакты</Nav.Link>
 
                     </Nav>
                     <Form className="d-flex">
