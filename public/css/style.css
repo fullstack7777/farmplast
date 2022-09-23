@@ -1,4 +1,33 @@
 .custom-button{
     background-color: #008DA9!important;
-    border: none!important;
+    border: solid 2px #008DA9 !important;
+}
+.custom-bold{
+    font-size: 18pt;
+    color: #008DA9;
+    font-weight: bold;
+}
+#section2{
+    position: relative;
+}
+#section2 p{
+    text-align: start;
+}
+.custom-colored-text{
+    color: #008DA9;
+    text-align: start;
+}
+.custom-colored-text ul{
+    padding-left: 16px;
+}
+.custom-section2-img{
+    width: 300px;
+    position: absolute;
+    right: 0;
+    top: 160px;
+}
+@media all and (max-width: 1024px) {
+    .custom-section2-img{
+        visibility: hidden;
+    }
 }
