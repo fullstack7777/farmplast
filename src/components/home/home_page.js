@@ -4,6 +4,7 @@ import Section2 from "./components/section-2";
 import CardBlock from "../pages/card";
 import Email from "../pages/email";
 import Partners from "../pages/partners";
+import PartnersSection from "./components/partners-section";
 
 export class HomePage extends React.Component {
     render() {
@@ -13,6 +14,7 @@ export class HomePage extends React.Component {
                 <Section2/>
                 <CardBlock/>
                 <Email/>
+                <PartnersSection/>
                 <Partners/>
             </div>
         );
