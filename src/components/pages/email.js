@@ -1,32 +1,28 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import {FormText} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 
 function Email() {
     return (
-        <section className="newsletter">
-            <div className="container">
-                <div className="row">
-                    <div className="col-sm-12">
-                        <div className="content">
-                            <h2 style={{color: "white"}}>Компания фармпласть всегда готова предоставить помощь в выборе продукта и подходящего способа оплаты.</h2>
-                            <div className="input-group">
-                                <Form>
-                                    <Form.Group class="form-group-lg" controlId="formBasicEmail">
-                                        <Form.Control type="email" placeholder="Enter email" />
-                                    </Form.Group>
-                                </Form>
-         <span className="input-group-btn" style={{marginLeft: 20}}>
-         <button className="btn" type="submit">Получить консультацию</button>
-         </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <div id={'email-section'}>
+           <Form>
+               <Container>
+                   <Row>
+                       <h1 style={{color: "white",}}>Компания фармпласть всегда готова предоставить помощь в выборе продукта и подходящего способа оплаты.</h1>
+                   </Row>
+                   <Row className="justify-content-md-center" style={{marginTop:'32px'}}>
+                       <Col xs lg="4">
+                           <Form.Control type={'email'} placeholder="Email" />
+                       </Col>
+                       <Col xs lg="2">
+                           <Button variant="primary" className="custom-button" style={{width:'100%'}}>Uytget</Button>{' '}
+                       </Col>
+                   </Row>
+               </Container>
+           </Form>
+        </div>
     );
 }
 
