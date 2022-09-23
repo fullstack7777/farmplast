@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
+
 function MainMenu() {
     return (
         <Navbar fixed="top" scrolling expand="lg" variant="dark">
@@ -35,7 +36,7 @@ function MainMenu() {
                             {/*    Something else here*/}
                             {/*</NavDropdown.Item>*/}
                         </NavDropdown>
-                        <Nav.Link href="#action1">О нас</Nav.Link>
+                        <Nav.Link href="#action1" className="text-decoration-underline-white">О нас</Nav.Link>
                         <Nav.Link href="#action2">Склады</Nav.Link>
                         <Nav.Link href="#action3">Контакты</Nav.Link>
 

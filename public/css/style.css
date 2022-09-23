@@ -17,6 +17,10 @@
     color: #008DA9;
     text-align: start;
 }
+.custom-colored-t{
+    color: #131818;
+    text-align: start;
+}
 .custom-colored-text ul{
     padding-left: 16px;
 }
@@ -30,4 +34,19 @@
     .custom-section2-img{
         visibility: hidden;
     }
+}
+.custom-bold-white{
+    font-size:38pt;
+    color: white;
+    font-weight: bold;
+    background: #008DA9;
+    padding: 8px;
+}
+.custom-bold-38{
+    font-size: 38pt;
+    color: #008DA9;
+    font-weight: bold;
+}
+.list-style{
+    list-style-type: none;
 }
