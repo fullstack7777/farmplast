@@ -10,26 +10,26 @@
 }
 #section2{
     position: relative;
+    padding: 32px 0 32px 0;
 }
 #section2 p{
     text-align: start;
 }
 .custom-colored-text{
-    color: #008DA9;
-    text-align: start;
-}
-.custom-colored-t{
     color: #131818;
     text-align: start;
 }
 .custom-colored-text ul{
-    padding-left: 16px;
+    padding-left: 0;
+    list-style-type: none;
 }
+
+
 .custom-section2-img{
     width: 300px;
     position: absolute;
     right: 0;
-    top: 160px;
+    top: 200px;
 }
 @media all and (max-width: 1024px) {
     .custom-section2-img{

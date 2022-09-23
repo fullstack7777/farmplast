@@ -7,7 +7,7 @@ import {
 
 import './App.css';
 import MainMenu from "./navbar";
-import {HomePage} from "./components/pages/home_page";
+import {HomePage} from "./components/home/home_page";
 
 function App() {
   return (
