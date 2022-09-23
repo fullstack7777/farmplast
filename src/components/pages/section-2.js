@@ -13,10 +13,14 @@ function Section2() {
                                 ПАО «СИБУР Холдинг», ПАО «Роснефть», ТОО «Компания Нефтехим Ltd», АО «НКНХ»,
                                 АО«Казаньоргсинтез», ОАО «Нафтан»</p>
 
-                            <div className="text-decoration-underline mx-auto"></div>
+                          <div>
+                              <span>Фармпласт сегодня это:</span>
+                              <ul>
+                                  <li></li>
+                              </ul>
+                          </div>
                         </div>
                    <div>
-                       back
                    </div>
 
                </div>

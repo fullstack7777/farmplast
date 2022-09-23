@@ -1,7 +1,7 @@
 import React from 'react';
 import MainSlider from "./main_slider";
 import Section2 from "./section-2";
-import Card from "./card";
+import CardBlock from "./card";
 import Email from "./email";
 import Partners from "./partners";
 
@@ -11,7 +11,7 @@ export class HomePage extends React.Component {
             <div>
                 <MainSlider/>
                 <Section2/>
-                <Card/>
+                <CardBlock/>
                 <Email/>
                 <Partners/>
             </div>
