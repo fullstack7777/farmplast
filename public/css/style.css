@@ -38,7 +38,7 @@
 }
 #email-section{
     padding: 150px 0 150px 0;
-    background-image: url("public/images/email_background.webp");
+    background-image: url("/images/email_background.webp");
 }
 @media all and (max-width: 1024px) {
     .custom-section2-img{

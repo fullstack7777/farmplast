@@ -9,7 +9,7 @@ function CardBlock() {
             <h1 className="custom-bold-38" style={{textAlign: "center", paddingBottom: 40}}><span className="custom-bold-white">Часто</span> покупаемые товары</h1>
             <Row>
         <Card style={{ width: '17rem', marginLeft: 15 , border: "none"}}>
-            <Card.Img variant="top" src="../images/image.webp" />
+            <Card.Img variant="top" src="/images/image.webp" />
             <Card.Body>
                 <h6 style={{textAlign: "left"}}>Полимер</h6>
                 <p style={{textAlign: "left"}}>Марка: РР Н030</p>
