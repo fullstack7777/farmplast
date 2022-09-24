@@ -6,7 +6,7 @@ import { faStop } from '@fortawesome/free-solid-svg-icons'
 function AboutSection() {
     return (
         <div id="section2" style={{paddingBottom: 60}}>
-            <img className="custom-section2-img" src={'/images/image1.jpg'} alt=""/>
+            <img className="custom-section2-img" src={'/images/image1.webp'} alt=""/>
             <Container>
                 <br/>
                 <p>Компания Фармпласт ведет отсчет своей деятельности с <span className="custom-bold">1997 года.</span></p>

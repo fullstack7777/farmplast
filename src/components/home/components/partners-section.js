@@ -19,7 +19,7 @@ function PartnersSection() {
                                 <div className="owl-item">
                                     <a href={'https://www.kazanorgsintez.ru/'}  target="_blank" className="brands_item d-flex flex-column justify-content-center" rel="noreferrer">
                                         <img height={'72'}
-                                            src={"/images/partners/partner-1.png"}
+                                            src={"/images/partners/partner-1.webp"}
                                             alt="kazanorgsinte"/>
                                     </a>
                                 </div>
@@ -27,7 +27,7 @@ function PartnersSection() {
                                     <div className="brands_item d-flex flex-column justify-content-center">
                                         <a href={'https://www.naftan.by/ru'}  target="_blank" className="brands_item d-flex flex-column justify-content-center" rel="noreferrer">
                                         <img height={'72'}
-                                             src={"/images/partners/partner-2.png"}
+                                             src={"/images/partners/partner-2.webp"}
                                              alt="naftan"/>                                    </a>
                                     </div>
                                 </div>
@@ -35,7 +35,7 @@ function PartnersSection() {
                                     <div className="brands_item d-flex flex-column justify-content-center">
                                         <a href={'https://www.nknh.ru/'}  target="_blank" className="brands_item d-flex flex-column justify-content-center" rel="noreferrer">
                                         <img height={'72'}
-                                             src={"/images/partners/partner-3.png"}
+                                             src={"/images/partners/partner-3.webp"}
                                              alt="nknh"/>
                                         </a>
                                     </div>
@@ -44,7 +44,7 @@ function PartnersSection() {
                                     <div className="brands_item d-flex flex-column justify-content-center">
                                         <a href={'https://nephtechim.kz/'}  target="_blank" className="brands_item d-flex flex-column justify-content-center" rel="noreferrer">
                                         <img height={'72'}
-                                             src={"/images/partners/partner-4.png"}
+                                             src={"/images/partners/partner-4.webp"}
                                              alt="nephtechim"/>
                                         </a>
                                     </div>
@@ -53,7 +53,7 @@ function PartnersSection() {
                                     <div className="brands_item d-flex flex-column justify-content-center">
                                         <a href={'http://www.sibur.ru/ru/'}  target="_blank" className="brands_item d-flex flex-column justify-content-center" rel="noreferrer">
                                         <img height={'72'}
-                                             src={"/images/partners/partner-5.png"}
+                                             src={"/images/partners/partner-5.webp"}
                                              alt="sibur"/>
                                         </a>
                                     </div>
