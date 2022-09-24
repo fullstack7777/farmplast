@@ -1,13 +1,15 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import Container from "react-bootstrap/Container";
+import {Row} from "react-bootstrap";
 
 function CardBlock() {
     return (
-        <div className="container">
-            <h1 className="custom-bold-38" style={{textAlign: "left", paddingBottom: 40}}><span className="custom-bold-white">Часто</span> покупаемые товары</h1>
-            <div className="row">
-        <Card style={{ width: '18rem', marginLeft: 15 , border: "none"}}>
-            <Card.Img variant="top" src="../images/image.jpg" />
+        <Container style={{paddingBottom: 60}}>
+            <h1 className="custom-bold-38" style={{textAlign: "center", paddingBottom: 40}}><span className="custom-bold-white">Часто</span> покупаемые товары</h1>
+            <Row>
+        <Card style={{ width: '17rem', marginLeft: 15 , border: "none"}}>
+            <Card.Img variant="top" src="../images/image.webp" />
             <Card.Body>
                 <h6 style={{textAlign: "left"}}>Полимер</h6>
                 <p style={{textAlign: "left"}}>Марка: РР Н030</p>
@@ -15,8 +17,8 @@ function CardBlock() {
                 </p>
             </Card.Body>
         </Card>
-                <Card style={{ width: '18rem', marginLeft: 15, border: "none" }}>
-                    <Card.Img variant="top" src="../images/image.jpg" />
+                <Card style={{ width: '17rem', marginLeft: 15, border: "none" }}>
+                    <Card.Img variant="top" src="../images/image.webp" />
                     <Card.Body>
                         <h6 style={{textAlign: "left"}}>Полимер</h6>
                         <Card.Text style={{textAlign: "left"}}>
@@ -27,8 +29,8 @@ function CardBlock() {
                         </Card.Text>
                     </Card.Body>
                 </Card>
-                <Card style={{ width: '18rem', marginLeft: 15, border: "none"  }}>
-                    <Card.Img variant="top" src="../images/image.jpg" />
+                <Card style={{ width: '17rem', marginLeft: 15, border: "none"  }}>
+                    <Card.Img variant="top" src="../images/image.webp" />
                     <Card.Body>
                         <h6 style={{textAlign: "left"}}>Полимер</h6>
                         <Card.Text style={{textAlign: "left"}}>
@@ -39,8 +41,8 @@ function CardBlock() {
                         </Card.Text>
                     </Card.Body>
                 </Card>
-                <Card style={{ width: '18rem', marginLeft: 15, border: "none"  }}>
-                    <Card.Img variant="top" src="../images/image.jpg" />
+                <Card style={{ width: '17rem', marginLeft: 15, border: "none"  }}>
+                    <Card.Img variant="top" src="../images/image.webp" />
                     <Card.Body>
                         <h6 style={{textAlign: "left"}}>Полимер</h6>
                         <Card.Text style={{textAlign: "left"}}>
@@ -51,9 +53,8 @@ function CardBlock() {
                         </Card.Text>
                     </Card.Body>
                 </Card>
-            </div>
-        </div>
-
+            </Row>
+        </Container>
     );
 }
 

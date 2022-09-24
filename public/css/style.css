@@ -1,7 +1,8 @@
 .custom-button{
     background-color: #008DA9!important;
     border: solid 2px #008DA9 !important;
-    border-radius: 12px;
+    border-radius: 32px;
+    width: 130pt;
 }
 .custom-input{
     /*border: solid 2px #008DA9 !important;*/
@@ -37,7 +38,7 @@
 }
 #email-section{
     padding: 150px 0 150px 0;
-    background-image: url("/images/email_background.webp");
+    background-image: url("public/images/email_background.webp");
 }
 @media all and (max-width: 1024px) {
     .custom-section2-img{

@@ -6,12 +6,10 @@ import React from "react";
 
 function PartnersSection() {
     return (
-
         <div className="brands">
-
-            <Container>
-                <div className="col-md-12 text-center">
-                    <h3 className="main-heading">Наши партнеры </h3>
+            <Container fluid="md">
+                <div className="col-md-12 text-center" style={{paddingBottom: 40, paddingTop: 40}}>
+                    <h1>Наши партнеры </h1>
                     <div className="text-decoration-underline mx-auto  "></div>
                 </div>
                 <Row>

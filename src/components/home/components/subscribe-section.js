@@ -14,7 +14,7 @@ function SubscribeSection() {
                    </Row>
                    <Row className="justify-content-md-center" style={{marginTop:'32px'}}>
                        <Col xs lg="4">
-                           <Form.Control type={'email'} className={'custom-input'} placeholder="SubscribeSection" />
+                           <Form.Control type={'phone'} className={'mobileBox'} placeholder="Ваш телефон для связи" />
                        </Col>
                        <Col xs lg="3">
                            <Button variant="primary" className="custom-button" style={{width:'100%'}}>Получить консультацию</Button>{' '}

@@ -13,9 +13,9 @@ function MainMenu() {
                 <Navbar.Brand href="/">
                     <img
                         src="/images/logo.png"
-                        height="40"
+                        height="60"
                         className="d-inline-block align-top"
-                        alt="React Bootstrap logo"
+                        alt="Logo"
                     />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
@@ -26,11 +26,11 @@ function MainMenu() {
                         navbarScroll
                     >
                         <NavDropdown title="Продукция" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="#action3">Сибур</NavDropdown.Item>
-                            <NavDropdown.Item href="#action4">Нефтехим</NavDropdown.Item>
-                            <NavDropdown.Item href="#action4">Уфаорг</NavDropdown.Item>
-                            <NavDropdown.Item href="#action4">Нижнекам</NavDropdown.Item>
-                            <NavDropdown.Item href="#action4">Сокар</NavDropdown.Item>
+                            <NavDropdown.Item href="#action3" className="text-decoration-underline-white">Сибур</NavDropdown.Item>
+                            <NavDropdown.Item href="#action4" className="text-decoration-underline-white">Нефтехим</NavDropdown.Item>
+                            <NavDropdown.Item href="#action4" className="text-decoration-underline-white">Уфаорг</NavDropdown.Item>
+                            <NavDropdown.Item href="#action4" className="text-decoration-underline-white">Нижнекам</NavDropdown.Item>
+                            <NavDropdown.Item href="#action4" className="text-decoration-underline-white">Сокар</NavDropdown.Item>
                             {/*<NavDropdown.Divider />*/}
                             {/*<NavDropdown.Item href="#action5">*/}
                             {/*    Something else here*/}
@@ -41,10 +41,10 @@ function MainMenu() {
                         <Nav.Link href="#action3" className="text-decoration-underline-white">Контакты</Nav.Link>
 
                     </Nav>
-                    <Form className="d-flex">
+                    <Form className="d-flex search">
                         <Form.Control
                             type="search"
-                            placeholder="Поиск"
+                            placeholder="Поиск по товарам"
                             className="me-2"
                             aria-label="Search"
                         />

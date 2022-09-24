@@ -333,3 +333,16 @@ h4 {
   color: white;
   text-decoration: none
 }
+
+#navbarScrollingDropdown{
+  color: white;
+}
+.dropdown-menu{
+  background: #008da9;
+}
+.me-2 {
+  background: rgba(255, 255, 255, 0.78);
+}
+.search{
+  width: 200pt;
+}
