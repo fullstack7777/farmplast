@@ -1,23 +1,26 @@
 import React from "react";
+import Container from "react-bootstrap/Container";
+import {Col, Row} from "react-bootstrap";
 
 function Footer() {
     return (
-        <div>
-            <footer className="kopa-page-footer d-flex justify-content-center" style={{backgroundColor: "#008da9"}}>
-                    <div className='me-auto tex-decor' style={{marginLeft: 20}}>
-                        <span >© 2022 ООО Фармплас</span>
-                    </div>
-                    <div className="me-md-auto">
+        <footer style={{backgroundColor: "#008da9", padding:'32px 0 32px 0'}}>
+            <Container id={'footer'} className={'justify-content-center'}>
+                <Row>
+                    <Col md={4} style={{textAlign:'start'}}>
+                        <span>© 2022 ООО Фармплас</span>
+                    </Col>
+                    <Col md={4} style={{textAlign:'center'}}>
                         <a className="me-3 tex-decor" href={'/#'}>Продукция</a>
                         <a className="me-3 tex-decor" href={'/#'}>Склады</a>
                         <a className="me-3 tex-decor" href={'/#'}>Контакты</a>
-                    </div>
-                        <div>
-                        <a className="text-end tex-decor" style={{marginRight: 20}} href={'/#'}>Вернуться на верх страницы</a>
-
-                    </div>
-            </footer>
-        </div>
+                    </Col>
+                    <Col md={4} style={{textAlign:'end'}}>
+                        <a href={'/#'}>Вернуться на верх страницы</a>
+                    </Col>
+                </Row>
+            </Container>
+        </footer>
     );
 }
 export default Footer;
