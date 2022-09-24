@@ -6,7 +6,7 @@ function CardBlock() {
         <div className="container">
             <h1 className="custom-bold-38" style={{textAlign: "left", paddingBottom: 40}}><span className="custom-bold-white">Часто</span> покупаемые товары</h1>
             <div className="row">
-        <Card style={{ width: '18rem', marginLeft: 20 , border: "none"}}>
+        <Card style={{ width: '18rem', marginLeft: 15 , border: "none"}}>
             <Card.Img variant="top" src="../images/image.jpg" />
             <Card.Body>
                 <h6 style={{textAlign: "left"}}>Полимер</h6>
@@ -15,7 +15,7 @@ function CardBlock() {
                 </p>
             </Card.Body>
         </Card>
-                <Card style={{ width: '18rem', marginLeft: 20, border: "none" }}>
+                <Card style={{ width: '18rem', marginLeft: 15, border: "none" }}>
                     <Card.Img variant="top" src="../images/image.jpg" />
                     <Card.Body>
                         <h6 style={{textAlign: "left"}}>Полимер</h6>
@@ -27,7 +27,7 @@ function CardBlock() {
                         </Card.Text>
                     </Card.Body>
                 </Card>
-                <Card style={{ width: '18rem', marginLeft: 20, border: "none"  }}>
+                <Card style={{ width: '18rem', marginLeft: 15, border: "none"  }}>
                     <Card.Img variant="top" src="../images/image.jpg" />
                     <Card.Body>
                         <h6 style={{textAlign: "left"}}>Полимер</h6>
@@ -39,7 +39,7 @@ function CardBlock() {
                         </Card.Text>
                     </Card.Body>
                 </Card>
-                <Card style={{ width: '18rem', marginLeft: 20, border: "none"  }}>
+                <Card style={{ width: '18rem', marginLeft: 15, border: "none"  }}>
                     <Card.Img variant="top" src="../images/image.jpg" />
                     <Card.Body>
                         <h6 style={{textAlign: "left"}}>Полимер</h6>
