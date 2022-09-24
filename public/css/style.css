@@ -3,6 +3,10 @@
     border: solid 2px #008DA9 !important;
     border-radius: 12px;
 }
+.custom-input{
+    /*border: solid 2px #008DA9 !important;*/
+    border-radius: 12px!important;
+}
 .custom-bold{
     font-size: 18pt;
     color: #008DA9;

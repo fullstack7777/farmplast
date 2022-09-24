@@ -14,7 +14,7 @@ function Email() {
                    </Row>
                    <Row className="justify-content-md-center" style={{marginTop:'32px'}}>
                        <Col xs lg="4">
-                           <Form.Control type={'email'} placeholder="Email" />
+                           <Form.Control type={'email'} className={'custom-input'} placeholder="Email" />
                        </Col>
                        <Col xs lg="2">
                            <Button variant="primary" className="custom-button" style={{width:'100%'}}>Uytget</Button>{' '}

@@ -13,32 +13,32 @@ function PartnersSection() {
                             <div className="owl-carousel owl-theme brands_slider">
                                 <div className="owl-item">
                                     <a href={'https://www.kazanorgsintez.ru/'}  target="_blank" className="brands_item d-flex flex-column justify-content-center" rel="noreferrer">
-                                        <img height={'100'}
+                                        <img height={'72'}
                                             src={"/images/partners/partner-1.png"}
                                             alt=""/>
                                     </a>
                                 </div>
                                 <div className="owl-item">
                                     <div className="brands_item d-flex flex-column justify-content-center">
-                                        <img height={'100'}
+                                        <img height={'72'}
                                              src={"/images/partners/partner-2.png"}
                                              alt=""/></div>
                                 </div>
                                 <div className="owl-item">
                                     <div className="brands_item d-flex flex-column justify-content-center">
-                                        <img height={'100'}
+                                        <img height={'72'}
                                              src={"/images/partners/partner-3.png"}
                                              alt=""/></div>
                                 </div>
                                 <div className="owl-item">
                                     <div className="brands_item d-flex flex-column justify-content-center">
-                                        <img height={'100'}
+                                        <img height={'72'}
                                              src={"/images/partners/partner-4.png"}
                                              alt=""/></div>
                                 </div>
                                 <div className="owl-item">
                                     <div className="brands_item d-flex flex-column justify-content-center">
-                                        <img height={'100'}
+                                        <img height={'72'}
                                              src={"/images/partners/partner-5.png"}
                                              alt=""/></div>
                                 </div>

@@ -44,7 +44,7 @@ function NavBar() {
                         <Form.Control
                             type="search"
                             placeholder="Поиск"
-                            className="me-2"
+                            className="me-2 custom-input"
                             aria-label="Search"
                         />
                         {/*<Button variant="primary">Заказать звонок</Button>*/}
