@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from "react";
 
 function Footer() {
@@ -9,13 +8,13 @@ function Footer() {
                         <span >© 1997 ООО Фармплас</span>
                     </div>
                     <div className="me-md-auto">
-                <a className="me-3 tex-decor" href="">Продукция</a>
-                        <a className="me-3 tex-decor" href="">Склады</a>
-                        <a className="me-3 tex-decor" href="">Контакты</a>
-                        <a className="me-3 tex-decor" href="">Blank page</a>
+                <a className="me-3 tex-decor" href="#">Продукция</a>
+                        <a className="me-3 tex-decor" href="#">Склады</a>
+                        <a className="me-3 tex-decor" href="#">Контакты</a>
+                        <a className="me-3 tex-decor" href="#">Blank page</a>
                     </div>
                         <div>
-                        <a className="text-end tex-decor" href="">Вернуться на верх страницы</a><FontAwesomeIcon icon={"up"}></FontAwesomeIcon>
+                        <a className="text-end tex-decor" href="#">Вернуться на верх страницы</a>
                     </div>
             </footer>
         </div>
