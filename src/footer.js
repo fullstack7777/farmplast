@@ -1,14 +1,9 @@
-import Container from "react-bootstrap/Container";
-import {Col, Row} from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
 import React from "react";
 
 function Footer() {
     return (
-
         <div>
-
             <footer className="kopa-page-footer d-flex justify-content-center" style={{backgroundColor: "#19beda"}}>
                     <div className='me-auto' style={{marginLeft: 20}}>
                         <span >© 1997 ООО Фармплас</span>
