@@ -4,7 +4,7 @@ import AboutSection from "./components/about-section";
 import CardBlock from "../pages/card";
 import SubscribeSection from "./components/subscribe-section";
 import PartnersSection from "./components/partners-section";
-import Footer from "../../footer";
+import Footer from "../base/footer";
 
 export class HomePage extends React.Component {
     render() {
