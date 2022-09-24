@@ -8,7 +8,7 @@ function Footer() {
             <Container id={'footer'} className={'justify-content-center'}>
                 <Row>
                     <Col md={4} style={{textAlign:'start'}}>
-                        <span>© 2022 ООО Фармплас</span>
+                        <span>© {new Date().getFullYear()} ООО Фармплас</span>
                     </Col>
                     <Col md={4} style={{textAlign:'center'}}>
                         <a className="me-3 tex-decor" href={'/#'}>Продукция</a>
