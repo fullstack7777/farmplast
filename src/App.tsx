@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 import './App.css';
-import MainMenu from "./navbar";
+import MainMenu from "./components/base/navbar";
 import {HomePage} from "./components/home/home_page";
 
 function App() {

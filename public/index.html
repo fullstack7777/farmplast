@@ -49,10 +49,14 @@
       $(document).ready(function(){
         $(window).scroll(function(){
           let scroll = $(window).scrollTop();
-          if (scroll > 400) {
-            $(".navbar").css("background" , "").addClass('bg-dark');
+          if (scroll > 300) {
+            $(".navbar").css("background" , "").addClass('bg-light');
+            $(".navbar").removeClass('navbar-dark');
+            $(".navbar").addClass('navbar-light');
           }else{
-            $(".navbar").removeClass('bg-dark');
+            $(".navbar").removeClass('bg-light');
+            $(".navbar").removeClass('navbar-light');
+            $(".navbar").addClass('navbar-dark');
           }
         });
       });

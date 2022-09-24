@@ -22,7 +22,7 @@ function MainMenu() {
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
                         className="justify-content-end flex-grow-1 pe-3"
-                        style={{ maxHeight: '100px' }}
+                        // style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
                         <NavDropdown title="Продукция" id="navbarScrollingDropdown">
@@ -31,10 +31,6 @@ function MainMenu() {
                             <NavDropdown.Item href="#action4" className="text-decoration-underline-white">Уфаорг</NavDropdown.Item>
                             <NavDropdown.Item href="#action4" className="text-decoration-underline-white">Нижнекам</NavDropdown.Item>
                             <NavDropdown.Item href="#action4" className="text-decoration-underline-white">Сокар</NavDropdown.Item>
-                            {/*<NavDropdown.Divider />*/}
-                            {/*<NavDropdown.Item href="#action5">*/}
-                            {/*    Something else here*/}
-                            {/*</NavDropdown.Item>*/}
                         </NavDropdown>
                         <Nav.Link href="#action1" className="text-decoration-underline-white">О нас</Nav.Link>
                         <Nav.Link href="#action2" className="text-decoration-underline-white">Склады</Nav.Link>
@@ -45,7 +41,7 @@ function MainMenu() {
                         <Form.Control
                             type="search"
                             placeholder="Поиск по товарам"
-                            className="me-2"
+                            className="me-2 custom-input"
                             aria-label="Search"
                         />
                         {/*<Button variant="primary">Заказать звонок</Button>*/}

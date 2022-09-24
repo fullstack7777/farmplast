@@ -1,12 +1,19 @@
 .custom-button{
     background-color: #008DA9!important;
     border: solid 2px #008DA9 !important;
-    border-radius: 32px;
-    width: 130pt;
+    border-radius: 12px;
+}
+.custom-button:hover{
+    filter: brightness(1.10);
+}
+.custom-button:active{
+    filter: brightness(1.20);
 }
 .custom-input{
-    /*border: solid 2px #008DA9 !important;*/
     border-radius: 12px!important;
+}
+.d-block{
+    filter: brightness(50%);
 }
 .custom-bold{
     font-size: 18pt;
@@ -122,4 +129,17 @@
 
 .brands_next {
     right: 40px
+}
+
+#products-section .card:hover{
+    filter: brightness(98%);
+}
+/*#products-section .card:active{*/
+/*    filter: brightness(75%);*/
+/*}*/
+@media screen and (max-width: 639px) {
+  #products-section .card{
+      width: 100%!important;
+      margin-left: 0!important;
+  }
 }
