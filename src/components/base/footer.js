@@ -15,7 +15,8 @@ function Footer() {
                         <a className="me-3 tex-decor" href={'/#'}>Blank page</a>
                     </div>
                         <div>
-                        <a className="text-end tex-decor" href={'/#'}>Вернуться на верх страницы</a><FontAwesomeIcon icon={"up"}/>
+                        <a className="text-end tex-decor" href={'/#'}>Вернуться на верх страницы</a>
+                            <FontAwesomeIcon icon={"up"}/>
                     </div>
             </footer>
         </div>
