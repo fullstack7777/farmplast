@@ -1,6 +1,6 @@
 import React from 'react';
-import MainSlider from "./components/main_slider";
-import Section2 from "./components/section-2";
+import MainSlider from "./components/slider-section";
+import AboutSection from "./components/about-section";
 import CardBlock from "../pages/card";
 import SubscribeSection from "./components/subscribe-section";
 import Partners from "../pages/partners";
@@ -11,7 +11,7 @@ export class HomePage extends React.Component {
         return (
             <div>
                 <MainSlider/>
-                <Section2/>
+                <AboutSection/>
                 <CardBlock/>
                 <SubscribeSection/>
                 <PartnersSection/>

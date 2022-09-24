@@ -16,7 +16,7 @@ function SubscribeSection() {
                        <Col xs lg="4">
                            <Form.Control type={'email'} className={'custom-input'} placeholder="SubscribeSection" />
                        </Col>
-                       <Col xs lg="2">
+                       <Col xs lg="3">
                            <Button variant="primary" className="custom-button" style={{width:'100%'}}>Получить консультацию</Button>{' '}
                        </Col>
                    </Row>

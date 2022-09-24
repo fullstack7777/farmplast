@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStop } from '@fortawesome/free-solid-svg-icons'
 
-function Section2() {
+function AboutSection() {
     return (
         <div id="section2">
             <img className="custom-section2-img" src={'/images/image1.jpg'} alt=""/>
@@ -36,4 +36,4 @@ function Section2() {
     );
 }
 
-export default Section2;
+export default AboutSection;
