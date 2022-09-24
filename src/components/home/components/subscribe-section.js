@@ -4,7 +4,7 @@ import {Col, Row} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 
-function Email() {
+function SubscribeSection() {
     return (
         <div id={'email-section'}>
            <Form>
@@ -14,7 +14,7 @@ function Email() {
                    </Row>
                    <Row className="justify-content-md-center" style={{marginTop:'32px'}}>
                        <Col xs lg="4">
-                           <Form.Control type={'email'} className={'custom-input'} placeholder="Email" />
+                           <Form.Control type={'email'} className={'custom-input'} placeholder="SubscribeSection" />
                        </Col>
                        <Col xs lg="2">
                            <Button variant="primary" className="custom-button" style={{width:'100%'}}>Получить консультацию</Button>{' '}
@@ -26,4 +26,4 @@ function Email() {
     );
 }
 
-export default Email;
+export default SubscribeSection;
