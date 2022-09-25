@@ -16,7 +16,7 @@ function MainSlider() {
                     className="d-block w-100"
                     src="/images/slider/slide2.webp"
                     style={{objectFit:"cover"}}
-                    height="720"
+                    height="600"
                     alt="Second slide"
                 />
 
@@ -29,7 +29,7 @@ function MainSlider() {
                     className="d-block w-100"
                     src="/images/slider/slide3.webp"
                     style={{objectFit:"cover"}}
-                    height="720"
+                    height="600"
                     alt="Second slide"
                 />
 

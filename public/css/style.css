@@ -168,20 +168,6 @@
 #section-contacts span{
     font-weight: bold;
 }
-
-#products-page{
-    margin-top: 200px;
-}
-
-.sidebar-full{
-    width: 100vw;
-    height: 100vh;
-     background-color: blue;
-}
-
-.sidebar {
-    margin-top: 150px;
-  height: 70%;
-    width: 250px;
-    background-color: red ;
+.top-space{
+    margin-top: 128px;
 }
