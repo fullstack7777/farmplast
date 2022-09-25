@@ -8,6 +8,8 @@ import {
 import './App.css';
 import MainMenu from "./components/base/navbar";
 import {HomePage} from "./components/home/home_page";
+import {ProductPage} from "./components/products/product_page";
+import Footer from "./components/base/footer";
 
 function App() {
   return (
@@ -16,8 +18,10 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/products" element={<ProductPage />} />
             </Routes>
         </BrowserRouter>
+        <Footer/>
       {/*<header className="App-header">*/}
       {/*  <img src={logo} className="App-logo" alt="logo" />*/}
       {/*  <p>*/}

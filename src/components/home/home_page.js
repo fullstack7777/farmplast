@@ -4,7 +4,6 @@ import AboutSection from "./components/about-section";
 import ProductsSection from "./components/products-section";
 import SubscribeSection from "./components/subscribe-section";
 import PartnersSection from "./components/partners-section";
-import Footer from "../base/footer";
 
 export class HomePage extends React.Component {
     render() {
@@ -15,7 +14,6 @@ export class HomePage extends React.Component {
                 <ProductsSection/>
                 <SubscribeSection/>
                 <PartnersSection/>
-                <Footer/>
             </div>
         );
     }
