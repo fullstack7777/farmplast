@@ -18,7 +18,7 @@ function ProductsSection() {
                             <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                             <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                             </p>
-                            <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Submit</Button>
+                            <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
                         </Card.Body>
                     </Card>
                 </Col>
@@ -30,7 +30,7 @@ function ProductsSection() {
                             <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                             <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                             </p>
-                            <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Submit</Button>
+                            <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
                         </Card.Body>
                     </Card>
                 </Col>
@@ -42,7 +42,7 @@ function ProductsSection() {
                             <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                             <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                             </p>
-                            <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Submit</Button>
+                            <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
                         </Card.Body>
                     </Card>
                 </Col>
@@ -54,7 +54,7 @@ function ProductsSection() {
                             <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                             <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                             </p>
-                            <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Submit</Button>
+                            <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
                         </Card.Body>
                     </Card>
                 </Col>

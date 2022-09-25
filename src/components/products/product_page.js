@@ -12,22 +12,47 @@ export class ProductPage extends React.Component {
                     <Accordion alwaysOpen>
                         <Accordion.Item eventKey="0">
                             <Accordion.Header>
-                                <Nav.Link eventKey="link-1">Link</Nav.Link>
+                                <Nav.Link eventKey="link-1">Сибур</Nav.Link>
                             </Accordion.Header>
                             <Accordion.Body>
-                                <Nav.Link eventKey="link-2">Link</Nav.Link>
-                                <Nav.Link eventKey="link-2">Link</Nav.Link>
-                                <Nav.Link eventKey="link-2">Link</Nav.Link>
+                                <Nav.Link eventKey="link-2">Тип продукции</Nav.Link>
+                                <Nav.Link eventKey="link-2">Тип продукции активный</Nav.Link>
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="1">
                             <Accordion.Header>
-                                <Nav.Link eventKey="link-1">Link</Nav.Link>
+                                <Nav.Link eventKey="link-1">Нефтехим</Nav.Link>
                             </Accordion.Header>
                             <Accordion.Body>
-                                <Nav.Link eventKey="link-2">Link</Nav.Link>
-                                <Nav.Link eventKey="link-2">Link</Nav.Link>
-                                <Nav.Link eventKey="link-2">Link</Nav.Link>
+                                <Nav.Link eventKey="link-2">Тип продукции</Nav.Link>
+                                <Nav.Link eventKey="link-2">Тип продукции активный</Nav.Link>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="2">
+                            <Accordion.Header>
+                                <Nav.Link eventKey="link-1">Уфаорг</Nav.Link>
+                            </Accordion.Header>
+                            <Accordion.Body>
+                                <Nav.Link eventKey="link-2">Тип продукции</Nav.Link>
+                                <Nav.Link eventKey="link-2">Тип продукции активный</Nav.Link>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="2">
+                            <Accordion.Header>
+                                <Nav.Link eventKey="link-1">Нижнекам</Nav.Link>
+                            </Accordion.Header>
+                            <Accordion.Body>
+                                <Nav.Link eventKey="link-2">Тип продукции</Nav.Link>
+                                <Nav.Link eventKey="link-2">Тип продукции активный</Nav.Link>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="2">
+                            <Accordion.Header>
+                                <Nav.Link eventKey="link-1">Сокар</Nav.Link>
+                            </Accordion.Header>
+                            <Accordion.Body>
+                                <Nav.Link eventKey="link-2">Тип продукции</Nav.Link>
+                                <Nav.Link eventKey="link-2">Тип продукции активный</Nav.Link>
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
@@ -50,7 +75,7 @@ export class ProductPage extends React.Component {
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                                     <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                                     </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Submit</Button>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
                                 </Card.Body>
                             </Card>
                             <br/>
@@ -63,7 +88,7 @@ export class ProductPage extends React.Component {
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                                     <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                                     </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Submit</Button>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
                                 </Card.Body>
                             </Card>
                             <br/>
@@ -76,7 +101,7 @@ export class ProductPage extends React.Component {
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                                     <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                                     </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Submit</Button>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
                                 </Card.Body>
                             </Card>
                             <br/>
@@ -89,7 +114,7 @@ export class ProductPage extends React.Component {
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                                     <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                                     </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Submit</Button>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
                                 </Card.Body>
                             </Card>
                             <br/>
@@ -102,7 +127,7 @@ export class ProductPage extends React.Component {
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                                     <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                                     </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Submit</Button>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
                                 </Card.Body>
                             </Card>
                             <br/>
@@ -115,7 +140,7 @@ export class ProductPage extends React.Component {
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                                     <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                                     </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Submit</Button>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
                                 </Card.Body>
                             </Card>
                             <br/>
@@ -128,7 +153,7 @@ export class ProductPage extends React.Component {
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                                     <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                                     </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Submit</Button>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
                                 </Card.Body>
                             </Card>
                             <br/>
@@ -141,7 +166,7 @@ export class ProductPage extends React.Component {
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                                     <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                                     </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Submit</Button>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
                                 </Card.Body>
                             </Card>
                             <br/>
