@@ -4,37 +4,37 @@ import Carousel from 'react-bootstrap/Carousel';
 function MainSlider() {
     const [index, setIndex] = useState(0);
 
-    const handleSelect = (selectedIndex, e) => {
+    const handleSelect = (selectedIndex, _) => {
         setIndex(selectedIndex);
     };
 
     return (
         <Carousel activeIndex={index} onSelect={handleSelect} className="rev_slider">
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="/images/slider/slide1.webp"
-                    style={{objectFit:"cover"}}
-                    height="500"
-                    alt="Second slide"
-                />
 
-                <Carousel.Caption>
-                    <h1>РАБОТАЕМ С ПЕРЕДОВЫМИ КОМПАНИЯМИ</h1>
-                </Carousel.Caption>
-            </Carousel.Item>
             <Carousel.Item>
                 <img
                     className="d-block w-100"
                     src="/images/slider/slide2.webp"
                     style={{objectFit:"cover"}}
-                    height="500"
+                    height="720"
                     alt="Second slide"
                 />
 
-                <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <Carousel.Caption style={{top:'35%',bottom:'0'}}>
+                    <h3 style={{'font-size':'56pt', textAlign:'start'}}>РАБОТАЕМ С ПЕРЕДОВЫМИ КОМПАНИЯМИ</h3>
+                </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+                <img
+                    className="d-block w-100"
+                    src="/images/slider/slide3.webp"
+                    style={{objectFit:"cover"}}
+                    height="720"
+                    alt="Second slide"
+                />
+
+                <Carousel.Caption style={{top:'35%', bottom:'0'}}>
+                    <h3 style={{'font-size':'56pt', textAlign:'start'}}>РАБОТАЕМ С ПЕРЕДОВЫМИ КОМПАНИЯМИ</h3>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
