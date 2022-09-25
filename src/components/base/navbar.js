@@ -12,7 +12,7 @@ function MainMenu() {
             <Container fluid>
                 <Navbar.Brand href="/">
                     <img
-                        src="/images/logo.png"
+                        src="/images/logo.webp"
                         height="60"
                         className="d-inline-block align-top"
                         alt="Logo"
