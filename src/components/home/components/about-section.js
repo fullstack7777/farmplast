@@ -8,7 +8,9 @@ function AboutSection() {
         <div id="section2" style={{paddingBottom: 60}}>
             <img className="custom-section2-img" src={'/images/image1.webp'} alt="image1"/>
             <Container>
-                <br/>
+                <h1 className="custom-bold-38" style={{textAlign: "center", paddingBottom: 40}}>
+                    О<span className="custom-bold-white">НАС</span></h1>
+
                 <p>Компания Фармпласт ведет отсчет своей деятельности с <span className="custom-bold">1997 года.</span></p>
                 <p>Вот уже на протяжении <span className="custom-bold">25лет</span> мы осуществляем бесперебойное снабжение, кредитование  своих клиентов.</p>
                 <p>Нашими партнёрами являются <span className="custom-bold">крупнейшими</span> производители полимерного сырья СНГ, такие  как ПАО «СИБУР Холдинг»,  ПАО «Роснефть», ТОО «Компания Нефтехим Ltd», АО «НКНХ», АО«Казаньоргсинтез», ОАО «Нафтан»</p>
