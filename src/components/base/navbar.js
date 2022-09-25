@@ -9,7 +9,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 function MainMenu() {
     return (
         <Navbar fixed="top" scrolling expand="lg" variant="dark">
-            <Container fluid>
+            <Container>
                 <Navbar.Brand href="/">
                     <img
                         src="/images/logo.webp"
