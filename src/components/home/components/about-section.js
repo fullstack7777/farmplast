@@ -20,15 +20,15 @@ function AboutSection() {
                             <FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'10px'}} />
                             Объем отгружаемой продукций свыше <span className="custom-bold">200 000 тонн</span> ежегодно;
                         </li>
-                        <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'10px'}} /><span className="custom-bold">Отсрочка</span> платежа;</li>
-                        <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'10px'}} />Склады по всей России;</li>
-                        <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'10px'}} />Мощность складов 5 000 тонн единовременного хранения;</li>
-                        <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'10px'}} />Отгрузки со склада от 25кг;</li>
-                        <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'10px'}} />Доставки <span className="custom-bold">по всей России</span>по всей России;</li>
-                        <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'10px'}} />Информирование клиента по состоянию рынка, ценообразованию, тенденциям;</li>
-                        <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'10px'}} />Помощь в подборке новых, подходящих именно для конкретного клиента марок полимеров;</li>
-                        <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'10px'}} />Помощь в объединение усилий клиентов из разных, но пересекающихся сегментах, для расширения предлагаемой линейки продукции;</li>
-                        <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'10px'}} />На основе наших знаний и возможностей  рекомендации по привлечению банковских продуктов, факторинга и т.д;</li>
+                        <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'5px'}} /><span className="custom-bold">Отсрочка</span> платежа;</li>
+                        <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'5px'}} />Склады по всей России;</li>
+                        <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'5px'}} />Мощность складов 5 000 тонн единовременного хранения;</li>
+                        <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'5px'}} />Отгрузки со склада от 25кг;</li>
+                        <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'5px'}} />Доставки <span className="custom-bold">по всей России</span>по всей России;</li>
+                        <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'5px'}} />Информирование клиента по состоянию рынка, ценообразованию, тенденциям;</li>
+                        <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'5px'}} />Помощь в подборке новых, подходящих именно для конкретного клиента марок полимеров;</li>
+                        <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'5px'}} />Помощь в объединение усилий клиентов из разных, но пересекающихся сегментах, для расширения предлагаемой линейки продукции;</li>
+                        <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'5px'}} />На основе наших знаний и возможностей  рекомендации по привлечению банковских продуктов, факторинга и т.д;</li>
                     </ul>
                 </div>
             </Container>

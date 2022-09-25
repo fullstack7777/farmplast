@@ -158,3 +158,13 @@
         text-align: center!important;
     }
 }
+
+#section-contacts{
+    margin-left: 100pt;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+#section-contacts span{
+    font-weight: bold;
+}

@@ -10,6 +10,9 @@ import MainMenu from "./components/base/navbar";
 import {HomePage} from "./components/home/home_page";
 import {ProductPage} from "./components/products/product_page";
 import Footer from "./components/base/footer";
+import {AboutUsPage} from "./components/aboutus/aboutus_page";
+import {ContactsPage} from "./components/contacts/contacts_page";
+import {WarehousePage} from "./components/warehouse/warehouse_page";
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/products" element={<ProductPage />} />
+                <Route path="/about-us" element={<AboutUsPage />} />
+                <Route path="/contacts" element={<ContactsPage />} />
+                <Route path="/warehouse" element={<WarehousePage />} />
             </Routes>
         </BrowserRouter>
         <Footer/>
