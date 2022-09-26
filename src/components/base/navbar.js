@@ -32,12 +32,11 @@ function MainMenu() {
                             <NavDropdown.Item href="/products" >Нижнекам</NavDropdown.Item>
                             <NavDropdown.Item href="/products" >Сокар</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link href="/about-us" >О нас</Nav.Link>
                         <Nav.Link href="/warehouses" >Склады</Nav.Link>
                         <Nav.Link href="/contacts" >Контакты</Nav.Link>
 
                     </Nav>
-                    <Form className="d-flex search">
+                    <Form className="d-flex search search-nav">
                         <Form.Control
                             type="search"
                             placeholder="Поиск по товарам"
