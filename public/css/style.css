@@ -165,8 +165,8 @@
 }
 
 #section-contacts{
-    margin-left: 100pt;
-    margin-top: 100px;
+    margin-left: 128pt;
+    margin-top: 128px;
     margin-bottom: 100px;
 }
 
@@ -245,4 +245,27 @@
 #map{
     width: 100%;
     height: 500px;
+}
+#section-contacts-email{
+    height: 100%;
+    width: 100%;
+    background-color: #008DA9;
+}
+#section-contacts-text {
+    padding-left: 50px;
+    padding-top: 50px;
+    color: white;
+}
+#section-contacts-form{
+    width: 40%;
+    margin-left: 40px;
+    margin-top: 20px;
+
+}
+.button-contacts{
+    background-color: white;
+    color: #008DA9;
+    border: none;
+    padding: 8px 8px;
+
 }
