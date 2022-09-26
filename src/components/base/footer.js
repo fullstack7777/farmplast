@@ -11,9 +11,9 @@ function Footer() {
                         <span>© {new Date().getFullYear()} ООО Фармплас</span>
                     </Col>
                     <Col md={4} style={{textAlign:'center'}}>
-                        <a className="me-3 tex-decor" href={'/#'}>Продукция</a>
-                        <a className="me-3 tex-decor" href={'/#'}>Склады</a>
-                        <a className="me-3 tex-decor" href={'/#'}>Контакты</a>
+                        <a className="me-3 tex-decor" href={'/products'}>Продукция</a>
+                        <a className="me-3 tex-decor" href={'/warehouses'}>Склады</a>
+                        <a className="me-3 tex-decor" href={'/contacts'}>Контакты</a>
                     </Col>
                     <Col md={4} style={{textAlign:'end'}}>
                         <a href={'/#'}>Вернуться на верх страницы</a>
