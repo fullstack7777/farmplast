@@ -49,58 +49,81 @@
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=44881d3c-d59e-4de6-b7a4-eab3ba869345" type="text/javascript"></script>
     <script type="text/javascript">
       ymaps.ready(function () {
+        var items = Array();
+        items.push(new ymaps.Placemark([59.75480117728905, 30.539885657671444], {
+          balloonContentHeader: 'Склад № 1\nСПБ',
+          balloonContentBody: 'ул, Финляндская 35',
+          balloonContentFooter: '<a href="https://maps.yandex.ru/?text=59.75480117728905+30.539885657671444" target="_blank" class="btn btn-outline-primary">Проложить маршрут</a>',
+          hintContent: 'Hint'
+        }));
+        items.push(new ymaps.Placemark([55.10643624392558, 82.99824744232856], {
+          balloonContentHeader: 'Склад в Новосибирске\nНовосибирск',
+          balloonContentBody: 'Тайгинская улица, 4/1',
+          balloonContentFooter: '<a href="https://maps.yandex.ru/?text=55.10643624392558+82.99824744232856" target="_blank" class="btn btn-outline-primary">Проложить маршрут</a>',
+          hintContent: 'Hint'
+        }));
+        items.push(new ymaps.Placemark([55.99364617991851, 38.5404414185004], {
+          balloonContentHeader: 'Склад № 3\nМосковская обл',
+          balloonContentBody: 'Ногинский район, 5,6 км автомобильной дороги,' +
+                  'Ногинск-Боровково-Стромынь-Крест (правая сторона)',
+          balloonContentFooter: '<a href="https://maps.yandex.ru/?text=55.99364617991851+38.5404414185004" target="_blank" class="btn btn-outline-primary">Проложить маршрут</a>',
+          hintContent: 'Hint'
+        }));
+        items.push(new ymaps.Placemark([55.33251956485987, 37.84332016899414], {
+          balloonContentHeader: 'Склад № 4\nМосковская обл',
+          balloonContentBody: 'г.Домодедово,' +
+                  'мкр. Белые Столбы, ул. Авенариуса, д.5',
+          balloonContentFooter: '<a href="https://maps.yandex.ru/?text=55.33251956485987+37.84332016899414" target="_blank" class="btn btn-outline-primary">Проложить маршрут</a>',
+          hintContent: 'Hint'
+        }));
+        items.push(new ymaps.Placemark([54.83683287881096, 56.11616544417871], {
+          balloonContentHeader: 'Склад № 5\nУфа',
+          balloonContentBody: 'ул.Свободы 86',
+          balloonContentFooter: '<a href="https://maps.yandex.ru/?text=54.83683287881096+56.11616544417871" target="_blank" class="btn btn-outline-primary">Проложить маршрут</a>',
+          hintContent: 'Hint'
+        }));
+
+
         var myMap = new ymaps.Map('map', {
-                  center: [55.751574, 37.573856],
-                  zoom: 9
+                  center: [55.743889,55.754720],
+                  zoom: 4
                 }, {
                   searchControlProvider: 'yandex#search'
-                }),
-
-                // Создаём макет содержимого.
-                MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-                        '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
-                ),
-
-                myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-                  hintContent: 'Собственный значок метки',
-                  balloonContent: 'Это красивая метка'
-                }, {
-                  // Опции.
-                  // Необходимо указать данный тип макета.
-                  iconLayout: 'default#image',
-                  // Своё изображение иконки метки.
-                  // iconImageHref: 'images/myIcon.gif',
-                  // Размеры метки.
-                  iconImageSize: [30, 42],
-                  // Смещение левого верхнего угла иконки относительно
-                  // её "ножки" (точки привязки).
-                  iconImageOffset: [-5, -38]
-                }),
-
-                myPlacemarkWithContent = new ymaps.Placemark([55.661574, 37.573856], {
-                  hintContent: 'Собственный значок метки с контентом',
-                  balloonContent: 'А эта — новогодняя',
-                  iconContent: '12'
-                }, {
-                  // Опции.
-                  // Необходимо указать данный тип макета.
-                  iconLayout: 'default#imageWithContent',
-                  // Своё изображение иконки метки.
-                  // iconImageHref: 'images/ball.png',
-                  // Размеры метки.
-                  iconImageSize: [48, 48],
-                  // Смещение левого верхнего угла иконки относительно
-                  // её "ножки" (точки привязки).
-                  iconImageOffset: [-24, -24],
-                  // Смещение слоя с содержимым относительно слоя с картинкой.
-                  iconContentOffset: [15, 15],
-                  // Макет содержимого.
-                  iconContentLayout: MyIconContentLayout
                 });
 
-        myMap.geoObjects
-                .add(myPlacemark)
-                .add(myPlacemarkWithContent);
+
+        myMap.geoObjects.events
+
+                .add('balloonopen', function (e) {
+                  const data = e.get('target').properties._data;
+                  // console.log(e.get('target').properties._data);
+                  $('#ware-info').empty();
+                  $('#ware-info').append('<h3>'+data.balloonContentHeader+'</h3>')
+                  $('#ware-info').append('<p>'+data.balloonContentBody+'</p>')
+                  $('#ware-info').append('<div>'+data.balloonContentFooter+'</div>')
+                })
+
+                .add('balloonclose', function (e) {
+                  $('#ware-info').empty();
+                  myMap.setCenter([55.743889,55.754720]);
+                  myMap.setZoom(4, {duration: 3000});
+                });
+
+        items.forEach(item=>myMap.geoObjects.add(item));
+
+        $('.ware-button').click(function (event) {
+          const index = $(this).attr('data-index');
+
+          $('.ware-button').each(function (index) {
+            $(this).removeClass('ware-selected');
+          })
+          $(this).addClass('ware-selected');
+          var item = items[index];
+
+          myMap.setZoom(10, {duration: 3000});
+          myMap.setCenter(item.geometry.getCoordinates());
+          item.balloon.open();
+        });
       });
     </script>
     <script>

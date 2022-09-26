@@ -15,19 +15,23 @@ export class WarehousePage extends React.Component {
                             <div className="warehouses_slider_container">
                                 <div className="owl-carousel owl-theme warehouses_slider">
                                     <div className="owl-item">
-                                        <Button variant="primary" className="ware-button">Склад в Новосибирске
+                                        <Button variant="primary" data-index={'0'} className="ware-button">Склад №1
                                         </Button>
                                     </div>
                                     <div className="owl-item">
-                                        <Button variant="primary" className="ware-button">Склад №2
+                                        <Button variant="primary" data-index={'1'} className="ware-button">Склад в Новосибирске
                                         </Button>
                                     </div>
                                     <div className="owl-item">
-                                        <Button variant="primary" className="ware-button">Склад №3
+                                        <Button variant="primary" data-index={'2'} className="ware-button">Склад №3
                                         </Button>
                                     </div>
                                     <div className="owl-item">
-                                        <Button variant="primary" className="ware-button">Склад №4
+                                        <Button variant="primary" data-index={'3'} className="ware-button">Склад №4
+                                        </Button>
+                                    </div>
+                                    <div className="owl-item">
+                                        <Button variant="primary" data-index={'4'} className="ware-button">Склад №5
                                         </Button>
                                     </div>
                                 </div>
@@ -42,10 +46,10 @@ export class WarehousePage extends React.Component {
                     </Row>
                     <Row>
                         <Col lg="4">
-
+                            <div id={'ware-info'}/>
                         </Col>
                         <Col lg="8">
-                            <div id="map"></div>
+                            <div id="map"/>
                         </Col>
                     </Row>
                 </Container>

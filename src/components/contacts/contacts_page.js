@@ -13,9 +13,9 @@ export class ContactsPage extends React.Component {
                         <Col lg="4">
                             <br/>
                             <br/>
-                            <p><span>Юридический адресс:</span> г. Санкт-Петербург, Лесной <br />проспект, д. 63 лит. А офис 402</p>
+                            <p><b>Юридический адресс:</b> г. Санкт-Петербург, Лесной <br />проспект, д. 63 лит. А офис 402</p>
                             <p><span>Телефон:</span> +78182535353</p>
-                            <p><span style={{fontWeight: "bold"}}>Почта:</span> Zabar12370@gmail.com</p>
+                            <p><span style={{fontWeight: "bold"}}>Почта:</span> <a href={'mailto:Zabar12370@gmail.com'}>Zabar12370@gmail.com</a></p>
                             <p><span style={{fontWeight: "bold"}}>Время работы:</span> 09:00 до 18:00</p>
                             <br/>
                             <p><span style={{fontWeight: "bold"}}>Реквизиты:</span> Общество с ограниченной ответсвенностью <br />"ФАРМПЛАСТ" <br/> ИНН 7805074180 / КПП780501001<br/>
