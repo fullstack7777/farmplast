@@ -27,7 +27,7 @@ function MainSlider() {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src="/images/slider/slide3.webp"
+                    src="/images/slider/slide1.webp"
                     style={{objectFit:"cover"}}
                     height="600"
                     alt="Second slide"

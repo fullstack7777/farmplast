@@ -192,5 +192,7 @@
 .button-contacts{
     background-color: white;
     color: #008DA9;
+    border: none;
+    padding: 8px 8px;
 
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import Container from "react-bootstrap/Container";
 import {Col, Row} from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
-import Button from "react-bootstrap/Button";
 
 export class ContactsPage extends React.Component {
     render() {
@@ -45,9 +44,9 @@ export class ContactsPage extends React.Component {
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Control type="email" placeholder="Ваш телефон" />
                                     </Form.Group>
-                                    <Button className="button-contacts">
+                                    <button className="button-contacts">
                                         Оставить заявку
-                                    </Button>
+                                    </button>
                                 </Form>
                             </div>
                         </Col>
