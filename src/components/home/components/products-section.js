@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 function ProductsSection() {
     return (
         <Container id={'products-section'} style={{paddingBottom: 60}}>
-            <h1 className="custom-bold-38" style={{textAlign: "center", paddingBottom: 40}}>
+            <h1 className="custom-bold-38" style={{textAlign: "left", paddingBottom: 40}}>
                 <span className="custom-bold-white">Часто</span> покупаемые товары</h1>
             <Row className="justify-content-md-center">
                 <Col md="auto">
