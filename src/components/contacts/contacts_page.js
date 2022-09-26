@@ -6,19 +6,18 @@ import Form from 'react-bootstrap/Form';
 export class ContactsPage extends React.Component {
     render() {
         return (
-            <div>
-
                 <Container id="section-contacts">
                     <Row>
                         <Col lg="4">
                             <br/>
                             <br/>
                             <p><b>Юридический адресс:</b> г. Санкт-Петербург, Лесной <br />проспект, д. 63 лит. А офис 402</p>
-                            <p><span>Телефон:</span> +78182535353</p>
-                            <p><span style={{fontWeight: "bold"}}>Почта:</span> <a href={'mailto:Zabar12370@gmail.com'}>Zabar12370@gmail.com</a></p>
-                            <p><span style={{fontWeight: "bold"}}>Время работы:</span> 09:00 до 18:00</p>
+                            <p><b>Телефон: </b><a href={'+78123337438'}>+78123337438</a></p>
+                            <p style={{marginLeft: 80}}><a href={'+78123338610'}> +78123338610</a></p>
+                            <p><b>Почта:</b><a href={'farmplst@gmail.com'}>farmplst@gmail.com</a></p>
+                            <p><b>Время работы:</b> 09:00 до 18:00</p>
                             <br/>
-                            <p><span style={{fontWeight: "bold"}}>Реквизиты:</span> Общество с ограниченной ответсвенностью <br />"ФАРМПЛАСТ" <br/> ИНН 7805074180 / КПП780501001<br/>
+                            <p><b>Реквизиты:</b> Общество с ограниченной ответсвенностью <br />"ФАРМПЛАСТ" <br/> ИНН 7805074180 / КПП780501001<br/>
                                 г. Санкт-Петербург, Лесной проспект, д. 63 лит. А офис 402<br/> P/C 40702810822000000276 "Cанкт-<br/>
                                 Петербуркская Дирекция ОАО "Уралсиб" в г. Санкт-<br/> Петербурге, K/c 30101810800000000706, БИK<br/>
                                 044030706</p>
@@ -30,19 +29,19 @@ export class ContactsPage extends React.Component {
                                 </div>
                                 <Form id="section-contacts-form">
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="email" placeholder="Ваше имя" />
+                                        <Form.Control type="name" placeholder="Ваше имя" />
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Control type="email" placeholder="Ваша почта" />
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="email" placeholder="Ваша компания" />
+                                        <Form.Control type="company" placeholder="Ваша компания" />
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="email" placeholder="Ваш город" />
+                                        <Form.Control type="city" placeholder="Ваш город" />
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="email" placeholder="Ваш телефон" />
+                                        <Form.Control type="phone" placeholder="Ваш телефон" />
                                     </Form.Group>
                                     <button className="button-contacts">
                                         Оставить заявку
@@ -53,7 +52,6 @@ export class ContactsPage extends React.Component {
                     </Row>
 
                 </Container>
-            </div>
         );
     }
 }
