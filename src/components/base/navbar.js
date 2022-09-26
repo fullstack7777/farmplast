@@ -26,15 +26,15 @@ function MainMenu() {
                         navbarScroll
                     >
                         <NavDropdown title="Продукция" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="#action3" className="text-decoration-underline-white">Сибур</NavDropdown.Item>
-                            <NavDropdown.Item href="#action4" className="text-decoration-underline-white">Нефтехим</NavDropdown.Item>
-                            <NavDropdown.Item href="#action4" className="text-decoration-underline-white">Уфаорг</NavDropdown.Item>
-                            <NavDropdown.Item href="#action4" className="text-decoration-underline-white">Нижнекам</NavDropdown.Item>
-                            <NavDropdown.Item href="#action4" className="text-decoration-underline-white">Сокар</NavDropdown.Item>
+                            <NavDropdown.Item href="/products" >Сибур</NavDropdown.Item>
+                            <NavDropdown.Item href="/products" >Нефтехим</NavDropdown.Item>
+                            <NavDropdown.Item href="/products" >Уфаорг</NavDropdown.Item>
+                            <NavDropdown.Item href="/products" >Нижнекам</NavDropdown.Item>
+                            <NavDropdown.Item href="/products" >Сокар</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link href="#action1" className="text-decoration-underline-white">О нас</Nav.Link>
-                        <Nav.Link href="#action2" className="text-decoration-underline-white">Склады</Nav.Link>
-                        <Nav.Link href="#action3" className="text-decoration-underline-white">Контакты</Nav.Link>
+                        <Nav.Link href="#action1" >О нас</Nav.Link>
+                        <Nav.Link href="/warehouse" >Склады</Nav.Link>
+                        <Nav.Link href="#action3" >Контакты</Nav.Link>
 
                     </Nav>
                     <Form className="d-flex search">

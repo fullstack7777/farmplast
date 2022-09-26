@@ -10,7 +10,6 @@ function PartnersSection() {
             <Container fluid="md">
                 <div className="col-md-12 text-center" style={{paddingBottom: 40, paddingTop: 40}}>
                     <h1>Наши партнеры </h1>
-                    <div className="text-decoration-underline mx-auto  "></div>
                 </div>
                 <Row>
                     <Col>
