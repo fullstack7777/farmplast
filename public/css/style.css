@@ -46,7 +46,7 @@
     width: 300px;
     position: absolute;
     right: 0;
-    top: 200px;
+    top: 280px;
 }
 #email-section{
     padding: 150px 0 150px 0;
@@ -170,9 +170,6 @@
     margin-bottom: 100px;
 }
 
-#section-contacts span{
-    font-weight: bold;
-}
 .top-space{
     margin-top: 128px;
 }
