@@ -69,7 +69,7 @@ export class ProductPage extends React.Component {
                     <Row>
                         <Col md="auto">
                             <Card style={{ width: '17rem', marginLeft: 15 , border: "none"}}>
-                                <Card.Img variant="top" src="/images/image.webp" />
+                                <Card.Img variant="top" src="/images/image.webp" alt="card_image1"/>
                                 <Card.Body>
                                     <h6 style={{textAlign: "left"}}>Полимер</h6>
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
@@ -82,7 +82,7 @@ export class ProductPage extends React.Component {
                         </Col>
                         <Col md="auto">
                             <Card style={{ width: '17rem', marginLeft: 15 , border: "none"}}>
-                                <Card.Img variant="top" src="/images/image.webp" />
+                                <Card.Img variant="top" src="/images/image.webp" alt="card_image2"/>
                                 <Card.Body>
                                     <h6 style={{textAlign: "left"}}>Полимер</h6>
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
@@ -95,7 +95,7 @@ export class ProductPage extends React.Component {
                         </Col>
                         <Col md="auto">
                             <Card style={{ width: '17rem', marginLeft: 15 , border: "none"}}>
-                                <Card.Img variant="top" src="/images/image.webp" />
+                                <Card.Img variant="top" src="/images/image.webp" alt="card_image3"/>
                                 <Card.Body>
                                     <h6 style={{textAlign: "left"}}>Полимер</h6>
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
@@ -108,7 +108,7 @@ export class ProductPage extends React.Component {
                         </Col>
                         <Col md="auto">
                             <Card style={{ width: '17rem', marginLeft: 15 , border: "none"}}>
-                                <Card.Img variant="top" src="/images/image.webp" />
+                                <Card.Img variant="top" src="/images/image.webp" alt="card_image4"/>
                                 <Card.Body>
                                     <h6 style={{textAlign: "left"}}>Полимер</h6>
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
@@ -121,7 +121,7 @@ export class ProductPage extends React.Component {
                         </Col>
                         <Col md="auto">
                             <Card style={{ width: '17rem', marginLeft: 15 , border: "none"}}>
-                                <Card.Img variant="top" src="/images/image.webp" />
+                                <Card.Img variant="top" src="/images/image.webp" alt="card_image5" />
                                 <Card.Body>
                                     <h6 style={{textAlign: "left"}}>Полимер</h6>
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
