@@ -7,9 +7,12 @@ export class ContactsPage extends React.Component {
     render() {
         return (
                 <Container id="section-contacts">
-                    <Row>
+                    <div style={{marginBottom: 40}}><h1 className="custom-bold-38" style={{textAlign: "left"}}>
+                        Наши<span className="custom-bold-white">контакты</span></h1></div>
+                    <Row >
                         <Col lg="4">
                             <br/>
+
                             <br/>
                             <p><b>Юридический адресс:</b> г. Санкт-Петербург, Лесной <br />проспект, д. 63 лит. А офис 402</p>
                             <p><b>Телефон: </b><a href={'+78123337438'}>+78123337438</a></p>
@@ -50,7 +53,6 @@ export class ContactsPage extends React.Component {
                             </div>
                         </Col>
                     </Row>
-
                 </Container>
         );
     }

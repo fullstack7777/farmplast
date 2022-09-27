@@ -9,7 +9,8 @@ function PartnersSection() {
         <div className="brands">
             <Container fluid="md">
                 <div className="col-md-12 text-center" style={{paddingBottom: 40, paddingTop: 40}}>
-                    <h1>Наши партнеры </h1>
+                    <h1 className="custom-bold-38" style={{textAlign: "left"}}>
+                        Наши<span className="custom-bold-white">партнеры</span></h1>
                 </div>
                 <Row>
                     <Col>

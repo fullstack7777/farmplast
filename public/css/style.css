@@ -178,9 +178,8 @@
 }
 
 #section-contacts{
-    margin-left: 128pt;
-    margin-top: 128px;
-    margin-bottom: 100px;
+    padding-top: 100px;
+    padding-bottom: 40px;
 }
 
 .top-space{
@@ -282,4 +281,8 @@
 
 .search-nav{
     width: 30%;
+}
+
+#contacts-page{
+    padding: 50px 50px;
 }
