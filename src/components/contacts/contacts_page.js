@@ -7,16 +7,14 @@ export class ContactsPage extends React.Component {
     render() {
         return (
                 <Container id="section-contacts">
-                    <div style={{marginBottom: 40, marginTop: 40}}><h1 className="custom-bold-38" style={{textAlign: "center"}}>
+                    <div style={{marginBottom: 80, marginTop: 40}}><h1 className="custom-bold-38" style={{textAlign: "center"}}>
                         Наши<span className="custom-bold-white">контакты</span></h1></div>
                     <Row >
                         <Col lg="6">
                             <br/>
-
                             <br/>
                             <p><b>Юридический адресс:</b> г. Санкт-Петербург, Лесной <br />проспект, д. 63 лит. А офис 402</p>
-                            <p><b>Телефон: </b><a href={'+78123337438'}>+78123337438</a></p>
-                            <p style={{marginLeft: 80}}><a href={'+78123338610'}> +78123338610</a></p>
+                            <p><b>Телефон: </b><a href={'+79818338292'}>+7 (981) 833-82-92</a></p>
                             <p><b>Почта:</b><a href={'farmplst@gmail.com'}>farmplst@gmail.com</a></p>
                             <p><b>Время работы:</b> 09:00 до 18:00</p>
                             <br/>
