@@ -7,7 +7,7 @@ export class ContactsPage extends React.Component {
     render() {
         return (
                 <Container id="section-contacts">
-                    <div style={{marginBottom: 40, marginTop: 40}}><h1 className="custom-bold-38" style={{textAlign: "left"}}>
+                    <div style={{marginBottom: 40, marginTop: 40}}><h1 className="custom-bold-38" style={{textAlign: "center"}}>
                         Наши<span className="custom-bold-white">контакты</span></h1></div>
                     <Row >
                         <Col lg="6">
