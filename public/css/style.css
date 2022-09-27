@@ -3,6 +3,12 @@
     border: solid 2px #008DA9 !important;
     border-radius: 12px;
 }
+.button-cart{
+    background-color: #008DA9!important;
+    border: solid 2px #008DA9 !important;
+    border-radius: 12px;
+    margin-left: 10px;
+}
 .ware-button{
     background-color: #008DA9!important;
     border-radius: 20px;
@@ -80,7 +86,6 @@
     font-size: 38pt;
     color: #008DA9;
     font-weight: bold;
-    margin-left: 25%;
 }
 .list-style{
     list-style-type: none;
@@ -276,7 +281,7 @@
     color: white;
 }
 #section-contacts-form{
-    width: 80vh;
+    width: 80%;
     margin-left: 40px;
     margin-top: 20px;
 

@@ -46,6 +46,8 @@ function MainMenu() {
                         {/*<Button variant="primary">Заказать звонок</Button>*/}
                     </Form>
                     <Button variant="primary" className="custom-button">Заказать звонок</Button>
+                    <Button variant="primary" className="button-cart"><img src="/images/cart.webp" height ="20" width="20" /></Button>
+
                 </Navbar.Collapse>
             </Container>
         </Navbar>
