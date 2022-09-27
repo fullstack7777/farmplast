@@ -105,12 +105,13 @@
                 .add('balloonclose', function (e) {
                   $('#ware-info').empty();
                   myMap.setCenter([55.743889,55.754720]);
-                  myMap.setZoom(4, {duration: 3000});
+                  myMap.setZoom(4);
                 });
 
         items.forEach(item=>myMap.geoObjects.add(item));
 
         $('.ware-button').click(function (event) {
+
           const index = $(this).attr('data-index');
 
           $('.ware-button').each(function (index) {
@@ -119,7 +120,6 @@
           $(this).addClass('ware-selected');
           var item = items[index];
 
-          myMap.setZoom(10, {duration: 3000});
           myMap.setCenter(item.geometry.getCoordinates());
           item.balloon.open();
         });
