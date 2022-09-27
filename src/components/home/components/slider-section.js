@@ -16,7 +16,7 @@ function MainSlider() {
                 <img
                     className="d-block w-100"
                     src="/images/slider/slide1.webp"
-                    style={{objectFit:"cover"}}
+                    style={{objectFit:"cover", height:'50%!important'}}
                     //height="600"
                     alt="Second slide"
                 />
@@ -29,7 +29,7 @@ function MainSlider() {
                 <img
                     className="d-block w-100"
                     src="/images/slider/slide2.webp"
-                    style={{objectFit:"cover"}}
+                    style={{objectFit:"cover", height:'50%!important'}}
                     //height="600"
                     alt="Second slide"
                 />
@@ -42,7 +42,7 @@ function MainSlider() {
                 <img
                     className="d-block w-100"
                     src="/images/slider/slide4.webp"
-                    style={{objectFit:"cover"}}
+                    style={{objectFit:"cover", height:'50%!important'}}
                     //height="600"
                     alt="Second slide"
                 />
@@ -55,7 +55,7 @@ function MainSlider() {
                 <img
                     className="d-block w-100"
                     src="/images/slider/slide3.webp"
-                    style={{objectFit:"cover"}}
+                    style={{objectFit:"cover", height:'50%!important'}}
                     //height="600"
                     alt="Second slide"
                 />
