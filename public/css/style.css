@@ -179,7 +179,7 @@
 
 #section-contacts{
     padding-top: 100px;
-    padding-bottom: 40px;
+    padding-bottom: 80px;
 }
 
 .top-space{
@@ -276,7 +276,7 @@
     color: white;
 }
 #section-contacts-form{
-    width: 40%;
+    width: 80vh;
     margin-left: 40px;
     margin-top: 20px;
 

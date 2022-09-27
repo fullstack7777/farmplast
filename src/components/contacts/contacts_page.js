@@ -7,10 +7,10 @@ export class ContactsPage extends React.Component {
     render() {
         return (
                 <Container id="section-contacts">
-                    <div style={{marginBottom: 40}}><h1 className="custom-bold-38" style={{textAlign: "left"}}>
+                    <div style={{marginBottom: 40, marginTop: 40}}><h1 className="custom-bold-38" style={{textAlign: "left"}}>
                         Наши<span className="custom-bold-white">контакты</span></h1></div>
                     <Row >
-                        <Col lg="4">
+                        <Col lg="6">
                             <br/>
 
                             <br/>
@@ -25,26 +25,26 @@ export class ContactsPage extends React.Component {
                                 Петербуркская Дирекция ОАО "Уралсиб" в г. Санкт-<br/> Петербурге, K/c 30101810800000000706, БИK<br/>
                                 044030706</p>
                         </Col>
-                        <Col>
+                        <Col lg="6">
                             <div id="section-contacts-email">
                                 <div id="section-contacts-text">
                                     Компания Фармпласт готова<br/> представить помощь в выборе<br/> продукта и подходящего способа<br/> оплаты.
                                 </div>
                                 <Form id="section-contacts-form">
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="name" placeholder="Ваше имя" />
+                                        <Form.Control type="text" placeholder="Ваше имя" />
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="email" placeholder="Ваша почта" />
+                                        <Form.Control type="text" placeholder="Ваша почта" />
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="company" placeholder="Ваша компания" />
+                                        <Form.Control type="text" placeholder="Ваша компания" />
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="city" placeholder="Ваш город" />
+                                        <Form.Control type="text" placeholder="Ваш город" />
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="phone" placeholder="Ваш телефон" />
+                                        <Form.Control type="text" placeholder="Ваш телефон" />
                                     </Form.Group>
                                     <button className="button-contacts">
                                         Оставить заявку
