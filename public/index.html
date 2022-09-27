@@ -48,6 +48,9 @@
 
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=44881d3c-d59e-4de6-b7a4-eab3ba869345" type="text/javascript"></script>
     <script type="text/javascript">
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
       ymaps.ready(function () {
         var items = Array();
         items.push(new ymaps.Placemark([59.75480117728905, 30.539885657671444], {
@@ -110,7 +113,8 @@
 
         items.forEach(item=>myMap.geoObjects.add(item));
 
-        $('.ware-button').click(function (event) {
+
+        $('.ware-button').click(async function (event) {
 
           const index = $(this).attr('data-index');
 
@@ -120,7 +124,10 @@
           $(this).addClass('ware-selected');
           var item = items[index];
 
+
           myMap.setCenter(item.geometry.getCoordinates());
+
+
           item.balloon.open();
         });
       });
