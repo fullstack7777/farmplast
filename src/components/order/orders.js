@@ -6,8 +6,6 @@ import Button from "react-bootstrap/Button";
 
 export class OrdersPage extends React.Component {
     render() {
-        var isSelected = this.props.selected ? "selected" : "";
-        var className = "selectable " + isSelected;
         return (
             <Container id="section-contacts">
                 <div style={{marginBottom: 80, marginTop: 40}}><h1 className="custom-bold-38" style={{textAlign: "center"}}>
