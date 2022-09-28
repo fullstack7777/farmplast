@@ -4,7 +4,6 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import {Badge} from "react-bootstrap";
 
 
 function MainMenu() {
@@ -26,6 +25,7 @@ function MainMenu() {
                         // style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
+                        <Nav.Link href="/" >Главная</Nav.Link>
                         <NavDropdown title="Продукция" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="/products" >Сибур</NavDropdown.Item>
                             <NavDropdown.Item href="/products" >Нефтехим</NavDropdown.Item>
