@@ -310,8 +310,35 @@
     margin-bottom: 20px;
 
 }
+
+
 #section-contacts-order{
     width: 100%;
     background-color: #008DA9;
     padding-bottom: 40px;
 }
+.product-box{
+
+}
+
+#img-big{
+    width: 100%;
+}
+
+ #img-small{
+     width: 20%;
+     margin-left: 5px;
+     margin-top: 5px;
+     margin-right: 5px;
+ }
+.card-hov{
+    width: 17rem;
+    margin-left: 15px;
+    border: none;
+
+}
+ .card-hov:hover{
+     background-color: rgba(171, 168, 168, 0.93);
+     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+ }
+

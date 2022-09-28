@@ -42,8 +42,8 @@ export class OrdersPage extends React.Component {
                                       </div>
                                   </Card.Body>
                               </Card>
-                              <Card>
-                                  <Card.Body  id="oreders-page-card">
+                              <Card  id="oreders-page-card">
+                                  <Card.Body>
                                       <div style={{display: "inline-block"}}><img src="/images/image.webp" alt="Полимер"/>
                                       </div>
                                       <div style={{display: "inline-block"}}>
@@ -60,8 +60,6 @@ export class OrdersPage extends React.Component {
 
                            </div>
                        </Row>
-
-
                     </Col>
                     <Col lg="6">
                         <div id="section-contacts-order">

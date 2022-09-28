@@ -2,9 +2,11 @@ import React from 'react';
 import Container from "react-bootstrap/Container";
 import {Accordion, Card, Col, Nav, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import MyVerticallyCenteredModal from "./product_modal";
 
-export class ProductPage extends React.Component {
-    render() {
+function ProductPage(){
+
+        const [modalShow, setModalShow] = React.useState(false);
         return (
         <Container id="products-section" className={'top-space'}>
             <Row>
@@ -68,105 +70,145 @@ export class ProductPage extends React.Component {
                     <br/>
                     <Row>
                         <Col md="auto">
-                            <Card style={{ width: '17rem', marginLeft: 15 , border: "none"}}>
+                            <Card className="card-hov">
                                 <Card.Img variant="top" src="/images/image.webp" alt="card_image1"/>
                                 <Card.Body>
                                     <h6 style={{textAlign: "left"}}>Полимер</h6>
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                                     <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                                     </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}
+                                            onClick={() => setModalShow(true)}>Оставить заявку</Button>
+                                    <MyVerticallyCenteredModal
+                                        show={modalShow}
+                                        onHide={() => setModalShow(false)}
+                                    />
                                 </Card.Body>
                             </Card>
                             <br/>
                         </Col>
                         <Col md="auto">
-                            <Card style={{ width: '17rem', marginLeft: 15 , border: "none"}}>
-                                <Card.Img variant="top" src="/images/image.webp" alt="card_image2"/>
+                            <Card className="card-hov">
+                                <Card.Img variant="top" src="/images/image.webp" alt="card_image1"/>
                                 <Card.Body>
                                     <h6 style={{textAlign: "left"}}>Полимер</h6>
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                                     <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                                     </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}
+                                            onClick={() => setModalShow(true)}>Оставить заявку</Button>
+                                    <MyVerticallyCenteredModal
+                                        show={modalShow}
+                                        onHide={() => setModalShow(false)}
+                                    />
                                 </Card.Body>
                             </Card>
                             <br/>
                         </Col>
                         <Col md="auto">
-                            <Card style={{ width: '17rem', marginLeft: 15 , border: "none"}}>
-                                <Card.Img variant="top" src="/images/image.webp" alt="card_image3"/>
+                            <Card className="card-hov">
+                                <Card.Img variant="top" src="/images/image.webp" alt="card_image1"/>
                                 <Card.Body>
                                     <h6 style={{textAlign: "left"}}>Полимер</h6>
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                                     <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                                     </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}
+                                            onClick={() => setModalShow(true)}>Оставить заявку</Button>
+                                    <MyVerticallyCenteredModal
+                                        show={modalShow}
+                                        onHide={() => setModalShow(false)}
+                                    />
                                 </Card.Body>
                             </Card>
                             <br/>
                         </Col>
                         <Col md="auto">
-                            <Card style={{ width: '17rem', marginLeft: 15 , border: "none"}}>
-                                <Card.Img variant="top" src="/images/image.webp" alt="card_image4"/>
+                            <Card className="card-hov">
+                                <Card.Img variant="top" src="/images/image.webp" alt="card_image1"/>
                                 <Card.Body>
                                     <h6 style={{textAlign: "left"}}>Полимер</h6>
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                                     <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                                     </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}
+                                            onClick={() => setModalShow(true)}>Оставить заявку</Button>
+                                    <MyVerticallyCenteredModal
+                                        show={modalShow}
+                                        onHide={() => setModalShow(false)}
+                                    />
                                 </Card.Body>
                             </Card>
                             <br/>
                         </Col>
                         <Col md="auto">
-                            <Card style={{ width: '17rem', marginLeft: 15 , border: "none"}}>
-                                <Card.Img variant="top" src="/images/image.webp" alt="card_image5" />
+                            <Card className="card-hov">
+                                <Card.Img variant="top" src="/images/image.webp" alt="card_image1"/>
                                 <Card.Body>
                                     <h6 style={{textAlign: "left"}}>Полимер</h6>
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                                     <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                                     </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}
+                                            onClick={() => setModalShow(true)}>Оставить заявку</Button>
+                                    <MyVerticallyCenteredModal
+                                        show={modalShow}
+                                        onHide={() => setModalShow(false)}
+                                    />
                                 </Card.Body>
                             </Card>
                             <br/>
                         </Col>
                         <Col md="auto">
-                            <Card style={{ width: '17rem', marginLeft: 15 , border: "none"}}>
-                                <Card.Img variant="top" src="/images/image.webp" />
+                            <Card className="card-hov">
+                                <Card.Img variant="top" src="/images/image.webp" alt="card_image1"/>
                                 <Card.Body>
                                     <h6 style={{textAlign: "left"}}>Полимер</h6>
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                                     <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                                     </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}
+                                            onClick={() => setModalShow(true)}>Оставить заявку</Button>
+                                    <MyVerticallyCenteredModal
+                                        show={modalShow}
+                                        onHide={() => setModalShow(false)}
+                                    />
                                 </Card.Body>
                             </Card>
                             <br/>
                         </Col>
                         <Col md="auto">
-                            <Card style={{ width: '17rem', marginLeft: 15 , border: "none"}}>
-                                <Card.Img variant="top" src="/images/image.webp" />
+                            <Card className="card-hov">
+                                <Card.Img variant="top" src="/images/image.webp" alt="card_image1"/>
                                 <Card.Body>
                                     <h6 style={{textAlign: "left"}}>Полимер</h6>
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                                     <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                                     </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}
+                                            onClick={() => setModalShow(true)}>Оставить заявку</Button>
+                                    <MyVerticallyCenteredModal
+                                        show={modalShow}
+                                        onHide={() => setModalShow(false)}
+                                    />
                                 </Card.Body>
                             </Card>
                             <br/>
                         </Col>
                         <Col md="auto">
-                            <Card style={{ width: '17rem', marginLeft: 15 , border: "none"}}>
-                                <Card.Img variant="top" src="/images/image.webp" />
+                            <Card className="card-hov">
+                                <Card.Img variant="top" src="/images/image.webp" alt="card_image1"/>
                                 <Card.Body>
                                     <h6 style={{textAlign: "left"}}>Полимер</h6>
                                     <p style={{textAlign: "left"}}>Марка: РР Н030</p>
                                     <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
                                     </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>Оставить заявку</Button>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}
+                                            onClick={() => setModalShow(true)}>Оставить заявку</Button>
+                                    <MyVerticallyCenteredModal
+                                        show={modalShow}
+                                        onHide={() => setModalShow(false)}
+                                    />
                                 </Card.Body>
                             </Card>
                             <br/>
@@ -175,10 +217,8 @@ export class ProductPage extends React.Component {
                 </Col>
             </Row>
     </Container>
-
-
     );
-    }
 }
 
 
+export default ProductPage;
