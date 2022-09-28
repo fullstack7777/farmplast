@@ -18,7 +18,7 @@ function MainSlider() {
                     src="/images/slider/slide1.webp"
                     style={{objectFit:"cover"}}
                     height="600"
-                    alt="Second slide"
+                    alt="НАШ ГЛАВНЫЙ ПОСТАВЩИ"
                 />
 
                 <Carousel.Caption style={{top:'35%', bottom:'0'}}>
@@ -31,7 +31,7 @@ function MainSlider() {
                     src="/images/slider/slide2.webp"
                     style={{objectFit:"cover"}}
                     height="600"
-                    alt="Second slide"
+                    alt="ДОСТАВКА ПО ВСЕ РОССИИ"
                 />
 
                 <Carousel.Caption style={{top:'35%',bottom:'0'}}>
@@ -44,7 +44,7 @@ function MainSlider() {
                     src="/images/slider/slide4.webp"
                     style={{objectFit:"cover"}}
                     height="600"
-                    alt="Second slide"
+                    alt="НАЙДЕМ ИНДИВИДУАЛЬНЫЙ ПОДХОД К КАЖДОМУ КЛИЕНТУ"
                 />
 
                 <Carousel.Caption style={{top:'35%',bottom:'0'}}>

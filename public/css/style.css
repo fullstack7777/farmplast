@@ -300,5 +300,18 @@
 }
 
 #contacts-page{
-    padding: 50px 50px;
+    padding: 100px 100px;
+}
+
+#orders-page{
+    margin-bottom: 10px;
+}
+#oreders-page-card{
+    margin-bottom: 20px;
+
+}
+#section-contacts-order{
+    width: 100%;
+    background-color: #008DA9;
+    padding-bottom: 40px;
 }

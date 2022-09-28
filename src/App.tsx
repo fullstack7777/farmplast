@@ -12,6 +12,7 @@ import {ProductPage} from "./components/products/product_page";
 import Footer from "./components/base/footer";
 import {ContactsPage} from "./components/contacts/contacts_page";
 import {WarehousePage} from "./components/warehouse/warehouse_page";
+import {OrdersPage} from "./components/order/orders";
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
                 <Route path="/products" element={<ProductPage />} />
                 <Route path="/contacts" element={<ContactsPage />} />
                 <Route path="/warehouses" element={<WarehousePage />} />
+                <Route path="/orders" element={<OrdersPage />} />
+
             </Routes>
         </BrowserRouter>
         <Footer/>
