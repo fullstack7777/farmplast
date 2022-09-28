@@ -16,9 +16,9 @@ function MainSlider() {
                 <img
                     className="d-block w-100"
                     src="/images/slider/slide1.webp"
-                    style={{objectFit:"cover"}}
-                    height="600"
-                    alt="НАШ ГЛАВНЫЙ ПОСТАВЩИ"
+                    style={{objectFit:"cover", height:'50%!important'}}
+                    //height="600"
+                    alt="Second slide"
                 />
 
                 <Carousel.Caption style={{top:'35%', bottom:'0'}}>
@@ -29,9 +29,9 @@ function MainSlider() {
                 <img
                     className="d-block w-100"
                     src="/images/slider/slide2.webp"
-                    style={{objectFit:"cover"}}
-                    height="600"
-                    alt="ДОСТАВКА ПО ВСЕ РОССИИ"
+                    style={{objectFit:"cover", height:'50%!important'}}
+                    //height="600"
+                    alt="Second slide"
                 />
 
                 <Carousel.Caption style={{top:'35%',bottom:'0'}}>
@@ -42,9 +42,9 @@ function MainSlider() {
                 <img
                     className="d-block w-100"
                     src="/images/slider/slide4.webp"
-                    style={{objectFit:"cover"}}
-                    height="600"
-                    alt="НАЙДЕМ ИНДИВИДУАЛЬНЫЙ ПОДХОД К КАЖДОМУ КЛИЕНТУ"
+                    style={{objectFit:"cover", height:'50%!important'}}
+                    //height="600"
+                    alt="Second slide"
                 />
 
                 <Carousel.Caption style={{top:'35%',bottom:'0'}}>
@@ -55,8 +55,8 @@ function MainSlider() {
                 <img
                     className="d-block w-100"
                     src="/images/slider/slide3.webp"
-                    style={{objectFit:"cover"}}
-                    height="600"
+                    style={{objectFit:"cover", height:'50%!important'}}
+                    //height="600"
                     alt="Second slide"
                 />
 
