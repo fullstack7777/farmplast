@@ -58,6 +58,15 @@ function PartnersSection() {
                                         </a>
                                     </div>
                                 </div>
+                                <div className="owl-item">
+                                    <div className="brands_item d-flex flex-column justify-content-center">
+                                        <a href={'https://www.bashneft.ru/company/career/vacancy/8105/'}  target="_blank" className="brands_item d-flex flex-column justify-content-center" rel="noreferrer">
+                                            <img height={'72'}
+                                                 src={"/images/partners/partner-6.webp"}
+                                                 alt="bashneft"/>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                             <div className="brands_nav brands_prev">
                                 <FontAwesomeIcon icon={faChevronLeft}/>

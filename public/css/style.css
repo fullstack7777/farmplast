@@ -342,3 +342,14 @@
      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
  }
 
+.badge-cart{
+
+}
+.nav-bar-white{
+    color: white;
+    font-size: large;
+}
+.nav-bar-white:hover{
+    opacity: 0.5;
+}
+

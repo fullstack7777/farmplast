@@ -17,44 +17,59 @@ function ProductPage(){
                                 <Nav.Link eventKey="link-1">Сибур</Nav.Link>
                             </Accordion.Header>
                             <Accordion.Body>
-                                <Nav.Link eventKey="link-2">Тип продукции</Nav.Link>
-                                <Nav.Link eventKey="link-2">Тип продукции активный</Nav.Link>
+                                <Nav.Link eventKey="link-2">Полипропилен - ПП</Nav.Link>
+                                <Nav.Link eventKey="link-2">Полиэтилен - ПЭ</Nav.Link>
+                                <Nav.Link eventKey="link-2">Полистирол - ПСВ</Nav.Link>
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="1">
                             <Accordion.Header>
-                                <Nav.Link eventKey="link-1">Нефтехим</Nav.Link>
+                                <Nav.Link eventKey="link-1">Нижнекамскнефтехим</Nav.Link>
                             </Accordion.Header>
                             <Accordion.Body>
-                                <Nav.Link eventKey="link-2">Тип продукции</Nav.Link>
-                                <Nav.Link eventKey="link-2">Тип продукции активный</Nav.Link>
+                                <Nav.Link eventKey="link-2">Полипропилен - ПП</Nav.Link>
+                                <Nav.Link eventKey="link-2">Полистирол - ПСВ</Nav.Link>
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="2">
                             <Accordion.Header>
-                                <Nav.Link eventKey="link-1">Уфаорг</Nav.Link>
+                                <Nav.Link eventKey="link-1">Казаньоргсинтез</Nav.Link>
                             </Accordion.Header>
                             <Accordion.Body>
-                                <Nav.Link eventKey="link-2">Тип продукции</Nav.Link>
-                                <Nav.Link eventKey="link-2">Тип продукции активный</Nav.Link>
+                                <Nav.Link eventKey="link-2">Полиэтилен - ПЭ</Nav.Link>
                             </Accordion.Body>
                         </Accordion.Item>
-                        <Accordion.Item eventKey="2">
+                        <Accordion.Item eventKey="3">
                             <Accordion.Header>
-                                <Nav.Link eventKey="link-1">Нижнекам</Nav.Link>
+                                <Nav.Link eventKey="link-1">Нефтехим Ltd</Nav.Link>
                             </Accordion.Header>
                             <Accordion.Body>
-                                <Nav.Link eventKey="link-2">Тип продукции</Nav.Link>
-                                <Nav.Link eventKey="link-2">Тип продукции активный</Nav.Link>
+                                <Nav.Link eventKey="link-2">Полипропилен - ПП</Nav.Link>
                             </Accordion.Body>
                         </Accordion.Item>
-                        <Accordion.Item eventKey="2">
+                        <Accordion.Item eventKey="4">
                             <Accordion.Header>
-                                <Nav.Link eventKey="link-1">Сокар</Nav.Link>
+                                <Nav.Link eventKey="link-1">Уфаоргсинтез</Nav.Link>
                             </Accordion.Header>
                             <Accordion.Body>
-                                <Nav.Link eventKey="link-2">Тип продукции</Nav.Link>
-                                <Nav.Link eventKey="link-2">Тип продукции активный</Nav.Link>
+                                <Nav.Link eventKey="link-2">Полипропилен - ПП</Nav.Link>
+                                <Nav.Link eventKey="link-2">Полиэтилен - ПЭ</Nav.Link>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="5">
+                            <Accordion.Header>
+                                <Nav.Link eventKey="link-1">Нафтан</Nav.Link>
+                            </Accordion.Header>
+                            <Accordion.Body>
+                                <Nav.Link eventKey="link-2">Полиэтилен - ПЭ</Nav.Link>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="6">
+                            <Accordion.Header>
+                                <Nav.Link eventKey="link-1">Иностранные марки</Nav.Link>
+                            </Accordion.Header>
+                            <Accordion.Body>
+                                <Nav.Link eventKey="link-2"></Nav.Link>
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>

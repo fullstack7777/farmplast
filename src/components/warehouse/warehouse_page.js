@@ -9,13 +9,16 @@ export class WarehousePage extends React.Component {
     render() {
         return (
             <div className="warehouses">
+                <h1 className="custom-bold-38" style={{textAlign: "center", paddingBottom: 40, marginTop: 40}}>
+                    АДРЕСА НАШИХ <span className="custom-bold-white">СКЛАДОВ</span></h1>
                 <Container>
+
                     <Row>
                         <Col>
                             <div className="warehouses_slider_container">
                                 <div className="owl-carousel owl-theme warehouses_slider">
                                     <div className="owl-item">
-                                        <Button variant="primary" data-index={'0'} className="ware-button">Склад №1
+                                        <Button variant="primary" data-index={'0'} className="ware-button">Склад в СПБ
                                         </Button>
                                     </div>
                                     <div className="owl-item">
@@ -23,15 +26,15 @@ export class WarehousePage extends React.Component {
                                         </Button>
                                     </div>
                                     <div className="owl-item">
-                                        <Button variant="primary" data-index={'2'} className="ware-button">Склад №3
+                                        <Button variant="primary" data-index={'2'} className="ware-button">Склад в Москве
                                         </Button>
                                     </div>
                                     <div className="owl-item">
-                                        <Button variant="primary" data-index={'3'} className="ware-button">Склад №4
+                                        <Button variant="primary" data-index={'3'} className="ware-button">Склад в Москве №2
                                         </Button>
                                     </div>
                                     <div className="owl-item">
-                                        <Button variant="primary" data-index={'4'} className="ware-button">Склад №5
+                                        <Button variant="primary" data-index={'4'} className="ware-button">Склад в Уфе
                                         </Button>
                                     </div>
                                 </div>
