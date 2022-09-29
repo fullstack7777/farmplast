@@ -4,7 +4,7 @@ import {Col, Row} from "react-bootstrap";
 
 function Footer() {
     return (
-        <footer style={{backgroundColor: "#008da9", padding:'32px 0 32px 0'}}>
+        <footer style={{backgroundColor: "#008da9", padding:'42px 0 42px 0'}}>
             <Container id={'footer'} className={'justify-content-center'}>
                 <Row>
                     <Col md={4} style={{textAlign:'start'}}>

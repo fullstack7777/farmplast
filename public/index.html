@@ -40,7 +40,7 @@
     <title>Фармпласт</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+
     <div id="root"></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -144,9 +144,11 @@
           if(window.location.pathname==='/' || window.location.pathname==='/#'){
             if (scroll > 500) {
               $(".navbar").css("background" , "").addClass('bg-light');
+              $('.navbar-brand  img').attr('src', 'images/logo.webp');
               $(".navbar").removeClass('navbar-dark');
               $(".navbar").addClass('navbar-light');
             }else{
+              $('.navbar-brand  img').attr('src', 'images/logo2.webp');
               $(".navbar").removeClass('bg-light');
               $(".navbar").removeClass('navbar-light');
               $(".navbar").addClass('navbar-dark');
