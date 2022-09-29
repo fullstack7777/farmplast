@@ -25,7 +25,7 @@ function MainMenu() {
                         // style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="/" >Главная</Nav.Link>
+                        <Nav.Link className="nav-bar-white" href="/" >Главная</Nav.Link>
                         <NavDropdown title="Продукция" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="/products" >Сибур</NavDropdown.Item>
                             <NavDropdown.Item href="/products" >Нефтехим</NavDropdown.Item>
