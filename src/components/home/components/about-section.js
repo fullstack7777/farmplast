@@ -6,17 +6,17 @@ import { faStop } from '@fortawesome/free-solid-svg-icons'
 function AboutSection() {
     return (
         <div id="section2" style={{paddingBottom: 60}}>
-            <img className="custom-section2-img" src={'/images/right.webp'} alt="image1"/>
+            <img className="custom-section1-img" src={'/images/right.webp'} alt="image1"/>
             <img className="custom-section1-img" src={'/images/left.webp'} alt="image1"/>
             <Container>
                 <h1 className="custom-bold-38" style={{textAlign: "center", paddingBottom: 40}}>
                     О<span className="custom-bold-white">НАС</span></h1>
-<div style={{paddingLeft: 100, paddingRight: 100}}>
-                <p>Компания Фармпласт ведет отсчет своей деятельности с <span className="custom-bold">1997 года.</span></p>
-                <p>Вот уже на протяжении <span className="custom-bold">25лет</span> мы осуществляем бесперебойное снабжение, кредитование  своих клиентов.</p>
-                <p>Нашими партнёрами являются <span className="custom-bold">крупнейшими</span> производители полимерного сырья СНГ, такие  как ПАО «СИБУР Холдинг», АО «НКНХ», АО«Казаньоргсинтез», ТОО «Компания Нефтехим Ltd»,  ПАО «Роснефть», ОАО «Нафтан»</p>
 
                 <div className="custom-colored-text">
+                    <p>Компания Фармпласт ведет отсчет своей деятельности с <span className="custom-bold">1997 года.</span></p>
+                    <p>Вот уже на протяжении <span className="custom-bold">25лет</span> мы осуществляем бесперебойное снабжение, кредитование  своих клиентов.</p>
+                    <p>Нашими партнёрами являются <span className="custom-bold">крупнейшими</span> производители полимерного сырья СНГ, такие  как ПАО «СИБУР Холдинг», АО «НКНХ», АО«Казаньоргсинтез», ТОО «Компания Нефтехим Ltd»,  ПАО «Роснефть», ОАО «Нафтан»</p>
+
                     Фармпласт сегодня это:
                     <ul>
                         <li>
@@ -34,7 +34,6 @@ function AboutSection() {
                         <li><FontAwesomeIcon icon={faStop} color={'#008DA9'} style={{marginRight:'5px'}} />На основе наших знаний и возможностей  рекомендации по привлечению банковских продуктов, факторинга и т.д;</li>
                     </ul>
                 </div>
-</div>
             </Container>
         </div>
     );
