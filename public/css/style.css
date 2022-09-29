@@ -65,16 +65,7 @@
     background-image: url("/images/email_background.webp");
 }
 
-@media all and (max-width: 1024px) {
-    .custom-section1-img{
-        visibility: hidden;
-    }
-}
-@media all and (max-width: 1024px) {
-    .section{
-        visibility: hidden;
-    }
-}
+
 .custom-bold-white{
     font-size:38pt;
     color: white;
@@ -170,17 +161,7 @@
 /*#products-section .card:active{*/
 /*    filter: brightness(75%);*/
 /*}*/
-@media screen and (max-width: 639px) {
-  #products-section .card{
-      width: 100%!important;
-      margin-left: 0!important;
-  }
-}
-@media screen and (max-width: 767px) {
-    #footer .row div{
-        text-align: center!important;
-    }
-}
+
 
 #section-contacts{
     padding-top: 100px;
@@ -348,5 +329,86 @@
 }
 .nav-bar-white:hover{
     opacity: 0.5;
+}
+
+/*@media all and (max-width: 1024px) {*/
+/*    .custom-section1-img{*/
+/*        visibility: hidden;*/
+/*    }*/
+/*}*/
+/*@media all and (max-width: 1024px) {*/
+/*    .section{*/
+/*        visibility: hidden;*/
+/*    }*/
+/*}*/
+/*Responsive*/
+/*@media screen and (max-width: 639px) {*/
+/*    #products-section .card{*/
+/*        width: 100%!important;*/
+/*        margin-left: 0!important;*/
+/*    }*/
+/*}*/
+/*@media screen and (max-width: 767px) {*/
+/*    #footer .row div{*/
+/*        text-align: center!important;*/
+/*    }*/
+/*}*/
+.custom-colored-text{
+    margin: 0 128px 0 128px;
+}
+@media screen and (max-width: 1160px) {
+  .container {
+    width: 940px;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .container {
+    width: 780px;
+  }
+
+}
+@media screen and (max-width: 979px) {
+  .container {
+    width: 708px;
+  }
+}
+@media screen and (max-width: 799px) {
+  .container {
+    width: 708px;
+  }
+    .custom-section1-img{
+        visibility: hidden;
+    }
+    .custom-colored-text{
+        margin: 0;
+    }
+}
+@media screen and (max-width: 767px) {
+  .container {
+    width: 620px;
+  }
+    #products-section .card{
+        width: 100%!important;
+        margin-left: 0!important;
+    }
+    #footer .row div{
+        text-align: center!important;
+    }
+}
+@media screen and (max-width: 639px) {
+  .container {
+    width: 460px;
+  }
+
+}
+@media screen and (max-width: 479px) {
+  .container {
+    width: 340px;
+  }
+}
+@media screen and (max-width: 359px) {
+  .container {
+    width: 300px;
+  }
 }
 
