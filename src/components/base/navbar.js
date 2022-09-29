@@ -25,16 +25,16 @@ function MainMenu() {
                         // style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link className="nav-bar-white" href="/" >Главная</Nav.Link>
-                        <NavDropdown title="Продукция" id="navbarScrollingDropdown">
+                        <Nav.Link className="nav-bar-lg" href="/" >Главная</Nav.Link>
+                        <NavDropdown className="nav-bar-lg" title="Продукция" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="/products" >Сибур</NavDropdown.Item>
                             <NavDropdown.Item href="/products" >Нефтехим</NavDropdown.Item>
                             <NavDropdown.Item href="/products" >Уфаорг</NavDropdown.Item>
                             <NavDropdown.Item href="/products" >Нижнекам</NavDropdown.Item>
                             <NavDropdown.Item href="/products" >Сокар</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link href="/warehouses" >Склады</Nav.Link>
-                        <Nav.Link href="/contacts" >Контакты</Nav.Link>
+                        <Nav.Link className="nav-bar-lg" href="/warehouses" >Склады</Nav.Link>
+                        <Nav.Link className="nav-bar-lg" href="/contacts" >Контакты</Nav.Link>
 
                     </Nav>
                     <Form className="d-flex search search-nav">

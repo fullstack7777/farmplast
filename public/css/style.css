@@ -327,6 +327,9 @@
     color: white;
     font-size: large;
 }
+.nav-bar-lg{
+    font-size: large;
+}
 .nav-bar-white:hover{
     opacity: 0.5;
 }
