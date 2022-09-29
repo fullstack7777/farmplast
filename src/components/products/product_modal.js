@@ -44,7 +44,7 @@ function MyVerticallyCenteredModal(props) {
                 </Row>
             </Modal.Body>
             <Modal.Footer>
-                <Button onClick={props.onHide}>Закрыть</Button>
+                <Button className="btn-outline-primary-custom" onClick={props.onHide}>Закрыть</Button>
             </Modal.Footer>
         </Modal>
     );

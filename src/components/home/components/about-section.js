@@ -6,11 +6,11 @@ import { faStop } from '@fortawesome/free-solid-svg-icons'
 function AboutSection() {
     return (
         <div id="section2" style={{paddingBottom: 60}}>
-            <img className="custom-section1-img" src={'/images/right.webp'} alt="image1"/>
-            <img className="custom-section1-img" src={'/images/left.webp'} alt="image1"/>
+            <img className="custom-section1-img" src={'/images/left.webp'} alt="left"/>
+            <img className="custom-section2-img" src={'/images/right.webp'} alt="right"/>
             <Container>
-                <h1 className="custom-bold-38" style={{textAlign: "center", paddingBottom: 40}}>
-                    О<span className="custom-bold-white">НАС</span></h1>
+                <h1 className="custom-bold-40" style={{textAlign: "center", paddingBottom: 40}}>
+                    О<span className="custom-bold-white-40">НАС</span></h1>
 
                 <div className="custom-colored-text">
                     <p>Компания Фармпласт ведет отсчет своей деятельности с <span className="custom-bold">1997 года.</span></p>

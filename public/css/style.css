@@ -58,7 +58,7 @@
     width: 200px;
     position: absolute;
     right: 0;
-    top: 280px;
+    top: 200px;
 }
 #email-section{
     padding: 150px 0 150px 0;
@@ -72,6 +72,18 @@
     font-weight: bold;
     background: #008DA9;
     padding: 8px;
+}
+.custom-bold-white-40{
+    font-size:40pt;
+    color: white;
+    font-weight: bold;
+    background: #008DA9;
+    padding: 8px;
+}
+.custom-bold-40{
+    font-size: 40pt;
+    color: #008DA9;
+    font-weight: bold;
 }
 .custom-bold-38{
     font-size: 38pt;
@@ -146,7 +158,7 @@
 }
 
 #products-section .card:hover{
-    filter: brightness(98%);
+    filter: brightness(88%);
 }
 #footer a{
     text-decoration: none;
@@ -243,9 +255,12 @@
 }
 .ware-selected{
     filter: brightness(1.2);
+    background-color: #008DA9;
+
 }
 #ware-info{
     padding-top: 100px;
+
 }
 
 
@@ -415,3 +430,17 @@
   }
 }
 
+.btn-outline-primary-custom {
+    color: #fff;
+    background-color: #008DA9;
+    border: none;
+
+}
+.btn-outline-primary-custom:hover{
+    background-color: #008DA9;
+    color: #fff;
+}
+.btn-outline-primary-custom:disabled{
+    background-color: #008DA9;
+    color: #fff;
+}
