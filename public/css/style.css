@@ -23,6 +23,7 @@
 .custom-input{
     border-radius: 12px!important;
 }
+
 .d-block{
     filter: brightness(50%);
 }
@@ -113,7 +114,7 @@
 
 .brands_slider {
     height: 100%;
-    margin-top: 50px
+    margin-top: 20px
 }
 
 .brands_item {
@@ -329,9 +330,10 @@
  }
 .card-hov{
     width: 17rem;
-    margin-left: 15px;
+    margin-left: 20px;
     border: none;
     cursor: pointer;
+
 }
 
 

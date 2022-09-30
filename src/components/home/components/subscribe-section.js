@@ -10,7 +10,7 @@ function SubscribeSection() {
            <Form>
                <Container>
                    <Row>
-                       <h1 style={{color: "white",}}>Компания фармпласть всегда готова предоставить помощь в выборе продукта и подходящего способа оплаты.</h1>
+                       <h1 style={{color: "white",}}>Компания фармпласт всегда готова предоставить помощь в выборе продукта и подходящего способа оплаты.</h1>
                    </Row>
                    <Row className="justify-content-md-center" style={{marginTop:'32px'}}>
                        <Col xs lg="4">
