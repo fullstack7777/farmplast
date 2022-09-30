@@ -27,7 +27,7 @@ server {
             include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
             ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
-    root   /var/www/localhost/htdocs/build;
+    root   /farmplast/front/build;
     index index.html index.htm;
     location / {
       try_files $uri /index.html;
