@@ -22,6 +22,7 @@ function ProductPage(){
             <Row>
                 <Col lg="3">
                     <Accordion alwaysOpen>
+                        {/* eslint-disable-next-line array-callback-return */}
                         {categories.sort((a,b)=>a.sort_order>b.sort_order?1:-1).map(function (category, index) {
                             if(category.parent_id===0){
                                 return <Accordion.Item eventKey={category.category_id}>
