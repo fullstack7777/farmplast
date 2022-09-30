@@ -1,6 +1,6 @@
-FROM alpine
-#EXPOSE 8080
-#ADD config/default.conf /etc/nginx/conf.d/default.conf
+FROM nginx:1.23.0-alpine
+RUN rm /etc/nginx/conf.d/default.conf
+COPY /config/nginx.conf /etc/nginx/conf.d
 COPY . /var/www/localhost/htdocs
 RUN apk add nodejs && \
     apk add npm && \
@@ -13,8 +13,4 @@ RUN apk add nodejs && \
     cd /var/www/localhost/htdocs && \
     rm -rf * && \
     mv /var/www/localhost/build /var/www/localhost/htdocs;
-#CMD ["/bin/sh", "-c", "exec nginx -g 'daemon off;';"]
 WORKDIR /var/www/localhost/htdocs
-
-#RUN rm /etc/nginx/conf.d/default.conf
-COPY /config/nginx.conf /etc/nginx/conf.d

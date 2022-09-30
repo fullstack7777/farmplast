@@ -13,14 +13,7 @@ services:
       - ./config:/config
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - /tmp/acme_challenge:/tmp/acme_challenge
-    networks:
-      - app
-    restart: always
-  webapp:
-    container_name: 'web-app'
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+      - .:/var/www/localhost/htdocs
     networks:
       - app
     restart: always
