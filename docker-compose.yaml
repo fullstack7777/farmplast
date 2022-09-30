@@ -2,10 +2,10 @@ version: "3.3"
 
 services:
   nginx:
-    container_name: 'nginx-service'
+    container_name: 'farmplast-service'
     build:
       context: .
-      dockerfile: docker/nginx.Dockerfile
+      dockerfile: docker/farmplast.Dockerfile
     ports:
       - 80:80
       - 443:443
