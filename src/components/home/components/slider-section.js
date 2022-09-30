@@ -16,8 +16,8 @@ function MainSlider() {
                 <img
                     className="d-block w-100"
                     src="/images/slider/slide1.webp"
-                    style={{objectFit:"cover", height:'35%!important'}}
-                    //height="600"
+                    style={{objectFit:"cover"}}
+                    height="550"
                     alt="НАШ ГЛАВНЫЙ ПОСТАВЩИК"
                 />
 
@@ -29,8 +29,8 @@ function MainSlider() {
                 <img
                     className="d-block w-100"
                     src="/images/slider/slide2.webp"
-                    style={{objectFit:"cover", height:'35%!important'}}
-                    //height="600"
+                    style={{objectFit:"cover"}}
+                    height="550"
                     alt="ДОСТАВКА ПО ВСЕ РОССИИ"
                 />
 
@@ -42,8 +42,8 @@ function MainSlider() {
                 <img
                     className="d-block w-100"
                     src="/images/slider/slide4.webp"
-                    style={{objectFit:"cover", height:'35%!important'}}
-                    //height="600"
+                    style={{objectFit:"cover"}}
+                    height="550"
                     alt="НАЙДЕМ ИНДИВИДУАЛЬНЫЙ ПОДХОД К КАЖДОМУ КЛИЕНТУ"
                 />
 
@@ -55,8 +55,8 @@ function MainSlider() {
                 <img
                     className="d-block w-100"
                     src="/images/slider/slide3.webp"
-                    style={{objectFit:"cover", height:'35%!important'}}
-                    //height="600"
+                    style={{objectFit:"cover"}}
+                    height="550"
                     alt="РАБОТАЕМ С ПЕРЕДОВЫМИ ЗАВОДАМИ ПРОИЗВОДИТЕЛЯМИ"
                 />
 
