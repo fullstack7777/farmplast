@@ -1,6 +1,6 @@
 FROM alpine
 EXPOSE 8080
-ADD config/default.conf /etc/nginx/conf.d/default.conf
+#ADD config/default.conf /etc/nginx/conf.d/default.conf
 COPY . /var/www/localhost/htdocs
 RUN apk add nginx && \
     mkdir /run/nginx && \
