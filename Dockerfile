@@ -13,5 +13,5 @@ RUN apk add nodejs && \
     cd /var/www/localhost/htdocs && \
     rm -rf * && \
     mv /var/www/localhost/build /var/www/localhost/htdocs;
-CMD ["/bin/sh", "-c", "exec nginx -g 'daemon off;';"]
+#CMD ["/bin/sh", "-c", "exec nginx -g 'daemon off;';"]
 WORKDIR /var/www/localhost/htdocs
