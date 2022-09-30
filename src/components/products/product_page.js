@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from "react-bootstrap/Container";
-import {Accordion, Card, Col, Nav, Row} from "react-bootstrap";
+import {Accordion, Card, Col, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import MyVerticallyCenteredModal from "./product_modal";
 import {useEffect, useState} from "react";
@@ -30,8 +30,9 @@ function ProductPage(){
                                         {category.name}
                                     </Accordion.Header>
                                     <Accordion.Body>
+                                        {/* eslint-disable-next-line array-callback-return */}
                                         {categories.map(function (inner, i) {
-                                            if(category.category_id===inner.parent_id){
+                                            if (category.category_id === inner.parent_id) {
                                                 return <Form.Check
                                                     type={'checkbox'}
                                                     id={inner.category_id}

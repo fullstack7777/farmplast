@@ -41,6 +41,7 @@ function NewNavBar() {
                             {categories.sort((a,b)=>a.sort_order>b.sort_order?1:-1).map(function (category, index) {
                                 if(category.parent_id===0){
                                     return <NavDropdown  renderMenuOnMount={true} className={'nav-bar-lg inner-drop'} drop={'end'} title={category.name}>
+                                        {/* eslint-disable-next-line array-callback-return */}
                                         {categories.map(function (inner, i) {
                                             if(category.category_id===inner.parent_id){
                                                 return <NavDropdown.Item href="/products" >{inner.name}</NavDropdown.Item>
