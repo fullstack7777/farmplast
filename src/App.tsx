@@ -6,18 +6,18 @@ import {
 } from "react-router-dom";
 
 import './App.css';
-import MainMenu from "./components/base/navbar";
 import {HomePage} from "./components/home/home_page";
 import ProductPage from "./components/products/product_page";
 import Footer from "./components/base/footer";
 import {ContactsPage} from "./components/contacts/contacts_page";
 import {WarehousePage} from "./components/warehouse/warehouse_page";
 import {OrdersPage} from "./components/order/orders";
+import NewNavBar from "./components/base/new_nav_bar";
 
 function App() {
   return (
     <div className="App">
-      <MainMenu/>
+      <NewNavBar/>
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomePage />} />

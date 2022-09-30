@@ -7,7 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import {useEffect, useState} from "react";
 
 
-function MainMenu() {
+function NewNavBar() {
     const [categories, setCategories] = useState([]);
     const fetchData = () => {
         return fetch("http://213.139.209.67:8080/api/getAllCategories")
@@ -37,9 +37,9 @@ function MainMenu() {
                     >
                         <Nav.Link className="nav-bar-lg" href="/" >Главная</Nav.Link>
                         <NavDropdown className="nav-bar-lg" title="Продукция" id="navbarScrollingDropdown">
-                            {categories.map(function (category, index) {
+                            {categories.sort((a,b)=>a.sort_order>b.sort_order?1:-1).map(function (category, index) {
                                 if(category.parent_id===0){
-                                    return <NavDropdown drop={'end'} title={category.name}>
+                                    return <NavDropdown  renderMenuOnMount={true} className={'nav-bar-lg inner-drop'} drop={'end'} title={category.name}>
                                         {categories.map(function (inner, i) {
                                             if(category.category_id===inner.parent_id){
                                                 return <NavDropdown.Item href="/products" >{inner.name}</NavDropdown.Item>
@@ -78,4 +78,4 @@ function MainMenu() {
     );
 }
 
-export default MainMenu;
+export default NewNavBar;

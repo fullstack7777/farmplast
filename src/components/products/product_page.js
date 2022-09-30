@@ -3,75 +3,45 @@ import Container from "react-bootstrap/Container";
 import {Accordion, Card, Col, Nav, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import MyVerticallyCenteredModal from "./product_modal";
+import {useEffect, useState} from "react";
+import Form from 'react-bootstrap/Form';
 
 function ProductPage(){
-
+    const [categories, setCategories] = useState([]);
+    const fetchData = () => {
+        return fetch("http://213.139.209.67:8080/api/getAllCategories")
+            .then((response) => response.json())
+            .then((data) => setCategories(data));
+    }
+    useEffect(() => {
+        fetchData();
+    },[])
         const [modalShow, setModalShow] = React.useState(false);
         return (
         <Container id="products-section" className={'top-space'}>
             <Row>
                 <Col lg="3">
                     <Accordion alwaysOpen>
-                        <Accordion.Item eventKey="0">
-                            <Accordion.Header>
-                                <Nav.Link eventKey="link-1">Сибур</Nav.Link>
-                            </Accordion.Header>
-                            <Accordion.Body>
-                                <Nav.Link eventKey="link-2">Полипропилен - ПП</Nav.Link>
-                                <Nav.Link eventKey="link-2">Полиэтилен - ПЭ</Nav.Link>
-                                <Nav.Link eventKey="link-2">Полистирол - ПСВ</Nav.Link>
-                            </Accordion.Body>
-                        </Accordion.Item>
-                        <Accordion.Item eventKey="1">
-                            <Accordion.Header>
-                                <Nav.Link eventKey="link-1">Нижнекамскнефтехим</Nav.Link>
-                            </Accordion.Header>
-                            <Accordion.Body>
-                                <Nav.Link eventKey="link-2">Полипропилен - ПП</Nav.Link>
-                                <Nav.Link eventKey="link-2">Полистирол - ПСВ</Nav.Link>
-                            </Accordion.Body>
-                        </Accordion.Item>
-                        <Accordion.Item eventKey="2">
-                            <Accordion.Header>
-                                <Nav.Link eventKey="link-1">Казаньоргсинтез</Nav.Link>
-                            </Accordion.Header>
-                            <Accordion.Body>
-                                <Nav.Link eventKey="link-2">Полиэтилен - ПЭ</Nav.Link>
-                            </Accordion.Body>
-                        </Accordion.Item>
-                        <Accordion.Item eventKey="3">
-                            <Accordion.Header>
-                                <Nav.Link eventKey="link-1">Нефтехим Ltd</Nav.Link>
-                            </Accordion.Header>
-                            <Accordion.Body>
-                                <Nav.Link eventKey="link-2">Полипропилен - ПП</Nav.Link>
-                            </Accordion.Body>
-                        </Accordion.Item>
-                        <Accordion.Item eventKey="4">
-                            <Accordion.Header>
-                                <Nav.Link eventKey="link-1">Уфаоргсинтез</Nav.Link>
-                            </Accordion.Header>
-                            <Accordion.Body>
-                                <Nav.Link eventKey="link-2">Полипропилен - ПП</Nav.Link>
-                                <Nav.Link eventKey="link-2">Полиэтилен - ПЭ</Nav.Link>
-                            </Accordion.Body>
-                        </Accordion.Item>
-                        <Accordion.Item eventKey="5">
-                            <Accordion.Header>
-                                <Nav.Link eventKey="link-1">Нафтан</Nav.Link>
-                            </Accordion.Header>
-                            <Accordion.Body>
-                                <Nav.Link eventKey="link-2">Полиэтилен - ПЭ</Nav.Link>
-                            </Accordion.Body>
-                        </Accordion.Item>
-                        <Accordion.Item eventKey="6">
-                            <Accordion.Header>
-                                <Nav.Link eventKey="link-1">Иностранные марки</Nav.Link>
-                            </Accordion.Header>
-                            <Accordion.Body>
-                                <Nav.Link eventKey="link-2"></Nav.Link>
-                            </Accordion.Body>
-                        </Accordion.Item>
+                        {categories.sort((a,b)=>a.sort_order>b.sort_order?1:-1).map(function (category, index) {
+                            if(category.parent_id===0){
+                                return <Accordion.Item eventKey={category.category_id}>
+                                    <Accordion.Header>
+                                        {category.name}
+                                    </Accordion.Header>
+                                    <Accordion.Body>
+                                        {categories.map(function (inner, i) {
+                                            if(category.category_id===inner.parent_id){
+                                                return <Form.Check
+                                                    type={'checkbox'}
+                                                    id={inner.category_id}
+                                                    label={inner.name}
+                                                />
+                                            }
+                                        })}
+                                    </Accordion.Body>
+                                </Accordion.Item>;
+                            }
+                        })}
                     </Accordion>
                     <br/>
                 </Col>

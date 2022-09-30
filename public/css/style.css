@@ -373,6 +373,26 @@
 /*        text-align: center!important;*/
 /*    }*/
 /*}*/
+.dropdown-menu{
+    margin: 0!important;
+}
+.inner-drop a{
+    color: #676767!important;
+    font-size: 1rem;
+}
+.inner-drop a:hover{
+    color: #131818!important;
+}
+.inner-drop .dropdown-toggle::after{
+    visibility: hidden!important;
+}
+.inner-drop:hover .dropdown-menu{
+    display: block;
+}
+.inner-drop:hover{
+    color: var(--bs-dropdown-link-hover-color);
+    background-color: var(--bs-dropdown-link-hover-bg);
+}
 .custom-colored-text{
     margin: 0 128px 0 128px;
 }

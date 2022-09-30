@@ -29,6 +29,7 @@ function ProductsSection() {
                         show={modalShow}
                         onHide={() => setModalShow(false)}
                     />
+                    <br/>
                 </Col>
                 <Col md="auto">
                     <Card className="card-hov" onClick={() => setModalShow(true)}>
