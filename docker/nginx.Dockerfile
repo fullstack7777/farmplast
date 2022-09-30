@@ -16,5 +16,5 @@ RUN apk add nodejs && \
 #CMD ["/bin/sh", "-c", "exec nginx -g 'daemon off;';"]
 WORKDIR /var/www/localhost/htdocs
 
-RUN rm /etc/nginx/conf.d/default.conf
+#RUN rm /etc/nginx/conf.d/default.conf
 COPY /config/nginx.conf /etc/nginx/conf.d
