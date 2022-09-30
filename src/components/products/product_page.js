@@ -87,11 +87,68 @@ function ProductPage(){
                                             onClick={() => setModalShow(true)}>Оставить заявку</Button>
 
                                 </Card.Body>
-                                <MyVerticallyCenteredModal
-                                    show={modalShow}
-                                    onHide={() => setModalShow(false)}
-                                />
                             </Card>
+                            <MyVerticallyCenteredModal
+                                show={modalShow}
+                                onHide={() => setModalShow(false)}
+                            />
+                            <br/>
+                        </Col>
+                        <Col md="auto">
+                            <Card className="card-hov" onClick={() => setModalShow(true)}>
+                                <Card.Img variant="top" src="/images/image.webp" alt="card_image1"/>
+                                <Card.Body>
+                                    <h6 style={{textAlign: "left"}}>Полимер</h6>
+                                    <p style={{textAlign: "left"}}>Марка: РР Н030</p>
+                                    <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
+                                    </p>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}
+                                            onClick={() => setModalShow(true)}>Оставить заявку</Button>
+
+                                </Card.Body>
+
+                            </Card>
+                            <MyVerticallyCenteredModal
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                        />
+                            <br/>
+                        </Col>
+                        <Col md="auto">
+                            <Card className="card-hov" onClick={() => setModalShow(true)}>
+                                <Card.Img variant="top" src="/images/image.webp" alt="card_image1"/>
+                                <Card.Body>
+                                    <h6 style={{textAlign: "left"}}>Полимер</h6>
+                                    <p style={{textAlign: "left"}}>Марка: РР Н030</p>
+                                    <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
+                                    </p>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}
+                                            onClick={() => setModalShow(true)}>Оставить заявку</Button>
+                                </Card.Body>
+                            </Card>
+                            <MyVerticallyCenteredModal
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                        />
+                            <br/>
+                        </Col>
+                        <Col md="auto">
+                            <Card className="card-hov" onClick={() => setModalShow(true)}>
+                                <Card.Img variant="top" src="/images/image.webp" alt="card_image1"/>
+                                <Card.Body>
+                                    <h6 style={{textAlign: "left"}}>Полимер</h6>
+                                    <p style={{textAlign: "left"}}>Марка: РР Н030</p>
+                                    <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
+                                    </p>
+                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}
+                                            onClick={() => setModalShow(true)}>Оставить заявку</Button>
+
+                                </Card.Body>
+                            </Card>
+                            <MyVerticallyCenteredModal
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                        />
                             <br/>
                         </Col>
                         <Col md="auto">
@@ -123,70 +180,12 @@ function ProductPage(){
                                     </p>
                                     <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}
                                             onClick={() => setModalShow(true)}>Оставить заявку</Button>
-
                                 </Card.Body>
-                                <MyVerticallyCenteredModal
-                                    show={modalShow}
-                                    onHide={() => setModalShow(false)}
-                                />
                             </Card>
-                            <br/>
-                        </Col>
-                        <Col md="auto">
-                            <Card className="card-hov" onClick={() => setModalShow(true)}>
-                                <Card.Img variant="top" src="/images/image.webp" alt="card_image1"/>
-                                <Card.Body>
-                                    <h6 style={{textAlign: "left"}}>Полимер</h6>
-                                    <p style={{textAlign: "left"}}>Марка: РР Н030</p>
-                                    <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
-                                    </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}
-                                            onClick={() => setModalShow(true)}>Оставить заявку</Button>
-
-                                </Card.Body>
-                                <MyVerticallyCenteredModal
-                                    show={modalShow}
-                                    onHide={() => setModalShow(false)}
-                                />
-                            </Card>
-                            <br/>
-                        </Col>
-                        <Col md="auto">
-                            <Card className="card-hov" onClick={() => setModalShow(true)}>
-                                <Card.Img variant="top" src="/images/image.webp" alt="card_image1"/>
-                                <Card.Body>
-                                    <h6 style={{textAlign: "left"}}>Полимер</h6>
-                                    <p style={{textAlign: "left"}}>Марка: РР Н030</p>
-                                    <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
-                                    </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}
-                                            onClick={() => setModalShow(true)}>Оставить заявку</Button>
-
-                                </Card.Body>
-                                <MyVerticallyCenteredModal
-                                    show={modalShow}
-                                    onHide={() => setModalShow(false)}
-                                />
-                            </Card>
-                            <br/>
-                        </Col>
-                        <Col md="auto">
-                            <Card className="card-hov" onClick={() => setModalShow(true)}>
-                                <Card.Img variant="top" src="/images/image.webp" alt="card_image1"/>
-                                <Card.Body>
-                                    <h6 style={{textAlign: "left"}}>Полимер</h6>
-                                    <p style={{textAlign: "left"}}>Марка: РР Н030</p>
-                                    <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
-                                    </p>
-                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}
-                                            onClick={() => setModalShow(true)}>Оставить заявку</Button>
-
-                                </Card.Body>
-                                <MyVerticallyCenteredModal
-                                    show={modalShow}
-                                    onHide={() => setModalShow(false)}
-                                />
-                            </Card>
+                            <MyVerticallyCenteredModal
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                        />
                             <br/>
                         </Col>
                     </Row>
