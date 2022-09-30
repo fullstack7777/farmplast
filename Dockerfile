@@ -1,5 +1,5 @@
 FROM alpine
-EXPOSE 8080
+#EXPOSE 8080
 #ADD config/default.conf /etc/nginx/conf.d/default.conf
 COPY . /var/www/localhost/htdocs
 RUN apk add nodejs && \

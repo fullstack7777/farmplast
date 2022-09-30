@@ -16,6 +16,14 @@ services:
     networks:
       - app
     restart: always
+  webapp:
+    container_name: 'web-app'
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    networks:
+      - app
+    restart: always
 networks:
   app:
     driver: bridge
