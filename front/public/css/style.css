@@ -3,6 +3,12 @@
     border: solid 2px #008DA9 !important;
     border-radius: 12px;
 }
+.custom-button-map{
+    background-color: #008DA9!important;
+    border: solid 2px #008DA9 !important;
+    border-radius: 12px;
+    color: white;
+}
 .button-cart{
     background-color: #008DA9!important;
     border: solid 2px #008DA9 !important;
@@ -621,17 +627,3 @@
 
 }
 
-.btn-outline-primary-custom {
-    color: #fff;
-    background-color: #008DA9;
-    border: none;
-
-}
-.btn-outline-primary-custom:hover{
-    background-color: #008DA9;
-    color: #fff;
-}
-.btn-outline-primary-custom:disabled{
-    background-color: #008DA9;
-    color: #fff;
-}
