@@ -27,7 +27,7 @@ function ProductsSection() {
                                     <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
                                     <Placeholder xs={6} /> <Placeholder xs={8} />
                                 </Placeholder>
-                                <Placeholder.Button variant="primary" xs={6} />
+                                <Placeholder.Button variant="primary" className={'custom-button'} xs={6} />
                             </Card.Body>
                         </Card>
                         <br/>
@@ -43,7 +43,7 @@ function ProductsSection() {
                                     <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
                                     <Placeholder xs={6} /> <Placeholder xs={8} />
                                 </Placeholder>
-                                <Placeholder.Button variant="primary" xs={6} />
+                                <Placeholder.Button variant="primary" className={'custom-button'} xs={6} />
                             </Card.Body>
                         </Card>
                         <br/>
@@ -59,7 +59,7 @@ function ProductsSection() {
                                     <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
                                     <Placeholder xs={6} /> <Placeholder xs={8} />
                                 </Placeholder>
-                                <Placeholder.Button variant="primary" xs={6} />
+                                <Placeholder.Button variant="primary" className={'custom-button'} xs={6} />
                             </Card.Body>
                         </Card>
                         <br/>
@@ -75,7 +75,7 @@ function ProductsSection() {
                                     <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
                                     <Placeholder xs={6} /> <Placeholder xs={8} />
                                 </Placeholder>
-                                <Placeholder.Button variant="primary" xs={6} />
+                                <Placeholder.Button variant="primary" className={'custom-button'} xs={6} />
                             </Card.Body>
                         </Card>
                         <br/>
