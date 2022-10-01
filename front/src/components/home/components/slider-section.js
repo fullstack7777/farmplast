@@ -11,7 +11,6 @@ function MainSlider() {
     return (
         <Carousel activeIndex={index} onSelect={handleSelect} className="rev_slider">
 
-
             <Carousel.Item>
                 <img
                     className="d-block w-100"
@@ -22,7 +21,7 @@ function MainSlider() {
                 />
 
                 <Carousel.Caption style={{top:'35%', bottom:'0'}}>
-                    <h3 style={{'font-size':'56pt', textAlign:'start'}}>НАШ ГЛАВНЫЙ ПОСТАВЩИК</h3>
+                    <h3 id="slider-text">НАШ ГЛАВНЫЙ ПОСТАВЩИК</h3>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -35,7 +34,7 @@ function MainSlider() {
                 />
 
                 <Carousel.Caption style={{top:'35%',bottom:'0'}}>
-                    <h3 style={{'font-size':'56pt', textAlign:'start'}}>ДОСТАВКА ПО ВСЕЙ РОССИИ</h3>
+                    <h3 id="slider-text">ДОСТАВКА ПО ВСЕЙ РОССИИ</h3>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -48,7 +47,7 @@ function MainSlider() {
                 />
 
                 <Carousel.Caption style={{top:'35%',bottom:'0'}}>
-                    <h3 style={{'font-size':'56pt', textAlign:'start'}}>НАЙДЕМ ИНДИВИДУАЛЬНЫЙ ПОДХОД К КАЖДОМУ КЛИЕНТУ</h3>
+                    <h3 id="slider-text">НАЙДЕМ ИНДИВИДУАЛЬНЫЙ ПОДХОД К КАЖДОМУ КЛИЕНТУ</h3>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -61,7 +60,7 @@ function MainSlider() {
                 />
 
                 <Carousel.Caption style={{top:'35%',bottom:'0'}}>
-                    <h3 style={{'font-size':'56pt', textAlign:'start'}}>РАБОТАЕМ С ПЕРЕДОВЫМИ ЗАВОДАМИ ПРОИЗВОДИТЕЛЯМИ</h3>
+                    <h3 id="slider-text">РАБОТАЕМ С ПЕРЕДОВЫМИ ЗАВОДАМИ ПРОИЗВОДИТЕЛЯМИ</h3>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>

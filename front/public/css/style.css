@@ -73,6 +73,7 @@
     font-weight: bold;
     background: #008DA9;
     padding: 8px;
+
 }
 .custom-bold-white-40{
     font-size:40pt;
@@ -85,12 +86,18 @@
     font-size: 40pt;
     color: #008DA9;
     font-weight: bold;
+    padding-bottom: 40px;
+    text-align: center;
 }
 .custom-bold-38{
     font-size: 38pt;
     color: #008DA9;
     font-weight: bold;
+    text-align: center;
+    padding-bottom: 60px;
+    padding-top: 60px;
 }
+
 .list-style{
     list-style-type: none;
     padding-top: inherit;
@@ -227,7 +234,8 @@
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
     padding: 5px;
-    cursor: pointer
+    cursor: pointer;
+
 }
 
 .warehouses_nav i {
@@ -302,12 +310,35 @@
 
 #orders-page{
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
 }
-#oreders-page-card{
+#orders-page-card{
+    display: flex;
+    flex-direction: column;
     margin-bottom: 20px;
 
 }
-
+.order-cards{
+    display: flex;
+    flex-direction: row;
+    border-width: 1px;
+    border-style: solid;
+    border-color: gray;
+    border-radius: 3px;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.order-img{
+    width: 300px;
+    padding: 5px;
+}
+.order-detail{
+    flex: 1;
+    align-items: flex-start;
+    padding: 5px;
+}
 
 #section-contacts-order{
     width: 100%;
@@ -373,6 +404,10 @@
 /*        text-align: center!important;*/
 /*    }*/
 /*}*/
+#slider-text{
+    font-size: 56pt;
+    text-align: start;
+}
 .dropdown-menu{
     margin: 0!important;
 }
@@ -396,21 +431,42 @@
 .custom-colored-text{
     margin: 0 128px 0 128px;
 }
+
 @media screen and (max-width: 1160px) {
   .container {
     width: 940px;
   }
+    .order-detail{
+        width: 80%;
+    }
+    .col-lg-6{
+        width: 100%;
+    }
+
+
 }
 @media screen and (max-width: 1023px) {
   .container {
     width: 780px;
   }
 
+
 }
 @media screen and (max-width: 979px) {
   .container {
     width: 708px;
   }
+    .col-lg-6{
+        width: 100%;
+    }
+    #ware-info{
+        padding-bottom: 20px;
+    }
+    .search-nav{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
 }
 @media screen and (max-width: 799px) {
   .container {
@@ -421,6 +477,13 @@
     }
     .custom-colored-text{
         margin: 0;
+    }
+    #ware-info{
+        padding-bottom: 20px;
+    }
+    .search-nav{
+        width: 100%;
+        margin-bottom: 10px;
     }
 }
 @media screen and (max-width: 767px) {
@@ -434,22 +497,128 @@
     #footer .row div{
         text-align: center!important;
     }
+    #ware-info{
+        padding-bottom: 20px;
+    }
+    .search-nav{
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
 @media screen and (max-width: 639px) {
   .container {
     width: 460px;
   }
-
+    .custom-section2-img{
+        display: none;
+    }
+    .custom-section1-img{
+        display: none;
+    }
+    #slider-text{
+        font-size: 34pt;
+    }
+    .brands_slider_container{
+        padding-left: 39px;
+        padding-right: 39px;
+    }
+    .search-nav{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    #ware-info{
+        padding-bottom: 20px;
+    }
+    #orders-page{
+        margin-bottom: 10px;
+    }
+    .custom-bold-38{
+        line-height: 1.5;
+    }
+    .col{
+        flex: none;
+        margin-bottom: 10px;
+    }
+    .search-nav{
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
 @media screen and (max-width: 479px) {
   .container {
     width: 340px;
   }
+    .custom-section2-img{
+        display: none;
+    }
+    .custom-section1-img{
+        display: none;
+    }
+    #slider-text{
+        font-size: 22pt;
+        width: 100px;
+    }
+    .search-nav{
+    width: 100%;
+    margin-bottom: 10px;
+    }
+    .col{
+        flex: none;
+        margin-bottom: 10px;
+    }
+    .brands_slider_container{
+        padding-left: 57px;
+        padding-right: 57px;
+    }
+    .owl-item{
+        width: 0;
+    }
+    .warehouses_slider_container {
+
+    }
+    #ware-info{
+        padding-bottom: 20px;
+    }
+    .order-cards{
+        display: flex;
+        flex-direction: column;
+    }
+    .order-img{
+        padding: 15px;
+    }
+    .col-lg-6{
+        padding: 5px;
+    }
+
 }
 @media screen and (max-width: 359px) {
   .container {
-    width: 300px;
+    width: 325px;
   }
+    .brands_slider_container{
+        padding-left: 37px;
+        padding-right: 37px;
+    }
+    .order-cards{
+        display: flex;
+        flex-direction: column;
+    }
+    .order-img{
+        padding: 15px;
+    }
+    .col-lg-6{
+        padding: 5px;
+    }
+    #section-contacts-order{
+        padding: 5px
+    }
+
+    #warehouse-row{
+        display: flex;
+        flex-direction: column;
+
+    }
+
 }
 
 .btn-outline-primary-custom {

@@ -7,59 +7,34 @@ export class OrdersPage extends React.Component {
     render() {
         return (
             <Container id="section-contacts">
-                <div style={{marginBottom: 80, marginTop: 40}}><h1 className="custom-bold-38" style={{textAlign: "center"}}>
-                    Оформление<span className="custom-bold-white">завки</span></h1></div>
+                <div><h1 className="custom-bold-38">
+                    Оформление <span className="custom-bold-white">заявки</span></h1></div>
                 <Row >
                     <Col>
-                       <Row >
-                           <div id="orders-page">
-                          <div >
-                              <Card  id="oreders-page-card">
-                                  <Card.Body>
-                                      <div style={{display: "inline-block"}}><img src="/images/image.webp" alt="Полимер"/>
-                                      </div>
-                                      <div style={{display: "inline-block"}}>
-                                          <div style={{width: 200, marginLeft: 20}}>
-                                              <h6 style={{textAlign: "left"}}>Полимер</h6>
-                                              <p style={{textAlign: "left"}}>Марка: РР Н030</p>
-                                              <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
-                                              </p>
-                                          </div>
-                                      </div>
-                                  </Card.Body>
-                              </Card>
-                              <Card  id="oreders-page-card">
-                                  <Card.Body>
-                                      <div style={{display: "inline-block"}}><img src="/images/image.webp" alt="Полимер"/>
-                                      </div>
-                                      <div style={{display: "inline-block"}}>
-                                          <div style={{width: 200, marginLeft: 20}}>
-                                              <h6 style={{textAlign: "left"}}>Полимер</h6>
-                                              <p style={{textAlign: "left"}}>Марка: РР Н030</p>
-                                              <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
-                                              </p>
-                                          </div>
-                                      </div>
-                                  </Card.Body>
-                              </Card>
-                              <Card  id="oreders-page-card">
-                                  <Card.Body>
-                                      <div style={{display: "inline-block"}}><img src="/images/image.webp" alt="Полимер"/>
-                                      </div>
-                                      <div style={{display: "inline-block"}}>
-                                          <div style={{width: 200, marginLeft: 20}}>
-                                              <h6 style={{textAlign: "left"}}>Полимер</h6>
-                                              <p style={{textAlign: "left"}}>Марка: РР Н030</p>
-                                              <p style={{textAlign: "left"}}>Производитель: Компания Нефтехим, Республика Казахстан
-                                              </p>
-                                          </div>
-                                      </div>
-                                  </Card.Body>
-                              </Card>
-                          </div>
-
+                           <div className="order-cards">
+                               <div className="order-img"><img src="/images/image.webp" alt="Полимер"/></div>
+                               <div className="order-detail">
+                                   <div>Полимер</div>
+                                   <div>Марка: РР Н030</div>
+                                   <div>Производитель: Компания Нефтехим, Республика Казахстан</div>
+                               </div>
                            </div>
-                       </Row>
+                        <div className="order-cards">
+                            <div className="order-img"><img src="/images/image.webp" alt="Полимер"/></div>
+                            <div className="order-detail">
+                                <div>Полимер</div>
+                                <div>Марка: РР Н030</div>
+                                <div>Производитель: Компания Нефтехим, Республика Казахстан</div>
+                            </div>
+                        </div>
+                        <div className="order-cards">
+                            <div className="order-img"><img src="/images/image.webp" alt="Полимер"/></div>
+                            <div className="order-detail">
+                                <div>Полимер</div>
+                                <div>Марка: РР Н030</div>
+                                <div>Производитель: Компания Нефтехим, Республика Казахстан</div>
+                            </div>
+                        </div>
                     </Col>
                     <Col lg="6">
                         <div id="section-contacts-order">

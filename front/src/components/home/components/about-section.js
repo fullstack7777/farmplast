@@ -9,7 +9,7 @@ function AboutSection() {
             <img className="custom-section1-img" src={'/images/left.webp'} alt="left"/>
             <img className="custom-section2-img" src={'/images/right.webp'} alt="right"/>
             <Container>
-                <h1 className="custom-bold-40" style={{textAlign: "center", paddingBottom: 40}}>
+                <h1 className="custom-bold-40">
                     О<span className="custom-bold-white-40">НАС</span></h1>
 
                 <div className="custom-colored-text">

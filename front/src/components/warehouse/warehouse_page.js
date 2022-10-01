@@ -9,16 +9,16 @@ export class WarehousePage extends React.Component {
     render() {
         return (
             <div className="warehouses">
-                <h1 className="custom-bold-38" style={{textAlign: "center", paddingBottom: 40, marginTop: 40}}>
+                <h1 className="custom-bold-38">
                     АДРЕСА НАШИХ <span className="custom-bold-white">СКЛАДОВ</span></h1>
                 <Container>
 
-                    <Row>
-                        <Col>
+                    <Row id="warehouse-row">
+                        <Col id="warehouse-col">
                             <div className="warehouses_slider_container">
-                                <div className="owl-carousel owl-theme warehouses_slider">
+                                <div className="owl-carousel owl-theme warehouses_slider ">
                                     <div className="owl-item">
-                                        <Button variant="primary" data-index={'0'} className="ware-button">Склад в СПБ
+                                        <Button variant="primary" data-index={'0'} className="ware-button ware-selected">Склад в СПБ
                                         </Button>
                                     </div>
                                     <div className="owl-item">
@@ -38,10 +38,10 @@ export class WarehousePage extends React.Component {
                                         </Button>
                                     </div>
                                 </div>
-                                <div className="warehouses_nav brands_prev">
+                                <div className="warehouses_nav warehouses_prev">
                                     <FontAwesomeIcon icon={faChevronLeft}/>
                                 </div>
-                                <div className="warehouses_nav brands_next">
+                                <div className="warehouses_nav warehouses_next">
                                     <FontAwesomeIcon icon={faChevronRight}/>
                                 </div>
                             </div>
