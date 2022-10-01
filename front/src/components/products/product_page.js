@@ -1,10 +1,11 @@
 import React from 'react';
 import Container from "react-bootstrap/Container";
-import {Accordion, Card, Col, Row} from "react-bootstrap";
+import {Accordion, Card, Col, Placeholder, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import MyVerticallyCenteredModal from "./product_modal";
 import {useEffect, useState} from "react";
 import Form from 'react-bootstrap/Form';
+import AccordionItem from "react-bootstrap/AccordionItem";
 
 function ProductPage(){
     const [categories, setCategories] = useState([]);
@@ -21,30 +22,42 @@ function ProductPage(){
         <Container id="products-section" className={'top-space'}>
             <Row>
                 <Col lg="3">
-                    <Accordion alwaysOpen>
+                    <Accordion alwaysOpen defaultActiveKey="0">
+                        {categories.length>0?
+                            categories.sort((a,b)=>a.sort_order>b.sort_order?1:-1).map(function (category, index) {
+                                    if(category.parent_id===0){
+                                        return <Accordion.Item eventKey={category.category_id}>
+                                            <Accordion.Header>
+                                                {category.name}
+                                            </Accordion.Header>
+                                            <Accordion.Body>
+                                                {/* eslint-disable-next-line array-callback-return */}
+                                                {categories.map(function (inner, i) {
+                                                    if (category.category_id === inner.parent_id) {
+                                                        return <Form.Check
+                                                            type={'checkbox'}
+                                                            id={inner.category_id}
+                                                            label={inner.name}
+                                                        />
+                                                    }
+                                                })}
+                                            </Accordion.Body>
+                                        </Accordion.Item>;
+                                    }
+                                })
+                            :
+                            <AccordionItem eventKey={'0'} >
+                                <Placeholder as={Accordion.Header} animation="glow">
+                                    <Placeholder xs={6} />
+                                </Placeholder>
+                                <Placeholder as={Accordion.Body} animation="glow">
+                                    <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
+                                    <Placeholder xs={6} /> <Placeholder xs={8} />
+                                </Placeholder>
+                            </AccordionItem>
+                        }
                         {/* eslint-disable-next-line array-callback-return */}
-                        {categories.sort((a,b)=>a.sort_order>b.sort_order?1:-1).map(function (category, index) {
-                            if(category.parent_id===0){
-                                return <Accordion.Item eventKey={category.category_id}>
-                                    <Accordion.Header>
-                                        {category.name}
-                                    </Accordion.Header>
-                                    <Accordion.Body>
-                                        {/* eslint-disable-next-line array-callback-return */}
-                                        {categories.map(function (inner, i) {
-                                            if (category.category_id === inner.parent_id) {
-                                                return <Form.Check
-                                                    type={'checkbox'}
-                                                    id={inner.category_id}
-                                                    label={inner.name}
-                                                />
-                                            }
-                                        })}
-                                    </Accordion.Body>
-                                </Accordion.Item>;
-                            }
-                        })}
-                    </Accordion>
+                        </Accordion>
                     <br/>
                 </Col>
                 <Col lg="9">

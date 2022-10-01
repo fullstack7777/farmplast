@@ -437,7 +437,17 @@
 .custom-colored-text{
     margin: 0 128px 0 128px;
 }
-
+.call-button{
+    display: none;
+}
+@media screen and (max-width: 1200px) {
+    .call-button{
+        display: block;
+    }
+    .call-button-lg{
+        display: none;
+    }
+}
 @media screen and (max-width: 1160px) {
   .container {
     width: 940px;
@@ -448,7 +458,6 @@
     .col-lg-6{
         width: 100%;
     }
-
 
 }
 @media screen and (max-width: 1023px) {
@@ -472,7 +481,12 @@
         width: 100%;
         margin-bottom: 10px;
     }
-
+    .call-button{
+        display: none;
+    }
+    .call-button-lg{
+        display: block;
+    }
 }
 @media screen and (max-width: 799px) {
   .container {

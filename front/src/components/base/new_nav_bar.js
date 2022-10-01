@@ -5,6 +5,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {useEffect, useState} from "react";
+import {faPhone} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
 function NewNavBar() {
@@ -72,7 +74,8 @@ function NewNavBar() {
                         />
                         {/*<Button variant="primary">Заказать звонок</Button>*/}
                     </Form>
-                    <Button variant="primary" className="custom-button" href="#email-section">Заказать звонок</Button>
+                    <Button variant="primary" className="custom-button call-button-lg" href="#email-section">Заказать звонок</Button>
+                    <Button variant="primary" className="custom-button call-button" href="#email-section"><FontAwesomeIcon icon={faPhone}/></Button>
                     <Button variant="primary" className="button-cart" href="/orders"><img src="./images/cart.webp" height ="20" width="20" alt="cart"/></Button>
                 </Navbar.Collapse>
             </Container>
