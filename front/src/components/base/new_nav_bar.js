@@ -10,7 +10,7 @@ import {useEffect, useState} from "react";
 function NewNavBar() {
     const [categories, setCategories] = useState([]);
     const fetchData = () => {
-        return fetch("http://213.139.209.67:8080/api/getAllCategories")
+        return fetch("https://api.farmplst.com/api/getAllCategories")
             .then((response) => response.json())
             .then((data) => setCategories(data));
     }
