@@ -19,6 +19,29 @@ app.get("/api/getAllCategories", (req,res)=>{
     );
 });
 
+//Get products by category
+app.get("/api/getProductsByCategory", (req,res)=>{
+    const categoryId = req.query.category_ids;
+    const categories = categoryId.split(',');
+    if(categories.length===0){
+        db.query("select p.product_id, p.model, p.image, opd.name, om.name as manufacturer  from oc_product p inner join oc_product_description opd on p.product_id = opd.product_id inner join oc_manufacturer om on p.manufacturer_id = om.manufacturer_id where p.status=1", (err,result)=>{
+                if(err) {
+                    console.log(err)
+                }
+                res.send(result)
+            }
+        );
+    }else {
+        db.query("select p.product_id, p.model, p.image, opd.name, om.name as manufacturer  from oc_product p inner join oc_product_description opd on p.product_id = opd.product_id inner join oc_manufacturer om on p.manufacturer_id = om.manufacturer_id inner join oc_product_to_category optc on p.product_id = optc.product_id where p.status=1 and optc.category_id in (?)"
+            ,[categories], (err,result)=>{
+                if(err) {
+                    console.log(err)
+                }
+                res.send(result)
+            }
+        );
+    }
+});
 //Get popular products
 app.get("/api/getPopularProducts", (req,res)=>{
     db.query("select p.product_id, p.model, p.image, opd.name, om.name as manufacturer  from oc_product p inner join oc_product_description opd on p.product_id = opd.product_id inner join oc_manufacturer om on p.manufacturer_id = om.manufacturer_id where p.status=1 order by p.quantity desc limit 4", (err,result)=>{
