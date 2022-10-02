@@ -10,7 +10,7 @@ app.use(express.json())
 
 //Get all categories
 app.get("/api/getAllCategories", (req,res)=>{
-    db.query("select oc_category.category_id, oc_category.parent_id, oc_category.sort_order, ocd.name, seo.keyword from oc_category inner join oc_category_description ocd on oc_category.category_id = ocd.category_id left join oc_seo_url seo on concat('category_id=',oc_category.category_id) = seo.query where oc_category.status=1", (err,result)=>{
+    db.query("select c.category_id, c.parent_id, c.sort_order, ocd.name, seo.keyword from oc_category c left join oc_category_description ocd on c.category_id = ocd.category_id left join oc_seo_url seo on seo.value like concat('%', c.category_id)  and seo.`key`='path' where c.status=1", (err,result)=>{
             if(err) {
                 console.log(err)
             }
