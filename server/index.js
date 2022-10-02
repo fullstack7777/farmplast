@@ -23,7 +23,7 @@ app.get("/api/getAllCategories", (req,res)=>{
 app.get("/api/getProductsByCategory", (req,res)=>{
     const categoryId = req.query.category_ids;
     const categories = categoryId.split(',');
-    if(categories.length===0){
+    if(categories.length===0 ||categoryId===""){
         db.query("select p.product_id, p.model, p.image, opd.name, om.name as manufacturer  from oc_product p inner join oc_product_description opd on p.product_id = opd.product_id inner join oc_manufacturer om on p.manufacturer_id = om.manufacturer_id where p.status=1", (err,result)=>{
                 if(err) {
                     console.log(err)
