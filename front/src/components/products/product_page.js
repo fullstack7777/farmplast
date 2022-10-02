@@ -9,13 +9,22 @@ import AccordionItem from "react-bootstrap/AccordionItem";
 
 function ProductPage(){
     const [categories, setCategories] = useState([]);
+    const [selectedCategories, setSelectedCategories] = useState([]);
+    const [products, setProducts] = useState([]);
     const fetchData = () => {
         return fetch("https://api.farmplst.com/api/getAllCategories")
             .then((response) => response.json())
             .then((data) => setCategories(data));
     }
+    const fetchProducts = () => {
+        const p = selectedCategories.join(',');
+        return fetch("/api/getProductsByCategory?category_ids="+p)
+            .then((response) => response.json())
+            .then((data) => setProducts(data));
+    }
     useEffect(() => {
         fetchData();
+        fetchProducts();
     },[])
         const [modalShow, setModalShow] = React.useState(false);
         return (
