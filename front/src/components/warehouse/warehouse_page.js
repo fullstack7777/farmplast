@@ -12,7 +12,6 @@ export class WarehousePage extends React.Component {
                 <h1 className="custom-bold-38">
                     АДРЕСА НАШИХ <span className="custom-bold-white">СКЛАДОВ</span></h1>
                 <Container>
-
                     <Row id="warehouse-row">
                         <Col id="warehouse-col">
                             <div className="warehouses_slider_container">

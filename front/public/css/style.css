@@ -33,6 +33,9 @@
 .d-block{
     filter: brightness(50%);
 }
+.d-block-modal{
+    filter: brightness(90%);
+}
 .custom-bold{
     font-size: 18px;
     color: #008DA9;
@@ -356,10 +359,6 @@
     background-color: #008DA9;
     padding-bottom: 40px;
 }
-.product-box{
-
-}
-
 #img-big{
     width: 100%;
 }
