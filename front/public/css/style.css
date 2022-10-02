@@ -393,6 +393,10 @@
 .nav-bar-white:hover{
     opacity: 0.5;
 }
+.subscribe-section-h1{
+    color: white;
+    text-align: center;
+}
 
 /*@media all and (max-width: 1024px) {*/
 /*    .custom-section1-img{*/
