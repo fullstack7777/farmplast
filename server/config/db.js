@@ -1,10 +1,10 @@
 const mysql = require('mysql')
 
 const db = mysql.createPool({
-    host: "erumyrg1.beget.tech",
-    user: "erumyrg1_erumyrg",
+    host: "213.139.209.67",
+    user: "opencartr",
     password: "PDT3gHQ&",
-    database:"erumyrg1_erumyrg"
+    database:"opencart"
 })
 
 module.exports = db;
