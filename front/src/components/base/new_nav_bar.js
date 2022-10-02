@@ -24,7 +24,7 @@ function NewNavBar() {
             <Container>
                 <Navbar.Brand href="/">
                     <img
-                        src="/images/logo2.webp"
+                        src="/images/logo.webp"
                         height="60"
                         className="d-inline-block align-top"
                         alt="Logo"
