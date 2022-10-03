@@ -43,6 +43,15 @@ function MyVerticallyCenteredModal(props) {
                                     />
                                 </Carousel.Item>
                             </Carousel>
+                        <Row>
+                            <Col className="modal-picture-mini">
+                           <img className="modal-picture-single" src="/images/image.webp"/>
+                           <img className="modal-picture-single" src="/images/image.webp"/>
+                           <img className="modal-picture-single" src="/images/image.webp"/>
+                           <img className="modal-picture-single" src="/images/image.webp"/>
+                            </Col>
+                        </Row>
+
                     </Col>
                     <Col>
                         <h4>Полимер</h4>

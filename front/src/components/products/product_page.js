@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import {useEffect, useState} from "react";
 import Form from 'react-bootstrap/Form';
 import AccordionItem from "react-bootstrap/AccordionItem";
+import MyVerticallyCenteredModal from "./product_modal";
 
 function ProductPage(){
     const [categories, setCategories] = useState([]);
@@ -77,7 +78,7 @@ function ProductPage(){
     function getExtension(filename) {
         return filename.split(".").pop();
     }
-
+    const [modalShow, setModalShow] = React.useState(false);
     return (
         <Container id="products-section" className={'top-space'}>
             <Row>
@@ -180,6 +181,7 @@ function ProductPage(){
                                 </Card>
                                 <br/>
                             </Col>
+
                         </Row>
                         :
                         <Row>
@@ -190,7 +192,7 @@ function ProductPage(){
                                     ext = product.image.replace('.'+ext,'-250x250.'+ext);
                                     return (
                                         <Col md="auto">
-                                            <Card className="card-hov">
+                                            <Card className="card-hov" onClick={() => setModalShow(true)}>
                                                 <Card.Img variant="top" src={'http://admin.farmplst.com/image/cache/'+ext} alt={product.name}/>
                                                 <Card.Body>
                                                     <h6 style={{textAlign: "left"}}>{product.name}</h6>
@@ -199,7 +201,6 @@ function ProductPage(){
                                                     </p>
                                                     <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>
                                                         Оставить заявку</Button>
-
                                                 </Card.Body>
                                             </Card>
                                             <br/>
@@ -210,7 +211,12 @@ function ProductPage(){
                         </Row>
                     }
                 </Col>
+
             </Row>
+            <MyVerticallyCenteredModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+            />
     </Container>
     );
 }

@@ -378,6 +378,20 @@
 
 }
 
+.modal-picture-mini{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 500px;
+}
+
+.modal-picture-single{
+    width: 80px;
+    height: 80px;
+    padding-top: 10px;
+    padding-right: 5px;
+}
 
 .badge-cart{
 
