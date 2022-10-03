@@ -1,10 +1,9 @@
 import React from 'react';
 import Container from "react-bootstrap/Container";
-import {Accordion, Card, Col, Placeholder, Row} from "react-bootstrap";
+import {Card, Col, ListGroup, Placeholder, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import {useEffect, useState} from "react";
 import Form from 'react-bootstrap/Form';
-import AccordionItem from "react-bootstrap/AccordionItem";
 import MyVerticallyCenteredModal from "./product_modal";
 
 function ProductPage(){
@@ -40,13 +39,21 @@ function ProductPage(){
         if(ids!==null && ids!==""){
             const ids1 = ids.split(',');
             for (const x of ids1) {
-                if(x!=='' && x!==idP){
-                    selections.set(x, true);
+                for (const  y of idP){
+                    selections.delete(y)
+                    if(x!=='' && x!==y){
+                        selections.set(x, true);
+                    }
                 }
             }
         }
 
         let p = '';
+
+
+        for (const  y of idP){
+            selections.delete(y.toString())
+        }
         for (let item of selections.keys()) {
             if(item!=null && item!=='' && item!==idP && selections.get(item)){
                 p+=item+',';
@@ -57,6 +64,7 @@ function ProductPage(){
         }else {
             window.history.replaceState(null, p, `/products`)
         }
+        console.log(p)
         return fetch("https://api.farmplst.com/api/getProductsByCategory?category_ids="+p)
             .then(function (response) {
                 setLoading(false);
@@ -67,7 +75,9 @@ function ProductPage(){
                 return setProducts(data);
             });
     }
-
+    // function typeOf(obj) {
+    //     return {}.toString.call(obj).split(' ')[1].slice(0, -1).toLowerCase();
+    // }
     function checkId(id) {
         const queryParams = new URLSearchParams(window.location.search)
         const ids = queryParams.get("category_ids")
@@ -77,6 +87,26 @@ function ProductPage(){
             for (const x of ids1) {
                 if(x==id){
                     return true;
+                }
+            }
+        }
+        return false;
+    }
+    function checkIdGroup(category) {
+        const queryParams = new URLSearchParams(window.location.search)
+        const ids = queryParams.get("category_ids")
+
+        let i = 0;
+        if(ids!==null && ids!=="" && category.subs!==undefined && category.subs!=null){
+            const ids1 = ids.split(',');
+            for (const x of ids1) {
+                for (const item of category.subs) {
+                    if(x==item){
+                        i++
+                    }
+                    if(i==category.subs.length){
+                        return true;
+                    }
                 }
             }
         }
@@ -95,7 +125,7 @@ function ProductPage(){
                 }
             }
         }
-        fetchProducts(0);
+        fetchProducts([0]);
     },[])
 
     function handleOnChange(evt) {
@@ -105,7 +135,21 @@ function ProductPage(){
         const id = target.id;
 
         selections.set(id, checked)
-        fetchProducts(checked?0:id);
+        fetchProducts(checked?[0]:[id]);
+    }
+    function handleOnChangeGroup(evt, category) {
+        const target = evt.target;
+        const checked = target.checked;
+        // const name = target.name;
+
+        let ids = [];
+        if(category.subs!==undefined && category.subs!=null){
+            for (const item of category.subs){
+                ids.push(item)
+                selections.set(item, checked)
+            }
+        }
+        fetchProducts(checked?[0]:ids);
     }
     // function removeItemOnce(arr, value) {
     //     const index = arr.indexOf(value);
@@ -122,45 +166,57 @@ function ProductPage(){
         <Container id="products-section" className={'top-space'}>
             <Row>
                 <Col lg="3">
-                    <Accordion alwaysOpen defaultActiveKey="0">
+                    <ListGroup>
                         {categories.length>0?
                             // eslint-disable-next-line array-callback-return
                             categories.sort((a,b)=>a.sort_order>b.sort_order?1:-1).map(function (category, index) {
-                                    if(category.parent_id===0){
-                                        return <Accordion.Item eventKey={category.category_id}>
-                                            <Accordion.Header>
-                                                {category.name}
-                                            </Accordion.Header>
-                                            <Accordion.Body>
-                                                {/* eslint-disable-next-line array-callback-return */}
-                                                {categories.map(function (inner, i) {
-                                                    if (category.category_id === inner.parent_id) {
-                                                        return <Form.Check
-                                                            type={'checkbox'}
-                                                            id={inner.category_id}
-                                                            label={inner.name}
-                                                            checked={checkId(inner.category_id)}
-                                                            onChange={handleOnChange}
-                                                        />
-                                                    }
-                                                })}
-                                            </Accordion.Body>
-                                        </Accordion.Item>;
-                                    }
-                                })
+                                if(category.parent_id===0){
+                                    category.subs = [];
+                                    // eslint-disable-next-line array-callback-return
+                                    categories.map(function (inner, i) {
+                                        if (category.category_id == inner.parent_id) {
+                                            category.subs.push(inner.category_id)
+                                        }})
+                                    return [
+                                        <ListGroup.Item style={{background:'#f8f9fa'}}>
+                                            <Form.Check
+                                                type={'checkbox'}
+                                                id={category.category_id}
+                                                data={category}
+                                                label={category.name}
+                                                checked={checkIdGroup(category)}
+                                                onChange={function (event) {
+                                                    handleOnChangeGroup(event, category)
+                                                }}
+                                            />
+                                        </ListGroup.Item>,
+                                        <ListGroup.Item>
+                                            {/* eslint-disable-next-line array-callback-return */}
+                                            {categories.map(function (inner, i) {
+                                                if (category.category_id === inner.parent_id) {
+                                                    return <Form.Check
+                                                        type={'checkbox'}
+                                                        id={inner.category_id}
+                                                        label={inner.name}
+                                                        checked={checkId(inner.category_id)}
+                                                        onChange={handleOnChange}
+                                                    />
+                                                }
+                                            })}
+                                        </ListGroup.Item>
+                                    ]
+                                }
+                            })
                             :
-                            <AccordionItem eventKey={'0'} >
-                                <Placeholder as={Accordion.Header} animation="glow">
-                                    <Placeholder xs={6} />
-                                </Placeholder>
-                                <Placeholder as={Accordion.Body} animation="glow">
+                            <ListGroup.Item eventKey={'0'} >
+                                <Placeholder as={ListGroup.Item} animation="glow">
                                     <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
                                     <Placeholder xs={6} /> <Placeholder xs={8} />
                                 </Placeholder>
-                            </AccordionItem>
+                            </ListGroup.Item>
                         }
-                        {/* eslint-disable-next-line array-callback-return */}
-                        </Accordion>
+                    </ListGroup>
+
                     <br/>
                 </Col>
                 <Col lg="9">
