@@ -9,17 +9,49 @@ import MyVerticallyCenteredModal from "./product_modal";
 
 function ProductPage(){
     const [categories, setCategories] = useState([]);
-    const [selectedCategories, setSelectedCategories] = useState([]);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const selections = new Map();
+
     const fetchData = () => {
         return fetch("https://api.farmplst.com/api/getAllCategories")
             .then((response) => response.json())
-            .then((data) => setCategories(data));
+            .then(function (data) {
+                const queryParams = new URLSearchParams(window.location.search)
+                const ids = queryParams.get("category_ids")
+                if(ids!==null && ids!=="") {
+                    const ids1 = ids.split(',');
+                    for (let i = 0; i < data.length; i++) {
+                        for (let l = 0; l < ids1.length; l++) {
+                            if(data[i].category_id==ids1[l]){
+                                selections.set(data[i].category_id, true)
+                            }
+                        }
+                    }
+                }
+                return setCategories(data);
+            });
     }
-    const fetchProducts = () => {
-        setLoading(true);
-        const p = selectedCategories.join(',');
+    const fetchProducts = (idP) => {
+        const queryParams = new URLSearchParams(window.location.search)
+        const ids = queryParams.get("category_ids")
+
+        if(ids!==null && ids!==""){
+            const ids1 = ids.split(',');
+            for (const x of ids1) {
+                if(x!=='' && x!==idP){
+                    selections.set(x, true);
+                }
+            }
+        }
+
+        let p = '';
+        for (let item of selections.keys()) {
+            if(item!=null && item!=='' && item!==idP && selections.get(item)){
+                p+=item+',';
+            }
+        }
         if(p!==''){
             window.history.replaceState(null, p, `/products/?category_ids=${p}`)
         }else {
@@ -31,8 +63,24 @@ function ProductPage(){
                 return response.json();
             })
             .then(function (data) {
+                fetchData()
                 return setProducts(data);
             });
+    }
+
+    function checkId(id) {
+        const queryParams = new URLSearchParams(window.location.search)
+        const ids = queryParams.get("category_ids")
+
+        if(ids!==null && ids!==""){
+            const ids1 = ids.split(',');
+            for (const x of ids1) {
+                if(x==id){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     useEffect(() => {
@@ -41,10 +89,13 @@ function ProductPage(){
 
         if(ids!==null && ids!==""){
             const ids1 = ids.split(',');
-            setSelectedCategories(ids1);
+            for (const x of ids1) {
+                if(x!==''){
+                    selections.set(x, true);
+                }
+            }
         }
-        fetchProducts();
-        fetchData();
+        fetchProducts(0);
     },[])
 
     function handleOnChange(evt) {
@@ -53,24 +104,16 @@ function ProductPage(){
         // const name = target.name;
         const id = target.id;
 
-        if(checked){
-            if(!selectedCategories.some(it=>it===id)){
-                selectedCategories.push(id);
-            }
-        }else {
-            if(selectedCategories.some(it=>it===id)){
-                setSelectedCategories(removeItemOnce(selectedCategories, id))
-            }
-        }
-        fetchProducts();
+        selections.set(id, checked)
+        fetchProducts(checked?0:id);
     }
-    function removeItemOnce(arr, value) {
-        const index = arr.indexOf(value);
-        if (index > -1) {
-            arr.splice(index, 1);
-        }
-        return arr;
-    }
+    // function removeItemOnce(arr, value) {
+    //     const index = arr.indexOf(value);
+    //     if (index > -1) {
+    //         arr.splice(index, 1);
+    //     }
+    //     return arr;
+    // }
     function getExtension(filename) {
         return filename.split(".").pop();
     }
@@ -96,6 +139,7 @@ function ProductPage(){
                                                             type={'checkbox'}
                                                             id={inner.category_id}
                                                             label={inner.name}
+                                                            checked={checkId(inner.category_id)}
                                                             onChange={handleOnChange}
                                                         />
                                                     }
@@ -189,7 +233,11 @@ function ProductPage(){
                                     return (
                                         <Col md="auto">
                                             <Card className="card-hov" onClick={() => setModalShow(true)}>
-                                                <Card.Img variant="top" src={'http://admin.farmplst.com/image/cache/'+ext} alt={product.name}/>
+                                                <Card.Img className={'img-loading'} variant="top" src={'http://admin.farmplst.com/image/cache/'+ext}
+                                                          onError={({ currentTarget }) => {
+                                                    currentTarget.onerror = null; // prevents looping
+                                                    currentTarget.src="/images/placeholder.webp";
+                                                }} alt={product.name}/>
                                                 <Card.Body>
                                                     <h6 style={{textAlign: "left"}}>{product.name}</h6>
                                                     <p style={{textAlign: "left"}}>Марка: {product.model}</p>

@@ -46,7 +46,7 @@ function NewNavBar() {
                                         {/* eslint-disable-next-line array-callback-return */}
                                         {categories.map(function (inner, i) {
                                             if(category.category_id===inner.parent_id){
-                                                return <NavDropdown.Item href="/products" >{inner.name}</NavDropdown.Item>
+                                                return <NavDropdown.Item href={'/products?category_ids='+inner.category_id} >{inner.name}</NavDropdown.Item>
                                             }
                                         })}
                                     </NavDropdown>;
@@ -74,10 +74,9 @@ function NewNavBar() {
                         />
                         {/*<Button variant="primary">Заказать звонок</Button>*/}
                     </Form>
-                    <div className="button-call-cart">
-                    <Button variant="primary" className="custom-button call-button-lg" href="/#email-section"><FontAwesomeIcon icon={faPhone}/> Заказать звонок</Button>
-                    <Button variant="primary" className="button-cart" href="/orders"><img src="./images/cart.webp" height ="20" width="20" alt="cart"/></Button>
-                    </div>
+                    <Button variant="primary" className="custom-button call-button-lg" href="#email-section">Заказать звонок</Button>
+                    <Button variant="primary" className="custom-button call-button" href="#email-section"><FontAwesomeIcon icon={faPhone}/></Button>
+                    <Button variant="primary" className="button-cart" href="/orders"><img src="/images/cart.webp" height ="20" width="20" alt="cart"/></Button>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
