@@ -16,9 +16,9 @@ function ProductPage(){
             .then((response) => response.json())
             .then((data) => setCategories(data));
     }
-    const fetchProducts = () => {
+    const fetchProducts = (cts) => {
         setLoading(true);
-        const p = selectedCategories.join(',');
+        const p = cts.join(',');
         if(p!==''){
             window.history.replaceState(null, p, `/products/?category_ids=${p}`)
         }else {
@@ -40,9 +40,13 @@ function ProductPage(){
 
         if(ids!==null && ids!==""){
             const ids1 = ids.split(',');
-            setSelectedCategories(ids1);
+            fetchProducts(ids1);
+            // setSelectedCategories(ids1);
+            // console.log(ids1)
+        }else {
+            //fetchProducts();
         }
-        fetchProducts();
+        //console.log(ids)
         fetchData();
     },[])
 
@@ -61,7 +65,7 @@ function ProductPage(){
                 setSelectedCategories(removeItemOnce(selectedCategories, id))
             }
         }
-        fetchProducts();
+        fetchProducts(selectedCategories);
     }
     function removeItemOnce(arr, value) {
         const index = arr.indexOf(value);
