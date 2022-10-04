@@ -13,6 +13,9 @@ function ProductPage(){
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [productId, setProductId] = useState(0);
+
+    const [product, setProduct] = useState([]);
 
     const selections = new Map();
 
@@ -114,6 +117,17 @@ function ProductPage(){
             }
         }
         return false;
+    }
+
+    const fetchProduct = () => {
+        fetch('https://api.farmplst.com/api/getProductById?id='+productId)
+            .then((response) => response.json())
+            .then((data) => {
+                setProduct(data[0]);
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
     }
 
     useEffect(() => {
@@ -291,7 +305,11 @@ function ProductPage(){
                                     ext = product.image.replace('.'+ext,'-250x250.'+ext);
                                     return (
                                         <Col md="auto">
-                                            <Card className="card-hov" onClick={() => setModalShow(true)}>
+                                            <Card className="card-hov" onClick={function () {
+                                                setProductId(product.product_id);
+                                                fetchProduct();
+                                                return setModalShow(true);
+                                            }}>
                                                 <Card.Img className={'img-loading'} variant="top" src={'http://admin.farmplst.com/image/cache/'+ext}
                                                           onError={({ currentTarget }) => {
                                                     currentTarget.onerror = null; // prevents looping
@@ -317,7 +335,9 @@ function ProductPage(){
 
             </Row>
             <MyVerticallyCenteredModal
+                id={productId}
                 show={modalShow}
+                product1 = {product}
                 onHide={() => setModalShow(false)}
             />
     </Container>
