@@ -17,6 +17,7 @@ function MainSlider() {
                     src="/images/slider/slide1.webp"
                     style={{objectFit:"cover"}}
                     height="800"
+                    width="800"
                     alt="НАШ ГЛАВНЫЙ ПОСТАВЩИК"
                 />
 

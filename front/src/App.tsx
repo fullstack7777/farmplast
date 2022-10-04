@@ -12,6 +12,7 @@ import Footer from "./components/base/footer";
 import {ContactsPage} from "./components/contacts/contacts_page";
 import {WarehousePage} from "./components/warehouse/warehouse_page";
 import {OrdersPage} from "./components/order/orders";
+import {CartsPage} from "./components/cart/carts";
 import NewNavBar from "./components/base/new_nav_bar";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/contacts" element={<ContactsPage />} />
                 <Route path="/warehouses" element={<WarehousePage />} />
                 <Route path="/orders" element={<OrdersPage />} />
+                <Route path="/carts" element={<CartsPage />} />
 
             </Routes>
         </BrowserRouter>

@@ -3,22 +3,22 @@ import Container from "react-bootstrap/Container";
 import {Col, Row} from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 
-export class OrdersPage extends React.Component {
+export class CartsPage extends React.Component {
     render() {
         return (
             <Container id="section-contacts">
                 <div><h1 className="custom-bold-38">
-                    Оформление <span className="custom-bold-white">заявки</span></h1></div>
+                    Купить <span className="custom-bold-white">товар</span></h1></div>
                 <Row >
                     <Col>
-                           <div className="order-cards">
-                               <div className="order-img"><img src="/images/image.webp" alt="Полимер"/></div>
-                               <div className="order-detail">
-                                   <div>Полимер</div>
-                                   <div>Марка: РР Н030</div>
-                                   <div>Производитель: Компания Нефтехим, Республика Казахстан</div>
-                               </div>
-                           </div>
+                        <div className="order-cards">
+                            <div className="order-img"><img src="/images/image.webp" alt="Полимер"/></div>
+                            <div className="order-detail">
+                                <div>Полимер</div>
+                                <div>Марка: РР Н030</div>
+                                <div>Производитель: Компания Нефтехим, Республика Казахстан</div>
+                            </div>
+                        </div>
                         <div className="order-cards">
                             <div className="order-img"><img src="/images/image.webp" alt="Полимер"/></div>
                             <div className="order-detail">
@@ -68,3 +68,4 @@ export class OrdersPage extends React.Component {
         );
     }
 }
+export default CartsPage;

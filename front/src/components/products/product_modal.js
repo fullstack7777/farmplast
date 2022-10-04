@@ -56,8 +56,10 @@ function MyVerticallyCenteredModal(props) {
                     <Col>
                         <h4>Полимер</h4>
                             <p>Артикул: SKU0001-2</p>
-                            <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}} href="/orders">В корзину</Button>
-
+                        <div className="button-cart-buy">
+                            <Button className="button-cart" variant="primary custom-button" href="/orders">В корзину</Button>
+                            <Button className="button-buy" variant="primary custom-button" href="/carts">Купить</Button>
+                        </div>
                             <p style={{marginTop: 20, fontWeight: "bold"}}><span>Марка:</span> РР Н030</p>
                             <p><span style={{fontWeight: "bold"}}>Описание:</span> PP H030- гомополимер пропилена для производства изделий методами инжекционного формования, экструзи и термоформования. Продукт характеризуется средней текучестью и сбалансированными физико-механическими характеристиками. Метод переработки: Литьё, Экструзия
                             </p>

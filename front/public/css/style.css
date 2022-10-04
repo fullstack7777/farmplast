@@ -15,6 +15,13 @@
     border-radius: 12px;
     margin-left: 10px;
 }
+.button-buy{
+    background-color: #008DA9!important;
+    border: solid 2px #008DA9 !important;
+    border-radius: 12px;
+    margin-left: 10px;
+    width: 120px;
+}
 .ware-button{
     background-color: #008DA9!important;
     border-radius: 20px;
@@ -392,7 +399,10 @@
     padding-top: 10px;
     padding-right: 5px;
 }
-
+.button-cart-buy{
+    display: flex;
+    flex-direction: row;
+}
 .badge-cart{
 
 }
@@ -410,10 +420,8 @@
     color: white;
     text-align: center;
 }
-.button-call-cart{
-    display: flex;
-    flex-direction: row;
-
+#button-call-cart{
+    display: contents; !important;
 }
 
 /*@media all and (max-width: 1024px) {*/
@@ -474,7 +482,9 @@
     background: url("/images/placeholder.webp") no-repeat scroll 0 0;
 }
 @media screen and (max-width: 1200px) {
-
+    .button-call-cart{
+        display: contents;
+    }
 
 }
 @media screen and (max-width: 1160px) {
@@ -488,12 +498,24 @@
     .col-lg-6{
         width: 100%;
     }
-
+    .call-button{
+        display: none;
+    }
+    .call-button-lg{
+        display: inline-block;
+    }
+    .button-call-cart{
+        display: contents;
+    }
 }
 @media screen and (max-width: 1023px) {
   .container {
     width: 780px;
   }
+    .button-call-cart{
+    display: contents;
+
+    }
 }
 @media screen and (max-width: 979px) {
   .container {
@@ -514,9 +536,11 @@
         display: none;
     }
     .call-button-lg{
-        display: block;
+        display: inline-block;
     }
-
+    .button-call-cart{
+        display: contents;
+    }
 }
 @media screen and (max-width: 799px) {
   .container {
@@ -625,10 +649,7 @@
         flex: none;
         margin-bottom: 10px;
     }
-    .brands_slider_container{
-        padding-left: 57px;
-        padding-right: 57px;
-    }
+
     .owl-item{
         width: 0;
     }
@@ -662,10 +683,7 @@
         width: 100px;
         padding-top: 40px;
         }
-    .custom-button{
-        width: 80%;
-        display: inline-block;
-    }
+
     .order-cards{
         display: flex;
         flex-direction: column;
@@ -683,15 +701,10 @@
     #warehouse-row{
         display: flex;
         flex-direction: column;
-
     }
     @media screen and (max-width: 300px) {
         .container {
             width: 290px;
-        }
-        .brands_slider_container{
-            padding-left: 7px;
-            padding-right: 7px;
         }
 
     }
