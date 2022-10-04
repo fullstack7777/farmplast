@@ -42,6 +42,19 @@ app.get("/api/getProductsByCategory", (req,res)=>{
         );
     }
 });
+
+//Get product by id
+app.get("/api/getProductById", (req,res)=>{
+    const productId = req.query.id;
+    db.query("select p.product_id, p.model, p.image, opd.name,opd.description,opd.tag, om.name as manufacturer, (select group_concat(i.image SEPARATOR ';') from oc_product_image i where i.product_id=p.product_id) as images  from oc_product p inner join oc_product_description opd on p.product_id = opd.product_id inner join oc_manufacturer om on p.manufacturer_id = om.manufacturer_id where p.product_id=?",[productId], (err,result)=>{
+            if(err) {
+                console.log(err)
+            }
+            res.send(result)
+        }
+    );
+});
+
 //Get popular products
 app.get("/api/getPopularProducts", (req,res)=>{
     db.query("select p.product_id, p.model, p.image, opd.name, om.name as manufacturer  from oc_product p inner join oc_product_description opd on p.product_id = opd.product_id inner join oc_manufacturer om on p.manufacturer_id = om.manufacturer_id where p.status=1 order by p.quantity desc limit 4", (err,result)=>{
