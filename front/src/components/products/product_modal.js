@@ -23,7 +23,6 @@ function MyVerticallyCenteredModal(props) {
     useEffect(() => {
         fetchData();
     }, [])
-
         {
             products.map(function (product, index) {
                     if (products.product_id === product.product_id) {

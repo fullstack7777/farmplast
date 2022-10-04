@@ -74,10 +74,9 @@ function NewNavBar() {
                         />
                         {/*<Button variant="primary">Заказать звонок</Button>*/}
                     </Form>
-                    <div id="button-call-cart">
-                    <Button variant="primary" className="custom-button call-button-lg" href="/#email-section"><FontAwesomeIcon icon={faPhone}/> Заказать звонок</Button>
-                    <Button variant="primary" className="button-cart" href="/carts"><img src="/images/cart.webp" height ="20" width="20" alt="cart"/></Button>
-                    </div>
+                    <Button variant="primary" className="custom-button call-button-lg" href="#email-section">Заказать звонок</Button>
+                    <Button variant="primary" className="custom-button call-button" href="#email-section"><FontAwesomeIcon icon={faPhone}/></Button>
+                    <Button variant="primary" className="button-cart" href="/orders"><img src="./images/cart.webp" height ="20" width="20" alt="cart"/></Button>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
