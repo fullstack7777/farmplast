@@ -7,6 +7,9 @@ import Form from 'react-bootstrap/Form';
 import MyVerticallyCenteredModal from "./product_modal";
 
 function ProductPage(){
+    useEffect(() => {
+        document.title = 'Фармпласт - Товары';
+    });
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -299,7 +302,7 @@ function ProductPage(){
                                                     <p style={{textAlign: "left"}}>Марка: {product.model}</p>
                                                     <p style={{textAlign: "left"}}>Производитель: {product.manufacturer}
                                                     </p>
-                                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>
+                                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}} href="/orders">
                                                         Оставить заявку</Button>
                                                 </Card.Body>
                                             </Card>

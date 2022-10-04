@@ -4,7 +4,11 @@ import {Col, Row} from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 
 export class ContactsPage extends React.Component {
+    componentDidMount() {
+        document.title = 'Фармпласт - Контакты';
+    }
     render() {
+
         return (
                 <Container id="section-contacts">
                     <div><h1 className="custom-bold-38" style={{textAlign: "center"}}>

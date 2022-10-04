@@ -4,6 +4,9 @@ import {Col, Row} from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 
 export class CartsPage extends React.Component {
+    componentDidMount() {
+        document.title = 'Фармпласт - Корзина';
+    }
     render() {
         return (
             <Container id="section-contacts">

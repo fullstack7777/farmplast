@@ -6,6 +6,9 @@ import {faChevronLeft, faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
 
 export class WarehousePage extends React.Component {
+    componentDidMount() {
+        document.title = 'Фармпласт - Склады';
+    }
     render() {
         return (
             <div className="warehouses">

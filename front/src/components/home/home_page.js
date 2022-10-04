@@ -6,6 +6,9 @@ import SubscribeSection from "./components/subscribe-section";
 import PartnersSection from "./components/partners-section";
 
 export class HomePage extends React.Component {
+    componentDidMount() {
+        document.title = 'Фармпласт - Главная';
+    }
     render() {
         return (
             <div>
