@@ -11,7 +11,7 @@
 }
 .button-cart{
     background-color: #008DA9!important;
-    border: solid 2px #008DA9 !important;
+    border: solid 1px #008DA9 !important;
     border-radius: 12px;
     margin-left: 10px;
 }
@@ -21,6 +21,11 @@
     border-radius: 12px;
     margin-left: 10px;
     width: 120px;
+}
+
+.custom-button-modal{
+    background-color: #008DA9!important;
+
 }
 .ware-button{
     background-color: #008DA9!important;
@@ -401,7 +406,7 @@
 }
 .button-cart-buy{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 .badge-cart{
 
