@@ -11,7 +11,7 @@
 }
 .button-cart{
     background-color: #008DA9!important;
-    border: solid 2px #008DA9 !important;
+    border: solid 1px #008DA9 !important;
     border-radius: 12px;
     margin-left: 10px;
 }
@@ -21,6 +21,11 @@
     border-radius: 12px;
     margin-left: 10px;
     width: 120px;
+}
+
+.custom-button-modal{
+    background-color: #008DA9!important;
+
 }
 .ware-button{
     background-color: #008DA9!important;
@@ -401,7 +406,7 @@
 }
 .button-cart-buy{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 .badge-cart{
 
@@ -485,7 +490,12 @@
     .button-call-cart{
         display: contents;
     }
-
+    .call-button{
+        display: block;
+    }
+    .call-button-lg{
+        display: none;
+    }
 }
 @media screen and (max-width: 1160px) {
   .container {
@@ -504,17 +514,22 @@
     .call-button-lg{
         display: inline-block;
     }
-    .button-call-cart{
-        display: contents;
+    .call-button{
+        display: block;
+    }
+    .call-button-lg{
+        display: none;
     }
 }
 @media screen and (max-width: 1023px) {
   .container {
     width: 780px;
   }
-    .button-call-cart{
-    display: contents;
-
+    .call-button{
+        display: none;
+    }
+    .call-button-lg{
+        display: block;
     }
 }
 @media screen and (max-width: 979px) {
@@ -533,14 +548,12 @@
         margin-bottom: 10px;
     }
     .call-button{
-        display: none;
+        display: block;
     }
     .call-button-lg{
-        display: inline-block;
+        display: none;
     }
-    .button-call-cart{
-        display: contents;
-    }
+
 }
 @media screen and (max-width: 799px) {
   .container {
@@ -557,6 +570,12 @@
     .search-nav{
         width: 100%;
         margin-bottom: 10px;
+    }
+    .call-button{
+        display: block;
+    }
+    .call-button-lg{
+        display: none;
     }
 }
 @media screen and (max-width: 767px) {
@@ -583,6 +602,12 @@
     }
 
     .custom-section2-img{
+        display: none;
+    }
+    .call-button{
+        display: block;
+    }
+    .call-button-lg{
         display: none;
     }
 }
