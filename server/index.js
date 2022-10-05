@@ -1,12 +1,14 @@
 const express = require('express');
 const db = require('./config/db')
 const cors = require('cors')
+const crypto = require("crypto");
 
 const app = express();
 
 const  PORT = 8080;
 app.use(cors());
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
 
 //Get all categories
 app.get("/api/getAllCategories", (req,res)=>{
@@ -41,6 +43,59 @@ app.get("/api/getProductsByCategory", (req,res)=>{
             }
         );
     }
+});
+
+//add product to card
+app.post("/api/newSession", (req,res)=>{
+    const session = crypto.randomBytes(16).toString("hex");
+    const date = new Date().addDays(1);
+    db.query("insert into oc_session(session_id, data, expire) VALUES (?, '', ?)",[session, date], (err,result)=>{
+            if(err) {
+                console.log(err)
+            }else {
+                res.send({'session':session})
+            }
+        }
+    );
+});
+//add product to card
+app.post("/api/addCard", (req,res)=>{
+    const productId = req.body.product_id;
+    const quantity = req.body.quantity;
+    const session = req.body.session;
+    db.query("insert into oc_cart(api_id, customer_id, session_id, product_id,subscription_plan_id, `option`, quantity, date_added) values (1,1,?, ?,1,'[]',?,current_timestamp) on duplicate key update quantity=quantity+1;",[session, productId, quantity], (err,result)=>{
+            if(err) {
+                console.log(err)
+            }else {
+                res.send(true)
+            }
+        }
+    );
+});
+
+//Get all categories
+app.post("/api/getCarts", (req,res)=>{
+    const session = req.body.session;
+    db.query("select c.cart_id, c.quantity, p.image, d.name from oc_cart c left join oc_product p on c.product_id = p.product_id inner join oc_product_description d on p.product_id = d.product_id where c.session_id=?",[session], (err,result)=>{
+            if(err) {
+                console.log(err)
+            }
+            res.send(result)
+        }
+    );
+});
+
+//Get all categories
+app.post("/api/delCart", (req,res)=>{
+    const session = req.body.session;
+    const id = req.body.id;
+    db.query("delete from oc_cart where session_id=? and cart_id=?",[session,id], (err,result)=>{
+            if(err) {
+                console.log(err)
+            }
+            res.send(true)
+        }
+    );
 });
 
 //Get product by id
@@ -137,3 +192,9 @@ app.get("/api/getPopularProducts", (req,res)=>{
 app.listen(PORT, ()=>{
     console.log(`Server is running on ${PORT}`)
 })
+
+Date.prototype.addDays = function(days) {
+    let date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+}
