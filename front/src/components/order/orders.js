@@ -49,7 +49,7 @@ export class OrdersPage extends React.Component {
                                     <Form.Control type="text" placeholder="Ваше имя" />
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                    <Form.Control type="text" placeholder="Ваша почта" />
+                                    <Form.Control type="email" placeholder="Ваша почта" />
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                     <Form.Control type="text" placeholder="Ваша компания" />
@@ -58,7 +58,7 @@ export class OrdersPage extends React.Component {
                                     <Form.Control type="text" placeholder="Ваш город" />
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                    <Form.Control type="text" placeholder="Ваш телефон" />
+                                    <Form.Control type="number" placeholder="Ваш телефон" />
                                 </Form.Group>
                                 <button className="button-contacts">
                                     Оставить заявку

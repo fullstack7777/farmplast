@@ -130,6 +130,7 @@ function ProductPage(){
             });
     }
 
+
     useEffect(() => {
         const queryParams = new URLSearchParams(window.location.search)
         const ids = queryParams.get("category_ids")
@@ -178,6 +179,14 @@ function ProductPage(){
     function getExtension(filename) {
         return filename.split(".").pop();
     }
+    // const addtoCart = (product) => {
+    //     this.setState({
+    //         count: this.state.count + 1,
+    //         cart: this.state.cart.concat(product)
+    //     });
+    //     console.log(this.state.cart);
+    // };
+
     const [modalShow, setModalShow] = React.useState(false);
     return (
         <Container id="products-section" className={'top-space'}>
@@ -191,11 +200,11 @@ function ProductPage(){
                                     category.subs = [];
                                     // eslint-disable-next-line array-callback-return
                                     categories.map(function (inner, i) {
-                                        if (category.category_id == inner.parent_id) {
+                                        if (category.category_id === inner.parent_id) {
                                             category.subs.push(inner.category_id)
                                         }})
                                     return [
-                                        <ListGroup.Item style={{background:'#f8f9fa'}}>
+                                        <ListGroup.Item style={{background:'#f8f9fa', fontWeight: "bold"}}>
                                             <Form.Check
                                                 type={'checkbox'}
                                                 id={category.category_id}
@@ -340,6 +349,7 @@ function ProductPage(){
                 product1 = {product}
                 onHide={() => setModalShow(false)}
             />
+
     </Container>
     );
 }

@@ -3,7 +3,6 @@ import {Col, Row} from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
 import React from "react";
-import Carousel from 'react-bootstrap/Carousel';
 
 function PartnersSection() {
     return (
@@ -26,14 +25,6 @@ function PartnersSection() {
                                 </div>
                                 <div className="owl-item">
                                     <div className="brands_item d-flex flex-column justify-content-center">
-                                        <a href={'https://www.naftan.by/ru'}  target="_blank" className="brands_item d-flex flex-column justify-content-center" rel="noreferrer">
-                                        <img height={'72'}
-                                             src={"/images/partners/partner-2.webp"}
-                                             alt="naftan"/>                                    </a>
-                                    </div>
-                                </div>
-                                <div className="owl-item">
-                                    <div className="brands_item d-flex flex-column justify-content-center">
                                         <a href={'https://www.nknh.ru/'}  target="_blank" className="brands_item d-flex flex-column justify-content-center" rel="noreferrer">
                                         <img height={'72'}
                                              src={"/images/partners/partner-3.webp"}
@@ -43,28 +34,10 @@ function PartnersSection() {
                                 </div>
                                 <div className="owl-item">
                                     <div className="brands_item d-flex flex-column justify-content-center">
-                                        <a href={'https://nephtechim.kz/'}  target="_blank" className="brands_item d-flex flex-column justify-content-center" rel="noreferrer">
-                                        <img height={'72'}
-                                             src={"/images/partners/partner-4.webp"}
-                                             alt="nephtechim"/>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="owl-item">
-                                    <div className="brands_item d-flex flex-column justify-content-center">
                                         <a href={'http://www.sibur.ru/ru/'}  target="_blank" className="brands_item d-flex flex-column justify-content-center" rel="noreferrer">
                                         <img height={'72'}
                                              src={"/images/partners/partner-5.webp"}
                                              alt="sibur"/>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="owl-item">
-                                    <div className="brands_item d-flex flex-column justify-content-center">
-                                        <a href={'https://www.bashneft.ru/company/career/vacancy/8105/'}  target="_blank" className="brands_item d-flex flex-column justify-content-center" rel="noreferrer">
-                                            <img height={'72'}
-                                                 src={"/images/partners/partner-6.webp"}
-                                                 alt="bashneft"/>
                                         </a>
                                     </div>
                                 </div>

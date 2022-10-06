@@ -18,11 +18,11 @@ function MainSlider() {
                     style={{objectFit:"cover"}}
                     height="800"
                     width="800"
-                    alt="НАШ ГЛАВНЫЙ ПОСТАВЩИК"
+                    alt='Мы дистрибьютеры ПАО "Сибур Холдинг"'
                 />
 
                 <Carousel.Caption style={{top:'35%', bottom:'0'}}>
-                    <h3 id="slider-text">НАШ ГЛАВНЫЙ ПОСТАВЩИК</h3>
+                    <h3 id="slider-text">Мы дистрибьютеры ПАО "Сибур Холдинг"</h3>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -53,20 +53,20 @@ function MainSlider() {
                     <h3 id="slider-text">НАЙДЕМ ИНДИВИДУАЛЬНЫЙ ПОДХОД К КАЖДОМУ КЛИЕНТУ</h3>
                 </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item>
-                <img
-                    className="d-block w-100"
-                    src="/images/slider/slide3.webp"
-                    style={{objectFit:"cover"}}
-                    height="800"
-                    width="800"
-                    alt="РАБОТАЕМ С ПЕРЕДОВЫМИ ЗАВОДАМИ ПРОИЗВОДИТЕЛЯМИ"
-                />
+            {/*<Carousel.Item>*/}
+            {/*    <img*/}
+            {/*        className="d-block w-100"*/}
+            {/*        src="/images/slider/slide3.webp"*/}
+            {/*        style={{objectFit:"cover"}}*/}
+            {/*        height="800"*/}
+            {/*        width="800"*/}
+            {/*        alt="РАБОТАЕМ С ПЕРЕДОВЫМИ ЗАВОДАМИ ПРОИЗВОДИТЕЛЯМИ"*/}
+            {/*    />*/}
 
-                <Carousel.Caption style={{top:'35%',bottom:'0'}}>
-                    <h3 id="slider-text">РАБОТАЕМ С ПЕРЕДОВЫМИ ЗАВОДАМИ ПРОИЗВОДИТЕЛЯМИ</h3>
-                </Carousel.Caption>
-            </Carousel.Item>
+            {/*    <Carousel.Caption style={{top:'35%',bottom:'0'}}>*/}
+            {/*        <h3 id="slider-text">РАБОТАЕМ С ПЕРЕДОВЫМИ ЗАВОДАМИ ПРОИЗВОДИТЕЛЯМИ</h3>*/}
+            {/*    </Carousel.Caption>*/}
+            {/*</Carousel.Item>*/}
         </Carousel>
     );
 }
