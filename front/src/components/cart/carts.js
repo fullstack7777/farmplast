@@ -7,7 +7,10 @@ export class CartsPage extends React.Component {
     componentDidMount() {
         document.title = 'Фармпласт - Корзина';
     }
+
     render() {
+
+
         return (
             <Container id="section-contacts">
                 <div><h1 className="custom-bold-38">
@@ -46,7 +49,7 @@ export class CartsPage extends React.Component {
                             </div>
                             <Form id="section-contacts-form">
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                    <Form.Control type="text" placeholder="Ваше имя" />
+                                    <Form.Control type="number" placeholder="Ваше имя" />
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                     <Form.Control type="text" placeholder="Ваша почта" />

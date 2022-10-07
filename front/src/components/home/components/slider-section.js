@@ -15,14 +15,14 @@ function MainSlider() {
                 <img
                     className="d-block w-100"
                     src="/images/slider/slide1.webp"
-                    style={{objectFit:"cover"}}
+                    style={{objectFit:"cover", whiteSpace:"pre"}}
                     height="800"
                     width="800"
                     alt='Мы дистрибьютеры ПАО "Сибур Холдинг"'
                 />
 
                 <Carousel.Caption style={{top:'35%', bottom:'0'}}>
-                    <h3 id="slider-text">Мы дистрибьютеры ПАО "Сибур Холдинг"</h3>
+                    <h3 id="slider-text">Мы дистрибьютеры <br /> ПАО "Сибур Холдинг"</h3>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>

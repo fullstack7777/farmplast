@@ -242,7 +242,6 @@ function ProductPage(){
                             </ListGroup.Item>
                         }
                     </ListGroup>
-
                     <br/>
                 </Col>
                 <Col lg="9">
