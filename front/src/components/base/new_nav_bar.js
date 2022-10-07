@@ -45,17 +45,9 @@ function NewNavBar() {
                         <Nav.Link className="nav-bar-lg" href="/" >Главная</Nav.Link>
                         <NavDropdown className="nav-bar-lg" title="Продукция" id="navbarScrollingDropdown">
                             {/* eslint-disable-next-line array-callback-return */}
-                            {categories.sort((a,b)=>a.sort_order>b.sort_order?1:-1).map(function (category, index) {
-                                if(category.parent_id===0){
-                                    return <NavDropdown  renderMenuOnMount={true} className={'nav-bar-lg inner-drop'} drop={'end'} title={category.name}>
-                                        {/* eslint-disable-next-line array-callback-return */}
-                                        {categories.map(function (inner, i) {
-                                            if(category.category_id===inner.parent_id){
-                                                return <NavDropdown.Item href={'/products?category_ids='+inner.category_id} >{inner.name}</NavDropdown.Item>
-                                            }
-                                        })}
+                            {categories.map(function (category, index) {
+                                    return <NavDropdown  className={'nav-bar-lg inner-drop'} href={'/products?name+category_ids='+category.category_id} title={category.name}>
                                     </NavDropdown>;
-                                }
                             })}
                         </NavDropdown>
                        {/* //  Old Category and Subcategory*/}
