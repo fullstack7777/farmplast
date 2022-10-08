@@ -18,8 +18,8 @@ export class ContactsPage extends React.Component {
                             <br/>
                             <br/>
                             <p><b>Юридический адресс:</b> г. Санкт-Петербург, Лесной <br />проспект, д. 63 лит. А офис 402</p>
-                            <p><b>Телефон: </b><a href={'+79818338292'} target="_blank">+7 (981) 833-82-92</a></p>
-                            <p><b>Почта:</b><a href="mailto:farmplst@gmail.com" target="_blank">farmplst@gmail.com</a></p>
+                            <p><b>Телефон: </b><a href={'+79818338292'}>+7 (981) 833-82-92</a></p>
+                            <p><b>Почта:</b><a href="mailto:farmplst@gmail.com">farmplst@gmail.com</a></p>
                             <p><b>Время работы:</b> 09:00 до 18:00</p>
                             <br/>
                             <p><b>Реквизиты:</b> Общество с ограниченной ответсвенностью <br />"ФАРМПЛАСТ" <br/> ИНН 7805074180 / КПП780501001<br/>

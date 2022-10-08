@@ -186,7 +186,6 @@ function ProductPage(){
     //     });
     //     console.log(this.state.cart);
     // };
-
     const [modalShow, setModalShow] = React.useState(false);
     return (
         <Container id="products-section" className={'top-space'}>

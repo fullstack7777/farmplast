@@ -15,6 +15,12 @@
     border-radius: 12px;
     margin-left: 10px;
 }
+.button-cart:hover,
+.button-cart.active{
+    color: #dc3d3d;
+    transform: scale(1.05 );
+}
+
 .button-buy{
     background-color: #008DA9!important;
     border: solid 2px #008DA9 !important;
@@ -509,13 +515,7 @@
         width: 100%;
     }
     .call-button{
-        display: none;
-    }
-    .call-button-lg{
         display: inline-block;
-    }
-    .call-button{
-        display: block;
     }
     .call-button-lg{
         display: none;
@@ -529,7 +529,7 @@
         display: none;
     }
     .call-button-lg{
-        display: block;
+        display: inline-block;
     }
 }
 @media screen and (max-width: 979px) {
@@ -548,7 +548,7 @@
         margin-bottom: 10px;
     }
     .call-button{
-        display: block;
+        display: inline-block;
     }
     .call-button-lg{
         display: none;
@@ -572,7 +572,7 @@
         margin-bottom: 10px;
     }
     .call-button{
-        display: block;
+        display: inline-block;
     }
     .call-button-lg{
         display: none;
@@ -605,7 +605,7 @@
         display: none;
     }
     .call-button{
-        display: block;
+        display: inline-block;
     }
     .call-button-lg{
         display: none;
@@ -735,3 +735,14 @@
     }
 }
 
+.shop-cart {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 450px;
+    min-height: 100px;
+    background: red;
+    -webkit-box-shadow: 18px 17px 8px -1px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 18px 17px 8px -1px rgba(34, 60, 80, 0.2);
+    box-shadow: 18px 17px 8px -1px rgba(34, 60, 80, 0.2);
+}

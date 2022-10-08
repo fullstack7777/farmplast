@@ -1,16 +1,31 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Container from "react-bootstrap/Container";
 import {Col, Row} from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 
-export class CartsPage extends React.Component {
-    componentDidMount() {
+function CartsPage() {
+    useEffect(() => {
         document.title = 'Фармпласт - Корзина';
+    });
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("session", "0040d80a9cc8dd3b9a19630117");
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: urlencoded,
+        redirect: 'follow'
+    };
+
+    const getCart = () => {
+        fetch("https://api.farmplst.com/api/getCarts", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
     }
-
-    render() {
-
-
         return (
             <Container id="section-contacts">
                 <div><h1 className="custom-bold-38">
@@ -72,6 +87,5 @@ export class CartsPage extends React.Component {
                 </Row>
             </Container>
         );
-    }
 }
 export default CartsPage;
