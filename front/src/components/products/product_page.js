@@ -186,6 +186,25 @@ function ProductPage(){
     //     });
     //     console.log(this.state.cart);
     // };
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("session", "0040d80a9cc8dd3b9a19630117");
+    urlencoded.append("quantity", "1");
+    urlencoded.append("product_id", "83");
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: urlencoded,
+        redirect: 'follow'
+    };
+
+    fetch("https://api.farmplst.com/api/newSession", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
     const [modalShow, setModalShow] = React.useState(false);
     return (
         <Container id="products-section" className={'top-space'}>
