@@ -56,7 +56,6 @@ function MyVerticallyCenteredModal(props) {
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
     }
-    console.log(product);
     if(product!==undefined){
    // let ext = getExtension(product.images);
         //ext = product.image.replace('.'+ext,'-250x250.'+ext);

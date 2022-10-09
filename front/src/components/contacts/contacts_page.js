@@ -1,13 +1,42 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Container from "react-bootstrap/Container";
 import {Col, Row} from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
+import {send} from "emailjs-com";
+import Swal from "sweetalert2";
 
-export class ContactsPage extends React.Component {
-    componentDidMount() {
-        document.title = 'Фармпласт - Контакты';
-    }
-    render() {
+function ContactsPage (){
+
+        useEffect(() => {
+            document.title = 'Фармпласт - Контакты';
+        });
+    const [toSend, setToSend] = useState({
+        from_name: '',
+        to_name: 'farmplst@gmail.com',
+        from_mail: '',
+        company: '',
+        city: '',
+        phone: '',
+        reply_to: '',
+    });
+    const onSubmit = (e) => {
+        e.preventDefault();
+        send(
+            'service_c7pclcq',
+            'template_crz0u18',
+            toSend,
+            'Kd5hTZnsMrSH5nMAX'
+        )
+            .then((response) => {
+                Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
+            })
+            .catch((err) => {
+                Swal.fire('Ошибка при отправке, попробуйте похже', '', 'error');
+            });
+    };
+    const handleChange = (e) => {
+        setToSend({ ...toSend, [e.target.name]: e.target.value });
+    };
 
         return (
                 <Container id="section-contacts">
@@ -32,23 +61,36 @@ export class ContactsPage extends React.Component {
                                 <div id="section-contacts-text">
                                     Компания Фармпласт готова<br/> представить помощь в выборе<br/> продукта и подходящего способа<br/> оплаты.
                                 </div>
-                                <Form id="section-contacts-form">
+                                <Form id="section-contacts-form"
+                                      onSubmit={onSubmit}
+                                >
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="text" placeholder="Ваше имя" />
+                                        <Form.Control type="text" placeholder="Ваше имя"
+                                                      name='from_name'
+                                                      onChange={handleChange}
+                                        />
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="text" placeholder="Ваша почта" />
+                                        <Form.Control type="text" placeholder="Ваша почта"
+                                                      mail='from_mail'
+                                                      onChange={handleChange}/>
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="text" placeholder="Ваша компания" />
+                                        <Form.Control type="text" placeholder="Ваша компания"
+                                                      company='company'
+                                                      onChange={handleChange}/>
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="text" placeholder="Ваш город" />
+                                        <Form.Control type="text" placeholder="Ваш город"
+                                                      city='city'
+                                                      onChange={handleChange}/>
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="text" placeholder="Ваш телефон" />
+                                        <Form.Control type="number" placeholder="Ваш телефон"
+                                                      phone='phone'
+                                                      onChange={handleChange}/>
                                     </Form.Group>
-                                    <button className="button-contacts">
+                                    <button className="button-contacts" type="submit">
                                         Оставить заявку
                                     </button>
                                 </Form>
@@ -57,5 +99,6 @@ export class ContactsPage extends React.Component {
                     </Row>
                 </Container>
         );
-    }
 }
+
+export default ContactsPage;
