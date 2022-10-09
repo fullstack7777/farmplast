@@ -142,6 +142,7 @@
 }
 
 .brands_slider_container {
+    display: flex;
     height: 200px;
     border: solid 1px #ffffff;
     padding-left: 97px;
@@ -650,12 +651,21 @@
         width: 100%;
         margin-bottom: 10px;
     }
+    .brands_prev{
+        left: 0;
+    }
+    .brands_next{
+        right: 0;
+    }
 }
 @media screen and (max-width: 479px) {
   .container {
     width: 340px;
   }
-
+    .brands_slider_container{
+        padding-left: 19px;
+        padding-right: 19px;
+    }
     .custom-section2-img{
         display: none;
     }
@@ -676,11 +686,10 @@
     }
 
     .owl-item{
-        width: 0;
+        width: 100%;
+        align-content: center;
     }
-    .warehouses_slider_container {
 
-    }
     #ware-info{
         padding-bottom: 20px;
     }
@@ -694,15 +703,17 @@
     .col-lg-6{
         padding: 5px;
     }
-
+    .brands_prev{
+        left: 0;
+    }
+    .brands_next{
+        right: 0;
+    }
 }
 @media screen and (max-width: 359px) {
   .container {
     width: 325px;
   }
-    .brands_slider_container{
-
-    }
     #slider-text{
         font-size: 20pt;
         width: 100px;
@@ -731,7 +742,12 @@
         .container {
             width: 290px;
         }
-
+        .brands_prev{
+            left: 0;
+        }
+        .brands_next{
+            right: 0;
+        }
     }
 }
 

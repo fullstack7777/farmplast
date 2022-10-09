@@ -195,10 +195,19 @@
                     nav:false,
                     dots:false,
                     autoWidth:true,
-                    items:4,
                     margin:42,
-                    responsiveClass:true
-
+                    responsiveBaseElement: 'body',
+                    responsive:{
+                      0:{
+                        items:1
+                      },
+                      600:{
+                        items:2
+                      },
+                      1000:{
+                        items:3
+                      }
+                    }
                   });
 
           if($('.brands_prev').length)
@@ -237,7 +246,7 @@
                     nav:false,
                     dots:false,
                     autoWidth:false,
-                    items:4,
+                    items:3,
                     margin:0
                   });
 
