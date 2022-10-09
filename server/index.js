@@ -2,7 +2,6 @@ const express = require('express');
 const db = require('./config/db')
 const cors = require('cors')
 const crypto = require("crypto");
-
 const app = express();
 
 const  PORT = 8080;
