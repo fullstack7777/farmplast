@@ -21,6 +21,29 @@ app.get("/api/getAllCategories", (req,res)=>{
     );
 });
 
+//Search products
+app.get("/api/search", (req,res)=>{
+    const q = req.query.q;
+    db.query("select p.product_id, p.model, p.image, opd.name, om.name as manufacturer  from oc_product p inner join oc_product_description opd on p.product_id = opd.product_id inner join oc_manufacturer om on p.manufacturer_id = om.manufacturer_id where p.status=1 and opd.name like CONCAT('%', ?,  '%')",[q], (err,result)=>{
+            if(err) {
+                console.log(err)
+            }
+            res.send(result)
+        }
+    );
+});
+//keywords
+app.get("/api/query", (req,res)=>{
+    const q = req.query.q;
+    db.query("select p.model as text from oc_product p where p.status=1 and p.model like CONCAT('%', ?,  '%')",[q], (err,result)=>{
+            if(err) {
+                console.log(err)
+            }
+            res.send(result)
+        }
+    );
+});
+
 //Get products by category
 app.get("/api/getProductsByCategory", (req,res)=>{
     const categoryId = req.query.category_ids;
