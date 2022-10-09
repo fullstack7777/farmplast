@@ -57,7 +57,7 @@ function MyVerticallyCenteredModal(props) {
             .catch(error => console.log('error', error));
     }
     console.log(product);
-    if(product!==undefined){
+    if(product!==undefined && product!=null && product!=undefined){
    // let ext = getExtension(product.images);
         //ext = product.image.replace('.'+ext,'-250x250.'+ext);
         //let exts = getExtension(product.images);
@@ -106,7 +106,8 @@ function MyVerticallyCenteredModal(props) {
                             </p>
                             <p style={{marginTop: 20, fontWeight: "bold"}}>
                                 <span>Производитель:</span> {product.manufacturer}</p>
-                            <div><span style={{fontWeight: "bold"}}>Описание:</span><div dangerouslySetInnerHTML={{ __html: product.description }} />
+                            <div><span style={{fontWeight: "bold"}}>Описание:</span>
+                                <div style={{display:'grid'}}>{product.description!=null? product.description.replace(/[|&;$%@"<>()+,]/g,''):''}</div>
                             </div>
                         </Col>
                     </Row>
@@ -116,8 +117,6 @@ function MyVerticallyCenteredModal(props) {
                 </Modal.Footer>
             </Modal>
         );
-    }else {
-        return (<div></div>);
     }
 }
 
