@@ -10,10 +10,14 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Modal} from "react-bootstrap";
 import {send} from "emailjs-com";
 import Swal from "sweetalert2";
+import {Typeahead} from "react-bootstrap-typeahead";
 
 function NewNavBar() {
     const [categories, setCategories] = useState([]);
     const [show, setShow] = useState(false);
+    const [selected, setSelected] = useState([]);
+    const [options, setOptions] = useState([]);
+
     const [toSend, setToSend] = useState({
         from_name: 'noreply@farmplst.com',
         to_name: 'farmplst@gmail.com',
@@ -49,7 +53,15 @@ function NewNavBar() {
                 return setCategories(data);
             });
     }
+    const fetchOptions = () => {
+        return fetch("https://api.farmplst.com/api/query?q=")
+            .then((response) => response.json())
+            .then(function (data) {
+                return setOptions(data);
+            });
+    }
     useEffect(() => {
+        fetchOptions();
         fetchData();
     },[])
     return (
@@ -100,12 +112,21 @@ function NewNavBar() {
                         <Nav.Link className="nav-bar-lg" href="/contacts" >Контакты</Nav.Link>
 
                     </Nav>
-                    <Form className="d-flex search search-nav" onSubmit={onSubmit}>
-                        <Form.Control
-                            type="search"
+                    <Form className="d-flex search search-nav">
+                        {/*<Form.Control*/}
+                        {/*    type="search"*/}
+                        {/*    placeholder="Поиск по товарам"*/}
+                        {/*    className="me-2 custom-input"*/}
+                        {/*    aria-label="Search"*/}
+                        {/*/>*/}
+                        <Typeahead
+                            id="basic-example"
+                            onChange={setSelected}
+                            options={options}
                             placeholder="Поиск по товарам"
                             className="me-2 custom-input"
-                            aria-label="Search"
+                            style={{width:'90%'}}
+                            selected={selected}
                         />
                         {/*<Button variant="primary">Заказать звонок</Button>*/}
                     </Form>

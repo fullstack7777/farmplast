@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {useEffect, useState} from "react";
+import {Typeahead} from "react-bootstrap-typeahead";
 
 
 function MainMenu() {
@@ -14,6 +15,7 @@ function MainMenu() {
             .then((response) => response.json())
             .then((data) => setCategories(data));
     }
+
     useEffect(() => {
         fetchData();
     },[])
@@ -62,12 +64,13 @@ function MainMenu() {
 
                     </Nav>
                     <Form className="d-flex search search-nav">
-                        <Form.Control
-                            type="search"
-                            placeholder="Поиск по товарам"
-                            className="me-2 custom-input"
-                            aria-label="Search"
-                        />
+                        {/*<Form.Control*/}
+                        {/*    type="search"*/}
+                        {/*    placeholder="Поиск по товарам"*/}
+                        {/*    className="me-2 custom-input"*/}
+                        {/*    aria-label="Search"*/}
+                        {/*/>*/}
+
                         {/*<Button variant="primary">Заказать звонок</Button>*/}
                     </Form>
                     <Button variant="primary" className="custom-button" href="#email-section">Заказать звонок</Button>
