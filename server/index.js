@@ -31,6 +31,7 @@ app.get("/api/search", (req,res)=>{
         }
     );
 });
+
 //keywords
 app.get("/api/query", (req,res)=>{
     const q = req.query.q;
