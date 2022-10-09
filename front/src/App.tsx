@@ -9,7 +9,7 @@ import './App.css';
 import {HomePage} from "./components/home/home_page";
 import ProductPage from "./components/products/product_page";
 import Footer from "./components/base/footer";
-import {ContactsPage} from "./components/contacts/contacts_page";
+import ContactsPage from "./components/contacts/contacts_page";
 import {WarehousePage} from "./components/warehouse/warehouse_page";
 import {OrdersPage} from "./components/order/orders";
 import CartsPage from "./components/cart/carts";
