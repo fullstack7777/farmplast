@@ -19,8 +19,9 @@ function NewNavBar() {
     const [options, setOptions] = useState([]);
 
     const [toSend, setToSend] = useState({
-        from_name: 'noreply@farmplst.com',
-        to_name: 'farmplst@gmail.com',
+        from_name: '',
+        to_name: '',
+        phone: '',
         message: '',
         reply_to: '',
     });
@@ -143,6 +144,7 @@ function NewNavBar() {
                                 <Form.Control
                                     type='text'
                                     name='to_name'
+                                    required
                                     className={'mobileBox custom-input'}
                                     onChange={handleChange}
                                     placeholder="Имя"
@@ -152,7 +154,8 @@ function NewNavBar() {
                                 <Form.Label>Телефон</Form.Label>
                                 <Form.Control
                                     type='number'
-                                    name='to_name'
+                                    name='phone'
+                                    required
                                     className={'mobileBox custom-input'}
                                     onChange={handleChange}
                                     placeholder="+7"

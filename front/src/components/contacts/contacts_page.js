@@ -67,27 +67,32 @@ function ContactsPage (){
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Control type="text" placeholder="Ваше имя"
                                                       name='from_name'
+                                                      required
                                                       onChange={handleChange}
                                         />
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Control type="text" placeholder="Ваша почта"
-                                                      mail='from_mail'
+                                                      name='from_mail'
+                                                      required
                                                       onChange={handleChange}/>
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Control type="text" placeholder="Ваша компания"
-                                                      company='company'
+                                                      name='company'
+                                                      required
                                                       onChange={handleChange}/>
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Control type="text" placeholder="Ваш город"
-                                                      city='city'
+                                                      name='city'
+                                                      required
                                                       onChange={handleChange}/>
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Control type="number" placeholder="Ваш телефон"
-                                                      phone='phone'
+                                                      name='phone'
+                                                      required
                                                       onChange={handleChange}/>
                                     </Form.Group>
                                     <button className="button-contacts" type="submit">

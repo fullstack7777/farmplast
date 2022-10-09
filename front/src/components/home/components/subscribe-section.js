@@ -8,8 +8,8 @@ import Swal from 'sweetalert2';
 
 function SubscribeSection() {
     const [toSend, setToSend] = useState({
-        from_name: 'noreply@farmplst.com',
-        to_name: 'farmplst@gmail.com',
+        from_name: '',
+        to_name: '',
         message: '',
         reply_to: '',
     });
@@ -25,14 +25,11 @@ function SubscribeSection() {
                 Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
             })
             .catch((err) => {
-                Swal.fire('Ошибка при отправке, попробуйте похже', '', 'error');
+                Swal.fire('Ошибка при отправке, попробуйте позже', '', 'error');
             });
     };
     const handleChange = (e) => {
         setToSend({ ...toSend, [e.target.name]: e.target.value });
-    };
-    const handleClick = () => {
-        setToSend("");
     };
     return (
         <div id={'email-section'}>
@@ -45,6 +42,7 @@ function SubscribeSection() {
                        <Col xs lg="4">
                            <Form.Control
                                type='number'
+                               required
                                name='to_name'
                                value={toSend.to_name}
                                className={'mobileBox custom-input'}
@@ -52,7 +50,7 @@ function SubscribeSection() {
                                placeholder="Ваш телефон для связи" />
                        </Col>
                        <Col xs lg="3">
-                           <Button type="submit" onClick={() => handleClick()} variant="primary" className="custom-button" style={{width:'100%'}}>Получить консультацию</Button>
+                           <Button type="submit" variant="primary" className="custom-button" style={{width:'100%'}}>Получить консультацию</Button>
                        </Col>
                    </Row>
                </Container>
