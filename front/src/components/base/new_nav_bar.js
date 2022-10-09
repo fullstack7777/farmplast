@@ -144,9 +144,9 @@ function NewNavBar() {
                                 <Form.Control
                                     type='text'
                                     name='to_name'
-                                    required
                                     className={'mobileBox custom-input'}
                                     onChange={handleChange}
+                                    required
                                     placeholder="Имя"
                                 />
                             </Form.Group>
@@ -155,9 +155,9 @@ function NewNavBar() {
                                 <Form.Control
                                     type='number'
                                     name='phone'
-                                    required
                                     className={'mobileBox custom-input'}
                                     onChange={handleChange}
+                                    required
                                     placeholder="+7"
                                 />
                             </Form.Group>
