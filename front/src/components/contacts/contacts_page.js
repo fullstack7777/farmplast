@@ -29,6 +29,7 @@ function ContactsPage (){
         )
             .then((response) => {
                 Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
+                e.target.reset();
             })
             .catch((err) => {
                 Swal.fire('Ошибка при отправке, попробуйте похже', '', 'error');

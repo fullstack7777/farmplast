@@ -21,12 +21,11 @@ function SubscribeSection() {
         )
             .then((response) => {
                 Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
+                e.target.reset();
             })
             .catch((err) => {
                 Swal.fire('Ошибка при отправке, попробуйте позже', '', 'error');
             });
-        setToSend('');
-
     };
     const handleChange = (e) => {
         setToSend({ ...toSend, [e.target.name]: '' });
