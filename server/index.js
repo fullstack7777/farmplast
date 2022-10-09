@@ -35,7 +35,7 @@ app.get("/api/search", (req,res)=>{
 //keywords
 app.get("/api/query", (req,res)=>{
     const q = req.query.q;
-    db.query("select p.model as text from oc_product p where p.status=1 and p.model like CONCAT('%', ?,  '%')",[q], (err,result)=>{
+    db.query("select p.model as label from oc_product p where p.status=1 and p.model like CONCAT('%', ?,  '%')",[q], (err,result)=>{
             if(err) {
                 console.log(err)
             }
