@@ -135,7 +135,7 @@ app.get("/api/getProductById", (req,res)=>{
 
 //Get popular products
 app.get("/api/getPopularProducts", (req,res)=>{
-    db.query("select p.product_id, p.model, p.image, opd.name, om.name as manufacturer  from oc_product p inner join oc_product_description opd on p.product_id = opd.product_id inner join oc_manufacturer om on p.manufacturer_id = om.manufacturer_id where p.status=1 order by p.quantity desc limit 4", (err,result)=>{
+    db.query("select p.product_id, p.model, p.image, opd.name, om.name as manufacturer  from oc_product p inner join oc_product_description opd on p.product_id = opd.product_id inner join oc_manufacturer om on p.manufacturer_id = om.manufacturer_id inner join oc_product_to_category optc on p.product_id = optc.product_id where p.status=1 and optc.category_id=101", (err,result)=>{
             if(err) {
                 console.log(err)
             }
