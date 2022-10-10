@@ -60,6 +60,7 @@ function OrdersPage () {
             .then((response) => {
                 Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
                 e.target.reset();
+                cookies.remove('session')
             })
             .catch((err) => {
                 Swal.fire('Ошибка при отправке, попробуйте похже', '', 'error');
