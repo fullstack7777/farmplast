@@ -46,6 +46,7 @@ function OrdersPage () {
         company: '',
         city: '',
         phone: '',
+        products:products.map(function (product, index) {return product.name}).join(','),
         reply_to: '',
         for_buy: 'Заявка на оформление',
     });
