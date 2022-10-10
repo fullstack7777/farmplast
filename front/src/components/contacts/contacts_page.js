@@ -38,7 +38,6 @@ function ContactsPage (){
     const handleChange = (e) => {
         setToSend({ ...toSend, [e.target.name]: e.target.value });
     };
-
         return (
                 <Container id="section-contacts">
                     <div><h1 className="custom-bold-38" style={{textAlign: "center"}}>

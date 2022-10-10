@@ -179,5 +179,4 @@ function NewNavBar() {
         </Navbar>
     );
 }
-
 export default NewNavBar;
