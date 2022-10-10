@@ -99,7 +99,7 @@ function CartsPage() {
                             })
                         }
                     </Col>
-                    <Col lg="4">
+                    <Col lg="3">
                         <div id="section-contacts-order">
                             <div className="cart-section-count">
                                 <Row>
@@ -109,7 +109,7 @@ function CartsPage() {
                                                 <h4>Итого</h4>
                                                 <h4>{products.length} шт</h4>
                                             </div>
-                                            <hr/>
+                                            <hr style={{width: '100'}}/>
                                             <br/>
                                             <div className="orders-button">
                                                 <Button className="button-contacts" href="/orders">
