@@ -37,9 +37,6 @@ function CartsPage() {
                 <Row >
                     <Col>
                         <div className="order-cards">
-                            <div className="select-cart">
-                                <input type="checkbox" />
-                            </div>
                             <div className="cart-img-desc">
                                 <div >
                                     <img className="cart-img" src="/images/image.webp" alt="Полимер"/>
@@ -49,13 +46,6 @@ function CartsPage() {
                                     <p>Марка: РР Н030</p>
                                     <p>Производитель: Компания Нефтехим, Республика Казахстан</p>
                                 </div>
-                            </div>
-                            <div className="count-box">
-                                    <CounterInput
-                                        min={0}
-                                        max={100}
-                                        onCountChange={count => console.log(count)}
-                                    />
                             </div>
                             <div className="cart-button-del" >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
@@ -67,14 +57,6 @@ function CartsPage() {
                                 </svg>
                             </div>
                         </div>
-                        {/*<div className="order-cards">*/}
-                        {/*    <div className="order-img"><img src="/images/image.webp" alt="Полимер"/></div>*/}
-                        {/*    <div className="order-detail">*/}
-                        {/*        <div>Полимер</div>*/}
-                        {/*        <div>Марка: РР Н030</div>*/}
-                        {/*        <div>Производитель: Компания Нефтехим, Республика Казахстан</div>*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
                     </Col>
                     <Col lg="4">
                         <div id="section-contacts-order">

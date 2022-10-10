@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from "react-bootstrap/Container";
-import {Card, Col, ListGroup, Placeholder, Row} from "react-bootstrap";
+import {Card, Col, ListGroup, Modal, Placeholder, Row, Spinner} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import {useEffect, useState} from "react";
 import Form from 'react-bootstrap/Form';
@@ -13,6 +13,7 @@ function ProductPage(){
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [productLoading, setProductLoading] = useState(false);
     const [productId, setProductId] = useState(0);
 
     const [product, setProduct] = useState([]);
@@ -119,15 +120,22 @@ function ProductPage(){
         return false;
     }
 
-    const fetchProduct = () => {
-        fetch('https://api.farmplst.com/api/getProductById?id='+productId)
+    const fetchProduct = (product_id) => {
+        setProductLoading(true);
+        fetch('https://api.farmplst.com/api/getProductById?id='+product_id)
             .then((response) => response.json())
             .then((data) => {
+                setProductLoading(false);
                 setProduct(data[0]);
+                setModalShow(true);
             })
             .catch((err) => {
+                setProductLoading(false);
                 console.log(err.message);
             });
+    }
+    function addRequest(){
+
     }
 
 
@@ -244,13 +252,6 @@ function ProductPage(){
                     <br/>
                 </Col>
                 <Col lg="9">
-                    {/*<div style={{fontWeight: "bold"}}>Продукты компании Нефтехим</div>*/}
-                    {/*<div>ТОО «Компания Нефтехим LTD» — завод-производитель гранулированного полипропилена и мягкой полипропиленовой упаковки (мешки, биг-беги). Первый нефтехимический завод, построенный в Республике за годы независимости, стал одним их успешных прорывных проектов Казахстана.</div>*/}
-                    {/*<div>Местонахождения: Республика Казахстан, город Павлодар </div>*/}
-                    {/*<div>Год основания: 2005</div>*/}
-                    {/*<div>Марки полипропилена: H030, H250, H350, H450 </div>*/}
-                    {/*<div>Переходные марки: 2,5-45 птр </div>*/}
-                    {/*<br/>*/}
                     {loading?
                         <Row>
                             <Col md="auto">
@@ -313,8 +314,7 @@ function ProductPage(){
                                         <Col md="auto">
                                             <Card className="card-hov" onClick={function () {
                                                 setProductId(product.product_id);
-                                                fetchProduct();
-                                                return setModalShow(true);
+                                                fetchProduct(product.product_id);
                                             }}>
                                                 <Card.Img className={'img-loading'} variant="top" src={'http://admin.farmplst.com/image/cache/'+ext}
                                                           onError={({ currentTarget }) => {
@@ -326,7 +326,7 @@ function ProductPage(){
                                                     <p style={{textAlign: "left"}}>Марка: {product.model}</p>
                                                     <p style={{textAlign: "left"}}>Производитель: {product.manufacturer}
                                                     </p>
-                                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}} href="/orders">
+                                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>
                                                         Оставить заявку</Button>
                                                 </Card.Body>
                                             </Card>
@@ -346,6 +346,25 @@ function ProductPage(){
                 product1 = {product}
                 onHide={() => setModalShow(false)}
             />
+            <Modal
+                show={productLoading}
+                size="sm"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Body>
+                    <Container>
+                        <Row>
+                            <Col>
+                                <Spinner animation="border" role="status">
+                                    <span className="visually-hidden">Loading...</span>
+                                </Spinner>
+                                <span> Загрузка...</span>
+                            </Col>
+                        </Row>
+                    </Container>
+                </Modal.Body>
+            </Modal>
     </Container>
     );
 }
