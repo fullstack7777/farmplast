@@ -86,9 +86,7 @@ function ProductPage(){
                 return setProducts(data);
             });
     }
-    // function typeOf(obj) {
-    //     return {}.toString.call(obj).split(' ')[1].slice(0, -1).toLowerCase();
-    // }
+
     function checkId(id) {
         const queryParams = new URLSearchParams(window.location.search)
         const ids = queryParams.get("category_ids")
