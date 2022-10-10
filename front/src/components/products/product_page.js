@@ -211,7 +211,7 @@ function ProductPage(){
                                             category.subs.push(inner.category_id)
                                         }})
                                     return [
-                                        <ListGroup.Item style={{background:'#f8f9fa', fontWeight: "bold"}}>
+                                        <ListGroup.Item style={{background:'#f8f9fa', fontWeight: "bold", color: '#343434'}}>
                                             <Form.Check
                                                 type={'checkbox'}
                                                 id={category.category_id}
@@ -322,7 +322,7 @@ function ProductPage(){
                                                     currentTarget.src="/images/placeholder.webp";
                                                 }} alt={product.name}/>
                                                 <Card.Body>
-                                                    <h6 style={{textAlign: "left"}}>{product.name}</h6>
+                                                    <h6 style={{textAlign: "left", color: '#343434', fontWeight: "bold"}}>{product.name}</h6>
                                                     <p style={{textAlign: "left"}}>Марка: {product.model}</p>
                                                     <p style={{textAlign: "left"}}>Производитель: {product.manufacturer}
                                                     </p>
