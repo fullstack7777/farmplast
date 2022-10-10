@@ -7,10 +7,6 @@ import Carousel from 'react-bootstrap/Carousel';
 
 function MyVerticallyCenteredModal(props) {
     const product = props.product1;
-
-
-
-    console.log(product);
     if(product!==undefined && product!=null && product!=undefined){
         return (
             <Modal

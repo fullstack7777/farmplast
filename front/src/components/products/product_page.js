@@ -5,11 +5,15 @@ import Button from "react-bootstrap/Button";
 import {useEffect, useState} from "react";
 import Form from 'react-bootstrap/Form';
 import MyVerticallyCenteredModal from "./product_modal";
+import Cookies from 'universal-cookie';
 
 function ProductPage(){
     useEffect(() => {
         document.title = 'Фармпласт - Товары';
     });
+
+    const cookies = new Cookies();
+
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -134,8 +138,57 @@ function ProductPage(){
                 console.log(err.message);
             });
     }
-    function addRequest(){
+    function createSession(id){
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
+        const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+
+        fetch("https://api.farmplst.com/api/newSession", requestOptions)
+            .then(response => response.text())
+            .then(function (result) {
+                const r = JSON.parse(result)
+                cookies.set('session',r.session, {maxAge:86000});
+                addRequest(id);
+            })
+            .catch(error => console.log('error', error));
+    }
+    function addRequest(id){
+        let session = cookies.get('session');
+        if(session==null){
+            createSession(id);
+        }else {
+            addToCartsAndToRequest(id);
+        }
+    }
+    function addToCartsAndToRequest(id) {
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        const urlencoded = new URLSearchParams();
+        urlencoded.append("session", cookies.get('session'));
+        urlencoded.append("quantity", "1");
+        urlencoded.append("product_id", id);
+
+        const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: 'follow'
+        };
+
+        fetch("https://api.farmplst.com/api/addCard", requestOptions)
+            .then(response => response.text())
+            .then(function (result) {
+                if(result){
+                    window.location.href='/orders';
+                }
+            })
+            .catch(error => console.log('error', error));
     }
 
 
@@ -312,23 +365,27 @@ function ProductPage(){
                                     ext = product.image.replace('.'+ext,'-250x250.'+ext);
                                     return (
                                         <Col md="auto">
-                                            <Card className="card-hov" onClick={function () {
-                                                setProductId(product.product_id);
-                                                fetchProduct(product.product_id);
-                                            }}>
-                                                <Card.Img className={'img-loading'} variant="top" src={'http://admin.farmplst.com/image/cache/'+ext}
+                                            <Card className="card-hov">
+                                                <Card.Img onClick={function () {
+                                                    setProductId(product.product_id);
+                                                    fetchProduct(product.product_id);
+                                                }} className={'img-loading'} variant="top" src={'http://admin.farmplst.com/image/cache/'+ext}
                                                           onError={({ currentTarget }) => {
                                                     currentTarget.onerror = null; // prevents looping
                                                     currentTarget.src="/images/placeholder.webp";
                                                 }} alt={product.name}/>
-                                                <Card.Body>
+                                                <Card.Body onClick={function () {
+                                                    setProductId(product.product_id);
+                                                    fetchProduct(product.product_id);
+                                                }}>
                                                     <h6 style={{textAlign: "left", color: '#343434', fontWeight: "bold"}}>{product.name}</h6>
                                                     <p style={{textAlign: "left"}}>Марка: {product.model}</p>
-                                                    <p style={{textAlign: "left"}}>Производитель: {product.manufacturer}
-                                                    </p>
-                                                    <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>
-                                                        Оставить заявку</Button>
+                                                    <p style={{textAlign: "left"}}>Производитель: {product.manufacturer}</p>
                                                 </Card.Body>
+                                                <Card.Footer style={{backgroundColor:'transparent', borderTop:'none', padding:'0 0 16px 16px'}}>
+                                                    <Button onClick={()=>addRequest(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>
+                                                        Оставить заявку</Button>
+                                                </Card.Footer>
                                             </Card>
                                             <br/>
                                         </Col>
