@@ -101,6 +101,8 @@ function ProductsSection() {
                 if(result){
                     if(toLink!=null){
                         window.location.href=toLink;
+                    }else {
+                        setModalShow(false)
                     }
                 }
             })
