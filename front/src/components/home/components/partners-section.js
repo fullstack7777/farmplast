@@ -15,7 +15,7 @@ function PartnersSection() {
                 <Row>
                     <Col>
                         <div className="brands_slider_container">
-                            <div className="owl-carousel owl-theme brands_slider">
+                            <div className="owl-carousel owl-theme brands_slider justify-content-center">
                                 <div className="owl-item">
                                     <a href={'https://www.kazanorgsintez.ru/'}  target="_blank" className="brands_item d-flex flex-column justify-content-center" rel="noreferrer">
                                         <img height={'72'}

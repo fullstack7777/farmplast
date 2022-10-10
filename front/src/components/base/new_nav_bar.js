@@ -173,7 +173,7 @@ function NewNavBar() {
                         </Form>
                     </Modal.Body>
                     </Modal>
-                    <Button variant="primary" className="button-cart"><img src="/images/cart.webp" height ="20" width="20" alt="cart"/></Button>
+                    <Button variant="primary" className="button-cart" href="/carts"><img src="/images/cart.webp" height ="20" width="20" alt="cart"/></Button>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
