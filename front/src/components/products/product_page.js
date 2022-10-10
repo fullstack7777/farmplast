@@ -243,23 +243,11 @@ function ProductPage(){
         }
         fetchProducts(checked?[0]:ids);
     }
-    // function removeItemOnce(arr, value) {
-    //     const index = arr.indexOf(value);
-    //     if (index > -1) {
-    //         arr.splice(index, 1);
-    //     }
-    //     return arr;
-    // }
+
     function getExtension(filename) {
         return filename.split(".").pop();
     }
-    // const addtoCart = (product) => {
-    //     this.setState({
-    //         count: this.state.count + 1,
-    //         cart: this.state.cart.concat(product)
-    //     });
-    //     console.log(this.state.cart);
-    // };
+
     const [modalShow, setModalShow] = React.useState(false);
     return (
         <Container id="products-section" className={'top-space'}>
@@ -412,7 +400,6 @@ function ProductPage(){
             </Row>
 
             <Modal
-                id={productId}
                 show={modalShow}
                 product1 = {product}
                 onHide={() => setModalShow(false)}
