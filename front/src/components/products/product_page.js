@@ -251,6 +251,7 @@ function ProductPage(){
     function getExtension(filename) {
         return filename.split(".").pop();
     }
+    //let img =  product.images.split(";");
 
     const [modalShow, setModalShow] = React.useState(false);
     return (
@@ -368,6 +369,8 @@ function ProductPage(){
                                 products.map(function (product, index) {
                                     let ext = getExtension(product.image);
                                     ext = product.image.replace('.'+ext,'-250x250.'+ext);
+
+
                                     return (
                                         <Col md="auto">
                                             <Card className="card-hov">
@@ -434,7 +437,7 @@ function ProductPage(){
                             </Carousel>
                             <Row>
                                 <Col className="modal-picture-mini">
-                                    {/*<img className="modal-picture-single" src={'http://admin.farmplst.com/image/'+ ext}/>*/}
+                                    <img className="modal-picture-single" src={'http://admin.farmplst.com/images/'}/>
                                 </Col>
                             </Row>
                         </Col>
@@ -459,7 +462,6 @@ function ProductPage(){
                     <Button className="custom-button" onClick={()=>setModalShow(false)}>Закрыть</Button>
                 </Modal.Footer>
             </Modal>
-
             <Modal
                 show={productLoading}
                 size="sm"
@@ -479,6 +481,7 @@ function ProductPage(){
                     </Container>
                 </Modal.Body>
             </Modal>
+
     </Container>
     );
 }
