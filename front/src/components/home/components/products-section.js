@@ -62,7 +62,9 @@ function ProductsSection() {
     function addRequest(id){
         let session = cookies.get('session');
         if(session==null){
-            createSession(id, addRequest(id));
+            createSession(id, function (id) {
+                addRequest(id)
+            });
         }else {
             addToCarts(id, '/orders');
         }
@@ -70,7 +72,9 @@ function ProductsSection() {
     function addToCard(id) {
         let session = cookies.get('session');
         if(session==null){
-            createSession(id, addToCard(id));
+            createSession(id, function (id) {
+                addToCard(id)
+            });
         }else {
             addToCarts(id, null);
         }
