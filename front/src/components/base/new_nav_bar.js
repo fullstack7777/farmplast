@@ -12,11 +12,11 @@ import {send} from "emailjs-com";
 import Swal from "sweetalert2";
 import {Typeahead} from "react-bootstrap-typeahead";
 import React from "react";
-import Cookies from 'universal-cookie';
+import Cookie from 'universal-cookie'
 import Carousel from "react-bootstrap/Carousel";
 
 function NewNavBar() {
-    const cookies = new Cookies();
+    const cookies = new Cookie();
     const [categories, setCategories] = useState([]);
     const [show, setShow] = useState(false);
     const [selected, setSelected] = useState([]);
