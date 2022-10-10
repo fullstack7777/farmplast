@@ -12,7 +12,7 @@ function ContactsPage (){
         });
     const [toSend, setToSend] = useState({
         from_name: '',
-        to_name: 'farmplst@gmail.com',
+        to_name: 'с "Наши контакты"',
         from_mail: '',
         company: '',
         city: '',
@@ -38,7 +38,6 @@ function ContactsPage (){
     const handleChange = (e) => {
         setToSend({ ...toSend, [e.target.name]: e.target.value });
     };
-
         return (
                 <Container id="section-contacts">
                     <div><h1 className="custom-bold-38" style={{textAlign: "center"}}>
@@ -68,6 +67,7 @@ function ContactsPage (){
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Control type="text" placeholder="Ваше имя"
                                                       name='from_name'
+                                                      title='to_name'
                                                       onChange={handleChange}
                                                       required
                                         />

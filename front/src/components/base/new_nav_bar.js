@@ -230,7 +230,7 @@ function NewNavBar() {
                     <Button variant="primary" className="custom-button call-button" onClick={handleShow}><FontAwesomeIcon icon={faPhone}/></Button>
                     <Modal show={show} onHide={handleClose} animation={false}>
                         <Modal.Header>
-                            <Modal.Title>Заполните необходимые данные и наши менеджеры свяжутся с Вами в ближайшее время.</Modal.Title>
+                            <h4 className="modal-h4">Заполните необходимые данные и наши менеджеры свяжутся с Вами в ближайшее время.</h4>
                         </Modal.Header>
                     <Modal.Body>
                         <Form onSubmit={onSubmit}>
@@ -349,5 +349,4 @@ function NewNavBar() {
         </Navbar>
     );
 }
-
 export default NewNavBar;
