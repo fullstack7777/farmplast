@@ -4,7 +4,7 @@ import {Card, Col, ListGroup, Modal, Placeholder, Row, Spinner} from "react-boot
 import Button from "react-bootstrap/Button";
 import {useEffect, useState} from "react";
 import Form from 'react-bootstrap/Form';
-import Cookies from 'universal-cookie';
+import Cookie from 'universal-cookie'
 import Carousel from "react-bootstrap/Carousel";
 
 function ProductPage(){
@@ -12,7 +12,7 @@ function ProductPage(){
         document.title = 'Фармпласт - Товары';
     });
 
-    const cookies = new Cookies();
+    const cookies = new Cookie();
 
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
