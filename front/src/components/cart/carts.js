@@ -82,34 +82,13 @@ function CartsPage() {
                                 <Row>
                                     <Col>
                                         <div className="orders-box-content">
-                                           <h3 > Общее количество</h3>
-                                        <div className="orders-box">
-                                            <h6>Полипропилен</h6>
-                                            <h6>22шт</h6>
-                                        </div>
-                                            <div className="orders-box">
-                                                <h6>Полистирол</h6>
-                                                <h6>22шт</h6>
-                                            </div>
-                                            <div className="orders-box">
-                                                <h6>Полиэтилен высокого давления</h6>
-                                                <h6>22шт</h6>
-                                            </div>
-                                            <div className="orders-box">
-                                                <h6>Полиэтилен низкого давления</h6>
-                                                <h6>22шт</h6>
-                                            </div>
-                                            <div className="orders-box">
-                                                <h6>Линейный полиэтилен</h6>
-                                                <h6>22шт</h6>
-                                            </div>
-                                            <hr/>
                                             <div className="orders-box">
                                                 <h4>Итого</h4>
                                                 <h4>30шт</h4>
                                             </div>
+                                            <hr/>
                                             <br/>
-                                            <div>
+                                            <div className="orders-button">
                                                 <Button className="button-contacts" href="/orders">
                                                     Оставить заявку
                                                 </Button>
