@@ -12,6 +12,20 @@ function ProductsSection() {
     const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]);
 
+    const fetchProducts = () => {
+        return fetch("https://api.farmplst.com/api/getPopularProducts")
+            .then(function (response) {
+                setLoading(false);
+                return response.json();
+            })
+            .then(function (data) {
+                return setProducts(data);
+            });
+    }
+    useEffect(() => {
+        fetchProducts();
+    },[])
+
     if(loading){
         return (
             <Container style={{paddingBottom: 60}}>

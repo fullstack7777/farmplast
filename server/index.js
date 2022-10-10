@@ -99,7 +99,7 @@ app.post("/api/addCard", (req,res)=>{
 //Get all categories
 app.post("/api/getCarts", (req,res)=>{
     const session = req.body.session;
-    db.query("select c.cart_id, c.quantity, p.image, d.name from oc_cart c left join oc_product p on c.product_id = p.product_id inner join oc_product_description d on p.product_id = d.product_id where c.session_id=?",[session], (err,result)=>{
+    db.query("select c.cart_id, c.quantity, p.image, p.model, d.name, om.name as manufacturer from oc_cart c left join oc_product p on c.product_id = p.product_id inner join oc_product_description d on p.product_id = d.product_id inner join oc_manufacturer om on p.manufacturer_id = om.manufacturer_id where c.session_id=?",[session], (err,result)=>{
             if(err) {
                 console.log(err)
             }
