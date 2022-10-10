@@ -4,8 +4,8 @@ import {Card, Col, ListGroup, Modal, Placeholder, Row, Spinner} from "react-boot
 import Button from "react-bootstrap/Button";
 import {useEffect, useState} from "react";
 import Form from 'react-bootstrap/Form';
-import MyVerticallyCenteredModal from "./product_modal";
 import Cookies from 'universal-cookie';
+import Carousel from "react-bootstrap/Carousel";
 
 function ProductPage(){
     useEffect(() => {
@@ -138,7 +138,7 @@ function ProductPage(){
                 console.log(err.message);
             });
     }
-    function createSession(id){
+    function createSession(id, callback){
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -152,20 +152,28 @@ function ProductPage(){
             .then(response => response.text())
             .then(function (result) {
                 const r = JSON.parse(result)
-                cookies.set('session',r.session, {maxAge:86000});
-                addRequest(id);
+                cookies.set('session',r.session, {maxAge:86000, path: '/'});
+                callback(id);
             })
             .catch(error => console.log('error', error));
     }
     function addRequest(id){
         let session = cookies.get('session');
         if(session==null){
-            createSession(id);
+            createSession(id, addRequest(id));
         }else {
-            addToCartsAndToRequest(id);
+            addToCarts(id, '/orders');
         }
     }
-    function addToCartsAndToRequest(id) {
+    function addToCard(id) {
+        let session = cookies.get('session');
+        if(session==null){
+            createSession(id, addToCard(id));
+        }else {
+            addToCarts(id, null);
+        }
+    }
+    function addToCarts(id, toLink=null) {
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -185,10 +193,17 @@ function ProductPage(){
             .then(response => response.text())
             .then(function (result) {
                 if(result){
-                    window.location.href='/orders';
+                    if(toLink!=null){
+                        window.location.href=toLink;
+                    }
                 }
             })
             .catch(error => console.log('error', error));
+    }
+    function htmlDecode(input){
+        let e = document.createElement('div');
+        e.innerHTML = input;
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
     }
 
 
@@ -397,12 +412,65 @@ function ProductPage(){
                     }
                 </Col>
             </Row>
-            <MyVerticallyCenteredModal
+
+            <Modal
                 id={productId}
                 show={modalShow}
                 product1 = {product}
                 onHide={() => setModalShow(false)}
-            />
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        Карточка продукта
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Row>
+                        <Col>
+                            <Carousel>
+                                <Carousel.Item>
+                                    <img
+                                        className="d-block-modal w-100"
+                                        src={'http://admin.farmplst.com/image/'+product.image}
+                                        onError={({ currentTarget }) => {
+                                            currentTarget.onerror = null; // prevents looping
+                                            currentTarget.src="/images/placeholder.webp";
+                                        }}
+                                        alt="First slide"
+                                    />
+                                </Carousel.Item>
+                            </Carousel>
+                            <Row>
+                                <Col className="modal-picture-mini">
+                                    {/*<img className="modal-picture-single" src={'http://admin.farmplst.com/image/'+ ext}/>*/}
+                                </Col>
+                            </Row>
+                        </Col>
+                        <Col>
+                            <h4>{product.name}</h4>
+                            <p>{product.model}</p>
+                            <div className="button-cart-buy">
+                                <Button onClick={()=>addToCard(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Купить в один клик</Button>
+                                <Button onClick={()=>addRequest(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Заказать в один клик</Button>
+                            </div>
+                            <p style={{marginTop: 20, fontWeight: "bold"}}><span>Марка:</span> {product.tag}
+                            </p>
+                            <p style={{marginTop: 20, fontWeight: "bold"}}>
+                                <span>Производитель:</span> {product.manufacturer}</p>
+                            <div><span style={{fontWeight: "bold"}}>Описание:</span>
+                                <div style={{display:'grid', fontSize:'13px'}} dangerouslySetInnerHTML={{__html: htmlDecode(product.description)}}/>
+                            </div>
+                        </Col>
+                    </Row>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button className="custom-button" onClick={()=>setModalShow(false)}>Закрыть</Button>
+                </Modal.Footer>
+            </Modal>
+
             <Modal
                 show={productLoading}
                 size="sm"

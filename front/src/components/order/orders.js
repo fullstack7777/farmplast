@@ -4,12 +4,41 @@ import {Col, Row} from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 import {send} from "emailjs-com";
 import Swal from "sweetalert2";
-import CounterInput from "react-counter-input";
+import Cookies from "universal-cookie";
 
 function OrdersPage () {
-        useEffect(() => {
-            document.title = 'Фармпласт - Заявка';
-        });
+    const cookies = new Cookies();
+    const [products, setProducts] = useState([]);
+    function getCards() {
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        const urlencoded = new URLSearchParams();
+        urlencoded.append("session", cookies.get('session'));
+
+        const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: 'follow'
+        };
+
+        fetch("https://api.farmplst.com/api/getCarts", requestOptions)
+            .then(response => response.text())
+            .then(function (result) {
+                let r = JSON.parse(result);
+                return setProducts(r);
+            })
+            .catch(error => console.log('error', error));
+    }
+    function getExtension(filename) {
+        return filename.split(".").pop();
+    }
+    useEffect(() => {
+        document.title = 'Фармпласт - Заявка';
+        getCards();
+    },[]);
+
     const [toSend, setToSend] = useState({
         from_name: '',
         to_name: 'sadyk.sapaev@gmail.com',
@@ -45,18 +74,32 @@ function OrdersPage () {
                     Оформление <span className="custom-bold-white">заявки</span></h1></div>
                 <Row >
                     <Col>
-                        <div className="order-cards">
-                            <div className="cart-img-desc">
-                                <div >
-                                    <img className="cart-img" src="/images/image.webp" alt="Полимер"/>
-                                </div>
-                                <div className="cart-desc">
-                                    <p>Полимер</p>
-                                    <p>Марка: РР Н030</p>
-                                    <p>Производитель: Компания Нефтехим, Республика Казахстан</p>
-                                </div>
-                            </div>
-                        </div>
+                        {
+                            // eslint-disable-next-line array-callback-return
+                            products.map(function (product, index) {
+                                let ext = getExtension(product.image);
+                                ext = product.image.replace('.'+ext,'-250x250.'+ext);
+                                return (
+                                    <div className="order-cards">
+                                        <div className="cart-img-desc">
+                                            <div >
+                                                <img className={'img-loading'} style={{height:'120px', width:'120px'}} src={'http://admin.farmplst.com/image/cache/'+ext}
+                                                     onError={({ currentTarget }) => {
+                                                         currentTarget.onerror = null; // prevents looping
+                                                         currentTarget.src="/images/placeholder.webp";
+                                                     }} alt={product.name}/>
+                                            </div>
+                                            <div className="cart-desc">
+                                                <p>{product.name}</p>
+                                                <p>Марка: {product.model}</p>
+                                                <p>Производитель: {product.manufacturer}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })
+                        }
+
                     </Col>
                     <Col lg="6">
                         <div id="section-contacts-order">
