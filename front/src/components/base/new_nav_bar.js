@@ -12,7 +12,7 @@ import {send} from "emailjs-com";
 import Swal from "sweetalert2";
 import {Typeahead} from "react-bootstrap-typeahead";
 import React from "react";
-import Cookies from "universal-cookie";
+import Cookies from 'universal-cookie';
 import Carousel from "react-bootstrap/Carousel";
 
 function NewNavBar() {
