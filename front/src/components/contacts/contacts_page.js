@@ -12,7 +12,7 @@ function ContactsPage (){
         });
     const [toSend, setToSend] = useState({
         from_name: '',
-        to_name: 'farmplst@gmail.com',
+        to_name: 'с "Наши контакты"',
         from_mail: '',
         company: '',
         city: '',
@@ -68,6 +68,7 @@ function ContactsPage (){
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Control type="text" placeholder="Ваше имя"
                                                       name='from_name'
+                                                      title='to_name'
                                                       onChange={handleChange}
                                                       required
                                         />

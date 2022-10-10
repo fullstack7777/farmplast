@@ -50,7 +50,7 @@ function MyVerticallyCenteredModal(props) {
                             <h4>{product.name}</h4>
                             <p>{product.model}</p>
                             <div className="button-cart-buy">
-                                <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Купить в один клик</Button>
+                                <Button variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Добавить в корзину</Button>
                                 <Button  variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Заказать в один клик</Button>
                             </div>
                             <p style={{marginTop: 20, fontWeight: "bold"}}><span>Марка:</span> {product.tag}

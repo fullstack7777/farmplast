@@ -12,13 +12,12 @@ function OrdersPage () {
         });
     const [toSend, setToSend] = useState({
         from_name: '',
-        to_name: 'sadyk.sapaev@gmail.com',
+        to_name: ' на оформление',
         from_mail: '',
         company: '',
         city: '',
         phone: '',
         reply_to: '',
-        for_buy: 'Заявка на оформление',
     });
     const onSubmit = (e) => {
         e.preventDefault();
@@ -88,7 +87,7 @@ function OrdersPage () {
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                     <Form.Control type="text" placeholder="Ваше имя"
                                                   name='from_name'
-                                                  title='for_buy'
+                                                  to_name='to_name'
                                                   onChange={handleChange}
                                                   required
                                     />
