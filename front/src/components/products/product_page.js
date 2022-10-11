@@ -256,9 +256,6 @@ function ProductPage(){
     function getExtension(filename) {
         return filename.split(".").pop();
     }
-    // let img = product.images;
-    // let allImg =  img.map(img.split(";"));\
-    let arr = (product.images).split(';');
 
     const [modalShow, setModalShow] = React.useState(false);
 
@@ -442,10 +439,12 @@ function ProductPage(){
                                 </Carousel.Item>
                             </Carousel>
                             <Row>
-                                {arr.map((img, i) => {
-                                    console.log("Entered");
-                                    return <div key={img}>{arr}</div>
-                                })}
+                                {
+                                    // eslint-disable-next-line array-callback-return
+                                    product.images!==undefined && product.images!=null?product.images.split(';').map((function (item, i) {
+                                        console.log(item)
+                                    })):''
+                                }
                                 {/*{*/}
                                 {/*    // eslint-disable-next-line array-callback-return*/}
                                 {/*    */}
