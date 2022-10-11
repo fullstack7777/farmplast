@@ -4,7 +4,6 @@ import Container from "react-bootstrap/Container";
 import {Col, Modal, Placeholder, Row, Spinner} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import {useEffect, useState} from "react";
-import MyVerticallyCenteredModal from "../../products/product_modal";
 import Cookies from "universal-cookie";
 import Carousel from "react-bootstrap/Carousel";
 
@@ -301,7 +300,7 @@ function ProductsSection() {
                     show={modalShow}
                     product1 = {product}
                     onHide={() => setModalShow(false)}
-                    size="lg"
+                    size="xl"
                     aria-labelledby="contained-modal-title-vcenter"
                     centered
                 >
@@ -336,7 +335,7 @@ function ProductsSection() {
                                 <h4>{product.name}</h4>
                                 <p>{product.model}</p>
                                 <div className="button-cart-buy">
-                                    <Button onClick={()=>addToCard(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Купить в один клик</Button>
+                                    <Button onClick={()=>addToCard(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Добавить в корзину</Button>
                                     <Button onClick={()=>addRequest(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Заказать в один клик</Button>
                                 </div>
                                 <p style={{marginTop: 20, fontWeight: "bold"}}><span>Марка:</span> {product.tag}
@@ -344,7 +343,7 @@ function ProductsSection() {
                                 <p style={{marginTop: 20, fontWeight: "bold"}}>
                                     <span>Производитель:</span> {product.manufacturer}</p>
                                 <div><span style={{fontWeight: "bold"}}>Описание:</span>
-                                    <div style={{display:'grid', fontSize:'13px'}} dangerouslySetInnerHTML={{__html: htmlDecode(product.description)}}/>
+                                    <div style={{display:'grid', fontSize:'13px', padding: 30}} dangerouslySetInnerHTML={{__html: htmlDecode(product.description)}}/>
                                 </div>
                             </Col>
                         </Row>
@@ -353,7 +352,6 @@ function ProductsSection() {
                         <Button className="custom-button" onClick={()=>setModalShow(false)}>Закрыть</Button>
                     </Modal.Footer>
                 </Modal>
-
                 <Modal
                     show={productLoading}
                     size="sm"
