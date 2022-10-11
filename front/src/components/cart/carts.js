@@ -99,30 +99,60 @@ function CartsPage() {
                             })
                         }
                     </Col>
-                    <Col lg="3">
-                        <div id="section-contacts-order">
-                            <div className="cart-section-count">
-                                <Row>
-                                    <Col>
-                                        <div className="orders-box-content">
-                                            <div className="orders-box">
-                                                <h4>Итого</h4>
-                                                <h4>{products.length} шт</h4>
-                                            </div>
-                                            <hr style={{width: '100'}}/>
-                                            <br/>
-                                            <div className="orders-button">
-                                                <Button className="button-contacts" href="/orders">
-                                                    Оставить заявку
-                                                </Button>
-                                            </div>
-                                        </div>
-                                    </Col>
-                                </Row>
-                            </div>
+                    {products.length > 0 ?
+                        <Col lg="3">
+                            <div id="section-contacts-order">
+                                <div className="cart-section-count">
+                                    <Row>
+                                        <Col>
+                                            <div className="orders-box-content">
+                                                <div className="orders-box">
+                                                    <h4>Итого</h4>
+                                                    <h4>{products.length} шт</h4>
+                                                </div>
+                                                <hr style={{width: '100'}}/>
+                                                <br/>
 
-                        </div>
-                    </Col>
+                                                <div className="orders-button">
+                                                    <Button className="button-contacts" href="/orders">
+                                                        Оставить заявку
+                                                    </Button>
+                                                </div>
+
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                </div>
+
+                            </div>
+                        </Col>
+                    :
+                        <Col lg="3">
+                            <div id="section-contacts-order">
+                                <div className="cart-section-count">
+                                    <Row>
+                                        <Col>
+                                            <div className="orders-box-content">
+                                                <div className="orders-box">
+                                                    <h4>Заказ отсутсвует</h4>
+                                                    <h4>0 шт</h4>
+                                                </div>
+                                                <hr style={{width: '100'}}/>
+                                                <br/>
+
+                                                <div className="orders-button">
+                                                    <Button className="button-contacts" href="/products">
+                                                        Перейти к выбору продуктов
+                                                    </Button>
+                                                </div>
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                </div>
+
+                            </div>
+                        </Col>
+                    }
                 </Row>
             </Container>
         );

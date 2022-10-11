@@ -39,6 +39,7 @@ function OrdersPage () {
         getCards();
     },[]);
 
+    const product_email = products.map(function (product, index) {return product.name}).join(',');
     const [toSend, setToSend] = useState({
         from_name: '',
         to_name: ' на оформление',
@@ -46,7 +47,7 @@ function OrdersPage () {
         company: '',
         city: '',
         phone: '',
-        products:products.map(function (product, index) {return product.name}).join(','),
+        product_email:'product_email',
         reply_to: '',
     });
     const onSubmit = (e) => {
@@ -114,6 +115,7 @@ function OrdersPage () {
                                     <Form.Control type="text" placeholder="Ваше имя"
                                                   name='from_name'
                                                   to_name='to_name'
+                                                  product_email={product_email}
                                                   onChange={handleChange}
                                                   required
                                     />

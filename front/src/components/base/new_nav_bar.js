@@ -115,11 +115,8 @@ function NewNavBar() {
     }
 
     const [toSend, setToSend] = useState({
-        from_name: '',
-        to_name: '',
+        name:'',
         phone: '',
-        message: '',
-        reply_to: '',
     });
     const onSubmit = (e) => {
         e.preventDefault();
@@ -131,6 +128,7 @@ function NewNavBar() {
         )
             .then((response) => {
                 Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
+                handleClose();
                 e.target.reset();
             })
             .catch((err) => {
@@ -138,7 +136,9 @@ function NewNavBar() {
             });
     };
     const handleChange = (e) => {
+        e.preventDefault();
         setToSend({ ...toSend, [e.target.name]: e.target.value });
+        setToSend({ ...toSend, [e.target.phone]: e.target.value });
     };
     let mapCategories = new Map();
     const handleClose = () => setShow(false);
@@ -190,22 +190,6 @@ function NewNavBar() {
                                 }}
                             )}
                         </NavDropdown>
-                       {/* //  Old Category and Subcategory*/}
-                       {/* <NavDropdown className="nav-bar-lg" title="Продукция" id="navbarScrollingDropdown">*/}
-                       {/*     /!* eslint-disable-next-line array-callback-return *!/*/}
-                       {/*     {categories.sort((a,b)=>a.sort_order>b.sort_order?1:-1).map(function (category, index) {*/}
-                       {/*         if(category.parent_id===0){*/}
-                       {/*             return <NavDropdown  renderMenuOnMount={true} className={'nav-bar-lg inner-drop'} drop={'end'} title={category.name}>*/}
-                       {/*                 /!* eslint-disable-next-line array-callback-return *!/*/}
-                       {/*                 {categories.map(function (inner, i) {*/}
-                       {/*                     if(category.category_id===inner.parent_id){*/}
-                       {/*                         return <NavDropdown.Item href={'/products?category_ids='+inner.category_id} >{inner.name}</NavDropdown.Item>*/}
-                       {/*                     }*/}
-                       {/*                 })}*/}
-                       {/*             </NavDropdown>;*/}
-                       {/*         }*/}
-                       {/*     })}*/}
-                       {/* </NavDropdown>*/}
                         <Nav.Link className="nav-bar-lg" href="/warehouses" >Склады</Nav.Link>
                         <Nav.Link className="nav-bar-lg" href="/contacts" >Контакты</Nav.Link>
 
@@ -234,7 +218,13 @@ function NewNavBar() {
                     </Form>
                     <Button variant="primary" className="custom-button call-button-lg" onClick={handleShow}>Заказать звонок</Button>
                     <Button variant="primary" className="custom-button call-button" onClick={handleShow}><FontAwesomeIcon icon={faPhone}/></Button>
-                    <Modal show={show} onHide={handleClose} animation={false}>
+                    <Modal
+                        show={show}
+                        onHide={handleClose}
+                        animation={false}
+                        aria-labelledby="contained-modal-title-vcenter"
+                        centered
+                    >
                         <Modal.Header>
                             <h4 className="modal-h4">Заполните необходимые данные и наши менеджеры свяжутся с Вами в ближайшее время.</h4>
                         </Modal.Header>
@@ -244,18 +234,19 @@ function NewNavBar() {
                                 <Form.Label>Имя</Form.Label>
                                 <Form.Control
                                     type='text'
-                                    name='to_name'
+                                    name='name'
                                     className={'mobileBox custom-input'}
                                     onChange={handleChange}
                                     required
                                     placeholder="Имя"
+                                    autoFocus
                                 />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                 <Form.Label>Телефон</Form.Label>
                                 <Form.Control
                                     type='number'
-                                    name='phone'
+                                    phone='phone'
                                     className={'mobileBox custom-input'}
                                     onChange={handleChange}
                                     required
@@ -280,7 +271,7 @@ function NewNavBar() {
                 show={modalShow}
                 product1 = {product}
                 onHide={() => setModalShow(false)}
-                size="lg"
+                size="xl"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >
@@ -315,7 +306,7 @@ function NewNavBar() {
                             <h4>{product.name}</h4>
                             <p>{product.model}</p>
                             <div className="button-cart-buy">
-                                <Button onClick={()=>addToCard(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Купить в один клик</Button>
+                                <Button onClick={()=>addToCard(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Добавить в корзину</Button>
                                 <Button onClick={()=>addRequest(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Заказать в один клик</Button>
                             </div>
                             <p style={{marginTop: 20, fontWeight: "bold"}}><span>Марка:</span> {product.tag}
@@ -335,7 +326,7 @@ function NewNavBar() {
 
             <Modal
                 show={productLoading}
-                size="sm"
+                size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >

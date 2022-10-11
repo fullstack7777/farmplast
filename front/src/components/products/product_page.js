@@ -21,7 +21,6 @@ function ProductPage(){
     const [productId, setProductId] = useState(0);
 
     const [product, setProduct] = useState([]);
-
     const selections = new Map();
 
     const fetchData = () => {
@@ -253,8 +252,11 @@ function ProductPage(){
     function getExtension(filename) {
         return filename.split(".").pop();
     }
-
+    function getImg(img) {
+        return img.split(";");
+    }
     const [modalShow, setModalShow] = React.useState(false);
+
     return (
         <Container id="products-section" className={'top-space'}>
             <Row>
@@ -404,12 +406,11 @@ function ProductPage(){
                     }
                 </Col>
             </Row>
-
             <Modal
                 show={modalShow}
                 product1 = {product}
                 onHide={() => setModalShow(false)}
-                size="lg"
+                size="xl"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >
@@ -422,7 +423,8 @@ function ProductPage(){
                     <Row>
                         <Col>
                             <Carousel>
-                                <Carousel.Item>
+                                <Carousel.Item
+                                    >
                                     <img
                                         className="d-block-modal w-100"
                                         src={'http://admin.farmplst.com/image/'+product.image}
@@ -430,14 +432,43 @@ function ProductPage(){
                                             currentTarget.onerror = null; // prevents looping
                                             currentTarget.src="/images/placeholder.webp";
                                         }}
-                                        alt="First slide"
+                                        alt={product.images}
                                     />
                                 </Carousel.Item>
                             </Carousel>
+
                             <Row>
-                                <Col className="modal-picture-mini">
-                                    {/*<img className="modal-picture-single" src={'http://admin.farmplst.com/image/'+ ext}/>*/}
-                                </Col>
+                                {
+                                    // eslint-disable-next-line array-callback-return
+                                    products.map(function (product, index) {
+                                        let exts = getImg(product.image);
+                                        return (
+                                            <Col className="modal-picture-mini">
+                                                <img className="modal-picture-single"
+                                                     src={'http://admin.farmplst.com/image/'+exts}
+                                                     onError={({ currentTarget }) => {
+                                                         currentTarget.onerror = null; // prevents looping
+                                                         currentTarget.src="/images/placeholder.webp";
+                                                     }}
+                                                     alt={exts}
+                                                />
+                                            </Col>
+                                        );
+
+                                    })
+                                }
+                                {/*{*/}
+                                {/*    // eslint-disable-next-line array-callback-return*/}
+                                {/*    products.map(function (product, index) {*/}
+                                {/*        let exts = getImages(product.images);*/}
+                                {/*        return (*/}
+                                {/*            <Col className="modal-picture-mini">*/}
+                                {/*            /!*<img className="modal-picture-single" src={'http://admin.farmplst.com/images/'+ exts}/>*!/*/}
+                                {/*                <div>{exts}</div>*/}
+                                {/*        </Col>*/}
+                                {/*        );*/}
+                                {/*    })*/}
+                                {/*}*/}
                             </Row>
                         </Col>
                         <Col>
@@ -461,7 +492,6 @@ function ProductPage(){
                     <Button className="custom-button" onClick={()=>setModalShow(false)}>Закрыть</Button>
                 </Modal.Footer>
             </Modal>
-
             <Modal
                 show={productLoading}
                 size="sm"
@@ -481,6 +511,7 @@ function ProductPage(){
                     </Container>
                 </Modal.Body>
             </Modal>
+
     </Container>
     );
 }
