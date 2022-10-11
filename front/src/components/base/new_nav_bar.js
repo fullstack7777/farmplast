@@ -205,14 +205,12 @@ function NewNavBar() {
                             id="basic-example"
                             onChange={(selected) => {
                                 fetchProduct(selected[0].id);
-                                setSelected(selected)
                             }}
                             options={options}
                             placeholder="Поиск по товарам"
                             className="me-2 custom-input"
                             labelKey="label"
                             style={{width:'90%'}}
-                            selected={selected}
                         />
                         {/*<Button variant="primary">Заказать звонок</Button>*/}
                     </Form>

@@ -116,6 +116,9 @@ function ProductsSection() {
         fetchProducts();
     },[])
 
+    function getImg(img) {
+        return img.split(";");
+    }
     if(loading){
         return (
             <Container style={{paddingBottom: 60}}>
@@ -326,9 +329,26 @@ function ProductsSection() {
                                     </Carousel.Item>
                                 </Carousel>
                                 <Row>
-                                    <Col className="modal-picture-mini">
-                                        {/*<img className="modal-picture-single" src={'http://admin.farmplst.com/image/'+ ext}/>*/}
-                                    </Col>
+                                    {/*{*/}
+                                    {/*    // eslint-disable-next-line array-callback-return*/}
+                                    {/*    products.map(function (product, index) {*/}
+                                    {/*        let exts = getImg(product.image);*/}
+                                    {/*        return (*/}
+                                    {/*            <Col className="modal-picture-mini">*/}
+                                    {/*                <img className="modal-picture-single"*/}
+                                    {/*                     src={'http://admin.farmplst.com/image/'+exts}*/}
+                                    {/*                     onError={({ currentTarget }) => {*/}
+                                    {/*                         currentTarget.onerror = null; // prevents looping*/}
+                                    {/*                         currentTarget.src="/images/placeholder.webp";*/}
+                                    {/*                     }}*/}
+                                    {/*                     alt={exts}*/}
+                                    {/*                />*/}
+                                    {/*                <div>{exts}</div>*/}
+                                    {/*            </Col>*/}
+                                    {/*        );*/}
+
+                                    {/*    })*/}
+                                    {/*}*/}
                                 </Row>
                             </Col>
                             <Col>

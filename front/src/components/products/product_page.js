@@ -19,7 +19,11 @@ function ProductPage(){
     const [loading, setLoading] = useState(true);
     const [productLoading, setProductLoading] = useState(false);
     const [productId, setProductId] = useState(0);
+    const [index, setIndex] = useState(0);
 
+    const handleSelect = (selectedIndex, _) => {
+        setIndex(selectedIndex);
+    };
     const [product, setProduct] = useState([]);
     const selections = new Map();
 
@@ -252,9 +256,10 @@ function ProductPage(){
     function getExtension(filename) {
         return filename.split(".").pop();
     }
-    function getImg(img) {
-        return img.split(";");
-    }
+    // let img = product.images;
+    // let allImg =  img.map(img.split(";"));\
+    let arr = (product.images).split(';');
+
     const [modalShow, setModalShow] = React.useState(false);
 
     return (
@@ -422,7 +427,7 @@ function ProductPage(){
                 <Modal.Body>
                     <Row>
                         <Col>
-                            <Carousel>
+                            <Carousel activeIndex={index} onSelect={handleSelect} >
                                 <Carousel.Item
                                     >
                                     <img
@@ -432,40 +437,30 @@ function ProductPage(){
                                             currentTarget.onerror = null; // prevents looping
                                             currentTarget.src="/images/placeholder.webp";
                                         }}
-                                        alt={product.images}
+                                        alt={product.image}
                                     />
                                 </Carousel.Item>
                             </Carousel>
-
                             <Row>
-                                {
-                                    // eslint-disable-next-line array-callback-return
-                                    products.map(function (product, index) {
-                                        let exts = getImg(product.image);
-                                        return (
-                                            <Col className="modal-picture-mini">
-                                                <img className="modal-picture-single"
-                                                     src={'http://admin.farmplst.com/image/'+exts}
-                                                     onError={({ currentTarget }) => {
-                                                         currentTarget.onerror = null; // prevents looping
-                                                         currentTarget.src="/images/placeholder.webp";
-                                                     }}
-                                                     alt={exts}
-                                                />
-                                            </Col>
-                                        );
-
-                                    })
-                                }
+                                {arr.map((img, i) => {
+                                    console.log("Entered");
+                                    return <div key={img}>{arr}</div>
+                                })}
                                 {/*{*/}
                                 {/*    // eslint-disable-next-line array-callback-return*/}
-                                {/*    products.map(function (product, index) {*/}
-                                {/*        let exts = getImages(product.images);*/}
+                                {/*    */}
+                                {/*    (product.images).map((product.images).split(";")) {*/}
                                 {/*        return (*/}
-                                {/*            <Col className="modal-picture-mini">*/}
-                                {/*            /!*<img className="modal-picture-single" src={'http://admin.farmplst.com/images/'+ exts}/>*!/*/}
-                                {/*                <div>{exts}</div>*/}
-                                {/*        </Col>*/}
+                                {/*            <Col className="modal-picture-mini" >*/}
+                                {/*                <img className="modal-picture-single"*/}
+                                {/*                     src={'http://admin.farmplst.com/image/'+exts}*/}
+                                {/*                     onError={({ currentTarget }) => {*/}
+                                {/*                         currentTarget.onerror = null; // prevents looping*/}
+                                {/*                         currentTarget.src="/images/placeholder.webp";*/}
+                                {/*                     }}*/}
+                                {/*                     alt={exts}*/}
+                                {/*                />*/}
+                                {/*            </Col>*/}
                                 {/*        );*/}
                                 {/*    })*/}
                                 {/*}*/}
