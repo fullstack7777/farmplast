@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //Get all categories
 app.get("/api/getAllCategories", (req,res)=>{
-    db.query("select c.category_id, c.parent_id, c.sort_order, ocd.name, seo.keyword from oc_category c left join oc_category_description ocd on c.category_id = ocd.category_id left join oc_seo_url seo on seo.value like concat('%', c.category_id)  and seo.`key`='path' where c.status=1", (err,result)=>{
+    db.query("select c.category_id, c.parent_id, c.sort_order, ocd.name, seo.keyword from oc_category c left join oc_category_description ocd on c.category_id = ocd.category_id left join oc_seo_url seo on seo.value like concat('%', c.category_id)  and seo.`key`='path' where c.status=1 and c.category_id <> 103", (err,result)=>{
             if(err) {
                 console.log(err)
             }
@@ -135,7 +135,7 @@ app.get("/api/getProductById", (req,res)=>{
 
 //Get popular products
 app.get("/api/getPopularProducts", (req,res)=>{
-    db.query("select p.product_id, p.model, p.image, opd.name, om.name as manufacturer  from oc_product p inner join oc_product_description opd on p.product_id = opd.product_id inner join oc_manufacturer om on p.manufacturer_id = om.manufacturer_id inner join oc_product_to_category optc on p.product_id = optc.product_id where p.status=1 and optc.category_id=101", (err,result)=>{
+    db.query("select p.product_id, p.model, p.image, opd.name, om.name as manufacturer  from oc_product p inner join oc_product_description opd on p.product_id = opd.product_id inner join oc_manufacturer om on p.manufacturer_id = om.manufacturer_id inner join oc_product_to_category optc on p.product_id = optc.product_id where p.status=1 and optc.category_id=103", (err,result)=>{
             if(err) {
                 console.log(err)
             }
