@@ -2,12 +2,41 @@ const express = require('express');
 const db = require('./config/db')
 const cors = require('cors')
 const crypto = require("crypto");
+const nodemailer = require("nodemailer");
 const app = express();
 
 const  PORT = 8080;
 app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
+
+
+//Get all categories
+app.post("/api/sendEmail", async (req, res) => {
+    const to = req.body.to;
+    const subject = req.body.subject;
+    const text = req.body.text;
+    const html = req.body.html;
+    let transporter = nodemailer.createTransport({
+        host: "smtp.beget.com",
+        port: 465,
+        secure: true, // true for 465, false for other ports
+        auth: {
+            user: 'noreply@farmplst.com', // generated ethereal user
+            pass: '&k&xqB6N4U!2cRw', // generated ethereal password
+        },
+    });
+
+    let info = await transporter.sendMail({
+        from: '"noreply" <noreply@farmplst.com>', // sender address
+        to: to, // list of receivers
+        subject: subject, // Subject line
+        text: text, // plain text body
+        html: html, // html body
+    });
+    console.log(info)
+    res.send(info)
+});
 
 //Get all categories
 app.get("/api/getAllCategories", (req,res)=>{
