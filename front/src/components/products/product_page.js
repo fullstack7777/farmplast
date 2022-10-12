@@ -1,11 +1,16 @@
 import React from 'react';
 import Container from "react-bootstrap/Container";
-import {Card, Col, ListGroup, Modal, Placeholder, Row, Spinner} from "react-bootstrap";
+import {Card, Carousel, Col, ListGroup, Modal, Placeholder, Row, Spinner} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import {useEffect, useState} from "react";
 import Form from 'react-bootstrap/Form';
 import Cookie from 'universal-cookie'
-import Carousel from "react-bootstrap/Carousel";
+// import './App.scss';
+// import 'swiper/css'
+// import 'swiper/css/navigation'
+// import 'swiper/css/thumbs'
+// import ProductImagesSlider from "./components/product-images-slider";
+// import {productImages} from "./assets";
 
 function ProductPage(){
     useEffect(() => {
@@ -19,11 +24,7 @@ function ProductPage(){
     const [loading, setLoading] = useState(true);
     const [productLoading, setProductLoading] = useState(false);
     const [productId, setProductId] = useState(0);
-    const [index, setIndex] = useState(0);
 
-    const handleSelect = (selectedIndex, _) => {
-        setIndex(selectedIndex);
-    };
     const [product, setProduct] = useState([]);
     const selections = new Map();
 
@@ -376,7 +377,7 @@ function ProductPage(){
                                     ext = product.image.replace('.'+ext,'-250x250.'+ext);
                                     return (
                                         <Col md="auto">
-                                            <Card className="card-hov">
+                                            <Card className="card-hov" >
                                                 <Card.Img onClick={function () {
                                                     setProductId(product.product_id);
                                                     fetchProduct(product.product_id);
@@ -385,11 +386,11 @@ function ProductPage(){
                                                     currentTarget.onerror = null; // prevents looping
                                                     currentTarget.src="/images/placeholder.webp";
                                                 }} alt={product.name}/>
-                                                <Card.Body onClick={function () {
+                                                <Card.Body  className="card-body" onClick={function () {
                                                     setProductId(product.product_id);
                                                     fetchProduct(product.product_id);
                                                 }}>
-                                                    <h6 style={{textAlign: "left", color: '#343434', fontWeight: "bold"}}>{product.name}</h6>
+                                                    <p className="card-text-name">{product.name}</p>
                                                     <p style={{textAlign: "left"}}>Марка: {product.model}</p>
                                                     <p style={{textAlign: "left"}}>Производитель: {product.manufacturer}</p>
                                                 </Card.Body>
@@ -423,10 +424,10 @@ function ProductPage(){
                 </Modal.Header>
                 <Modal.Body>
                     <Row>
+                        {/*<ProductImagesSlider images={productImages} />*/}
                         <Col>
-                            <Carousel activeIndex={index} onSelect={handleSelect} >
-                                <Carousel.Item
-                                    >
+                            <Carousel>
+                                <Carousel.Item>
                                     <img
                                         className="d-block-modal w-100"
                                         src={'http://admin.farmplst.com/image/'+product.image}
@@ -442,27 +443,20 @@ function ProductPage(){
                                 {
                                     // eslint-disable-next-line array-callback-return
                                     product.images!==undefined && product.images!=null?product.images.split(';').map((function (item, i) {
-                                        console.log(item)
-                                    })):''
+                                            return (
+                                                <img className="modal-picture-single"
+                                                     src={'http://admin.farmplst.com/image/'+item}
+                                                     onError={({ currentTarget }) => {
+                                                         currentTarget.onerror = null; // prevents looping
+                                                         currentTarget.src="/images/placeholder.webp";
+                                                     }}
+                                                     alt={item}
+                                                />
+                                            );
+                                        }))
+                                        :
+                                        ''
                                 }
-                                {/*{*/}
-                                {/*    // eslint-disable-next-line array-callback-return*/}
-                                {/*    */}
-                                {/*    (product.images).map((product.images).split(";")) {*/}
-                                {/*        return (*/}
-                                {/*            <Col className="modal-picture-mini" >*/}
-                                {/*                <img className="modal-picture-single"*/}
-                                {/*                     src={'http://admin.farmplst.com/image/'+exts}*/}
-                                {/*                     onError={({ currentTarget }) => {*/}
-                                {/*                         currentTarget.onerror = null; // prevents looping*/}
-                                {/*                         currentTarget.src="/images/placeholder.webp";*/}
-                                {/*                     }}*/}
-                                {/*                     alt={exts}*/}
-                                {/*                />*/}
-                                {/*            </Col>*/}
-                                {/*        );*/}
-                                {/*    })*/}
-                                {/*}*/}
                             </Row>
                         </Col>
                         <Col>

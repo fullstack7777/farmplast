@@ -116,9 +116,6 @@ function ProductsSection() {
         fetchProducts();
     },[])
 
-    function getImg(img) {
-        return img.split(";");
-    }
     if(loading){
         return (
             <Container style={{paddingBottom: 60}}>
@@ -324,31 +321,28 @@ function ProductsSection() {
                                                 currentTarget.onerror = null; // prevents looping
                                                 currentTarget.src="/images/placeholder.webp";
                                             }}
-                                            alt="First slide"
+                                            alt={product.image}
                                         />
                                     </Carousel.Item>
                                 </Carousel>
                                 <Row>
-                                    {/*{*/}
-                                    {/*    // eslint-disable-next-line array-callback-return*/}
-                                    {/*    products.map(function (product, index) {*/}
-                                    {/*        let exts = getImg(product.image);*/}
-                                    {/*        return (*/}
-                                    {/*            <Col className="modal-picture-mini">*/}
-                                    {/*                <img className="modal-picture-single"*/}
-                                    {/*                     src={'http://admin.farmplst.com/image/'+exts}*/}
-                                    {/*                     onError={({ currentTarget }) => {*/}
-                                    {/*                         currentTarget.onerror = null; // prevents looping*/}
-                                    {/*                         currentTarget.src="/images/placeholder.webp";*/}
-                                    {/*                     }}*/}
-                                    {/*                     alt={exts}*/}
-                                    {/*                />*/}
-                                    {/*                <div>{exts}</div>*/}
-                                    {/*            </Col>*/}
-                                    {/*        );*/}
-
-                                    {/*    })*/}
-                                    {/*}*/}
+                                    {
+                                        // eslint-disable-next-line array-callback-return
+                                        product.images!==undefined && product.images!=null?product.images.split(';').map((function (item, i) {
+                                                return (
+                                                        <img className="modal-picture-single"
+                                                             src={'http://admin.farmplst.com/image/'+item}
+                                                             onError={({ currentTarget }) => {
+                                                                 currentTarget.onerror = null; // prevents looping
+                                                                 currentTarget.src="/images/placeholder.webp";
+                                                             }}
+                                                             alt={item}
+                                                        />
+                                                );
+                                            }))
+                                            :
+                                            ''
+                                    }
                                 </Row>
                             </Col>
                             <Col>
@@ -363,7 +357,7 @@ function ProductsSection() {
                                 <p style={{marginTop: 20, fontWeight: "bold"}}>
                                     <span>Производитель:</span> {product.manufacturer}</p>
                                 <div><span style={{fontWeight: "bold"}}>Описание:</span>
-                                    <div style={{display:'grid', fontSize:'13px', padding: 30}} dangerouslySetInnerHTML={{__html: htmlDecode(product.description)}}/>
+                                    <div style={{display:'grid', fontSize:'13px'}} dangerouslySetInnerHTML={{__html: htmlDecode(product.description)}}/>
                                 </div>
                             </Col>
                         </Row>
