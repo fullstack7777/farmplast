@@ -3,25 +3,24 @@ import Form from 'react-bootstrap/Form';
 import {Col, Row} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-import { send } from 'emailjs-com';
 import Swal from 'sweetalert2';
 
 function SubscribeSection() {
     const [toSend, setToSend] = useState({
         phone:'',
     });
-
+    //
     const handleChange = (e) => {
         setToSend({ ...toSend, [e.target.name]: '' });
     };
-
+function sendEmail() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
     myHeaders.append("Cookie", "vsid=925vr4127578620336331");
 
     var urlencoded = new URLSearchParams();
     urlencoded.append("to", "akiyev9@gmail.com");
-    urlencoded.append("subject", "hello");
+    urlencoded.append("phone", "+7999999999");
     urlencoded.append("text", "hello");
     urlencoded.append("html", "html");
 
@@ -31,31 +30,35 @@ function SubscribeSection() {
         body: urlencoded,
         redirect: 'follow'
     };
+  return fetch("https://api.farmplst.com/api/sendEmail", requestOptions)
+        .then((response) => {
+            Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
+            // e.target.reset();
+        })
+        .catch((err) => {
+            Swal.fire('Ошибка при отправке, попробуйте позже', '', 'error');
+        });
+}
 
-    fetch("https://api.farmplst.com/api/sendEmail", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-
-    const onSubmit = (e) => {
-        e.preventDefault();
-        send(
-            'service_c7pclcq',
-            'template_pnj15fp',
-            toSend,
-            'Kd5hTZnsMrSH5nMAX'
-        )
-            .then((response) => {
-                Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
-                e.target.reset();
-            })
-            .catch((err) => {
-                Swal.fire('Ошибка при отправке, попробуйте позже', '', 'error');
-            });
-    };
+    // const onSubmit = (e) => {
+    //     e.preventDefault();
+    //     send(
+    //         'service_c7pclcq',
+    //         'template_pnj15fp',
+    //         toSend,
+    //         'Kd5hTZnsMrSH5nMAX'
+    //     )
+    //         .then((response) => {
+    //             Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
+    //             e.target.reset();
+    //         })
+    //         .catch((err) => {
+    //             Swal.fire('Ошибка при отправке, попробуйте позже', '', 'error');
+    //         });
+    // };
     return (
         <div id={'email-section'}>
-           <Form onSubmit={onSubmit}>
+           <Form onSubmit={sendEmail}>
                <Container>
                    <Row>
                        <h1 className="subscribe-section-h1">Компания Фармпласт всегда готова предоставить помощь в выборе продукта и подходящего способа оплаты</h1>
@@ -66,13 +69,12 @@ function SubscribeSection() {
                                type='number'
                                phone='phone'
                                className={'mobileBox custom-input'}
-                               onChange={handleChange}
                                required
                                placeholder="Ваш телефон для связи"
                            />
                        </Col>
                        <Col xs lg="3">
-                           <Button type="submit" variant="primary" className="custom-button" style={{width:'100%'}}>Получить консультацию</Button>
+                           <Button onClick="submit" variant="primary" className="custom-button" style={{width:'100%'}}>Получить консультацию</Button>
                        </Col>
                    </Row>
                </Container>
