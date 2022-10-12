@@ -9,8 +9,34 @@ import Swal from 'sweetalert2';
 function SubscribeSection() {
     const [toSend, setToSend] = useState({
         phone:'',
-        reply_to: '',
     });
+
+    const handleChange = (e) => {
+        setToSend({ ...toSend, [e.target.name]: '' });
+    };
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    myHeaders.append("Cookie", "vsid=925vr4127578620336331");
+
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("to", "akiyev9@gmail.com");
+    urlencoded.append("subject", "hello");
+    urlencoded.append("text", "hello");
+    urlencoded.append("html", "html");
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: urlencoded,
+        redirect: 'follow'
+    };
+
+    fetch("https://api.farmplst.com/api/sendEmail", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+
     const onSubmit = (e) => {
         e.preventDefault();
         send(
@@ -27,9 +53,6 @@ function SubscribeSection() {
                 Swal.fire('Ошибка при отправке, попробуйте позже', '', 'error');
             });
     };
-    const handleChange = (e) => {
-        setToSend({ ...toSend, [e.target.name]: '' });
-    };
     return (
         <div id={'email-section'}>
            <Form onSubmit={onSubmit}>
@@ -41,7 +64,7 @@ function SubscribeSection() {
                        <Col xs lg="4">
                            <Form.Control
                                type='number'
-                               name='phone'
+                               phone='phone'
                                className={'mobileBox custom-input'}
                                onChange={handleChange}
                                required
