@@ -14,28 +14,30 @@ function SubscribeSection() {
         setToSend({ ...toSend, [e.target.name]: '' });
     };
 function sendEmail() {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-    myHeaders.append("Cookie", "vsid=925vr4127578620336331");
 
-    var urlencoded = new URLSearchParams();
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+    const urlencoded = new URLSearchParams();
     urlencoded.append("to", "akiyev9@gmail.com");
     urlencoded.append("phone", "+7999999999");
     urlencoded.append("text", "hello");
     urlencoded.append("html", "html");
 
-    var requestOptions = {
+    const requestOptions = {
         method: 'POST',
         headers: myHeaders,
         body: urlencoded,
         redirect: 'follow'
     };
-  return fetch("https://api.farmplst.com/api/sendEmail", requestOptions)
+    fetch("https://api.farmplst.com/api/sendEmail", requestOptions)
         .then((response) => {
             Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
             // e.target.reset();
+            console.log('sent')
         })
         .catch((err) => {
+            console.log(err)
             Swal.fire('Ошибка при отправке, попробуйте позже', '', 'error');
         });
 }
@@ -58,7 +60,7 @@ function sendEmail() {
     // };
     return (
         <div id={'email-section'}>
-           <Form onSubmit={sendEmail}>
+           <Form onSubmit={()=>{sendEmail();}}>
                <Container>
                    <Row>
                        <h1 className="subscribe-section-h1">Компания Фармпласт всегда готова предоставить помощь в выборе продукта и подходящего способа оплаты</h1>
@@ -74,7 +76,7 @@ function sendEmail() {
                            />
                        </Col>
                        <Col xs lg="3">
-                           <Button onClick="submit" variant="primary" className="custom-button" style={{width:'100%'}}>Получить консультацию</Button>
+                           <Button onClick={()=>{sendEmail()}} variant="primary" className="custom-button" style={{width:'100%'}}>Получить консультацию</Button>
                        </Col>
                    </Row>
                </Container>
