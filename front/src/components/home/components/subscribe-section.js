@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import Swal from 'sweetalert2';
 
 function SubscribeSection() {
-    //const [toSend, setToSend] = useState();
+    const [phone, setPhone] = useState("");
 
 function sendEmail() {
     const myHeaders = new Headers();
@@ -35,30 +35,9 @@ function sendEmail() {
             Swal.fire('Ошибка при отправке, попробуйте позже', '', 'error');
         });
 }
-    var phone = useState();
-    //
-    // const handleChange = (e) => {
-    //     setToSend({ ...toSend, [e.target.phone]: '' });
-    // };
-    // const onSubmit = (e) => {
-    //     e.preventDefault();
-    //     send(
-    //         'service_c7pclcq',
-    //         'template_pnj15fp',
-    //         toSend,
-    //         'Kd5hTZnsMrSH5nMAX'
-    //     )
-    //         .then((response) => {
-    //             Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
-    //             e.target.reset();
-    //         })
-    //         .catch((err) => {
-    //             Swal.fire('Ошибка при отправке, попробуйте позже', '', 'error');
-    //         });
-    // };
     return (
         <div id={'email-section'}>
-           <Form onSubmit={()=>{sendEmail();}}>
+           <Form>
                <Container>
                    <Row>
                        <h1 className="subscribe-section-h1">Компания Фармпласт всегда готова предоставить помощь в выборе продукта и подходящего способа оплаты</h1>
@@ -67,6 +46,8 @@ function sendEmail() {
                        <Col xs lg="4">
                            <Form.Control
                                type='number'
+                               value={phone}
+                               onChange={(e => setPhone(e.target.value))}
                                className={'mobileBox custom-input'}
                                phone='phone'
                                required
@@ -74,7 +55,7 @@ function sendEmail() {
                            />
                        </Col>
                        <Col xs lg="3">
-                           <Button onClick={()=>{sendEmail(phone)}} variant="primary" className="custom-button" style={{width:'100%'}}>Получить консультацию</Button>
+                           <Button onClick={()=>{sendEmail()}} variant="primary" className="custom-button" style={{width:'100%'}}>Получить консультацию</Button>
                        </Col>
                    </Row>
                </Container>

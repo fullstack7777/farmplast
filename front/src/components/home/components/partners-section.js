@@ -38,7 +38,7 @@ function PartnersSection() {
         {
             link: "http://www.sibur.ru/ru/",
             url: '/images/partners/partner-5.webp'
-        }
+        },
     ]
     return (
         <div className="brands">
@@ -102,7 +102,7 @@ function PartnersSection() {
                             ))
                         }
                         }
-                       
+
                     </Swiper>
                     {/*<Col>*/}
                     {/*    <div className="brands_slider_container">*/}
