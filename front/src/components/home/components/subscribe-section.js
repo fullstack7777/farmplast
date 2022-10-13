@@ -27,8 +27,7 @@ function sendEmail() {
     fetch("https://api.farmplst.com/api/sendEmail", requestOptions)
         .then((response) => {
             Swal.fire('Совсем скоро мы с Вами свяжемся', 'sddsfsdfsd', 'success');
-            // e.target.reset();
-            console.log('sent')
+            setPhone("")
         })
         .catch((err) => {
             console.log(err)
