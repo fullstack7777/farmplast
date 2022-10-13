@@ -102,7 +102,7 @@ function PartnersSection() {
                                 </SwiperSlide>
                             ))
                         }
-                        }
+
 
                     </Swiper>
                     {/*<Col>*/}
