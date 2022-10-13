@@ -462,11 +462,11 @@
     font-weight: bold;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
-    visibility: visible;
     -webkit-box-orient: vertical;
+    line-height: 1.5em;
+    height: 3em;       /* height is 2x line-height, so two lines will display */
 }
 .card-body{
     visibility: visible;
@@ -577,6 +577,9 @@
     }
     .call-button-lg{
         display: none;
+    }
+    .contact-right-box{
+
     }
 }
 @media screen and (max-width: 1160px) {
@@ -840,6 +843,9 @@
         }
         .subscribe-section-h1{
             font-size: 24pt;
+        }
+        .section-contacts-text{
+            padding-left: 0;
         }
     }
 

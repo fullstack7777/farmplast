@@ -6,23 +6,17 @@ import Button from "react-bootstrap/Button";
 import Swal from 'sweetalert2';
 
 function SubscribeSection() {
-    const [toSend, setToSend] = useState({
-        phone:'',
-    });
-    //
-    const handleChange = (e) => {
-        setToSend({ ...toSend, [e.target.name]: '' });
-    };
-function sendEmail() {
+    //const [toSend, setToSend] = useState();
 
+function sendEmail() {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
     const urlencoded = new URLSearchParams();
-    urlencoded.append("to", "akiyev9@gmail.com");
-    urlencoded.append("phone", "+7999999999");
-    urlencoded.append("text", "hello");
-    urlencoded.append("html", "html");
+    urlencoded.append("to", "noreply@farmplst.com");
+    urlencoded.append("subject", "Получить консультацию");
+    urlencoded.append("text", phone);
+    urlencoded.append("html", phone);
 
     const requestOptions = {
         method: 'POST',
@@ -32,7 +26,7 @@ function sendEmail() {
     };
     fetch("https://api.farmplst.com/api/sendEmail", requestOptions)
         .then((response) => {
-            Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
+            Swal.fire('Совсем скоро мы с Вами свяжемся', 'sddsfsdfsd', 'success');
             // e.target.reset();
             console.log('sent')
         })
@@ -41,7 +35,11 @@ function sendEmail() {
             Swal.fire('Ошибка при отправке, попробуйте позже', '', 'error');
         });
 }
-
+    var phone = useState();
+    //
+    // const handleChange = (e) => {
+    //     setToSend({ ...toSend, [e.target.phone]: '' });
+    // };
     // const onSubmit = (e) => {
     //     e.preventDefault();
     //     send(
@@ -69,14 +67,14 @@ function sendEmail() {
                        <Col xs lg="4">
                            <Form.Control
                                type='number'
-                               phone='phone'
                                className={'mobileBox custom-input'}
+                               phone='phone'
                                required
                                placeholder="Ваш телефон для связи"
                            />
                        </Col>
                        <Col xs lg="3">
-                           <Button onClick={()=>{sendEmail()}} variant="primary" className="custom-button" style={{width:'100%'}}>Получить консультацию</Button>
+                           <Button onClick={()=>{sendEmail(phone)}} variant="primary" className="custom-button" style={{width:'100%'}}>Получить консультацию</Button>
                        </Col>
                    </Row>
                </Container>

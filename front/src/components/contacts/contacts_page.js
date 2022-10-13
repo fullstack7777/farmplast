@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import Container from "react-bootstrap/Container";
 import {Col, Row} from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
-import {send} from "emailjs-com";
 import Swal from "sweetalert2";
 
 function ContactsPage (){
@@ -19,31 +18,59 @@ function ContactsPage (){
         phone: '',
         reply_to: '',
     });
-    const onSubmit = (e) => {
-        e.preventDefault();
-        send(
-            'service_c7pclcq',
-            'template_crz0u18',
-            toSend,
-            'Kd5hTZnsMrSH5nMAX'
-        )
+    // const onSubmit = (e) => {
+    //     e.preventDefault();
+    //     send(
+    //         'service_c7pclcq',
+    //         'template_crz0u18',
+    //         toSend,
+    //         'Kd5hTZnsMrSH5nMAX'
+    //     )
+    //         .then((response) => {
+    //             Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
+    //             e.target.reset();
+    //         })
+    //         .catch((err) => {
+    //             Swal.fire('Ошибка при отправке, попробуйте похже', '', 'error');
+    //         });
+    // };
+    function sendEmail() {
+
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        const urlencoded = new URLSearchParams();
+        urlencoded.append("to", "noreply@farmplst.com");
+        urlencoded.append("phone", "+7999999999");
+        urlencoded.append("text", "hello");
+        urlencoded.append("html", "html");
+
+        const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: 'follow'
+        };
+        fetch("https://api.farmplst.com/api/sendEmail", requestOptions)
             .then((response) => {
                 Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
-                e.target.reset();
+                // e.target.reset();
+                console.log('sent')
             })
             .catch((err) => {
-                Swal.fire('Ошибка при отправке, попробуйте похже', '', 'error');
+                console.log(err)
+                Swal.fire('Ошибка при отправке, попробуйте позже', '', 'error');
             });
-    };
-    const handleChange = (e) => {
-        setToSend({ ...toSend, [e.target.name]: e.target.value });
-    };
+    }
+    // const handleChange = (e) => {
+    //     setToSend({ ...toSend, [e.target.name]: e.target.value });
+    // };
         return (
                 <Container id="section-contacts">
                     <div><h1 className="custom-bold-38" style={{textAlign: "center"}}>
                         Наши <span className="custom-bold-white">контакты</span></h1></div>
                     <Row >
-                        <Col lg="6">
+                        <Col lg="6" style={{position: "relative"}}>
                             <br/>
                             <br/>
                             <p><b>Юридический адресс:</b> г. Санкт-Петербург, Лесной <br />проспект, д. 63 лит. А офис 402</p>
@@ -56,47 +83,42 @@ function ContactsPage (){
                                 Петербуркская Дирекция ОАО "Уралсиб" в г. Санкт-<br/> Петербурге, K/c 30101810800000000706, БИK<br/>
                                 044030706</p>
                         </Col>
-                        <Col lg="6">
+                        <Col lg="6" className="contact-right-box">
                             <div id="section-contacts-email">
                                 <div id="section-contacts-text">
                                     Компания Фармпласт готова<br/> представить помощь в выборе<br/> продукта и подходящего способа<br/> оплаты.
                                 </div>
                                 <Form id="section-contacts-form"
-                                      onSubmit={onSubmit}
+                                      onSubmit={()=>{sendEmail();}}
                                 >
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Control type="text" placeholder="Ваше имя"
                                                       name='from_name'
                                                       title='to_name'
-                                                      onChange={handleChange}
                                                       required
                                         />
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Control type="text" placeholder="Ваша почта"
                                                       name='from_mail'
-                                                      onChange={handleChange}
                                                       required/>
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Control type="text" placeholder="Ваша компания"
                                                       name='company'
-                                                      onChange={handleChange}
                                                       required/>
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Control type="text" placeholder="Ваш город"
                                                       name='city'
-                                                      onChange={handleChange}
                                                       required/>
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                         <Form.Control type="number" placeholder="Ваш телефон"
                                                       name='phone'
-                                                      onChange={handleChange}
                                                       required/>
                                     </Form.Group>
-                                    <button className="button-contacts" type="submit">
+                                    <button className="button-contacts" onClick={()=>{sendEmail()}}>
                                         Оставить заявку
                                     </button>
                                 </Form>

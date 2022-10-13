@@ -114,32 +114,61 @@ function NewNavBar() {
         return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
     }
 
-    const [toSend, setToSend] = useState({
-        name:'',
-        phone: '',
-    });
-    const onSubmit = (e) => {
-        e.preventDefault();
-        send(
-            'service_c7pclcq',
-            'template_pnj15fp',
-            toSend,
-            'Kd5hTZnsMrSH5nMAX'
-        )
+    // const [toSend, setToSend] = useState({
+    //     name:'',
+    //     phone: '',
+    // });
+    // const onSubmit = (e) => {
+    //     e.preventDefault();
+    //     send(
+    //         'service_c7pclcq',
+    //         'template_pnj15fp',
+    //         toSend,
+    //         'Kd5hTZnsMrSH5nMAX'
+    //     )
+    //         .then((response) => {
+    //             Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
+    //             handleClose();
+    //             e.target.reset();
+    //         })
+    //         .catch((err) => {
+    //             Swal.fire('Ошибка при отправке, попробуйте похже', '', 'error');
+    //         });
+    // };
+    // const handleChange = (e) => {
+    //     e.preventDefault();
+    //     setToSend({ ...toSend, [e.target.name]: e.target.value });
+    //     setToSend({ ...toSend, [e.target.phone]: e.target.value });
+    // };
+    function sendEmail() {
+
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        const urlencoded = new URLSearchParams();
+        urlencoded.append("to", "noreply@farmplst.com");
+        urlencoded.append("phone", "+7999999999");
+        urlencoded.append("name", "From");
+        urlencoded.append("text", "hello");
+        urlencoded.append("html", "html");
+
+        const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: 'follow'
+        };
+        fetch("https://api.farmplst.com/api/sendEmail", requestOptions)
             .then((response) => {
                 Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
-                handleClose();
-                e.target.reset();
+                // e.target.reset();
+                console.log('sent')
             })
             .catch((err) => {
-                Swal.fire('Ошибка при отправке, попробуйте похже', '', 'error');
+                console.log(err)
+                Swal.fire('Ошибка при отправке, попробуйте позже', '', 'error');
             });
-    };
-    const handleChange = (e) => {
-        e.preventDefault();
-        setToSend({ ...toSend, [e.target.name]: e.target.value });
-        setToSend({ ...toSend, [e.target.phone]: e.target.value });
-    };
+    }
     let mapCategories = new Map();
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -227,14 +256,13 @@ function NewNavBar() {
                             <h4 className="modal-h4">Заполните необходимые данные и наши менеджеры свяжутся с Вами в ближайшее время.</h4>
                         </Modal.Header>
                     <Modal.Body>
-                        <Form onSubmit={onSubmit}>
+                        <Form onSubmit={()=>{sendEmail();}}>
                             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                 <Form.Label>Имя</Form.Label>
                                 <Form.Control
                                     type='text'
                                     name='name'
                                     className={'mobileBox custom-input'}
-                                    onChange={handleChange}
                                     required
                                     placeholder="Имя"
                                     autoFocus
@@ -246,7 +274,6 @@ function NewNavBar() {
                                     type='number'
                                     phone='phone'
                                     className={'mobileBox custom-input'}
-                                    onChange={handleChange}
                                     required
                                     placeholder="+7"
                                 />
@@ -255,7 +282,7 @@ function NewNavBar() {
                                 <Button variant="secondary" onClick={handleClose}>
                                     Закрыть
                                 </Button>
-                                <Button className="custom-button" variant="primary" type="submit">
+                                <Button className="custom-button" variant="primary" onClick={()=>{sendEmail()}}>
                                     Оставить заявку
                                 </Button>
                             </Modal.Footer>
