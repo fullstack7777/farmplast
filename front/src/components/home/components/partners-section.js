@@ -38,7 +38,7 @@ function PartnersSection() {
         {
             link: "http://www.sibur.ru/ru/",
             url: '/images/partners/partner-5.webp'
-        },
+        }
     ]
     return (
         <div className="brands">
@@ -50,15 +50,14 @@ function PartnersSection() {
                     <Swiper
                         freeMode={true}
                         grabCursor={true}
-                        modules={[FreeMode]}
+                        effect={"slide"}
+                        modules={[Autoplay, FreeMode]}
                         autoplay={{
-                            delay: 500
+                            delay: 3500,
+                            disableOnInteraction: false,
                         }}
-                        spaceBetween={50}
-                        slidesPerView={5}
-                        zoom={5}
-                        speed={400}
-                        navigation={true}
+                        spaceBetween={30}
+                        slidesPerView={1}
                         breakpoints={
                             {
                                 0: {
@@ -103,7 +102,7 @@ function PartnersSection() {
                             ))
                         }
                         }
-
+                       
                     </Swiper>
                     {/*<Col>*/}
                     {/*    <div className="brands_slider_container">*/}
