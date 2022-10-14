@@ -163,6 +163,10 @@
           let scroll = $(window).scrollTop();
           if(window.location.pathname==='/' || window.location.pathname==='/#'){
 
+            // if (width > 986){
+            //   $(".navbar").css("background" , "").addClass('bg-light');
+            // }
+
             if (scroll > 500) {
               $(".navbar").css("background" , "").addClass('bg-light');
               $('.navbar-brand  img').attr('src', 'images/logo.webp');
@@ -178,9 +182,7 @@
               $(".nav-link").addClass('nav-bar-white');
 
             }
-            // if (width < 986){
-            //   $(".navbar").addClass('navbar-light');
-            // }
+
 
           }
         });
