@@ -1,10 +1,14 @@
 import React from 'react';
 import Container from "react-bootstrap/Container";
-import {Card, Carousel, Col, FormLabel, ListGroup, Modal, Placeholder, Row, Spinner} from "react-bootstrap";
+import {Card, Col, FormLabel, ListGroup, Modal, Placeholder, Row, Spinner} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from 'react-bootstrap/Form';
 import Cookie from 'universal-cookie';
+import ImageGallery from 'react-image-gallery';
+import "react-image-gallery/styles/css/image-gallery.css";
 import { useState, useEffect } from 'react';
+
+
 
 function ProductPage(){
     useEffect(() => {
@@ -14,6 +18,7 @@ function ProductPage(){
     const cookies = new Cookie();
 
     const [categories, setCategories] = useState([]);
+    const [images, setImages] = useState([]);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [productLoading, setProductLoading] = useState(false);
@@ -127,11 +132,41 @@ function ProductPage(){
                 setProductLoading(false);
                 setProduct(data[0]);
                 setModalShow(true);
+                handleImages();
             })
             .catch((err) => {
                 setProductLoading(false);
                 console.log(err.message);
             });
+    }
+    function handleImages(){
+        let b = "https://admin.farmplst.com/image/"+product.image;
+        let ext = getExtension(product.image);
+        let sTh = product.image.replace('.'+ext,'-250x250.'+ext);
+        let img1 = 'https://admin.farmplst.com/image/cache/'+sTh;
+        let imgs = [
+                {
+                    original: b,
+                    thumbnail: img1,
+                    originalHeight:1000,
+                    originalWidth:1000,
+                },
+        ]
+
+        if(product.images!==undefined && product.images!=null){
+            // eslint-disable-next-line array-callback-return
+            product.images.split(';').map((function (item, _){
+                let ext = getExtension(product.image);
+                let sTh = product.image.replace('.'+ext,'-250x250.'+ext);
+                imgs.pop({
+                    original: "https://admin.farmplst.com/image/"+item,
+                    thumbnail:  'https://admin.farmplst.com/image/cache/'+sTh,
+                    originalHeight:1000,
+                    originalWidth:1000,
+                })
+            }))
+        }
+        setImages(imgs)
     }
     function createSession(id, callback){
         const myHeaders = new Headers();
@@ -421,34 +456,35 @@ function ProductPage(){
                 <Modal.Body>
                     <Row>
                         <Col>
-                                    <img
-                                        className="d-block-modal w-100"
-                                        src={'http://admin.farmplst.com/image/'+product.image}
-                                        onError={({ currentTarget }) => {
-                                            currentTarget.onerror = null; // prevents looping
-                                            currentTarget.src="/images/placeholder.webp";
-                                        }}
-                                        alt={product.image}
-                                    />
-                                <Row>
-                                        {
-                                            // eslint-disable-next-line array-callback-return
-                                            product.images!==undefined && product.images!=null?product.images.split(';').map((function (item, i) {
-                                                    return (
-                                                        <img className="modal-picture-single"
-                                                             src={'http://admin.farmplst.com/image/'+item}
-                                                             onError={({ currentTarget }) => {
-                                                                 currentTarget.onerror = null; // prevents looping
-                                                                 currentTarget.src="/images/placeholder.webp";
-                                                             }}
-                                                             alt={item}
-                                                        />
-                                                    );
-                                                }))
-                                                :
-                                                ''
-                                        }
-                                </Row>
+                            <ImageGallery items={images} showNav={false} showPlayButton={false}/>
+                                    {/*<img*/}
+                                    {/*    className="d-block-modal w-100"*/}
+                                    {/*    src={'http://admin.farmplst.com/image/'+product.image}*/}
+                                    {/*    onError={({ currentTarget }) => {*/}
+                                    {/*        currentTarget.onerror = null; // prevents looping*/}
+                                    {/*        currentTarget.src="/images/placeholder.webp";*/}
+                                    {/*    }}*/}
+                                    {/*    alt={product.image}*/}
+                                    {/*/>*/}
+                                {/*<Row>*/}
+                                {/*        {*/}
+                                {/*            // eslint-disable-next-line array-callback-return*/}
+                                {/*            product.images!==undefined && product.images!=null?product.images.split(';').map((function (item, i) {*/}
+                                {/*                    return (*/}
+                                {/*                        <img className="modal-picture-single"*/}
+                                {/*                             src={'http://admin.farmplst.com/image/'+item}*/}
+                                {/*                             onError={({ currentTarget }) => {*/}
+                                {/*                                 currentTarget.onerror = null; // prevents looping*/}
+                                {/*                                 currentTarget.src="/images/placeholder.webp";*/}
+                                {/*                             }}*/}
+                                {/*                             alt={item}*/}
+                                {/*                        />*/}
+                                {/*                    );*/}
+                                {/*                }))*/}
+                                {/*                :*/}
+                                {/*                ''*/}
+                                {/*        }*/}
+                                {/*</Row>*/}
                             </Col>
                         <Col>
                             <h4>{product.name}</h4>
