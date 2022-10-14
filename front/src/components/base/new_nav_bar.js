@@ -273,7 +273,7 @@ function NewNavBar() {
                             options={options}
                             placeholder="Поиск по товарам"
                             className="me-2 custom-input"
-                            labelKey="label"
+                            labelKey={option => `${option.label} открыть товар`}
                             style={{width:'90%'}}
                         />
                         {/*<Button variant="primary">Заказать звонок</Button>*/}
