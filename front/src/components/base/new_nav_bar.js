@@ -18,6 +18,7 @@ function NewNavBar() {
     const cookies = new Cookie();
     const [categories, setCategories] = useState([]);
     const [show, setShow] = useState(false);
+    const [opened, setOpened] = useState(false);
     const [selected, setSelected] = useState([]);
     const [options, setOptions] = useState([]);
     const [modalShow, setModalShow] = React.useState(false);
@@ -119,6 +120,34 @@ function NewNavBar() {
         e.innerHTML = input;
         return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
     }
+    function changeToggle() {
+        if (!opened) {
+            // eslint-disable-next-line no-undef
+            $(".navbar").css("background" , "").addClass('bg-light');
+            // eslint-disable-next-line no-undef
+            $('.navbar-brand  img').attr('src', 'images/logo.webp');
+            // eslint-disable-next-line no-undef
+            $(".navbar").removeClass('navbar-dark');
+            // eslint-disable-next-line no-undef
+            $(".navbar").addClass('navbar-light');
+            // eslint-disable-next-line no-undef
+            $(".nav-link").removeClass('nav-bar-white');
+
+        }else{
+            // eslint-disable-next-line no-undef
+            $('.navbar-brand  img').attr('src', 'images/logo2.webp');
+            // eslint-disable-next-line no-undef
+            $(".navbar").removeClass('bg-light');
+            // eslint-disable-next-line no-undef
+            $(".navbar").removeClass('navbar-light');
+            // eslint-disable-next-line no-undef
+            $(".navbar").addClass('navbar-dark');
+            // eslint-disable-next-line no-undef
+            $(".nav-link").addClass('nav-bar-white');
+
+        }
+        setOpened(!opened)
+    }
 
     // const [toSend, setToSend] = useState({
     //     name:'',
@@ -208,7 +237,7 @@ function NewNavBar() {
                         alt="Logo"
                     />
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="navbarScroll" />
+                <Navbar.Toggle aria-controls="navbarScroll" onClick={()=>changeToggle()} />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
                         className="justify-content-end flex-grow-1 pe-3"
