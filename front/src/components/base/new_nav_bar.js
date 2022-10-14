@@ -155,8 +155,8 @@ function NewNavBar() {
         const urlencoded = new URLSearchParams();
         urlencoded.append("to", "noreply@farmplst.com");
         urlencoded.append("subject", "Заказать звонок");
-        urlencoded.append("text",  'Имя: '+ name + ';\n' + 'Телефон номер: "'+ phone);
-        urlencoded.append("html", 'Имя: ' + name + ';\n' + 'Телефон номер: "'+ phone);
+        urlencoded.append("text",  'Имя: '+ name + ';\nТелефон номер: "'+ phone);
+        urlencoded.append("html", 'Имя: ' + name + ';\nТелефон номер: "'+ phone);
 
         const requestOptions = {
             method: 'POST',

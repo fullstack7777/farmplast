@@ -156,11 +156,12 @@ function ProductPage(){
         if(product.images!==undefined && product.images!=null){
             // eslint-disable-next-line array-callback-return
             product.images.split(';').map((function (item, _){
-                let ext = getExtension(product.image);
-                let sTh = product.image.replace('.'+ext,'-250x250.'+ext);
-                imgs.pop({
+                console.log(item)
+                let ext = getExtension(item);
+                let sTh = item.replace('.'+ext,'-250x250.'+ext);
+                imgs.push({
                     original: "https://admin.farmplst.com/image/"+item,
-                    thumbnail:  'https://admin.farmplst.com/image/cache/'+sTh,
+                    thumbnail:  "https://admin.farmplst.com/image/"+item,
                     originalHeight:1000,
                     originalWidth:1000,
                 })
