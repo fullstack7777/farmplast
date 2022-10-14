@@ -243,7 +243,6 @@ function NewNavBar() {
                         className="justify-content-end flex-grow-1 pe-3"
                         // style={{ maxHeight: '100px' }}
                         navbarScroll
-                        id="nav-center-mobile"
                     >
                         <Nav.Link className="nav-bar-lg" href="/" >Главная</Nav.Link>
                         <NavDropdown className="nav-bar-lg" title="Продукция" id="navbarScrollingDropdown">

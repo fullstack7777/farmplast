@@ -659,9 +659,6 @@
     background-color: #c5c5c5fc;
         padding: 8px 8px;
     }
-    #nav-center-mobile {
-        align-items: center;
-    }
 
 }
 @media screen and (max-width: 799px) {
