@@ -659,7 +659,9 @@
     background-color: #c5c5c5fc;
         padding: 8px 8px;
     }
-
+    #nav-center-mobile {
+        align-items: center;
+    }
 
 }
 @media screen and (max-width: 799px) {
@@ -691,6 +693,7 @@
     .custom-bold-white-40{
         word-wrap: break-word;
     }
+
 }
 @media screen and (max-width: 767px) {
   .container {
