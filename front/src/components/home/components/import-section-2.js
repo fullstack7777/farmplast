@@ -8,8 +8,7 @@ function ImportSection2() {
         <div id="section2" style={{paddingBottom: 80}}>
             <Container>
                 <div className={'export-h1'}>
-                    <span className="custom-bold-white-40">Экспортный</span>
-                    <h1 className="custom-bold-40">форсаж</h1>
+                    <span className="custom-bold-white-40">Экспортный</span><span className="custom-bold-40"> форсаж</span>
                 </div>
                 <div className="custom-colored-text">
                     <p>ПАО «Сибур Холдинг», как лидер нефтехимической отрасли России, максимально заинтересован в увеличении переработки полимеров в России. Как крупнейший дистрибьютор ПАО «Сибур Холдинг», мы предлагаем нашим клиентам поучаствовать в программах поддержки, разработанных Сибуром.</p>
