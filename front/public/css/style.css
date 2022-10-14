@@ -660,7 +660,6 @@
         padding: 8px 8px;
     }
 
-
 }
 @media screen and (max-width: 799px) {
   .container {
@@ -691,6 +690,7 @@
     .custom-bold-white-40{
         word-wrap: break-word;
     }
+
 }
 @media screen and (max-width: 767px) {
   .container {
