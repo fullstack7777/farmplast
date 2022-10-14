@@ -1,11 +1,14 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Container from "react-bootstrap/Container";
-import {Col, Modal, Placeholder, Row, Spinner} from "react-bootstrap";
+import {Col, Modal, Placeholder, ListGroup, Row, Spinner} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import {useEffect, useState} from "react";
 import Cookies from "universal-cookie";
 import Carousel from "react-bootstrap/Carousel";
+import ImageGallery from 'react-image-gallery';
+import "react-image-gallery/styles/css/image-gallery.css";
+
 
 function ProductsSection() {
     const cookies = new Cookies();
@@ -14,6 +17,8 @@ function ProductsSection() {
     const [products, setProducts] = useState([]);
     const [productLoading, setProductLoading] = useState(false);
     const [product, setProduct] = useState([]);
+    const [images, setImages] = useState([]);
+    const selections = new Map();
 
     const fetchProducts = () => {
         return fetch("https://api.farmplst.com/api/getPopularProducts")
@@ -33,6 +38,7 @@ function ProductsSection() {
                 setProductLoading(false);
                 setProduct(data[0]);
                 setModalShow(true);
+                handleImages();
             })
             .catch((err) => {
                 setProductLoading(false);
@@ -115,6 +121,63 @@ function ProductsSection() {
     useEffect(() => {
         fetchProducts();
     },[])
+    function handleOnChange(evt) {
+        const target = evt.target;
+        const checked = target.checked;
+        // const name = target.name;
+        const id = target.id;
+
+        selections.set(id, checked)
+        fetchProducts(checked?[0]:[id]);
+    }
+    function handleImages(){
+        let b = "https://admin.farmplst.com/image/"+product.image;
+        let ext = getExtension(product.image);
+        let sTh = product.image.replace('.'+ext,'-250x250.'+ext);
+        let img1 = 'https://admin.farmplst.com/image/cache/'+sTh;
+        let imgs = [
+            {
+                original: b,
+                thumbnail: img1,
+                originalHeight:1000,
+                originalWidth:1000,
+            },
+        ]
+
+        if(product.images!==undefined && product.images!=null){
+            // eslint-disable-next-line array-callback-return
+            product.images.split(';').map((function (item, _){
+                console.log(item)
+                let ext = getExtension(item);
+                let sTh = item.replace('.'+ext,'-250x250.'+ext);
+                imgs.push({
+                    original: "https://admin.farmplst.com/image/"+item,
+                    thumbnail:  "https://admin.farmplst.com/image/"+item,
+                    originalHeight:1000,
+                    originalWidth:1000,
+                })
+            }))
+        }
+        setImages(imgs)
+    }
+    function handleOnChangeGroup(evt, category) {
+        const target = evt.target;
+        const checked = target.checked;
+        // const name = target.name;
+
+        let ids = [];
+        if(category.subs!==undefined && category.subs!=null){
+            for (const item of category.subs){
+                ids.push(item)
+                selections.set(item, checked)
+            }
+        }
+        fetchProducts(checked?[0]:ids);
+    }
+
+    function getExtension(filename) {
+        return filename.split(".").pop();
+    }
 
     if(loading){
         return (
@@ -312,38 +375,39 @@ function ProductsSection() {
                     <Modal.Body>
                         <Row>
                             <Col>
-                                <Carousel>
-                                    <Carousel.Item>
-                                        <img
-                                            className="d-block-modal w-100"
-                                            src={'http://admin.farmplst.com/image/'+product.image}
-                                            onError={({ currentTarget }) => {
-                                                currentTarget.onerror = null; // prevents looping
-                                                currentTarget.src="/images/placeholder.webp";
-                                            }}
-                                            alt={product.image}
-                                        />
-                                    </Carousel.Item>
-                                </Carousel>
-                                <Row>
-                                    {
-                                        // eslint-disable-next-line array-callback-return
-                                        product.images!==undefined && product.images!=null?product.images.split(';').map((function (item, i) {
-                                                return (
-                                                        <img className="modal-picture-single"
-                                                             src={'http://admin.farmplst.com/image/'+item}
-                                                             onError={({ currentTarget }) => {
-                                                                 currentTarget.onerror = null; // prevents looping
-                                                                 currentTarget.src="/images/placeholder.webp";
-                                                             }}
-                                                             alt={item}
-                                                        />
-                                                );
-                                            }))
-                                            :
-                                            ''
-                                    }
-                                </Row>
+                                <ImageGallery items={images} showNav={false} showPlayButton={false}/>
+                                {/*<Carousel>*/}
+                                {/*    <Carousel.Item>*/}
+                                {/*        <img*/}
+                                {/*            className="d-block-modal w-100"*/}
+                                {/*            src={'http://admin.farmplst.com/image/'+product.image}*/}
+                                {/*            onError={({ currentTarget }) => {*/}
+                                {/*                currentTarget.onerror = null; // prevents looping*/}
+                                {/*                currentTarget.src="/images/placeholder.webp";*/}
+                                {/*            }}*/}
+                                {/*            alt={product.image}*/}
+                                {/*        />*/}
+                                {/*    </Carousel.Item>*/}
+                                {/*</Carousel>*/}
+                                {/*<Row>*/}
+                                {/*    {*/}
+                                {/*        // eslint-disable-next-line array-callback-return*/}
+                                {/*        product.images!==undefined && product.images!=null?product.images.split(';').map((function (item, i) {*/}
+                                {/*                return (*/}
+                                {/*                        <img className="modal-picture-single"*/}
+                                {/*                             src={'http://admin.farmplst.com/image/'+item}*/}
+                                {/*                             onError={({ currentTarget }) => {*/}
+                                {/*                                 currentTarget.onerror = null; // prevents looping*/}
+                                {/*                                 currentTarget.src="/images/placeholder.webp";*/}
+                                {/*                             }}*/}
+                                {/*                             alt={item}*/}
+                                {/*                        />*/}
+                                {/*                );*/}
+                                {/*            }))*/}
+                                {/*            :*/}
+                                {/*            ''*/}
+                                {/*    }*/}
+                                {/*</Row>*/}
                             </Col>
                             <Col>
                                 <h4>{product.name}</h4>
