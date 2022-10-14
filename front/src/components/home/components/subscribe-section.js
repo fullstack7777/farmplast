@@ -28,7 +28,8 @@ function sendEmail () {
     };
     fetch("https://api.farmplst.com/api/sendEmail", requestOptions)
         .then((response) => {
-            Swal.fire('Совсем скоро мы с Вами свяжемся', 'Благодарим за обращение', 'success');
+            Swal.fire('Совсем скоро мы с Вами свяжемся', 'sddsfsdfsd', 'success');
+            // e.target.reset();
             console.log('sent')
         })
         .catch((err) => {
@@ -36,10 +37,9 @@ function sendEmail () {
             Swal.fire('Ошибка при отправке, попробуйте позже', '', 'error');
         });
 }
-
     return (
         <div id={'email-section'}>
-           <Form onSubmit={()=>{sendEmail()}}>
+           <Form>
                <Container>
                    <Row>
                        <h1 className="subscribe-section-h1">Компания Фармпласт всегда готова предоставить помощь в выборе продукта и подходящего способа оплаты</h1>
