@@ -63,7 +63,13 @@
     position: relative;
     padding: 80px 0 80px 0;
 }
-
+#benefits {
+    position: relative;
+    padding: 80px 0 80px 0;
+}
+#benefits p{
+    text-align: left;
+}
 #section2 p{
     text-align: left;
 }

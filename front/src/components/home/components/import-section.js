@@ -5,7 +5,7 @@ import { faStop } from '@fortawesome/free-solid-svg-icons'
 
 function ImportSection() {
     return (
-        <div>
+        <div id="import" style={{padding: 80}}>
                 <h1 className="custom-bold-40-import">ИМПОРТОЗАМЕЩЕНИЕ</h1>
         <div id="import-section">
             <Container>

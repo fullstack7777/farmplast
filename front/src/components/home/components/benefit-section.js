@@ -5,7 +5,7 @@ import { faStop } from '@fortawesome/free-solid-svg-icons'
 
 function BenefitsSection() {
     return (
-        <div id="section2" style={{paddingBottom: 80}}>
+        <div id="benefits" style={{paddingBottom: 80}}>
             <Container>
                 <h1 className="custom-bold-40">
                     Преимущества, которые вы <span className="custom-bold-white-40">получаете </span></h1>

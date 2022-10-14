@@ -315,7 +315,7 @@ function NewNavBar() {
                             {/* eslint-disable-next-line array-callback-return */}
                             {categories.map(function (category, index){
                                 if(category.parent_id!==0 && !mapCategories.has(category.name)){
-                                    mapCategories.set(category.name, 1);
+                                    mapCategories.set(category.name, 0);
                                     return <NavDropdown.Item href={'/products?category_ids='+category.category_id} >{category.name}</NavDropdown.Item>
                                 }}
                             )}
