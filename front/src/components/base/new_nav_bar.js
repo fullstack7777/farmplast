@@ -13,6 +13,9 @@ import {Typeahead} from "react-bootstrap-typeahead";
 import React from "react";
 import Cookie from 'universal-cookie'
 import Carousel from "react-bootstrap/Carousel";
+import ImageGallery from 'react-image-gallery';
+import "react-image-gallery/styles/css/image-gallery.css";
+
 
 function NewNavBar() {
     const cookies = new Cookie();
@@ -22,8 +25,13 @@ function NewNavBar() {
     const [selected, setSelected] = useState([]);
     const [options, setOptions] = useState([]);
     const [modalShow, setModalShow] = React.useState(false);
+    const [loading, setLoading] = useState(true);
+    const [products, setProducts] = useState([]);
     const [phone, setPhone] = useState("");
     const [name, setName] = useState("");
+    const [images, setImages] = useState([]);
+    const selections = new Map();
+
     // const handleChange = (e) => {
     //     e.preventDefault();
     //     setPhone(e.target.value);
@@ -32,6 +40,17 @@ function NewNavBar() {
     // };
     const [productLoading, setProductLoading] = useState(false);
     const [product, setProduct] = useState([]);
+
+    const fetchProducts = () => {
+        return fetch("https://api.farmplst.com/api/getPopularProducts")
+            .then(function (response) {
+                setLoading(false);
+                return response.json();
+            })
+            .then(function (data) {
+                return setProducts(data);
+            });
+    }
     const fetchProduct = (product_id) => {
         setProductLoading(true);
         fetch('https://api.farmplst.com/api/getProductById?id='+product_id)
@@ -41,6 +60,7 @@ function NewNavBar() {
                 setProduct(data[0]);
                 console.log(data[0]);
                 setModalShow(true);
+                handleImages();
             })
             .catch((err) => {
                 setProductLoading(false);
@@ -175,7 +195,53 @@ function NewNavBar() {
     //     setToSend({ ...toSend, [e.target.name]: e.target.value });
     //     setToSend({ ...toSend, [e.target.phone]: e.target.value });
     // };
+    function handleImages(){
+        let b = "https://admin.farmplst.com/image/"+product.image;
+        let ext = getExtension(product.image);
+        let sTh = product.image.replace('.'+ext,'-250x250.'+ext);
+        let img1 = 'https://admin.farmplst.com/image/cache/'+sTh;
+        let imgs = [
+            {
+                original: b,
+                thumbnail: img1,
+                originalHeight:1000,
+                originalWidth:1000,
+            },
+        ]
 
+        if(product.images!==undefined && product.images!=null){
+            // eslint-disable-next-line array-callback-return
+            product.images.split(';').map((function (item, _){
+                console.log(item)
+                let ext = getExtension(item);
+                let sTh = item.replace('.'+ext,'-250x250.'+ext);
+                imgs.push({
+                    original: "https://admin.farmplst.com/image/"+item,
+                    thumbnail:  "https://admin.farmplst.com/image/"+item,
+                    originalHeight:1000,
+                    originalWidth:1000,
+                })
+            }))
+        }
+        setImages(imgs)
+    }
+    function handleOnChangeGroup(evt, category) {
+        const target = evt.target;
+        const checked = target.checked;
+        // const name = target.name;
+
+        let ids = [];
+        if(category.subs!==undefined && category.subs!=null){
+            for (const item of category.subs){
+                ids.push(item)
+                selections.set(item, checked)
+            }
+        }
+        fetchProducts(checked?[0]:ids);
+    }
+    function getExtension(filename) {
+        return filename.split(".").pop();
+    }
     function sendEmail() {
 
         const myHeaders = new Headers();
@@ -268,7 +334,11 @@ function NewNavBar() {
                         <Typeahead
                             id="basic-example"
                             onChange={(selected) => {
-                                fetchProduct(selected[0].id);
+                                try {
+                                        fetchProduct(selected[0].id);
+                                    } catch (err) {
+                                    console.log(err)
+                                }
                             }}
                             options={options}
                             placeholder="Поиск по товарам"
@@ -347,24 +417,25 @@ function NewNavBar() {
                 <Modal.Body>
                     <Row>
                         <Col>
-                            <Carousel>
-                                <Carousel.Item>
-                                    <img
-                                        className="d-block-modal w-100"
-                                        src={'http://admin.farmplst.com/image/'+product.image}
-                                        onError={({ currentTarget }) => {
-                                            currentTarget.onerror = null; // prevents looping
-                                            currentTarget.src="/images/placeholder.webp";
-                                        }}
-                                        alt="First slide"
-                                    />
-                                </Carousel.Item>
-                            </Carousel>
-                            <Row>
-                                <Col className="modal-picture-mini">
-                                    {/*<img className="modal-picture-single" src={'http://admin.farmplst.com/image/'+ ext}/>*/}
-                                </Col>
-                            </Row>
+                            <ImageGallery items={images} showNav={false} showPlayButton={false}/>
+                            {/*<Carousel>*/}
+                            {/*    <Carousel.Item>*/}
+                            {/*        <img*/}
+                            {/*            className="d-block-modal w-100"*/}
+                            {/*            src={'http://admin.farmplst.com/image/'+product.image}*/}
+                            {/*            onError={({ currentTarget }) => {*/}
+                            {/*                currentTarget.onerror = null; // prevents looping*/}
+                            {/*                currentTarget.src="/images/placeholder.webp";*/}
+                            {/*            }}*/}
+                            {/*            alt="First slide"*/}
+                            {/*        />*/}
+                            {/*    </Carousel.Item>*/}
+                            {/*</Carousel>*/}
+                            {/*<Row>*/}
+                            {/*    <Col className="modal-picture-mini">*/}
+                            {/*        /!*<img className="modal-picture-single" src={'http://admin.farmplst.com/image/'+ ext}/>*!/*/}
+                            {/*    </Col>*/}
+                            {/*</Row>*/}
                         </Col>
                         <Col>
                             <h4>{product.name}</h4>
