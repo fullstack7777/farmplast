@@ -153,10 +153,14 @@
           $(".navbar").css("background" , "").addClass('bg-light');
           $(".navbar").removeClass('navbar-dark');
           $(".navbar").addClass('navbar-light');
+
         }
         if(window.location.pathname=='/' && window.location.pathname!=='/#'){
           $('.navbar-brand  img').attr('src', 'images/logo2.webp');
           $(".nav-link").addClass('nav-bar-white');
+          $(".navbar-toggler").addClass('navbar-toggler-2');
+
+
         }
         $(window).scroll(function(){
           let scroll = $(window).scrollTop();
@@ -168,6 +172,7 @@
               $(".navbar").removeClass('navbar-dark');
               $(".navbar").addClass('navbar-light');
               $(".nav-link").removeClass('nav-bar-white');
+              $(".navbar-toggler").removeClass('navbar-toggler-2');
 
             }else{
               $('.navbar-brand  img').attr('src', 'images/logo2.webp');
@@ -175,7 +180,7 @@
               $(".navbar").removeClass('navbar-light');
               $(".navbar").addClass('navbar-dark');
               $(".nav-link").addClass('nav-bar-white');
-
+              $(".navbar-toggler").addClass('navbar-toggler-2');
 
             }
           }

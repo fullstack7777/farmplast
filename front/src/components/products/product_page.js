@@ -1,16 +1,19 @@
 import React from 'react';
 import Container from "react-bootstrap/Container";
-import {Card, Carousel, Col, ListGroup, Modal, Placeholder, Row, Spinner} from "react-bootstrap";
+import {Card, Carousel, Col, FormLabel, ListGroup, Modal, Placeholder, Row, Spinner} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import {useEffect, useState} from "react";
 import Form from 'react-bootstrap/Form';
-import Cookie from 'universal-cookie'
-// import './App.scss';
-// import 'swiper/css'
-// import 'swiper/css/navigation'
-// import 'swiper/css/thumbs'
-// import ProductImagesSlider from "./components/product-images-slider";
-// import {productImages} from "./assets";
+import Cookie from 'universal-cookie';
+// import { Swiper, SwiperSlide } from 'swiper/react';
+import { useState, useEffect, useRef } from 'react';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode, Navigation, Thumbs } from "swiper";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
 
 function ProductPage(){
     useEffect(() => {
@@ -24,7 +27,6 @@ function ProductPage(){
     const [loading, setLoading] = useState(true);
     const [productLoading, setProductLoading] = useState(false);
     const [productId, setProductId] = useState(0);
-
     const [product, setProduct] = useState([]);
     const selections = new Map();
 
@@ -259,6 +261,7 @@ function ProductPage(){
     }
 
     const [modalShow, setModalShow] = React.useState(false);
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
     return (
         <Container id="products-section" className={'top-space'}>
@@ -277,16 +280,19 @@ function ProductPage(){
                                         }})
                                     return [
                                         <ListGroup.Item style={{background:'#f8f9fa', fontWeight: "bold", color: '#343434'}}>
-                                            <Form.Check
-                                                type={'checkbox'}
-                                                id={category.category_id}
-                                                data={category}
-                                                label={category.name}
-                                                checked={checkIdGroup(category)}
-                                                onChange={function (event) {
-                                                    handleOnChangeGroup(event, category)
-                                                }}
-                                            />
+                                            {/*<Form.Check*/}
+                                            {/*    type={'checkbox'}*/}
+                                            {/*    id={category.category_id}*/}
+                                            {/*    data={category}*/}
+                                            {/*    label={category.name}*/}
+                                            {/*    checked={checkIdGroup(category)}*/}
+                                            {/*    onChange={function (event) {*/}
+                                            {/*        handleOnChangeGroup(event, category)*/}
+                                            {/*    }}*/}
+                                            {/*/>*/}
+                                            <FormLabel>
+                                                {category.name}
+                                            </FormLabel>
                                         </ListGroup.Item>,
                                         <ListGroup.Item>
                                             {/* eslint-disable-next-line array-callback-return */}
@@ -424,41 +430,121 @@ function ProductPage(){
                 </Modal.Header>
                 <Modal.Body>
                     <Row>
-                        {/*<ProductImagesSlider images={productImages} />*/}
-                        <Col>
-                            <Carousel>
-                                <Carousel.Item>
-                                    <img
-                                        className="d-block-modal w-100"
-                                        src={'http://admin.farmplst.com/image/'+product.image}
-                                        onError={({ currentTarget }) => {
-                                            currentTarget.onerror = null; // prevents looping
-                                            currentTarget.src="/images/placeholder.webp";
-                                        }}
-                                        alt={product.image}
-                                    />
-                                </Carousel.Item>
-                            </Carousel>
-                            <Row>
-                                {
-                                    // eslint-disable-next-line array-callback-return
-                                    product.images!==undefined && product.images!=null?product.images.split(';').map((function (item, i) {
-                                            return (
-                                                <img className="modal-picture-single"
-                                                     src={'http://admin.farmplst.com/image/'+item}
-                                                     onError={({ currentTarget }) => {
-                                                         currentTarget.onerror = null; // prevents looping
-                                                         currentTarget.src="/images/placeholder.webp";
-                                                     }}
-                                                     alt={item}
-                                                />
-                                            );
-                                        }))
-                                        :
-                                        ''
-                                }
-                            </Row>
-                        </Col>
+                            {/* Main Swiper -> pass thumbs swiper instance */}
+                            <Col>
+                                <Swiper
+                                    style={{
+                                        "--swiper-navigation-color": "#fff",
+                                        "--swiper-pagination-color": "#fff",
+                                    }}
+                                    spaceBetween={10}
+                                    navigation={true}
+                                    thumbs={{ swiper: thumbsSwiper }}
+                                    modules={[FreeMode, Navigation, Thumbs]}
+                                    className="mySwiper2"
+                                >
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+                                    </SwiperSlide>
+                                </Swiper>
+                                <Swiper
+                                    onSwiper={setThumbsSwiper}
+                                    spaceBetween={10}
+                                    slidesPerView={4}
+                                    freeMode={true}
+                                    watchSlidesProgress={true}
+                                    modules={[FreeMode, Navigation, Thumbs]}
+                                    className="mySwiper"
+                                >
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                                    </SwiperSlide>
+                                    <SwiperSlide>
+                                        <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+                                    </SwiperSlide>
+                                </Swiper>
+
+                                    {/*<img*/}
+                                    {/*    className="d-block-modal w-100"*/}
+                                    {/*    src={'http://admin.farmplst.com/image/'+product.image}*/}
+                                    {/*    onError={({ currentTarget }) => {*/}
+                                    {/*        currentTarget.onerror = null; // prevents looping*/}
+                                    {/*        currentTarget.src="/images/placeholder.webp";*/}
+                                    {/*    }}*/}
+                                    {/*    alt={product.image}*/}
+                                    {/*/>*/}
+                                <Row>
+
+                                        {/*{*/}
+                                        {/*    // eslint-disable-next-line array-callback-return*/}
+                                        {/*    product.images!==undefined && product.images!=null?product.images.split(';').map((function (item, i) {*/}
+                                        {/*            return (*/}
+                                        {/*                <img className="modal-picture-single"*/}
+                                        {/*                     src={'http://admin.farmplst.com/image/'+item}*/}
+                                        {/*                     onError={({ currentTarget }) => {*/}
+                                        {/*                         currentTarget.onerror = null; // prevents looping*/}
+                                        {/*                         currentTarget.src="/images/placeholder.webp";*/}
+                                        {/*                     }}*/}
+                                        {/*                     alt={item}*/}
+                                        {/*                />*/}
+                                        {/*            );*/}
+                                        {/*        }))*/}
+                                        {/*        :*/}
+                                        {/*        ''*/}
+                                        {/*}*/}
+                                </Row>
+                            </Col>
                         <Col>
                             <h4>{product.name}</h4>
                             <p>{product.model}</p>

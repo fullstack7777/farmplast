@@ -50,7 +50,7 @@ function MainSlider() {
                 />
 
                 <Carousel.Caption style={{top:'35%',bottom:'0'}}>
-                    <h3 id="slider-text">НАЙДЕМ ИНДИВИДУАЛЬНЫЙ ПОДХОД К КАЖДОМУ КЛИЕНТУ</h3>
+                    <h3 id="slider-text-1">НАЙДЕМ ИНДИВИДУАЛЬНЫЙ ПОДХОД К КАЖДОМУ КЛИЕНТУ</h3>
                 </Carousel.Caption>
             </Carousel.Item>
             {/*<Carousel.Item>*/}

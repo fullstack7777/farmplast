@@ -3,21 +3,22 @@ import Container from "react-bootstrap/Container";
 import {Col, Row} from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 import Swal from "sweetalert2";
+import Button from 'react-bootstrap/Button';
 
 function ContactsPage (){
 
         useEffect(() => {
             document.title = 'Фармпласт - Контакты';
         });
-    const [toSend, setToSend] = useState({
-        from_name: '',
-        to_name: 'с "Наши контакты"',
-        from_mail: '',
-        company: '',
-        city: '',
-        phone: '',
-        reply_to: '',
-    });
+
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [company, setCompany] = useState("");
+    const [city, setCity] = useState("");
+    const [phone, setPhone] = useState("");
+
+
     // const onSubmit = (e) => {
     //     e.preventDefault();
     //     send(
@@ -41,9 +42,9 @@ function ContactsPage (){
 
         const urlencoded = new URLSearchParams();
         urlencoded.append("to", "noreply@farmplst.com");
-        urlencoded.append("phone", "+7999999999");
-        urlencoded.append("text", "hello");
-        urlencoded.append("html", "html");
+        urlencoded.append("subject", "Завка с Наши Контакты");
+        urlencoded.append("text", 'Имя: ' + name + ';\n' + 'Почта: ' + email  + ';\n' + 'Компания: ' + company  + ';\n' + 'Город: ' + city  + ';\n' + 'Телефон номер: '+ phone);
+        urlencoded.append("html", 'Имя: ' + name + ';\n' + 'Почта: ' + email  + ';\n' + 'Компания: ' + company  + ';\n' + 'Город: ' + city  + ';\n' + 'Телефон номер: '+ phone);
 
         const requestOptions = {
             method: 'POST',
@@ -51,11 +52,16 @@ function ContactsPage (){
             body: urlencoded,
             redirect: 'follow'
         };
+
         fetch("https://api.farmplst.com/api/sendEmail", requestOptions)
             .then((response) => {
-                Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
-                // e.target.reset();
-                console.log('sent')
+                Swal.fire('Совсем скоро мы с Вами свяжемся', 'Благодарим за обращение', 'success');
+                setName('');
+                setEmail('');
+                setCompany('');
+                setCity('');
+                setPhone('');
+                console.log('sent');
             })
             .catch((err) => {
                 console.log(err)
@@ -70,7 +76,7 @@ function ContactsPage (){
                     <div><h1 className="custom-bold-38" style={{textAlign: "center"}}>
                         Наши <span className="custom-bold-white">контакты</span></h1></div>
                     <Row >
-                        <Col lg="6" style={{position: "relative"}}>
+                        <Col lg="6" className="contact-right-left">
                             <br/>
                             <br/>
                             <p><b>Юридический адресс:</b> г. Санкт-Петербург, Лесной <br />проспект, д. 63 лит. А офис 402</p>
@@ -88,39 +94,52 @@ function ContactsPage (){
                                 <div id="section-contacts-text">
                                     Компания Фармпласт готова<br/> представить помощь в выборе<br/> продукта и подходящего способа<br/> оплаты.
                                 </div>
-                                <Form id="section-contacts-form"
-                                      onSubmit={()=>{sendEmail();}}
-                                >
+                                <Form id="section-contacts-form">
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="text" placeholder="Ваше имя"
-                                                      name='from_name'
-                                                      title='to_name'
-                                                      required
+                                        <Form.Control type='text'
+                                                      placeholder="Ваше имя"
+                                                      value={name}
+                                                      className={'mobileBox custom-input'}
+                                                      onChange={(e => setName(e.target.value))}
+                                                      required="true"
                                         />
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="text" placeholder="Ваша почта"
-                                                      name='from_mail'
-                                                      required/>
+                                        <Form.Control type='text'
+                                                      placeholder="Ваша почта"
+                                                      value={email}
+                                                      className={'mobileBox custom-input'}
+                                                      onChange={(e => setEmail(e.target.value))}
+                                                      required="true"/>
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="text" placeholder="Ваша компания"
-                                                      name='company'
-                                                      required/>
+                                        <Form.Control type='text'
+                                                      placeholder="Ваша компания"
+                                                      className={'mobileBox custom-input'}
+                                                      value={company}
+                                                      onChange={(e => setCompany(e.target.value))}
+                                                      required="true"/>
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="text" placeholder="Ваш город"
-                                                      name='city'
-                                                      required/>
+                                        <Form.Control type='text'
+                                                      placeholder="Ваш город"
+                                                      className={'mobileBox custom-input'}
+                                                      value={city}
+                                                      onChange={(e => setCity(e.target.value))}
+                                                      required="true"/>
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type="number" placeholder="Ваш телефон"
-                                                      name='phone'
-                                                      required/>
+                                        <Form.Control type='number'
+                                                      phone='phone'
+                                                      placeholder="Ваш телефон"
+                                                      className={'mobileBox custom-input'}
+                                                      value={phone}
+                                                      onChange={(e => setPhone(e.target.value))}
+                                                      required="true"/>
                                     </Form.Group>
-                                    <button className="button-contacts" onClick={()=>{sendEmail()}}>
+                                    <Button className="button-contacts" onClick={()=>{sendEmail()}}>
                                         Оставить заявку
-                                    </button>
+                                    </Button>
                                 </Form>
                             </div>
                         </Col>
@@ -128,5 +147,4 @@ function ContactsPage (){
                 </Container>
         );
 }
-
 export default ContactsPage;

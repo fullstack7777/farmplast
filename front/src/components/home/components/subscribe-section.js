@@ -7,16 +7,18 @@ import Swal from 'sweetalert2';
 
 function SubscribeSection() {
     const [phone, setPhone] = useState("");
-
-function sendEmail() {
+    const handleChange = (e) => {
+        setPhone(e.target.value);
+    };
+function sendEmail () {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
     const urlencoded = new URLSearchParams();
     urlencoded.append("to", "noreply@farmplst.com");
     urlencoded.append("subject", "Получить консультацию");
-    urlencoded.append("text", phone);
-    urlencoded.append("html", phone);
+    urlencoded.append("text", 'Телефон номер: '+ phone);
+    urlencoded.append("html", 'Телефон номер: '+ phone);
 
     const requestOptions = {
         method: 'POST',
@@ -26,8 +28,7 @@ function sendEmail() {
     };
     fetch("https://api.farmplst.com/api/sendEmail", requestOptions)
         .then((response) => {
-            Swal.fire('Совсем скоро мы с Вами свяжемся', 'sddsfsdfsd', 'success');
-            // e.target.reset();
+            Swal.fire('Совсем скоро мы с Вами свяжемся', 'Благодарим за обращение', 'success');
             console.log('sent')
         })
         .catch((err) => {
@@ -35,9 +36,10 @@ function sendEmail() {
             Swal.fire('Ошибка при отправке, попробуйте позже', '', 'error');
         });
 }
+
     return (
         <div id={'email-section'}>
-           <Form>
+           <Form onSubmit={()=>{sendEmail()}}>
                <Container>
                    <Row>
                        <h1 className="subscribe-section-h1">Компания Фармпласт всегда готова предоставить помощь в выборе продукта и подходящего способа оплаты</h1>
@@ -47,15 +49,15 @@ function sendEmail() {
                            <Form.Control
                                type='number'
                                value={phone}
-                               onChange={(e => setPhone(e.target.value))}
+                               onChange={handleChange}
+                               required
                                className={'mobileBox custom-input'}
                                phone='phone'
-                               required
                                placeholder="Ваш телефон для связи"
                            />
                        </Col>
                        <Col xs lg="3">
-                           <Button onClick={()=>{sendEmail()}} variant="primary" className="custom-button" style={{width:'100%'}}>Получить консультацию</Button>
+                           <Button type="submit" variant="primary" className="custom-button" style={{width:'100%'}}>Получить консультацию</Button>
                        </Col>
                    </Row>
                </Container>

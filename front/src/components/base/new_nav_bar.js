@@ -8,7 +8,6 @@ import {useEffect, useState} from "react";
 import {faPhone} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Col, Modal, Row, Spinner} from "react-bootstrap";
-import {send} from "emailjs-com";
 import Swal from "sweetalert2";
 import {Typeahead} from "react-bootstrap-typeahead";
 import React from "react";
@@ -22,7 +21,14 @@ function NewNavBar() {
     const [selected, setSelected] = useState([]);
     const [options, setOptions] = useState([]);
     const [modalShow, setModalShow] = React.useState(false);
-
+    const [phone, setPhone] = useState("");
+    const [name, setName] = useState("");
+    // const handleChange = (e) => {
+    //     e.preventDefault();
+    //     setPhone(e.target.value);
+    //     setName(e.target.value);
+    //     e.target.reset();
+    // };
     const [productLoading, setProductLoading] = useState(false);
     const [product, setProduct] = useState([]);
     const fetchProduct = (product_id) => {
@@ -140,6 +146,7 @@ function NewNavBar() {
     //     setToSend({ ...toSend, [e.target.name]: e.target.value });
     //     setToSend({ ...toSend, [e.target.phone]: e.target.value });
     // };
+
     function sendEmail() {
 
         const myHeaders = new Headers();
@@ -147,10 +154,9 @@ function NewNavBar() {
 
         const urlencoded = new URLSearchParams();
         urlencoded.append("to", "noreply@farmplst.com");
-        urlencoded.append("phone", "+7999999999");
-        urlencoded.append("name", "From");
-        urlencoded.append("text", "hello");
-        urlencoded.append("html", "html");
+        urlencoded.append("subject", "Заказать звонок");
+        urlencoded.append("text",  'Имя: '+ name + ';\n' + 'Телефон номер: "'+ phone);
+        urlencoded.append("html", 'Имя: ' + name + ';\n' + 'Телефон номер: "'+ phone);
 
         const requestOptions = {
             method: 'POST',
@@ -160,8 +166,8 @@ function NewNavBar() {
         };
         fetch("https://api.farmplst.com/api/sendEmail", requestOptions)
             .then((response) => {
-                Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
-                // e.target.reset();
+                Swal.fire('Совсем скоро мы с Вами свяжемся',  'Благодарим за обращение', 'success');
+                handleClose();
                 console.log('sent')
             })
             .catch((err) => {
@@ -256,14 +262,16 @@ function NewNavBar() {
                             <h4 className="modal-h4">Заполните необходимые данные и наши менеджеры свяжутся с Вами в ближайшее время.</h4>
                         </Modal.Header>
                     <Modal.Body>
-                        <Form onSubmit={()=>{sendEmail();}}>
+                        <Form>
                             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                 <Form.Label>Имя</Form.Label>
                                 <Form.Control
                                     type='text'
                                     name='name'
+                                    value={name}
+                                    onChange={(e => setName(e.target.value))}
                                     className={'mobileBox custom-input'}
-                                    required
+                                    required={true}
                                     placeholder="Имя"
                                     autoFocus
                                 />
@@ -273,8 +281,10 @@ function NewNavBar() {
                                 <Form.Control
                                     type='number'
                                     phone='phone'
+                                    value={phone}
+                                    onChange={(e => setPhone(e.target.value))}
                                     className={'mobileBox custom-input'}
-                                    required
+                                    required={true}
                                     placeholder="+7"
                                 />
                             </Form.Group>
@@ -282,7 +292,7 @@ function NewNavBar() {
                                 <Button variant="secondary" onClick={handleClose}>
                                     Закрыть
                                 </Button>
-                                <Button className="custom-button" variant="primary" onClick={()=>{sendEmail()}}>
+                                <Button className="custom-button" required={true} variant="primary" onClick={()=>{sendEmail()}}>
                                     Оставить заявку
                                 </Button>
                             </Modal.Footer>
