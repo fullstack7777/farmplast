@@ -2,13 +2,13 @@ import React from 'react';
 import Container from "react-bootstrap/Container";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStop } from '@fortawesome/free-solid-svg-icons'
+import {Row} from "react-bootstrap";
 
 function BenefitsSection() {
     return (
-        <div id="benefits" style={{paddingBottom: 80}}>
             <Container>
-                <h1 className="custom-bold-40">
-                    Преимущества, которые вы <span className="custom-bold-white-40">получаете </span></h1>
+                <h1 className="custom-bold-38" style={{textAlign: "center", paddingBottom: 40}}>
+                   Преимущества, которые вы  <span className="custom-bold-white">получаете</span> </h1>
                 <div className="custom-colored-text">
                     <p>Мы являемся крупнейшими дистрибьютором ПАО «Сибур Холдинг», и нашим клиентам в полном объеме доступны услуги Сибур «Полилаб».</p>
                     <p>Это первый в России, уникальный научно-производственный комплекс, созданный для решения технических задач, встающих перед переработчиками полимеров.</p>
@@ -17,7 +17,6 @@ function BenefitsSection() {
                     <p>Для получения более подробной информации обращайтесь к нашему менеджеру или <a href='https://www.sibur.ru/ru/clients/technical-support/' target='_blank'>здесь</a>.</p>
                 </div>
             </Container>
-        </div>
     );
 }
 

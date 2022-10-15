@@ -67,6 +67,11 @@ function NewNavBar() {
                 console.log(err.message);
             });
     }
+    function htmlDecode(input){
+        let e = document.createElement('div');
+        e.innerHTML = input;
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    }
     function createSession(id, callback){
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -135,11 +140,56 @@ function NewNavBar() {
             })
             .catch(error => console.log('error', error));
     }
-    function htmlDecode(input){
-        let e = document.createElement('div');
-        e.innerHTML = input;
-        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
-    }
+
+        if(window.location.pathname!=='/' && window.location.pathname!=='/#'){
+            // eslint-disable-next-line no-undef
+            $(".navbar").css("background" , "").addClass('bg-light');
+            // eslint-disable-next-line no-undef
+            $(".navbar").removeClass('navbar-dark');
+            // eslint-disable-next-line no-undef
+            $(".navbar").addClass('navbar-light');
+
+        }
+        if(window.location.pathname=='/' && window.location.pathname!=='/#'){
+            // eslint-disable-next-line no-undef
+            $('.navbar-brand  img').attr('src', 'images/logo2.webp');
+            // eslint-disable-next-line no-undef
+            $(".nav-link").addClass('nav-bar-white');
+        }
+    // eslint-disable-next-line no-undef
+            let scroll = $(window).scrollTop();
+    // eslint-disable-next-line no-undef
+    let width = $(window)
+    // eslint-disable-next-line no-undef
+    if(window.location.pathname==='/' || window.location.pathname==='/#'){
+
+
+                if (scroll > 500) {
+                    // eslint-disable-next-line no-undef
+                    $(".navbar").css("background" , "").addClass('bg-light');
+                    // eslint-disable-next-line no-undef
+                    $('.navbar-brand  img').attr('src', 'images/logo.webp');
+                    // eslint-disable-next-line no-undef
+                    $(".navbar").removeClass('navbar-dark');
+                    // eslint-disable-next-line no-undef
+                    $(".navbar").addClass('navbar-light');
+                    // eslint-disable-next-line no-undef
+                    $(".nav-link").removeClass('nav-bar-white');
+
+                }else{
+                    // eslint-disable-next-line no-undef
+                    $('.navbar-brand  img').attr('src', 'images/logo2.webp');
+                    // eslint-disable-next-line no-undef
+                    $(".navbar").removeClass('bg-light');
+                    // eslint-disable-next-line no-undef
+                    $(".navbar").removeClass('navbar-light');
+                    // eslint-disable-next-line no-undef
+                    $(".navbar").addClass('navbar-dark');
+                    // eslint-disable-next-line no-undef
+                    $(".nav-link").addClass('nav-bar-white');
+                }
+            }
+
     function changeToggle() {
         if (!opened) {
             // eslint-disable-next-line no-undef
@@ -169,32 +219,6 @@ function NewNavBar() {
         setOpened(!opened)
     }
 
-    // const [toSend, setToSend] = useState({
-    //     name:'',
-    //     phone: '',
-    // });
-    // const onSubmit = (e) => {
-    //     e.preventDefault();
-    //     send(
-    //         'service_c7pclcq',
-    //         'template_pnj15fp',
-    //         toSend,
-    //         'Kd5hTZnsMrSH5nMAX'
-    //     )
-    //         .then((response) => {
-    //             Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
-    //             handleClose();
-    //             e.target.reset();
-    //         })
-    //         .catch((err) => {
-    //             Swal.fire('Ошибка при отправке, попробуйте похже', '', 'error');
-    //         });
-    // };
-    // const handleChange = (e) => {
-    //     e.preventDefault();
-    //     setToSend({ ...toSend, [e.target.name]: e.target.value });
-    //     setToSend({ ...toSend, [e.target.phone]: e.target.value });
-    // };
     function handleImages(){
         let b = "https://admin.farmplst.com/image/"+product.image;
         let ext = getExtension(product.image);
@@ -316,7 +340,7 @@ function NewNavBar() {
                             {categories.map(function (category, index){
                                 if(category.parent_id!==0 && !mapCategories.has(category.name)){
                                     mapCategories.set(category.name, 0);
-                                    return <NavDropdown.Item href={'/products?category_ids='+category.category_id} >{category.name}</NavDropdown.Item>
+                                    return <NavDropdown.Item href={'/products?category_ids='+category.category_id} key={index}>{category.name}</NavDropdown.Item>
                                 }}
                             )}
                         </NavDropdown>

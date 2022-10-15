@@ -143,12 +143,14 @@ function ProductsSection() {
                 originalWidth:1000,
             },
         ]
-
+        // eslint-disable-next-line array-callback-return
         if(product.images!==undefined && product.images!=null){
             // eslint-disable-next-line array-callback-return
             product.images.split(';').map((function (item, _){
                 console.log(item)
+                // eslint-disable-next-line array-callback-return
                 let ext = getExtension(item);
+                // eslint-disable-next-line array-callback-return
                 let sTh = item.replace('.'+ext,'-250x250.'+ext);
                 imgs.push({
                     original: "https://admin.farmplst.com/image/"+item,
@@ -164,7 +166,6 @@ function ProductsSection() {
         const target = evt.target;
         const checked = target.checked;
         // const name = target.name;
-
         let ids = [];
         if(category.subs!==undefined && category.subs!=null){
             for (const item of category.subs){
@@ -174,16 +175,15 @@ function ProductsSection() {
         }
         fetchProducts(checked?[0]:ids);
     }
-
     function getExtension(filename) {
         return filename.split(".").pop();
     }
-
+    // eslint-disable-next-line array-callback-return
     if(loading){
         return (
             <Container style={{paddingBottom: 60}}>
                 <h1 className="custom-bold-38" style={{textAlign: "center", paddingBottom: 40}}>
-                    <span className="custom-bold-white">Часто</span> покупаемые товары</h1>
+                    <span className="custom-bold-white-40">Часто</span> покупаемые товары</h1>
                 <Row className="justify-content-md-center">
                     <Col md="auto">
                         <Card className="card-hov">
@@ -317,7 +317,9 @@ function ProductsSection() {
             </Container>
         );
     }else if(products.length>0){
+        // eslint-disable-next-line array-callback-return
         function getExtension(filename) {
+            // eslint-disable-next-line array-callback-return
             return filename.split(".").pop();
         }
         return (
@@ -331,7 +333,7 @@ function ProductsSection() {
                             let ext = getExtension(product.image);
                             ext = product.image.replace('.'+ext,'-250x250.'+ext);
                             return (
-                                <Col md="auto">
+                                <Col md="auto" key={index}>
                                     <Card className="card-hov">
                                         <Card.Img onClick={function () {
                                             fetchProduct(product.product_id);
@@ -355,7 +357,6 @@ function ProductsSection() {
                                     <br/>
                                 </Col>
                             );
-
                         })
                     }
                 </Row>

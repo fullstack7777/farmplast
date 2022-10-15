@@ -7,9 +7,6 @@ import Cookie from 'universal-cookie';
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
 import { useState, useEffect } from 'react';
-
-
-
 function ProductPage(){
     useEffect(() => {
         document.title = 'Фармпласт - Товары';
@@ -305,7 +302,7 @@ function ProductPage(){
                                             category.subs.push(inner.category_id)
                                         }})
                                     return [
-                                        <ListGroup.Item style={{background:'#f8f9fa', fontWeight: "bold", color: '#343434'}}>
+                                        <ListGroup.Item style={{background:'#f8f9fa', fontWeight: "bold", color: '#343434'}} key={index}>
                                             {/*<Form.Check*/}
                                             {/*    type={'checkbox'}*/}
                                             {/*    id={category.category_id}*/}
@@ -408,7 +405,7 @@ function ProductPage(){
                                     let ext = getExtension(product.image);
                                     ext = product.image.replace('.'+ext,'-250x250.'+ext);
                                     return (
-                                        <Col md="auto">
+                                        <Col md="auto" key={index}>
                                             <Card className="card-hov" >
                                                 <Card.Img onClick={function () {
                                                     setProductId(product.product_id);

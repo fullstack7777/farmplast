@@ -77,8 +77,13 @@
     color: #131818;
     text-align: start;
 }
+
+.benefit-text{
+    color: #131818;
+    text-align: start;
+}
 .import-white-text{
-    font-size:22pt;
+    font-size:20pt;
     font-weight: bold;
     font-style: italic;
     color: #EAEFF2;
@@ -109,6 +114,9 @@
 #email-section{
     padding: 150px 0 150px 0;
     background-image: url("/images/email_background.webp");
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 #import-section{
     padding-bottom: 50px;
@@ -119,14 +127,23 @@
     background-position: center center;
 
 }
-
+.image-size{
+    height: 800px;
+    width: 800px;
+}
 .custom-bold-white{
     font-size:38pt;
     color: white;
     font-weight: bold;
     background: #008DA9;
     padding: 8px;
-
+}
+.custom-bold-white-invest{
+    font-size:38pt;
+    color: white;
+    font-weight: bold;
+    background: #008DA9;
+    padding: 8px;
 }
 .custom-bold-white-40{
     font-size:42pt;
@@ -150,6 +167,7 @@
     text-align: center;
     padding-bottom: 60px;
     padding-top: 60px;
+    line-height: 1.5;
 }
 .custom-bold-40-import{
     font-size: 42pt;
@@ -158,16 +176,6 @@
     text-align: center;
     line-height: 1.5;
     background-color: white;
-}
-
-.list-style{
-    list-style-type: none;
-    padding-top: inherit;
-}
-
-
-.brands {
-
 }
 
 .brands_slider_container {
@@ -413,8 +421,19 @@
     height: 120px;
     border-radius: 3px;
 }
-
-
+.slide-button {
+    display: flex;
+    align-items: end;
+    background-color: transparent;
+    border-color: #008DA9;
+}
+.slide-button:hover {
+    background-color: #676767;
+}
+.slide-button:active {
+    background-color: #676767;
+    border-color: #008DA9;
+}
 .count {
     display: flex;
     column-gap: 10px;
@@ -550,35 +569,26 @@
     display: contents; !important;
 }
 
-/*@media all and (max-width: 1024px) {*/
-/*    .custom-section1-img{*/
-/*        visibility: hidden;*/
-/*    }*/
-/*}*/
-/*@media all and (max-width: 1024px) {*/
-/*    .section{*/
-/*        visibility: hidden;*/
-/*    }*/
-/*}*/
-/*Responsive*/
-/*@media screen and (max-width: 639px) {*/
-/*    #products-section .card{*/
-/*        width: 100%!important;*/
-/*        margin-left: 0!important;*/
-/*    }*/
-/*}*/
-/*@media screen and (max-width: 767px) {*/
-/*    #footer .row div{*/
-/*        text-align: center!important;*/
-/*    }*/
-/*}*/
-#slider-text{
-    font-size: 56pt;
-    text-align: start;
+.benefit-text-h1{
+    font-size: 42pt;
+    color: #008DA9;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 60px;
+    padding-top: 60px;
 }
-#slider-text-1{
-    font-size: 56pt;
+.product-h1 {
+    display: flex;
+    font-size: 42pt;
+    text-align: center;
+    padding-bottom: 80px;
+}
+
+.slider-text-1{
     text-align: start;
+    font-size: 4em;
+}
+
 }
 .dropdown-menu{
     margin: 0!important;
@@ -680,6 +690,13 @@
     background-color: #c5c5c5fc;
         padding: 8px 8px;
     }
+    .custom-bold-40-import {
+        font-size: 32pt;
+    }
+    .slider-text-1{
+        text-align: start;
+        font-size: 3em;
+    }
 
 }
 @media screen and (max-width: 799px) {
@@ -702,22 +719,24 @@
     .call-button-lg{
         display: none;
     }
-    #slider-text{
-        word-wrap: break-word;
+    .custom-bold-40-import {
+        font-size: 20pt;
     }
-    .custom-bold-40 {
-        word-wrap: break-word;
+    .image-size{
+        height: 600px;
+        width: 600px;
     }
-    .custom-bold-white-40{
-        word-wrap: break-word;
+    .slide-button {
+        margin-top: 150px;
     }
-
+    .import-white-text{
+        font-size:14pt;
+    }
 }
 @media screen and (max-width: 767px) {
   .container {
     width: 620px;
   }
-
     #products-section .card{
         width: 100%!important;
         margin-left: 0!important;
@@ -745,13 +764,26 @@
     .call-button-lg{
         display: none;
     }
-    #slider-text{
-        word-wrap: break-word;
-        width: min-content;
+
+    .custom-bold-38 {
+        font-size: 30pt;
     }
-    .custom-bold-40-import {
-        font-size: 24pt;
+    .custom-bold-white {
+        font-size: 32pt;
     }
+    .custom-bold-white-invest {
+        font-size: 25pt;
+    }
+    .benefit-text-h1{
+        font-size: 32pt;
+        line-height: 1.5;
+    }
+    .slider-text-1{
+        text-align: start;
+        font-size: 2em;
+        height: 1em;
+    }
+
 
 }
 @media screen and (max-width: 639px) {
@@ -788,16 +820,7 @@
     .custom-section1-img{
         display: none;
     }
-    #slider-text{
-        font-size: 32pt;
-        word-wrap: break-word;
-        width: min-content;
-    }
-    #slider-text-1{
-        font-size: 32pt;
-        word-wrap: break-word;
-        width: min-content;
-    }
+
     .brands_slider_container{
         padding-left: 39px;
         padding-right: 39px;
@@ -827,6 +850,12 @@
         width: 100%;
         margin-bottom: 10px;
     }
+    .slider-text-1{
+        text-align: start;
+        font-size: 1.7em;
+        display: table-caption;
+    }
+
 
 }
 @media screen and (max-width: 479px) {
@@ -839,16 +868,7 @@
     .custom-section1-img{
         display: none;
     }
-    #slider-text{
-        font-size: 32pt;
-        word-wrap: break-word;
-        width: min-content;
-    }
-    #slider-text-1{
-        font-size: 32px;
-        word-wrap: break-word;
-        width: min-content;
-    }
+
     .search-nav{
     width: 100%;
     margin-bottom: 10px;
@@ -880,24 +900,11 @@
     .col-lg-6{
         padding: 5px;
     }
-    .custom-bold-40-import {
-        font-size: 20pt;
-    }
 
     }
 @media screen and (max-width: 359px) {
     .container {
         width: 325px;
-    }
-    #slider-text{
-        font-size: 32pt;
-        word-wrap: break-word;
-        width: min-content;
-    }
-    #slider-text-1{
-        font-size: 32px;
-        word-wrap: break-word;
-        width: min-content;
     }
     .order-cards {
         display: flex;
@@ -923,7 +930,11 @@
     .subscribe-section-h1{
         font-size: 24pt;
     }
+    #email-section{
+        padding: 150px 0 50px 0;
+    }
 }
+
     @media screen and (max-width: 300px) {
         .container {
             width: 290px;
@@ -935,16 +946,7 @@
         .section-contacts-text{
             padding-left: 0;
         }
-        #slider-text{
-            font-size: 32pt;
-            word-wrap: break-word;
-            width: min-content;
-        }
-        #slider-text-1{
-            font-size: 30pt;
-            word-wrap: break-word;
-            width: min-content;
-        }
+
     }
 
 
@@ -996,7 +998,6 @@
 }
 .invest-h1{
     text-align: center;
-    word-break: break-word;
 }
 }
 .modal-h4{

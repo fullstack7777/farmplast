@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
+import Button from "react-bootstrap/Button";
 
 function MainSlider() {
     const [index, setIndex] = useState(0);
@@ -10,78 +11,70 @@ function MainSlider() {
 
     return (
         <Carousel activeIndex={index} onSelect={handleSelect} className="rev_slider">
-
             <Carousel.Item>
                 <img
-                    className="d-block w-100"
+                    className="d-block w-100 image-size"
                     src="/images/slider/slide1.webp"
                     style={{objectFit:"cover", whiteSpace:"pre"}}
-                    height="800"
-                    width="800"
                     alt='ОБСЛУЖИВАЕМ БОЛЕЕ 500 ПРЕДПРИЯТИЙ - ПЕРЕРАБОТЧИКОВ'
                 />
 
-                <Carousel.Caption style={{top:'35%', bottom:'0'}}>
-                    <h3 id="slider-text">ОБСЛУЖИВАЕМ БОЛЕЕ 500 ПРЕДПРИЯТИЙ - ПЕРЕРАБОТЧИКОВ</h3>
+                <Carousel.Caption style={{top:'40%', bottom:'0'}}>
+                    <h3 className="slider-text-1">ОБСЛУЖИВАЕМ БОЛЕЕ 500 ПРЕДПРИЯТИЙ - ПЕРЕРАБОТЧИКОВ</h3>
+                    <Button className={'slide-button'}>Подробнее</Button>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <a href="#benefits">
                 <img
-                    className="d-block w-100"
+                    className="d-block w-100 image-size"
                     src="/images/slider/slide2.webp"
                     style={{objectFit:"cover"}}
-                    height="800"
-                    width="800"
                     alt="ПОИСК ИНДИВИДУАЛЬНОГО ТЕХНОЛОГИЧЕСКОГО РЕШЕНИЯ"
                 />
-                </a>
-                <Carousel.Caption style={{top:'35%',bottom:'0'}}>
-                    <h3 id="slider-text">ПОИСК ИНДИВИДУАЛЬНОГО ТЕХНОЛОГИЧЕСКОГО РЕШЕНИЯ</h3>
+                <Carousel.Caption style={{top:'40%',bottom:'0'}}>
+                    <h3 className="slider-text-1">ПОИСК ИНДИВИДУАЛЬНОГО ТЕХНОЛОГИЧЕСКОГО РЕШЕНИЯ</h3>
+                    <Button className={'slide-button'} >Подробнее</Button>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <a href="#import">
-                <img
-                    className="d-block-modal w-100"
+               <img
+                    className="d-block-modal w-100 image-size"
                     src="/images/slider/slide3.webp"
                     style={{objectFit:"cover"}}
-                    height="800"
-                    width="800"
                     alt="?"
                 />
-                </a>
                 <Carousel.Caption style={{top:'35%',bottom:'0'}}>
                     <h3 id="slider-text-1"></h3>
+                    <Button className={'slide-button'}>Подробнее</Button>
+
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
                 <img
-                    className="d-block w-100"
+                    className="d-block w-100 image-size"
                     src="/images/slider/slide4.webp"
                     style={{objectFit:"cover"}}
-                    height="800"
-                    width="800"
                     alt="ДОСТАВКА ПО ВСЕЙ РОССИИ"
                 />
 
-                <Carousel.Caption style={{top:'35%',bottom:'0'}}>
-                    <h3 id="slider-text-1">ДОСТАВКА ПО ВСЕЙ РОССИИ</h3>
+                <Carousel.Caption style={{top:'40%',bottom:'0'}}>
+                    <h3 className="slider-text-1">ДОСТАВКА ПО ВСЕЙ РОССИИ</h3>
+                    <Button className={'slide-button'} >Подробнее</Button>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
                 <img
-                    className="d-block w-100"
+                    className="d-block w-100 image-size"
                     src="/images/slider/slide5.webp"
                     style={{objectFit:"cover"}}
-                    height="800"
-                    width="800"
                     alt="НАЙДЕМ ИНДИВИДУАЛЬНЫЙ ПОДХОД К КАЖДОМУ КЛИЕНТУ"
                 />
 
                 <Carousel.Caption style={{top:'35%',bottom:'0'}}>
-                    <h3 id="slider-text-1">НАЙДЕМ ИНДИВИДУАЛЬНЫЙ ПОДХОД К КАЖДОМУ КЛИЕНТУ</h3>
+                    <h3 className="slider-text-1">НАЙДЕМ ИНДИВИДУАЛЬНЫЙ ПОДХОД К КАЖДОМУ КЛИЕНТУ </h3>
+                    <Button className={'slide-button'}>Подробнее</Button>
                 </Carousel.Caption>
+
             </Carousel.Item>
             {/*<Carousel.Item>*/}
             {/*    <img*/}
