@@ -16,7 +16,7 @@ function ImportSection2() {
                     </div>
                 <div className={'invest-h1'}>
                     <h1 className="custom-bold-40" style={{paddingBottom: '80px', paddingTop: 80}}>
-                        <span className="custom-bold-white-40">Инвестиционный </span>форсаж</h1>
+                        <span className="custom-bold-white-40">Инвестиционный </span> форсаж</h1>
                 </div>
 
                 <div className="custom-colored-text">
