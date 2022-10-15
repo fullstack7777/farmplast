@@ -423,7 +423,7 @@ function ProductPage(){
                                                     fetchProduct(product.product_id);
                                                 }}>
                                                     <p className="card-text-name">{product.name}</p>
-                                                    <p style={{textAlign: "left"}}>Марка: {product.model}</p>
+                                                    <p className="card-text-name">Марка: {product.model}</p>
                                                     <p style={{textAlign: "left"}}>Производитель: {product.manufacturer}</p>
                                                 </Card.Body>
                                                 <Card.Footer style={{backgroundColor:'transparent', borderTop:'none', padding:'0 0 16px 16px'}}>
