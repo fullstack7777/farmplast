@@ -33,7 +33,7 @@ function MainSlider() {
                 />
                 <Carousel.Caption style={{top:'40%',bottom:'0'}}>
                     <h3 className="slider-text-1">ПОИСК ИНДИВИДУАЛЬНОГО ТЕХНОЛОГИЧЕСКОГО РЕШЕНИЯ</h3>
-                    <Button className={'slide-button'} >Подробнее</Button>
+                    <Button className={'slide-button'} onClick={() => window.location.replace("/#benefits")}>Подробнее</Button>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -45,7 +45,7 @@ function MainSlider() {
                 />
                 <Carousel.Caption style={{top:'35%',bottom:'0'}}>
                     <h3 id="slider-text-1"></h3>
-                    <Button className={'slide-button'}>Подробнее</Button>
+                    <Button className={'slide-button'} onClick={() => window.location.replace("/#import")}>Подробнее</Button>
 
                 </Carousel.Caption>
             </Carousel.Item>

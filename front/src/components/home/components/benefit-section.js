@@ -6,7 +6,7 @@ import {Row} from "react-bootstrap";
 
 function BenefitsSection() {
     return (
-            <Container>
+            <Container id={'benefits'}>
                 <h1 className="custom-bold-38" style={{textAlign: "center", paddingBottom: 40}}>
                    Преимущества, которые вы  <span className="custom-bold-white">получаете</span> </h1>
                 <div className="custom-colored-text">
