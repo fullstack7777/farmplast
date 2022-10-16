@@ -190,32 +190,32 @@ function NewNavBar() {
                 }
             }
 
+    // eslint-disable-next-line no-undef
     function changeToggle() {
-        if (!opened) {
+        let result = (!opened) ? (
             // eslint-disable-next-line no-undef
-            $(".navbar").css("background" , "").addClass('bg-light');
+            $(".navbar").css("background" , "").addClass('bg-light'),
             // eslint-disable-next-line no-undef
-            $('.navbar-brand  img').attr('src', 'images/logo.webp');
+            $('.navbar-brand  img').attr('src', 'images/logo.webp'),
             // eslint-disable-next-line no-undef
-            $(".navbar").removeClass('navbar-dark');
+            $(".navbar").removeClass('navbar-dark'),
             // eslint-disable-next-line no-undef
-            $(".navbar").addClass('navbar-light');
+            $(".navbar").addClass('navbar-light'),
             // eslint-disable-next-line no-undef
-            $(".nav-link").removeClass('nav-bar-white');
-
-        }else{
+            $(".nav-link").removeClass('nav-bar-white')
+    ):(
             // eslint-disable-next-line no-undef
-            $('.navbar-brand  img').attr('src', 'images/logo2.webp');
+            $('.navbar-brand  img').attr('src', 'images/logo2.webp'),
             // eslint-disable-next-line no-undef
-            $(".navbar").removeClass('bg-light');
+            $(".navbar").removeClass('bg-light'),
             // eslint-disable-next-line no-undef
-            $(".navbar").removeClass('navbar-light');
+            $(".navbar").removeClass('navbar-light'),
             // eslint-disable-next-line no-undef
-            $(".navbar").addClass('navbar-dark');
+            $(".navbar").addClass('navbar-dark'),
             // eslint-disable-next-line no-undef
-            $(".nav-link").addClass('nav-bar-white');
-
-        }
+            $(".nav-link").addClass('nav-bar-white')
+    );
+        return result;
         setOpened(!opened)
     }
 
