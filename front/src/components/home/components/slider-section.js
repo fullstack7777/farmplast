@@ -21,7 +21,7 @@ function MainSlider() {
 
                 <Carousel.Caption style={{top:'40%', bottom:'0'}}>
                     <h3 className="slider-text-1">ОБСЛУЖИВАЕМ БОЛЕЕ 500 ПРЕДПРИЯТИЙ - ПЕРЕРАБОТЧИКОВ</h3>
-                    <Button className={'slide-button'}>Подробнее</Button>
+                    {/*<Button className={'slide-button'}>Подробнее</Button>*/}
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -44,9 +44,8 @@ function MainSlider() {
                     alt="?"
                 />
                 <Carousel.Caption style={{top:'35%',bottom:'0'}}>
-                    <h3 id="slider-text-1"></h3>
+                    <h3 className="slider-text-1" style={{marginBottom: '2em'}}></h3>
                     <Button className={'slide-button'} onClick={() => window.location.replace("/#import")}>Подробнее</Button>
-
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -59,7 +58,7 @@ function MainSlider() {
 
                 <Carousel.Caption style={{top:'40%',bottom:'0'}}>
                     <h3 className="slider-text-1">ДОСТАВКА ПО ВСЕЙ РОССИИ</h3>
-                    <Button className={'slide-button'} >Подробнее</Button>
+                    {/*<Button className={'slide-button'} >Подробнее</Button>*/}
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -72,7 +71,7 @@ function MainSlider() {
 
                 <Carousel.Caption style={{top:'35%',bottom:'0'}}>
                     <h3 className="slider-text-1">НАЙДЕМ ИНДИВИДУАЛЬНЫЙ ПОДХОД К КАЖДОМУ КЛИЕНТУ </h3>
-                    <Button className={'slide-button'}>Подробнее</Button>
+                    {/*<Button className={'slide-button'}>Подробнее</Button>*/}
                 </Carousel.Caption>
 
             </Carousel.Item>
