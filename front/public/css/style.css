@@ -428,6 +428,13 @@
     border: solid 2px #008DA9 !important;
     border-radius: 12px;
 }
+.slide-button_3 {
+    display: flex;
+    align-items: end;
+    background-color: #008DA9!important;
+    border: solid 2px #008DA9 !important;
+    border-radius: 12px;
+}
 .count {
     display: flex;
     column-gap: 10px;
@@ -582,6 +589,18 @@
     text-align: start;
     font-size: 4em;
 }
+.slider-text-3{
+    text-align: start;
+    font-size: 4em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    height: 5.2em;       /* height is 2x line-height, so two lines will display */
+}
+
+}
 
 }
 .dropdown-menu{
@@ -691,7 +710,16 @@
         text-align: start;
         font-size: 3em;
     }
-
+    .slider-text-3{
+        text-align: start;
+        font-size: 3em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        height: 5em;       /* height is 2x line-height, so two lines will display */
+    }
 }
 @media screen and (max-width: 799px) {
   .container {
@@ -725,6 +753,16 @@
     }
     .import-white-text{
         font-size:14pt;
+    }
+    .slider-text-3{
+        text-align: start;
+        font-size: 3em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        height: 4em;       /* height is 2x line-height, so two lines will display */
     }
 }
 @media screen and (max-width: 767px) {
@@ -849,7 +887,6 @@
         font-size: 1.7em;
         display: table-caption;
     }
-
 
 }
 @media screen and (max-width: 479px) {
