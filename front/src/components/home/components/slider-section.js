@@ -12,7 +12,7 @@ function MainSlider() {
     return (
         <Carousel activeIndex={index} onSelect={handleSelect} className="rev_slider">
             <Carousel.Item>
-                <img
+                <img id={'slide-image-1'}
                     className="d-block w-100 image-size"
                     src="/images/slider/slide1.webp"
                     style={{objectFit:"cover", whiteSpace:"pre"}}
@@ -25,7 +25,7 @@ function MainSlider() {
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <img
+                <img id={'slide-image-2'}
                     className="d-block w-100 image-size"
                     src="/images/slider/slide2.webp"
                     style={{objectFit:"cover"}}
