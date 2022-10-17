@@ -9,7 +9,7 @@ function MainSlider() {
     const handleSelect = (selectedIndex, _) => {
         setIndex(selectedIndex);
     };
-    
+
     const imageUrl = useWindowWidth() >= 650 ? desktopImage1 : mobileImage1;
     return (
         <Carousel activeIndex={index} onSelect={handleSelect} className="rev_slider">
