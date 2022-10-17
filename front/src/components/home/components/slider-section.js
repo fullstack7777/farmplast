@@ -37,7 +37,7 @@ function MainSlider() {
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-               <img
+               <img id={'slide-image-3'}
                     className="d-block-modal w-100 image-size"
                     src="/images/slider/slide3.webp"
                     style={{objectFit:"cover"}}
@@ -49,7 +49,7 @@ function MainSlider() {
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <img
+                <img id={'slide-image-4'}
                     className="d-block w-100 image-size"
                     src="/images/slider/slide4.webp"
                     style={{objectFit:"cover"}}
@@ -62,7 +62,7 @@ function MainSlider() {
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <img
+                <img id={'slide-image-5'}
                     className="d-block w-100 image-size"
                     src="/images/slider/slide5.webp"
                     style={{objectFit:"cover"}}
