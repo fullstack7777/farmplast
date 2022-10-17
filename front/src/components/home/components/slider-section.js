@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from "react-bootstrap/Button";
-
+import desktopImage1 from '/images/slider/slide1.webp';
+import mobileImage1 from '/images/slider/1.webp';
 function MainSlider() {
     const [index, setIndex] = useState(0);
 
     const handleSelect = (selectedIndex, _) => {
         setIndex(selectedIndex);
     };
-
+    
+    const imageUrl = useWindowWidth() >= 650 ? desktopImage1 : mobileImage1;
     return (
         <Carousel activeIndex={index} onSelect={handleSelect} className="rev_slider">
             <Carousel.Item>
                 <img
                     className="d-block w-100 image-size"
-                    src="/images/slider/slide1.webp"
+                    src={imageUrl}
                     style={{objectFit:"cover", whiteSpace:"pre"}}
                     alt='ОБСЛУЖИВАЕМ БОЛЕЕ 500 ПРЕДПРИЯТИЙ - ПЕРЕРАБОТЧИКОВ'
                 />
@@ -92,5 +94,19 @@ function MainSlider() {
         </Carousel>
     );
 }
+const useWindowWidth = () => {
+    const [windowWidth, setWindowWidth ] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleWindowResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleWindowResize);
+        return () => window.removeEventListener('resize', handleWindowResize);
+    },[]);
+
+    return windowWidth;
+};
 
 export default MainSlider;

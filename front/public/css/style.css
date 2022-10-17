@@ -597,7 +597,7 @@
     -webkit-line-clamp: 3;
     line-clamp: 3;
     -webkit-box-orient: vertical;
-    height: 5.2em;       /* height is 2x line-height, so two lines will display */
+    height: 5em;       /* height is 2x line-height, so two lines will display */
 }
 
 }
@@ -745,8 +745,8 @@
         font-size: 20pt;
     }
     .image-size{
-        height: 600px;
-        width: 600px;
+        height: 500px;
+        width: 500px;
     }
     .slide-button {
         margin-top: 150px;
@@ -760,9 +760,9 @@
         overflow: hidden;
         text-overflow: ellipsis;
         -webkit-line-clamp: 3;
-        line-clamp: 3;
+        line-clamp: 2;
         -webkit-box-orient: vertical;
-        height: 4em;       /* height is 2x line-height, so two lines will display */
+        height: 3em;       /* height is 2x line-height, so two lines will display */
     }
 }
 @media screen and (max-width: 767px) {
