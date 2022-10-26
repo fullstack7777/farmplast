@@ -9,7 +9,6 @@ import Carousel from "react-bootstrap/Carousel";
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
 
-
 function ProductsSection() {
     const cookies = new Cookies();
     const [modalShow, setModalShow] = React.useState(false);
@@ -147,11 +146,7 @@ function ProductsSection() {
         if(product.images!==undefined && product.images!=null){
             // eslint-disable-next-line array-callback-return
             product.images.split(';').map((function (item, _){
-                console.log(item)
-                // eslint-disable-next-line array-callback-return
-                let ext = getExtension(item);
-                // eslint-disable-next-line array-callback-return
-                let sTh = item.replace('.'+ext,'-250x250.'+ext);
+
                 imgs.push({
                     original: "https://admin.farmplst.com/image/"+item,
                     thumbnail:  "https://admin.farmplst.com/image/"+item,
@@ -345,9 +340,9 @@ function ProductsSection() {
                                         <Card.Body onClick={function () {
                                             fetchProduct(product.product_id);
                                         }}>
-                                            <h6 style={{textAlign: "left", color: '#343434', fontWeight: "bold"}}>{product.name}</h6>
-                                            <p style={{textAlign: "left"}}>Марка: {product.model}</p>
-                                            <p style={{textAlign: "left"}}>Производитель: {product.manufacturer}</p>
+                                            <h6 className={'card-text-name'} style={{textAlign: "left", color: '#343434', fontWeight: "bold"}}>{product.name}</h6>
+                                            <p style={{textAlign: "left", fontWeight: "bold"}}>Марка: <span style={{fontWeight: "normal"}}>{product.model}</span> </p>
+                                            <p style={{textAlign: "left" , fontWeight: "bold"}}>Производитель: <span style={{fontWeight: "normal"}}>{product.manufacturer}</span> </p>
                                         </Card.Body>
                                         <Card.Footer style={{backgroundColor:'transparent', borderTop:'none', padding:'0 0 16px 16px'}}>
                                             <Button onClick={()=>addRequest(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>
@@ -412,15 +407,16 @@ function ProductsSection() {
                             </Col>
                             <Col>
                                 <h4>{product.name}</h4>
-                                <p>{product.model}</p>
+                                <br/>
+                                {/*<p>{product.model}</p>*/}
                                 <div className="button-cart-buy">
                                     <Button onClick={()=>addToCard(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Добавить в корзину</Button>
                                     <Button onClick={()=>addRequest(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Заказать в один клик</Button>
                                 </div>
-                                <p style={{marginTop: 20, fontWeight: "bold"}}><span>Марка:</span> {product.tag}
+                                <p style={{marginTop: 20, fontWeight: "bold"}}>Марка: <span style={{fontWeight: "normal"}}>{product.model}</span>
                                 </p>
                                 <p style={{marginTop: 20, fontWeight: "bold"}}>
-                                    <span>Производитель:</span> {product.manufacturer}</p>
+                                    Производитель: <span style={{fontWeight: "normal"}}>{product.manufacturer}</span> </p>
                                 <div><span style={{fontWeight: "bold"}}>Описание:</span>
                                     <div style={{display:'grid', fontSize:'13px'}} dangerouslySetInnerHTML={{__html: htmlDecode(product.description)}}/>
                                 </div>

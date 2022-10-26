@@ -463,15 +463,16 @@ function NewNavBar() {
                         </Col>
                         <Col>
                             <h4>{product.name}</h4>
-                            <p>{product.model}</p>
+                            <br/>
+                            {/*<p>{product.model}</p>*/}
                             <div className="button-cart-buy">
                                 <Button onClick={()=>addToCard(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Добавить в корзину</Button>
                                 <Button onClick={()=>addRequest(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Заказать в один клик</Button>
                             </div>
-                            <p style={{marginTop: 20, fontWeight: "bold"}}><span>Марка:</span> {product.tag}
+                            <p style={{marginTop: 20, fontWeight: "bold"}}>Марка: <span style={{fontWeight: "normal"}}>{product.model}</span>
                             </p>
-                            <p style={{marginTop: 20, fontWeight: "bold"}}>
-                                <span>Производитель:</span> {product.manufacturer}</p>
+                            <p style={{marginTop: 20, fontWeight: "bold"}}>Производитель:
+                                <span style={{fontWeight: "normal"}}>{product.manufacturer}</span> </p>
                             <div><span style={{fontWeight: "bold"}}>Описание:</span>
                                 <div style={{display:'grid', fontSize:'13px'}} dangerouslySetInnerHTML={{__html: htmlDecode(product.description)}}/>
                             </div>
