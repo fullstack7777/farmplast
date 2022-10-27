@@ -120,35 +120,38 @@ function ProductPage(){
         }
         return false;
     }
-
+    function getExtension(filename) {
+        return filename?.split(".").pop();
+    }
     function handleImages(){
-        let b = 'https://admin.farmplst.com/image/'+product.image;
-        let ext = getExtension(product.image);
-        let sTh = product.image.replace('.'+ext,'-250x250.'+ext);
-        let img1 = 'https://admin.farmplst.com/image/cache/'+sTh;
-        let imgs = [
-            {
-                original: b,
-                thumbnail: img1,
-                originalHeight:1000,
-                originalWidth:1000,
-            },
-        ]
-        if(product.images!==undefined && product.images!=null){
-            // eslint-disable-next-line array-callback-return
-            product.images.split(';').map((function (item, _){
-                // console.log(item)
-                // let ext = getExtension(item);
-                // let sTh = item.replace('.'+ext,'-250x250.'+ext);
-                imgs.push({
-                    original: 'https://admin.farmplst.com/image/'+item,
-                    thumbnail:  'https://admin.farmplst.com/image/'+item,
-                    originalHeight:1000,
-                    originalWidth:1000,
-                })
-            }))
-        }
-        setImages(imgs);
+        // eslint-disable-next-line array-callback-return
+        products.map(function (product1, index) {
+            let b = "https://admin.farmplst.com/image/" + (product1.image);
+            let ext = getExtension(product1.image);
+            let sTh = product1.image.replace('.' + ext, '-250x250.' + ext);
+            let img1 = 'https://admin.farmplst.com/image/cache/' + sTh;
+
+            let imgs = [
+                {
+                    original: b,
+                    thumbnail: img1,
+                    originalHeight: 1000,
+                    originalWidth: 1000,
+                },
+            ]
+            if (product.images !== undefined && product.images != null) {
+                product.images.split(';').map((function (item, _) {
+                    imgs.push({
+                        original: "https://admin.farmplst.com/image/" + item,
+                        thumbnail: "https://admin.farmplst.com/image/" + item,
+                        originalHeight: 1000,
+                        originalWidth: 1000,
+                    })
+                }))
+            }
+            console.log(product.images);
+            setImages(imgs);
+        })
     }
 
     const fetchProduct = (product_id) => {
@@ -166,6 +169,7 @@ function ProductPage(){
                 console.log(err.message);
             });
     }
+
     function createSession(id, callback){
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -280,9 +284,7 @@ function ProductPage(){
     //     fetchProducts(checked?[0]:ids);
     // }
 
-    function getExtension(filename) {
-        return filename.split(".").pop();
-    }
+
 
     const [modalShow, setModalShow] = React.useState(false);
 
@@ -422,7 +424,7 @@ function ProductPage(){
                                                 }}>
                                                     <p className="card-text-name">{product.name}</p>
                                                     <p className="card-text-name">Марка: <span style={{fontWeight: "normal"}}>{product.model}</span></p>
-                                                    <p className="card-text-name" >Производитель: <span style={{fontWeight: "normal"}}>{product.manufacturer}</span></p>
+                                                    <p className="card-text-name" >Производитель: <span style={{fontWeight: "normal"}} dangerouslySetInnerHTML={{__html: htmlDecode(product.manufacturer)}}></span></p>
                                                 </Card.Body>
                                                 <Card.Footer style={{backgroundColor:'transparent', borderTop:'none', padding:'0 0 16px 16px'}}>
                                                     <Button onClick={()=>addRequest(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>
@@ -455,8 +457,12 @@ function ProductPage(){
                 <Modal.Body>
                     <Row>
                         <Col>
-                                <ImageGallery items={images} showNav={false} showPlayButton={false}
-                                              lazyLoad={true} showIndex={true}/>
+                                <ImageGallery items={images}
+                                              showNav={false}
+                                              showPlayButton={false}
+                                              lazyLoad={true}
+                                              showIndex={true}
+                                />
 
                                     {/*<img*/}
                                     {/*    className="d-block-modal w-100"*/}
@@ -497,8 +503,7 @@ function ProductPage(){
                             </div>
                             <p style={{marginTop: 20, fontWeight: "bold"}}>Марка: <span style={{fontWeight: "normal"}}>{product.model} </span>
                             </p>
-                            <p style={{marginTop: 20, fontWeight: "bold"}}>Производитель:
-                                <span style={{fontWeight: "normal"}}> {product.manufacturer}</span></p>
+                            <p style={{marginTop: 20, fontWeight: "bold"}}>Производитель: <span style={{fontWeight: "normal"}} dangerouslySetInnerHTML={{__html: htmlDecode(product.manufacturer)}}></span></p>
                             <div><span style={{fontWeight: "bold"}}>Описание:</span>
                                 <div style={{display:'grid', fontSize:'13px'}} dangerouslySetInnerHTML={{__html: htmlDecode(product.description)}}/>
                             </div>

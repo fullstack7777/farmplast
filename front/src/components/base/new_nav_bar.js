@@ -58,7 +58,6 @@ function NewNavBar() {
             .then((data) => {
                 setProductLoading(false);
                 setProduct(data[0]);
-                console.log(data[0]);
                 setModalShow(true);
                 handleImages();
             })
@@ -66,6 +65,68 @@ function NewNavBar() {
                 setProductLoading(false);
                 console.log(err.message);
             });
+    }
+    function getExtension(filename) {
+        return filename.split(".").pop();
+    }
+    function handleImages(){
+        let b = "https://admin.farmplst.com/image/"+product.image;
+        let ext = getExtension(product.image);
+        let sTh = product.image.replace('.'+ext,'-250x250.'+ext);
+        let img1 = 'https://admin.farmplst.com/image/cache/'+sTh;
+        let imgs = [
+            {
+                original: b,
+                thumbnail: img1,
+                originalHeight:1000,
+                originalWidth:1000,
+            },
+        ]
+
+        if(product.images!==undefined && product.images!=null){
+            // eslint-disable-next-line array-callback-return
+            product.images.split(';').map((function (item, _){
+                console.log(item)
+                let ext = getExtension(item);
+                let sTh = item.replace('.'+ext,'-250x250.'+ext);
+                imgs.push({
+                    original: "https://admin.farmplst.com/image/"+item,
+                    thumbnail:  "https://admin.farmplst.com/image/"+item,
+                    originalHeight:1000,
+                    originalWidth:1000,
+                })
+            }))
+        }
+        setImages(imgs);
+
+        // // eslint-disable-next-line array-callback-return
+        // products.map(function (product1, index) {
+        //     let b = "https://admin.farmplst.com/image/" + (product1.image);
+        //     let ext = getExtension(product1.image);
+        //     let sTh = product1.image.replace('.' + ext, '-250x250.' + ext);
+        //     let img1 = 'https://admin.farmplst.com/image/cache/' + sTh;
+        //
+        //     let imgs = [
+        //         {
+        //             original: b,
+        //             thumbnail: img1,
+        //             originalHeight: 1000,
+        //             originalWidth: 1000,
+        //         },
+        //     ]
+        //     if (product.images !== undefined && product.images != null) {
+        //         product.images.split(';').map((function (item, _) {
+        //             imgs.push({
+        //                 original: "https://admin.farmplst.com/image/" + item,
+        //                 thumbnail: "https://admin.farmplst.com/image/" + item,
+        //                 originalHeight: 1000,
+        //                 originalWidth: 1000,
+        //             })
+        //         }))
+        //     }
+        //     console.log(product.images);
+        //     setImages(imgs);
+        // })
     }
     function htmlDecode(input){
         let e = document.createElement('div');
@@ -219,36 +280,6 @@ function NewNavBar() {
         setOpened(!opened)
     }
 
-    function handleImages(){
-        let b = "https://admin.farmplst.com/image/"+product.image;
-        let ext = getExtension(product.image);
-        let sTh = product.image.replace('.'+ext,'-250x250.'+ext);
-        let img1 = 'https://admin.farmplst.com/image/cache/'+sTh;
-        let imgs = [
-            {
-                original: b,
-                thumbnail: img1,
-                originalHeight:1000,
-                originalWidth:1000,
-            },
-        ]
-
-        if(product.images!==undefined && product.images!=null){
-            // eslint-disable-next-line array-callback-return
-            product.images.split(';').map((function (item, _){
-                console.log(item)
-                let ext = getExtension(item);
-                let sTh = item.replace('.'+ext,'-250x250.'+ext);
-                imgs.push({
-                    original: "https://admin.farmplst.com/image/"+item,
-                    thumbnail:  "https://admin.farmplst.com/image/"+item,
-                    originalHeight:1000,
-                    originalWidth:1000,
-                })
-            }))
-        }
-        setImages(imgs)
-    }
     function handleOnChangeGroup(evt, category) {
         const target = evt.target;
         const checked = target.checked;
@@ -263,9 +294,7 @@ function NewNavBar() {
         }
         fetchProducts(checked?[0]:ids);
     }
-    function getExtension(filename) {
-        return filename.split(".").pop();
-    }
+
     function sendEmail() {
 
         const myHeaders = new Headers();
@@ -441,25 +470,13 @@ function NewNavBar() {
                 <Modal.Body>
                     <Row>
                         <Col>
-                            <ImageGallery items={images} showNav={false} showPlayButton={false}/>
-                            {/*<Carousel>*/}
-                            {/*    <Carousel.Item>*/}
-                            {/*        <img*/}
-                            {/*            className="d-block-modal w-100"*/}
-                            {/*            src={'http://admin.farmplst.com/image/'+product.image}*/}
-                            {/*            onError={({ currentTarget }) => {*/}
-                            {/*                currentTarget.onerror = null; // prevents looping*/}
-                            {/*                currentTarget.src="/images/placeholder.webp";*/}
-                            {/*            }}*/}
-                            {/*            alt="First slide"*/}
-                            {/*        />*/}
-                            {/*    </Carousel.Item>*/}
-                            {/*</Carousel>*/}
-                            {/*<Row>*/}
-                            {/*    <Col className="modal-picture-mini">*/}
-                            {/*        /!*<img className="modal-picture-single" src={'http://admin.farmplst.com/image/'+ ext}/>*!/*/}
-                            {/*    </Col>*/}
-                            {/*</Row>*/}
+                            <ImageGallery
+                                items={images}
+                                showNav={false}
+                                showPlayButton={false}
+                                lazyLoad={true}
+                                showIndex={true}
+                            />
                         </Col>
                         <Col>
                             <h4>{product.name}</h4>
@@ -471,8 +488,8 @@ function NewNavBar() {
                             </div>
                             <p style={{marginTop: 20, fontWeight: "bold"}}>Марка: <span style={{fontWeight: "normal"}}>{product.model}</span>
                             </p>
-                            <p style={{marginTop: 20, fontWeight: "bold"}}>Производитель:
-                                <span style={{fontWeight: "normal"}}>{product.manufacturer}</span> </p>
+                            <p style={{marginTop: 20, fontWeight: "bold"}}>
+                                Производитель: <span style={{fontWeight: "normal"}} dangerouslySetInnerHTML={{__html: htmlDecode(product.manufacturer)}}></span> </p>
                             <div><span style={{fontWeight: "bold"}}>Описание:</span>
                                 <div style={{display:'grid', fontSize:'13px'}} dangerouslySetInnerHTML={{__html: htmlDecode(product.description)}}/>
                             </div>
@@ -483,7 +500,6 @@ function NewNavBar() {
                     <Button className="custom-button" onClick={()=>setModalShow(false)}>Закрыть</Button>
                 </Modal.Footer>
             </Modal>
-
             <Modal
                 show={productLoading}
                 size="lg"

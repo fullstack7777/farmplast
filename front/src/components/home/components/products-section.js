@@ -130,32 +130,34 @@ function ProductsSection() {
         fetchProducts(checked?[0]:[id]);
     }
     function handleImages(){
-        let b = "https://admin.farmplst.com/image/"+product.image;
-        let ext = getExtension(product.image);
-        let sTh = product.image.replace('.'+ext,'-250x250.'+ext);
-        let img1 = 'https://admin.farmplst.com/image/cache/'+sTh;
-        let imgs = [
-            {
-                original: b,
-                thumbnail: img1,
-                originalHeight:1000,
-                originalWidth:1000,
-            },
-        ]
         // eslint-disable-next-line array-callback-return
-        if(product.images!==undefined && product.images!=null){
-            // eslint-disable-next-line array-callback-return
-            product.images.split(';').map((function (item, _){
+        products.map(function (product1, index) {
+            let b = "https://admin.farmplst.com/image/" + (product1.image);
+            let ext = getExtension(product1.image);
+            let sTh = product1.image.replace('.' + ext, '-250x250.' + ext);
+            let img1 = 'https://admin.farmplst.com/image/cache/' + sTh;
 
-                imgs.push({
-                    original: "https://admin.farmplst.com/image/"+item,
-                    thumbnail:  "https://admin.farmplst.com/image/"+item,
-                    originalHeight:1000,
-                    originalWidth:1000,
-                })
-            }))
-        }
-        setImages(imgs)
+            let imgs = [
+                {
+                    original: b,
+                    thumbnail: img1,
+                    originalHeight: 1000,
+                    originalWidth: 1000,
+                },
+            ]
+            if (product.images !== undefined && product.images != null) {
+                product.images.split(';').map((function (item, _) {
+                    imgs.push({
+                        original: "https://admin.farmplst.com/image/" + item,
+                        thumbnail: "https://admin.farmplst.com/image/" + item,
+                        originalHeight: 1000,
+                        originalWidth: 1000,
+                    })
+                }))
+            }
+            console.log(product.images);
+            setImages(imgs);
+        })
     }
     function handleOnChangeGroup(evt, category) {
         const target = evt.target;
@@ -342,7 +344,7 @@ function ProductsSection() {
                                         }}>
                                             <h6 className={'card-text-name'} style={{textAlign: "left", color: '#343434', fontWeight: "bold"}}>{product.name}</h6>
                                             <p style={{textAlign: "left", fontWeight: "bold"}}>Марка: <span style={{fontWeight: "normal"}}>{product.model}</span> </p>
-                                            <p style={{textAlign: "left" , fontWeight: "bold"}}>Производитель: <span style={{fontWeight: "normal"}}>{product.manufacturer}</span> </p>
+                                            <p style={{textAlign: "left" , fontWeight: "bold"}}>Производитель: <span style={{fontWeight: "normal"}} dangerouslySetInnerHTML={{__html: htmlDecode(product.manufacturer)}}></span> </p>
                                         </Card.Body>
                                         <Card.Footer style={{backgroundColor:'transparent', borderTop:'none', padding:'0 0 16px 16px'}}>
                                             <Button onClick={()=>addRequest(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px'}}>
@@ -371,7 +373,13 @@ function ProductsSection() {
                     <Modal.Body>
                         <Row>
                             <Col>
-                                <ImageGallery items={images} showNav={false} showPlayButton={false}/>
+                                <ImageGallery
+                                    items={images}
+                                    showNav={false}
+                                    showPlayButton={false}
+                                    lazyLoad={true}
+                                    showIndex={true}
+                                />
                                 {/*<Carousel>*/}
                                 {/*    <Carousel.Item>*/}
                                 {/*        <img*/}
@@ -416,7 +424,7 @@ function ProductsSection() {
                                 <p style={{marginTop: 20, fontWeight: "bold"}}>Марка: <span style={{fontWeight: "normal"}}>{product.model}</span>
                                 </p>
                                 <p style={{marginTop: 20, fontWeight: "bold"}}>
-                                    Производитель: <span style={{fontWeight: "normal"}}>{product.manufacturer}</span> </p>
+                                    Производитель: <span style={{fontWeight: "normal"}} dangerouslySetInnerHTML={{__html: htmlDecode(product.manufacturer)}}></span> </p>
                                 <div><span style={{fontWeight: "bold"}}>Описание:</span>
                                     <div style={{display:'grid', fontSize:'13px'}} dangerouslySetInnerHTML={{__html: htmlDecode(product.description)}}/>
                                 </div>
