@@ -383,38 +383,6 @@ function ProductsSection() {
                                     lazyLoad={true}
                                     showIndex={true}
                                 />
-                                {/*<Carousel>*/}
-                                {/*    <Carousel.Item>*/}
-                                {/*        <img*/}
-                                {/*            className="d-block-modal w-100"*/}
-                                {/*            src={'http://admin.farmplst.com/image/'+product.image}*/}
-                                {/*            onError={({ currentTarget }) => {*/}
-                                {/*                currentTarget.onerror = null; // prevents looping*/}
-                                {/*                currentTarget.src="/images/placeholder.webp";*/}
-                                {/*            }}*/}
-                                {/*            alt={product.image}*/}
-                                {/*        />*/}
-                                {/*    </Carousel.Item>*/}
-                                {/*</Carousel>*/}
-                                {/*<Row>*/}
-                                {/*    {*/}
-                                {/*        // eslint-disable-next-line array-callback-return*/}
-                                {/*        product.images!==undefined && product.images!=null?product.images.split(';').map((function (item, i) {*/}
-                                {/*                return (*/}
-                                {/*                        <img className="modal-picture-single"*/}
-                                {/*                             src={'http://admin.farmplst.com/image/'+item}*/}
-                                {/*                             onError={({ currentTarget }) => {*/}
-                                {/*                                 currentTarget.onerror = null; // prevents looping*/}
-                                {/*                                 currentTarget.src="/images/placeholder.webp";*/}
-                                {/*                             }}*/}
-                                {/*                             alt={item}*/}
-                                {/*                        />*/}
-                                {/*                );*/}
-                                {/*            }))*/}
-                                {/*            :*/}
-                                {/*            ''*/}
-                                {/*    }*/}
-                                {/*</Row>*/}
                             </Col>
                             <Col>
                                 <h4>{product!==null?product.name:''}</h4>

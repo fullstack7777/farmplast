@@ -124,24 +124,7 @@
         //         });
 
         items.forEach(item=>myMap.geoObjects.add(item));
-        //
-        // $('.ware-button').click(async function (event) {
-        //
-        //   const index = $(this).attr('data-index');
-        //
-        //   $('.ware-button').each(function (index) {
-        //     $(this).removeClass('ware-selected');
-        //   })
-        //   $(this).addClass('ware-selected');
-        //   var item = items[index];
-        //
-        //
-        //   myMap.setCenter(item.geometry.getCoordinates());
-        //
-        //
-        //   item.balloon.open();
-        // });
-        //
+
         var item = items[0];
         myMap.setCenter(item.geometry.getCoordinates());
         // item.balloon.open();
