@@ -57,7 +57,7 @@ function sendEmail () {
                            />
                        </Col>
                        <Col xs lg="3">
-                           <Button type="submit" variant="primary" className="custom-button" style={{width:'100%'}}>Получить консультацию</Button>
+                           <Button id={'consultation-button'} type="submit" variant="primary" className="custom-button" style={{width:'100%'}}>Получить консультацию</Button>
                        </Col>
                    </Row>
                </Container>

@@ -122,7 +122,7 @@
     padding-bottom: 50px;
     padding-top: 50px;
     background-image: url("/images/import_section.webp");
-    background-size: auto;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: center center;
 
@@ -346,7 +346,10 @@
 }
 
 
-
+#consultation-button {
+    white-space: nowrap;
+    text-align: center;
+}
 
 #section-contacts-email{
     height: 100%;
@@ -491,12 +494,12 @@
     width: 100%;
 }
 
- #img-small{
-     width: 20%;
-     margin-left: 5px;
-     margin-top: 5px;
-     margin-right: 5px;
- }
+#img-small{
+    width: 20%;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
 .card-hov{
     width: 17rem;
     margin-left: 20px;
@@ -597,7 +600,7 @@
     -webkit-line-clamp: 3;
     line-clamp: 3;
     -webkit-box-orient: vertical;
-    height: 5em;       /* height is 2x line-height, so two lines will display */
+    height: 4em;       /* height is 2x line-height, so two lines will display */
 }
 
 }
@@ -644,12 +647,11 @@
     .call-button-lg{
         display: none;
     }
-
 }
 @media screen and (max-width: 1160px) {
-  .container {
-    width: 940px;
-  }
+    .container {
+        width: 940px;
+    }
 
     .order-detail{
         width: 80%;
@@ -663,22 +665,29 @@
     .call-button-lg{
         display: none;
     }
+    .custom-section1-img {
+        height: 550px;
+    }
+    .custom-section2-img {
+        height: 550px;
+
+    }
+
 }
 @media screen and (max-width: 1023px) {
-  .container {
-    width: 780px;
-  }
-    .call-button{
+    .container {
+        width: 780px;
+    }
+
+    .call-button-lg{
         display: none;
     }
-    .call-button-lg{
-        display: inline-block;
-    }
+
 }
 @media screen and (max-width: 979px) {
-  .container {
-    width: 708px;
-  }
+    .container {
+        width: 708px;
+    }
 
     .col-lg-6{
         width: 100%;
@@ -700,7 +709,7 @@
         padding: 8px 8px;
     }
     .navbar-toggler-2{
-    background-color: #c5c5c5fc;
+        background-color: #c5c5c5fc;
         padding: 8px 8px;
     }
     .custom-bold-40-import {
@@ -710,21 +719,11 @@
         text-align: start;
         font-size: 3em;
     }
-    .slider-text-3{
-        text-align: start;
-        font-size: 3em;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        -webkit-line-clamp: 3;
-        line-clamp: 3;
-        -webkit-box-orient: vertical;
-        height: 5em;       /* height is 2x line-height, so two lines will display */
-    }
 }
 @media screen and (max-width: 799px) {
-  .container {
-    width: 708px;
-  }
+    .container {
+        width: 708px;
+    }
     .custom-colored-text{
         margin: 0;
     }
@@ -744,31 +743,22 @@
     .custom-bold-40-import {
         font-size: 20pt;
     }
-    .image-size{
-        height: 500px;
-        width: 500px;
-    }
     .slide-button {
         margin-top: 150px;
     }
+
     .import-white-text{
         font-size:14pt;
     }
-    .slider-text-3{
-        text-align: start;
-        font-size: 3em;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        -webkit-line-clamp: 3;
-        line-clamp: 2;
-        -webkit-box-orient: vertical;
-        height: 3em;       /* height is 2x line-height, so two lines will display */
+    #import-section {
+    background-size: auto;
     }
+
 }
-@media screen and (max-width: 767px) {
-  .container {
-    width: 620px;
-  }
+@media screen and (max-width: 768px) {
+    .container {
+        width: 620px;
+    }
     #products-section .card{
         width: 100%!important;
         margin-left: 0!important;
@@ -815,13 +805,18 @@
         font-size: 2em;
         height: 1em;
     }
-
-
+    .image-size {
+        height: 400px;
+        width: 400px;
+    }
+    .slide-button {
+        margin-top: 100px;
+    }
 }
 @media screen and (max-width: 639px) {
-  .container {
-    width: 460px;
-  }
+    .container {
+        width: 460px;
+    }
     #section-contacts{
         width: 100%!important;
         max-width: 100%!important;
@@ -890,9 +885,9 @@
 
 }
 @media screen and (max-width: 479px) {
-  .container {
-    width: 340px;
-  }
+    .container {
+        width: 340px;
+    }
     .custom-section2-img{
         display: none;
     }
@@ -901,8 +896,8 @@
     }
 
     .search-nav{
-    width: 100%;
-    margin-bottom: 10px;
+        width: 100%;
+        margin-bottom: 10px;
     }
     .col{
         flex: none;
@@ -932,7 +927,7 @@
         padding: 5px;
     }
 
-    }
+}
 @media screen and (max-width: 359px) {
     .container {
         width: 325px;
@@ -966,19 +961,19 @@
     }
 }
 
-    @media screen and (max-width: 300px) {
-        .container {
-            width: 290px;
-        }
-
-        .subscribe-section-h1{
-            font-size: 24pt;
-        }
-        .section-contacts-text{
-            padding-left: 0;
-        }
-
+@media screen and (max-width: 300px) {
+    .container {
+        width: 290px;
     }
+
+    .subscribe-section-h1{
+        font-size: 24pt;
+    }
+    .section-contacts-text{
+        padding-left: 0;
+    }
+
+}
 
 
 .shop-cart {

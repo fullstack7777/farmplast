@@ -19,7 +19,6 @@ function ProductPage(){
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [productLoading, setProductLoading] = useState(false);
-    //const [productId, setProductId] = useState(0);
     const [product, setProduct] = useState(null);
     const [modalShow, setModalShow] = React.useState(false);
     const selections = new Map();
@@ -133,11 +132,11 @@ function ProductPage(){
 
             let imgs = [
                 {
-                    original: b,
-                    thumbnail: img1,
-                    originalHeight: 1000,
-                    originalWidth: 1000,
-                },
+                original: b,
+                thumbnail: img1,
+                originalHeight: 1000,
+                originalWidth: 1000,
+            },
             ]
             if (product.images != null) {
                 product.images.split(';').map((function (item, _) {
@@ -148,11 +147,11 @@ function ProductPage(){
                         originalWidth: 1000,
                     })
                 }))
-            }
-            console.log(product.images);
-            setImages(imgs);
-        }
-    }
+                        }
+                        console.log(product.images);
+                        setImages(imgs);
+                    }
+                }
 
     const fetchProduct = (product_id) => {
         setProductLoading(true);
@@ -286,9 +285,6 @@ function ProductPage(){
     // }
 
 
-
-
-
     return (
         <Container id="products-section" className={'top-space'}>
             <Row>
@@ -412,15 +408,15 @@ function ProductPage(){
                                         <Col md="auto" key={index}>
                                             <Card className="card-hov" >
                                                 <Card.Img onClick={function () {
-                                                    //setProductId(product.product_id);
+                                                    // setProductId(product.product_id);
                                                     fetchProduct(product.product_id);
                                                 }} className={'img-loading'} variant="top" src={'http://admin.farmplst.com/image/cache/'+ext}
                                                           onError={({ currentTarget }) => {
-                                                    currentTarget.onerror = null; // prevents looping
-                                                    currentTarget.src="/images/placeholder.webp";
-                                                }} alt={product.name}/>
+                                                              currentTarget.onerror = null; // prevents looping
+                                                              currentTarget.src="/images/placeholder.webp";
+                                                          }} alt={product.name}/>
                                                 <Card.Body  className="card-body" onClick={function () {
-                                                    //setProductId(product.product_id);
+                                                    // setProductId(product.product_id);
                                                     fetchProduct(product.product_id);
                                                 }}>
                                                     <p className="card-text-name">{product.name}</p>
@@ -461,42 +457,42 @@ function ProductPage(){
                 <Modal.Body>
                     <Row>
                         <Col>
-                                <ImageGallery items={images}
-                                              showNav={false}
-                                              showPlayButton={false}
-                                              lazyLoad={true}
-                                              showIndex={true}
-                                />
+                            <ImageGallery items={images}
+                                          showNav={false}
+                                          showPlayButton={false}
+                                          lazyLoad={true}
+                                          showIndex={true}
+                            />
 
-                                    {/*<img*/}
-                                    {/*    className="d-block-modal w-100"*/}
-                                    {/*    src={'http://admin.farmplst.com/image/'+product.image}*/}
-                                    {/*    onError={({ currentTarget }) => {*/}
-                                    {/*        currentTarget.onerror = null; // prevents looping*/}
-                                    {/*        currentTarget.src="/images/placeholder.webp";*/}
-                                    {/*    }}*/}
-                                    {/*    alt={product.image}*/}
-                                    {/*/>*/}
-                                {/*<Row>*/}
-                                {/*        {*/}
-                                {/*            // eslint-disable-next-line array-callback-return*/}
-                                {/*            product.images!==undefined && product.images!=null?product.images.split(';').map((function (item, i) {*/}
-                                {/*                    return (*/}
-                                {/*                        <img className="modal-picture-single"*/}
-                                {/*                             src={'http://admin.farmplst.com/image/'+item}*/}
-                                {/*                             onError={({ currentTarget }) => {*/}
-                                {/*                                 currentTarget.onerror = null; // prevents looping*/}
-                                {/*                                 currentTarget.src="/images/placeholder.webp";*/}
-                                {/*                             }}*/}
-                                {/*                             alt={item}*/}
-                                {/*                        />*/}
-                                {/*                    );*/}
-                                {/*                }))*/}
-                                {/*                :*/}
-                                {/*                ''*/}
-                                {/*        }*/}
-                                {/*</Row>*/}
-                            </Col>
+                            {/*<img*/}
+                            {/*    className="d-block-modal w-100"*/}
+                            {/*    src={'http://admin.farmplst.com/image/'+product.image}*/}
+                            {/*    onError={({ currentTarget }) => {*/}
+                            {/*        currentTarget.onerror = null; // prevents looping*/}
+                            {/*        currentTarget.src="/images/placeholder.webp";*/}
+                            {/*    }}*/}
+                            {/*    alt={product.image}*/}
+                            {/*/>*/}
+                            {/*<Row>*/}
+                            {/*        {*/}
+                            {/*            // eslint-disable-next-line array-callback-return*/}
+                            {/*            product.images!==undefined && product.images!=null?product.images.split(';').map((function (item, i) {*/}
+                            {/*                    return (*/}
+                            {/*                        <img className="modal-picture-single"*/}
+                            {/*                             src={'http://admin.farmplst.com/image/'+item}*/}
+                            {/*                             onError={({ currentTarget }) => {*/}
+                            {/*                                 currentTarget.onerror = null; // prevents looping*/}
+                            {/*                                 currentTarget.src="/images/placeholder.webp";*/}
+                            {/*                             }}*/}
+                            {/*                             alt={item}*/}
+                            {/*                        />*/}
+                            {/*                    );*/}
+                            {/*                }))*/}
+                            {/*                :*/}
+                            {/*                ''*/}
+                            {/*        }*/}
+                            {/*</Row>*/}
+                        </Col>
                         <Col>
                             <h4>{product!==null?product.name:''}</h4>
                             <br/>
@@ -538,7 +534,7 @@ function ProductPage(){
                 </Modal.Body>
             </Modal>
 
-    </Container>
+        </Container>
     );
 }
 

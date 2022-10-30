@@ -58,8 +58,8 @@ function NewNavBar() {
             .then((data) => {
                 setProductLoading(false);
                 setProduct(data[0]);
+                handleImages(data[0]);
                 setModalShow(true);
-                handleImages();
             })
             .catch((err) => {
                 setProductLoading(false);
@@ -69,65 +69,36 @@ function NewNavBar() {
     function getExtension(filename) {
         return filename.split(".").pop();
     }
-    function handleImages(){
-        let b = "https://admin.farmplst.com/image/"+product.image;
-        let ext = getExtension(product.image);
-        let sTh = product.image.replace('.'+ext,'-250x250.'+ext);
-        let img1 = 'https://admin.farmplst.com/image/cache/'+sTh;
-        let imgs = [
-            {
-                original: b,
-                thumbnail: img1,
-                originalHeight:1000,
-                originalWidth:1000,
-            },
-        ]
+    function handleImages(product){
+        if(product != null && product.image!=null){
+            let b = "https://admin.farmplst.com/image/" + (product.image);
+            let ext = getExtension(product.image);
+            let sTh = product.image.replace('.' + ext, '-250x250.' + ext);
+            let img1 = 'https://admin.farmplst.com/image/cache/' + sTh;
 
-        if(product.images!==undefined && product.images!=null){
-            // eslint-disable-next-line array-callback-return
-            product.images.split(';').map((function (item, _){
-                console.log(item)
-                let ext = getExtension(item);
-                let sTh = item.replace('.'+ext,'-250x250.'+ext);
-                imgs.push({
-                    original: "https://admin.farmplst.com/image/"+item,
-                    thumbnail:  "https://admin.farmplst.com/image/"+item,
-                    originalHeight:1000,
-                    originalWidth:1000,
-                })
-            }))
+            let imgs = [
+                {
+                    original: b,
+                    thumbnail: img1,
+                    originalHeight: 1000,
+                    originalWidth: 1000,
+                },
+            ]
+            if (product.images != null) {
+                product.images.split(';').map((function (item, _) {
+                    imgs.push({
+                        original: "https://admin.farmplst.com/image/" + item,
+                        thumbnail: "https://admin.farmplst.com/image/" + item,
+                        originalHeight: 1000,
+                        originalWidth: 1000,
+                    })
+                }))
+            }
+            console.log(product.images);
+            setImages(imgs);
         }
-        setImages(imgs);
-
-        // // eslint-disable-next-line array-callback-return
-        // products.map(function (product1, index) {
-        //     let b = "https://admin.farmplst.com/image/" + (product1.image);
-        //     let ext = getExtension(product1.image);
-        //     let sTh = product1.image.replace('.' + ext, '-250x250.' + ext);
-        //     let img1 = 'https://admin.farmplst.com/image/cache/' + sTh;
-        //
-        //     let imgs = [
-        //         {
-        //             original: b,
-        //             thumbnail: img1,
-        //             originalHeight: 1000,
-        //             originalWidth: 1000,
-        //         },
-        //     ]
-        //     if (product.images !== undefined && product.images != null) {
-        //         product.images.split(';').map((function (item, _) {
-        //             imgs.push({
-        //                 original: "https://admin.farmplst.com/image/" + item,
-        //                 thumbnail: "https://admin.farmplst.com/image/" + item,
-        //                 originalHeight: 1000,
-        //                 originalWidth: 1000,
-        //             })
-        //         }))
-        //     }
-        //     console.log(product.images);
-        //     setImages(imgs);
-        // })
     }
+
     function htmlDecode(input){
         let e = document.createElement('div');
         e.innerHTML = input;
@@ -196,6 +167,7 @@ function NewNavBar() {
                         window.location.href=toLink;
                     }else {
                         setModalShow(false)
+                        setProduct(null)
                     }
                 }
             })
@@ -401,7 +373,7 @@ function NewNavBar() {
                         />
                         {/*<Button variant="primary">Заказать звонок</Button>*/}
                     </Form>
-                    <Button variant="primary" className="custom-button call-button-lg" onClick={handleShow}>Заказать звонок</Button>
+                    <Button id={'consultation-button'} variant="primary" className="custom-button call-button-lg" onClick={handleShow}>Заказать звонок</Button>
                     <Button variant="primary" className="custom-button call-button" onClick={handleShow}><FontAwesomeIcon icon={faPhone}/></Button>
                     <Modal
                         show={show}
@@ -457,7 +429,10 @@ function NewNavBar() {
             <Modal
                 show={modalShow}
                 product1 = {product}
-                onHide={() => setModalShow(false)}
+                onHide={function () {
+                    setProduct(null);
+                    return setModalShow(false);
+                }}
                 size="xl"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
@@ -479,19 +454,18 @@ function NewNavBar() {
                             />
                         </Col>
                         <Col>
-                            <h4>{product.name}</h4>
+                            <h4>{product!==null?product.name:''}</h4>
                             <br/>
                             {/*<p>{product.model}</p>*/}
                             <div className="button-cart-buy">
                                 <Button onClick={()=>addToCard(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Добавить в корзину</Button>
                                 <Button onClick={()=>addRequest(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Заказать в один клик</Button>
                             </div>
-                            <p style={{marginTop: 20, fontWeight: "bold"}}>Марка: <span style={{fontWeight: "normal"}}>{product.model}</span>
+                            <p style={{marginTop: 20, fontWeight: "bold"}}>Марка: <span style={{fontWeight: "normal"}}>{product!==null?product.model:''} </span>
                             </p>
-                            <p style={{marginTop: 20, fontWeight: "bold"}}>
-                                Производитель: <span style={{fontWeight: "normal"}} dangerouslySetInnerHTML={{__html: htmlDecode(product.manufacturer)}}></span> </p>
+                            <p style={{marginTop: 20, fontWeight: "bold"}}>Производитель: <span style={{fontWeight: "normal"}} dangerouslySetInnerHTML={{__html: htmlDecode(product!==null?product.manufacturer:'')}}/></p>
                             <div><span style={{fontWeight: "bold"}}>Описание:</span>
-                                <div style={{display:'grid', fontSize:'13px'}} dangerouslySetInnerHTML={{__html: htmlDecode(product.description)}}/>
+                                <div style={{display:'grid', fontSize:'13px'}} dangerouslySetInnerHTML={{__html: htmlDecode(product!==null?product.description:'')}}/>
                             </div>
                         </Col>
                     </Row>

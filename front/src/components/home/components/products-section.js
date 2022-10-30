@@ -15,7 +15,7 @@ function ProductsSection() {
     const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]);
     const [productLoading, setProductLoading] = useState(false);
-    const [product, setProduct] = useState([]);
+    const [product, setProduct] = useState(null);
     const [images, setImages] = useState([]);
     const selections = new Map();
 
@@ -36,8 +36,8 @@ function ProductsSection() {
             .then((data) => {
                 setProductLoading(false);
                 setProduct(data[0]);
+                handleImages(data[0]);
                 setModalShow(true);
-                handleImages();
             })
             .catch((err) => {
                 setProductLoading(false);
@@ -107,6 +107,7 @@ function ProductsSection() {
                         window.location.href=toLink;
                     }else {
                         setModalShow(false)
+                        setProduct(null)
                     }
                 }
             })
@@ -129,12 +130,11 @@ function ProductsSection() {
         selections.set(id, checked)
         fetchProducts(checked?[0]:[id]);
     }
-    function handleImages(){
-        // eslint-disable-next-line array-callback-return
-        products.map(function (product1, index) {
-            let b = "https://admin.farmplst.com/image/" + (product1.image);
-            let ext = getExtension(product1.image);
-            let sTh = product1.image.replace('.' + ext, '-250x250.' + ext);
+    function handleImages(product){
+        if(product != null && product.image!=null){
+            let b = "https://admin.farmplst.com/image/" + (product.image);
+            let ext = getExtension(product.image);
+            let sTh = product.image.replace('.' + ext, '-250x250.' + ext);
             let img1 = 'https://admin.farmplst.com/image/cache/' + sTh;
 
             let imgs = [
@@ -145,7 +145,7 @@ function ProductsSection() {
                     originalWidth: 1000,
                 },
             ]
-            if (product.images !== undefined && product.images != null) {
+            if (product.images != null) {
                 product.images.split(';').map((function (item, _) {
                     imgs.push({
                         original: "https://admin.farmplst.com/image/" + item,
@@ -157,7 +157,7 @@ function ProductsSection() {
             }
             console.log(product.images);
             setImages(imgs);
-        })
+        }
     }
     function handleOnChangeGroup(evt, category) {
         const target = evt.target;
@@ -360,7 +360,10 @@ function ProductsSection() {
                 <Modal
                     show={modalShow}
                     product1 = {product}
-                    onHide={() => setModalShow(false)}
+                    onHide={function () {
+                        setProduct(null);
+                        return setModalShow(false);
+                    }}
                     size="xl"
                     aria-labelledby="contained-modal-title-vcenter"
                     centered
@@ -414,19 +417,18 @@ function ProductsSection() {
                                 {/*</Row>*/}
                             </Col>
                             <Col>
-                                <h4>{product.name}</h4>
+                                <h4>{product!==null?product.name:''}</h4>
                                 <br/>
                                 {/*<p>{product.model}</p>*/}
                                 <div className="button-cart-buy">
                                     <Button onClick={()=>addToCard(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Добавить в корзину</Button>
                                     <Button onClick={()=>addRequest(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Заказать в один клик</Button>
                                 </div>
-                                <p style={{marginTop: 20, fontWeight: "bold"}}>Марка: <span style={{fontWeight: "normal"}}>{product.model}</span>
+                                <p style={{marginTop: 20, fontWeight: "bold"}}>Марка: <span style={{fontWeight: "normal"}}>{product!==null?product.model:''} </span>
                                 </p>
-                                <p style={{marginTop: 20, fontWeight: "bold"}}>
-                                    Производитель: <span style={{fontWeight: "normal"}} dangerouslySetInnerHTML={{__html: htmlDecode(product.manufacturer)}}></span> </p>
+                                <p style={{marginTop: 20, fontWeight: "bold"}}>Производитель: <span style={{fontWeight: "normal"}} dangerouslySetInnerHTML={{__html: htmlDecode(product!==null?product.manufacturer:'')}}/></p>
                                 <div><span style={{fontWeight: "bold"}}>Описание:</span>
-                                    <div style={{display:'grid', fontSize:'13px'}} dangerouslySetInnerHTML={{__html: htmlDecode(product.description)}}/>
+                                    <div style={{display:'grid', fontSize:'13px'}} dangerouslySetInnerHTML={{__html: htmlDecode(product!==null?product.description:'')}}/>
                                 </div>
                             </Col>
                         </Row>
