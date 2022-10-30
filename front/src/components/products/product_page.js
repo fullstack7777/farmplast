@@ -19,8 +19,9 @@ function ProductPage(){
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [productLoading, setProductLoading] = useState(false);
-    const [productId, setProductId] = useState(0);
-    const [product, setProduct] = useState([]);
+    //const [productId, setProductId] = useState(0);
+    const [product, setProduct] = useState(null);
+    const [modalShow, setModalShow] = React.useState(false);
     const selections = new Map();
 
     const fetchData = () => {
@@ -123,12 +124,11 @@ function ProductPage(){
     function getExtension(filename) {
         return filename?.split(".").pop();
     }
-    function handleImages(){
-        // eslint-disable-next-line array-callback-return
-        products.map(function (product1, index) {
-            let b = "https://admin.farmplst.com/image/" + (product1.image);
-            let ext = getExtension(product1.image);
-            let sTh = product1.image.replace('.' + ext, '-250x250.' + ext);
+    function handleImages(product){
+        if(product != null && product.image!=null){
+            let b = "https://admin.farmplst.com/image/" + (product.image);
+            let ext = getExtension(product.image);
+            let sTh = product.image.replace('.' + ext, '-250x250.' + ext);
             let img1 = 'https://admin.farmplst.com/image/cache/' + sTh;
 
             let imgs = [
@@ -139,7 +139,7 @@ function ProductPage(){
                     originalWidth: 1000,
                 },
             ]
-            if (product.images !== undefined && product.images != null) {
+            if (product.images != null) {
                 product.images.split(';').map((function (item, _) {
                     imgs.push({
                         original: "https://admin.farmplst.com/image/" + item,
@@ -151,7 +151,7 @@ function ProductPage(){
             }
             console.log(product.images);
             setImages(imgs);
-        })
+        }
     }
 
     const fetchProduct = (product_id) => {
@@ -161,8 +161,8 @@ function ProductPage(){
             .then((data) => {
                 setProductLoading(false);
                 setProduct(data[0]);
+                handleImages(data[0]);
                 setModalShow(true);
-                handleImages();
             })
             .catch((err) => {
                 setProductLoading(false);
@@ -233,6 +233,7 @@ function ProductPage(){
                         window.location.href=toLink;
                     }else {
                         setModalShow(false)
+                        setProduct(null)
                     }
                 }
             })
@@ -286,7 +287,7 @@ function ProductPage(){
 
 
 
-    const [modalShow, setModalShow] = React.useState(false);
+
 
     return (
         <Container id="products-section" className={'top-space'}>
@@ -411,7 +412,7 @@ function ProductPage(){
                                         <Col md="auto" key={index}>
                                             <Card className="card-hov" >
                                                 <Card.Img onClick={function () {
-                                                    setProductId(product.product_id);
+                                                    //setProductId(product.product_id);
                                                     fetchProduct(product.product_id);
                                                 }} className={'img-loading'} variant="top" src={'http://admin.farmplst.com/image/cache/'+ext}
                                                           onError={({ currentTarget }) => {
@@ -419,7 +420,7 @@ function ProductPage(){
                                                     currentTarget.src="/images/placeholder.webp";
                                                 }} alt={product.name}/>
                                                 <Card.Body  className="card-body" onClick={function () {
-                                                    setProductId(product.product_id);
+                                                    //setProductId(product.product_id);
                                                     fetchProduct(product.product_id);
                                                 }}>
                                                     <p className="card-text-name">{product.name}</p>
@@ -444,7 +445,10 @@ function ProductPage(){
             <Modal
                 show={modalShow}
                 product1 = {product}
-                onHide={() => setModalShow(false)}
+                onHide={function () {
+                    setProduct(null);
+                    return setModalShow(false);
+                }}
                 size="xl"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
@@ -494,18 +498,18 @@ function ProductPage(){
                                 {/*</Row>*/}
                             </Col>
                         <Col>
-                            <h4>{product.name}</h4>
+                            <h4>{product!==null?product.name:''}</h4>
                             <br/>
                             {/*<p>{product.model}</p>*/}
                             <div className="button-cart-buy">
                                 <Button onClick={()=>addToCard(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Добавить в корзину</Button>
                                 <Button onClick={()=>addRequest(product.product_id)} variant="primary custom-button" style={{width:'75%', borderRadius:'0px', marginBottom: 20,marginLeft: 20}}>Заказать в один клик</Button>
                             </div>
-                            <p style={{marginTop: 20, fontWeight: "bold"}}>Марка: <span style={{fontWeight: "normal"}}>{product.model} </span>
+                            <p style={{marginTop: 20, fontWeight: "bold"}}>Марка: <span style={{fontWeight: "normal"}}>{product!==null?product.model:''} </span>
                             </p>
-                            <p style={{marginTop: 20, fontWeight: "bold"}}>Производитель: <span style={{fontWeight: "normal"}} dangerouslySetInnerHTML={{__html: htmlDecode(product.manufacturer)}}></span></p>
+                            <p style={{marginTop: 20, fontWeight: "bold"}}>Производитель: <span style={{fontWeight: "normal"}} dangerouslySetInnerHTML={{__html: htmlDecode(product!==null?product.manufacturer:'')}}/></p>
                             <div><span style={{fontWeight: "bold"}}>Описание:</span>
-                                <div style={{display:'grid', fontSize:'13px'}} dangerouslySetInnerHTML={{__html: htmlDecode(product.description)}}/>
+                                <div style={{display:'grid', fontSize:'13px'}} dangerouslySetInnerHTML={{__html: htmlDecode(product!==null?product.description:'')}}/>
                             </div>
                         </Col>
                     </Row>
