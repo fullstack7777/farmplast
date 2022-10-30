@@ -44,8 +44,7 @@ function MainSlider() {
                     alt="?"
                 />
                 <Carousel.Caption style={{top:'35%',bottom:'0'}}>
-                    <h3 className="slider-text-3"></h3>
-                    <Button className={'slide-button_3'} onClick={() => window.location.replace("/#import")}>Подробнее</Button>
+                    <Button className={'slide-button_3 position-absolute top-50 start-0 translate-middle'} onClick={() => window.location.replace("/#import")}>Подробнее</Button>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
