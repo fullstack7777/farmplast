@@ -74,7 +74,7 @@ function ProductPage(){
         }else {
             window.history.replaceState(null, p, `/products`)
         }
-        console.log(p)
+        console.log('p: ',  p)
         return fetch("https://api.farmplst.com/api/getProductsByCategory?category_ids="+p)
             .then(function (response) {
                 setLoading(false);
@@ -123,20 +123,21 @@ function ProductPage(){
     function getExtension(filename) {
         return filename?.split(".").pop();
     }
+
     function handleImages(product){
-        if(product != null && product.image!=null){
+        if(product != null && product.image!=null && product.image!=undefined){
             let b = "https://admin.farmplst.com/image/" + (product.image);
-            let ext = getExtension(product.image);
-            let sTh = product.image.replace('.' + ext, '-250x250.' + ext);
-            let img1 = 'https://admin.farmplst.com/image/cache/' + sTh;
+            // let ext = getExtension(product.image);
+            // let sTh = product.image.replace('.' + ext, '-250x250.' + ext);
+            // let img1 = 'https://admin.farmplst.com/image/cache/' + sTh;
 
             let imgs = [
                 {
-                original: b,
-                thumbnail: img1,
-                originalHeight: 1000,
-                originalWidth: 1000,
-            },
+                    original: b,
+                    thumbnail: b,
+                    originalHeight: 1000,
+                    originalWidth: 1000,
+                },
             ]
             if (product.images != null) {
                 product.images.split(';').map((function (item, _) {
@@ -147,11 +148,12 @@ function ProductPage(){
                         originalWidth: 1000,
                     })
                 }))
-                        }
-                        console.log(product.images);
-                        setImages(imgs);
-                    }
-                }
+            }
+            console.log('imgs[0]: ', imgs[0]);
+            console.log(product.images);
+            setImages(imgs);
+        }
+    }
 
     const fetchProduct = (product_id) => {
         setProductLoading(true);
@@ -243,7 +245,6 @@ function ProductPage(){
         e.innerHTML = input;
         return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
     }
-
 
     useEffect(() => {
         const queryParams = new URLSearchParams(window.location.search)
@@ -402,15 +403,17 @@ function ProductPage(){
                             {
                                 // eslint-disable-next-line array-callback-return
                                 products.map(function (product, index) {
-                                    let ext = getExtension(product.image);
-                                    ext = product.image.replace('.'+ext,'-250x250.'+ext);
+                                    let ext = product.image;
+                                    // ext = product.image.replace('.'+ext,'-250x250.'+ext);
+                                    // console.log('product.image: ', product.image);
+                                    // console.log('ext: ', ext);
                                     return (
                                         <Col md="auto" key={index}>
                                             <Card className="card-hov" >
                                                 <Card.Img onClick={function () {
                                                     // setProductId(product.product_id);
                                                     fetchProduct(product.product_id);
-                                                }} className={'img-loading'} variant="top" src={'http://admin.farmplst.com/image/cache/'+ext}
+                                                }} className={'img-loading'} variant="top" src={'http://admin.farmplst.com/image/'+ext}
                                                           onError={({ currentTarget }) => {
                                                               currentTarget.onerror = null; // prevents looping
                                                               currentTarget.src="/images/placeholder.webp";

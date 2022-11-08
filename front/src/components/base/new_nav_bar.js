@@ -72,9 +72,9 @@ function NewNavBar() {
     function handleImages(product){
         if(product != null && product.image!=null){
             let b = "https://admin.farmplst.com/image/" + (product.image);
-            let ext = getExtension(product.image);
-            let sTh = product.image.replace('.' + ext, '-250x250.' + ext);
-            let img1 = 'https://admin.farmplst.com/image/cache/' + sTh;
+            // let ext = getExtension(product.image);
+            // let sTh = product.image.replace('.' + ext, '-250x250.' + ext);
+            let img1 = 'https://admin.farmplst.com/image/' + (product.image);
 
             let imgs = [
                 {
