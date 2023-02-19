@@ -30,11 +30,12 @@
     "sweetalert2": "^11.4.38",
     "swiper": "^8.0.6",
     "typescript": "^4.8.3",
+    "universal-cookie": "^4.0.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "node_modules/.bin/react-scripts start",
-    "build": "node_modules/.bin/react-scripts build",
+    "start": "GENERATE_SOURCEMAP=false node_modules/.bin/react-scripts start",
+    "build": "GENERATE_SOURCEMAP=false node_modules/.bin/react-scripts build",
     "test": "node_modules/.bin/react-scripts test",
     "eject": "node_modules/.bin/react-scripts eject"
   },
