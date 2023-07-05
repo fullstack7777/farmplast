@@ -42,9 +42,33 @@ function ContactsPage (){
 
         const urlencoded = new URLSearchParams();
         urlencoded.append("to", "noreply@farmplst.com");
-        urlencoded.append("subject", "Завка с Наши Контакты");
-        urlencoded.append("text", 'Имя: ' + name + ';\n' + 'Почта: ' + email  + ';\n' + 'Компания: ' + company  + ';\n' + 'Город: ' + city  + ';\n' + 'Телефон номер: '+ phone);
-        urlencoded.append("html", 'Имя: ' + name + ';\n' + 'Почта: ' + email  + ';\n' + 'Компания: ' + company  + ';\n' + 'Город: ' + city  + ';\n' + 'Телефон номер: '+ phone);
+        urlencoded.append("subject", "Заявка с Наши Контакты");
+        urlencoded.append(
+            "text",
+            "Имя: " +
+            name +
+            ";\n" +
+            "Почта: " +
+            email +
+            ";\n" +
+            "Компания: " +
+            company +
+            ";\n" +
+            "Город: " +
+            city +
+            ";\n" +
+            "Телефон номер: " +
+            phone
+        );
+        urlencoded.append(
+            "html",
+            'Имя: ' +
+            name +
+            ';\n Почта: '+ email +
+            ';\n Компания: '+ company +
+            ';\n Город: '+ city +
+            ';\n Телефон номер: '+ phone
+        );
 
         const requestOptions = {
             method: 'POST',
@@ -80,7 +104,7 @@ function ContactsPage (){
                             <br/>
                             <br/>
                             <p><b>Юридический адресс:</b> г. Санкт-Петербург, Лесной <br />проспект, д. 63 лит. А офис 402</p>
-                            <p><b>Телефон: </b><a href={'tel:+78123338610'} target={'_blank'}>8 (812) 333-86-10</a> <br/> <a href={'tel:+79818338292'} target={'_blank'}>   8 (981) 833-82-92</a></p>
+                            <p><b>Телефон: </b><a href={'tel:+78123378610'} target={'_blank'}>8 (812) 337-86-10</a> <br/> <a href={'tel:+79219432263'} target={'_blank'}>   8 (921) 943-22-63</a></p>
                             <p><b>Почта: </b><a> farmplst@gmail.com</a></p>
                             <p><b>Время работы:</b> 09:00 до 18:00</p>
                             <br/>
@@ -129,8 +153,8 @@ function ContactsPage (){
                                                       required="true"/>
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                        <Form.Control type='number'
-                                                      phone='phone'
+                                        <Form.Control  type="phone"
+                                                       phone="phone"
                                                       placeholder="Ваш телефон"
                                                       className={'mobileBox custom-input'}
                                                       value={phone}

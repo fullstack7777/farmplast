@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import Container from "react-bootstrap/Container";
 import {Col, Row} from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
-import {send} from "emailjs-com";
 import Swal from "sweetalert2";
 import Cookies from "universal-cookie";
 import Button from 'react-bootstrap/Button';
@@ -52,23 +51,6 @@ function OrdersPage () {
         return product.name
     }).join(',');
 
-    // const onSubmit = (e) => {
-    //     e.preventDefault();
-    //     send(
-    //         'service_c7pclcq',
-    //         'template_crz0u18',
-    //         toSend,
-    //         'Kd5hTZnsMrSH5nMAX'
-    //     )
-    //         .then((response) => {
-    //             Swal.fire('Совсем скоро мы с Вами свяжемся', '', 'success');
-    //             e.target.reset();
-    //             cookies.remove('session')
-    //         })
-    //         .catch((err) => {
-    //             Swal.fire('Ошибка при отправке, попробуйте похже', '', 'error');
-    //         });
-    // };
     function sendEmail() {
 
         const myHeaders = new Headers();
@@ -77,8 +59,35 @@ function OrdersPage () {
         const urlencoded = new URLSearchParams();
         urlencoded.append("to", "noreply@farmplst.com");
         urlencoded.append("subject", "Получена заявка");
-        urlencoded.append("text", 'Имя: ' + name + ';\n' + 'Почта: ' + email + ';\n' + 'Компания: ' + company + ';\n' + 'Город: ' + city + ';\n' + 'Телефон номер: ' + phone + 'Товары: ' + product_email);
-        urlencoded.append("html", 'Имя: ' + name + ';\n' + 'Почта: ' + email + ';\n' + 'Компания: ' + company + ';\n' + 'Город: ' + city + ';\n' + 'Телефон номер: ' + phone + 'Товары: ' + product_email);
+        urlencoded.append(
+            "text",
+            "Имя: " +
+            name +
+            ";\n" +
+            "Почта: " +
+            email +
+            ";\n" +
+            "Компания: " +
+            company +
+            ";\n" +
+            "Город: " +
+            city +
+            ";\n" +
+            "Телефон номер: " +
+            phone +
+            "Товары: " +
+            product_email
+        );
+        urlencoded.append(
+            "html",
+            'Имя: ' +
+            name +
+            ';\n Почта: '+ email +
+            ';\n Компания: '+ company +
+            ';\n Город: '+ city +
+            ';\n Телефон номер: '+ phone +
+            ';\n Товары: '+ product_email
+        );
 
         const requestOptions = {
             method: 'POST',
@@ -94,7 +103,7 @@ function OrdersPage () {
                 setCompany('');
                 setCity('');
                 setPhone('');
-                cookies.reset();
+                cookies.remove('session', { path: '/', domain: '.farmplst.com' });
                 console.log('sent');
             })
             .catch((err) => {
@@ -102,9 +111,11 @@ function OrdersPage () {
                 Swal.fire('Ошибка при отправке, попробуйте позже', '', 'error');
             });
     }
-        // const handleChange = (e) => {
-        //     setToSend({ ...toSend, [e.target.name]: e.target.value });
-        // };
+    function htmlDecode(input){
+        let e = document.createElement('div');
+        e.innerHTML = input;
+        return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    }
         return (
             <Container id="section-contacts">
                 <div><h1 className="custom-bold-38">
@@ -130,7 +141,7 @@ function OrdersPage () {
                                             <div className="cart-desc">
                                                 <p>{product.name}</p>
                                                 <p>Марка: {product.model}</p>
-                                                <p>Производитель: {product.manufacturer}</p>
+                                                <p>Производитель: <span style={{fontWeight: "normal"}} dangerouslySetInnerHTML={{__html: htmlDecode(product!==null?product.manufacturer:'')}}/></p>
                                             </div>
                                         </div>
                                     </div>
@@ -148,44 +159,53 @@ function OrdersPage () {
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                     <Form.Control type='text'
                                                   placeholder="Ваше имя"
+                                                  name="name"
+                                                  required={true}
                                                   value={name}
                                                   className={'mobileBox custom-input'}
                                                   onChange={(e => setName(e.target.value))}
-                                                  required="true"
                                     />
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                     <Form.Control type='text'
                                                   placeholder="Ваша почта"
+                                                  email="email"
+                                                  required={true}
                                                   value={email}
                                                   className={'mobileBox custom-input'}
                                                   onChange={(e => setEmail(e.target.value))}
-                                                  required="true"/>
+                                                  />
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                     <Form.Control type='text'
                                                   placeholder="Ваша компания"
+                                                  company="company"
                                                   className={'mobileBox custom-input'}
+                                                  required={true}
                                                   value={company}
                                                   onChange={(e => setCompany(e.target.value))}
-                                                  required="true"/>
+                                                  />
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                     <Form.Control type='text'
+                                                  city="city"
                                                   placeholder="Ваш город"
+                                                  required={true}
                                                   className={'mobileBox custom-input'}
                                                   value={city}
                                                   onChange={(e => setCity(e.target.value))}
-                                                  required="true"/>
+
+                                    />
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                    <Form.Control type='number'
+                                    <Form.Control type='phone'
                                                   phone='phone'
+                                                  required={true}
                                                   placeholder="Ваш телефон"
                                                   className={'mobileBox custom-input'}
                                                   value={phone}
                                                   onChange={(e => setPhone(e.target.value))}
-                                                  required="true"/>
+                                                  />
                                 </Form.Group>
                                 <Button className="button-contacts" onClick={() => {
                                     sendEmail()
